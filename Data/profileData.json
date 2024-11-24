@@ -1,0 +1,88 @@
+{
+	"profileId": 1,
+	"firstName": "Richard Navin Raj",
+	"lastName": "SD",
+	"membershipID": "1600000222238583",
+	"dob": "29-12-1989",
+	"gender": "m",
+	"nationality": "IN",
+	"email": "richardnavin@outloook.com",
+	"mobile": "77375600",
+	"landline": "",
+	"country": "Qatar",
+	"city": "Doha",
+	"address": "",
+	"pobox": "",
+	"urlImage": "",
+	"cardData": {
+		"points": 162,
+		"pointEarned": 538,
+		"pointSpend": 400,
+		"basePoints": 538,
+		"bonusPoints": 0,
+    "pointsValue": 26.9,
+    "pointstoExpire":0,
+		"value": 8,
+		"valueSaved": 20,
+		"cardNumber": "1600 0002 2223 8583",
+		"barcode": "1600 0002 2223 8583",
+		"targetValue": 6801,
+		"targetName": "Gold"
+	},
+	"myCoupons": [{
+		"dD": 1,
+		"name": "Park",
+		"value": 10,
+		"moneyvalue": 0,
+		"date": "01-11-2018"
+	}],
+	"transactions": [{
+			"parkID": "ABO",
+			"parkName": "AngryBrids Outdoor",
+			"earned": 20,
+			"spend": 0,
+			"value": 2000,
+			"date": "01-11-2017"
+		},
+		{
+			"parkID": "ABI",
+			"parkName": "AngryBrids Indoor",
+			"earned": 10,
+			"spend": 0,
+			"value": 1000,
+			"date": "21-04-2019"
+		},
+		{
+			"parkID": "VC",
+			"parkName": "Virtuocity",
+			"earned": 10,
+			"spend": 0,
+			"value": 1000,
+			"date": "11-04-2019"
+		},
+		{
+			"parkID": "S",
+			"parkName": "SnowDunes",
+			"earned": 10,
+			"spend": 0,
+			"value": 1000,
+			"date": "21-02-2019"
+		},
+		{
+			"parkID": "S",
+			"parkName": "SnowDunes",
+			"earned": 10,
+			"spend": 0,
+			"value": 1000,
+			"date": "22-02-2019"
+		},
+		{
+			"parkID": "S",
+			"parkName": "SnowDunes",
+			"earned": 10,
+			"spend": 0,
+			"value": 1000,
+			"date": "23-02-2019"
+		}
+	]
+}

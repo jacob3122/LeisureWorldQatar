@@ -1,0 +1,64 @@
+[
+    {
+      "Id": "4d65095e-4c9d-47ef-8439-5a30f3e9b2a6",
+      "EventNameEn": "sample string 2",
+      "EventNameAr": "sample string 3",
+      "TotalInvitations": 4,
+      "StartDate": "2022-12-04T13:21:30.6869858+03:00",
+      "EndDate": "2022-12-04T13:21:30.6869858+03:00",
+      "DescriptionEn": "sample string 7",
+      "DescriptionAr": "sample string 8",
+      "BannerImage": "sample string 9",
+      "Invitation": [
+        {
+          "Id": "1e281c57-c48b-429c-9283-074460b9a96e",
+          "BannerPath": "sample string 2",
+          "InvitationCode": "sample string 3",
+          "InvitationTo": "sample string 4",
+          "CustomDetailsEn": "sample string 5",
+          "CustomDetailsAr": "sample string 6",
+          "DateCreated": "2022-12-04T13:21:30.6879831+03:00"
+        },
+        {
+          "Id": "1e281c57-c48b-429c-9283-074460b9a96e",
+          "BannerPath": "sample string 2",
+          "InvitationCode": "sample string 3",
+          "InvitationTo": "sample string 4",
+          "CustomDetailsEn": "sample string 5",
+          "CustomDetailsAr": "sample string 6",
+          "DateCreated": "2022-12-04T13:21:30.6879831+03:00"
+        }
+      ]
+    },
+    {
+      "Id": "4d65095e-4c9d-47ef-8439-5a30f3e9b2a6",
+      "EventNameEn": "sample string 2",
+      "EventNameAr": "sample string 3",
+      "TotalInvitations": 4,
+      "StartDate": "2022-12-04T13:21:30.6869858+03:00",
+      "EndDate": "2022-12-04T13:21:30.6869858+03:00",
+      "DescriptionEn": "sample string 7",
+      "DescriptionAr": "sample string 8",
+      "BannerImage": "sample string 9",
+      "Invitation": [
+        {
+          "Id": "1e281c57-c48b-429c-9283-074460b9a96e",
+          "BannerPath": "sample string 2",
+          "InvitationCode": "sample string 3",
+          "InvitationTo": "sample string 4",
+          "CustomDetailsEn": "sample string 5",
+          "CustomDetailsAr": "sample string 6",
+          "DateCreated": "2022-12-04T13:21:30.6879831+03:00"
+        },
+        {
+          "Id": "1e281c57-c48b-429c-9283-074460b9a96e",
+          "BannerPath": "sample string 2",
+          "InvitationCode": "sample string 3",
+          "InvitationTo": "sample string 4",
+          "CustomDetailsEn": "sample string 5",
+          "CustomDetailsAr": "sample string 6",
+          "DateCreated": "2022-12-04T13:21:30.6879831+03:00"
+        }
+      ]
+    }
+  ]

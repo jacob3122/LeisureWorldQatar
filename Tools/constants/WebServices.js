@@ -1,0 +1,182 @@
+export default {
+    MainURL:'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'http://10.11.2.36:2136/',//'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://webapi.leisure.qa/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureapi.uxpglobal.com/',//'https://leisureqastgapi.azurewebsites.net/',//'http://10.10.130.75:1903/',//'https://leisureapi.uxpglobal.com/',//'https://stagingloyaltyapi.azurewebsites.net/',//'https://webapi.leisure.qa/',//'http://10.10.130.62:8989/',//'http://10.10.130.75:1903/',//',
+    CreateProfile:'api/Member/CreateMember',
+    ValidateProfile:'api/Member/ValidateMember',
+    VerifyMemberOTP:'api/Member/VerifyMobileOTP?MemberID={MemberID}&OTPCode={OTPCode}',
+    VerifyMemberOTPMobile:'api/Member/VerifyMobileOTP?Mobile={Mobile}&OTPCode={OTPCode}',
+    CreatePass:'api/Member/CreatePassword?MemberID={MemberID}&Password={Password}',
+    InviteCode:"invite",
+    ProductCode:"product",
+    AppIcon:"AppIcon-",
+    AppHide:"Hidden",
+    promo:"promotion",
+    AppIconUrl:"appicon/{file}.png",//appicon/new_en.png
+    Login:'token',
+    tejory:'tejory',
+    RefreshToken:'token',
+    VerifyLoginOTP:'api/Member/LoginMobileOTP?v=2',
+    forgetPass:'api/Member/LoginMobileOTP?action=changepassword&lang=en&v=2',
+    setforgetPass:'api/Member/ResetPasswordOTP?Mobile={Mobile}&OTP={OTPCode}&Password={Password}',
+    helpContent:'home/AppContent?section=profilehelp&lang={Localize}',
+    rulesPageEn:'Home/ContentViewer/104',
+    rulesPageAr:'Home/ContentViewer/105',
+    tierPageEn:'Home/ContentViewer/147',
+    tierPageAr:'Home/ContentViewer/148',
+    GenerateInviteCode:'api/Member/GenerateMemberInvitation?MemberID={MemberID}',
+    CodeUrl:'https://leisure.qa/invite/?{Code}',
+    category:'category',
+    homepageData:'home/AppContent?section=mainview&lang={Lang}&memberid={MemberID}',
+    hampageData:'home/AppContent?section=AppMainSideMenue&lang={Lang}&memberid={MemberID}',
+    PartnerPage:'home/AppContent?section=LocationsList&lang={Lang}',
+    flagUrl:'https://leisure.qa/content/flags/{Code}.png',
+    ProfileDetails:'api/Member/MemberProfile?MemberID={MemberID}',
+    UpdateProfile:'api/Member/UpdateProfile?MemberID={MemberID}',
+    ClaimPoints:'api/Member/ClaimPoints?MemberID={MemberID}&InvoiceCode={InvoiceCode}',
+    ClaimsProfile:'api/Member/ClaimPointHistory?MemberID={MemberID}',
+    getEvents:'api/Member/LoadEvents?MemberID={MemberID}',
+    generateInvite:'api/Member/GenerateInvitation',
+    deleteInvite:'api/Member/DeleteInvitation?InvitationId={InvitationId}',
+    UpdateNotification:'api/Member/UpdateNotification?Id={NotifyID}&Action={action}',
+    Notifications:'api/Member/NotificationCenter?MemberId={MemberID}&page={page}',
+
+    FindCouponRequirements:'api/Member/FindCouponRegistrationRequirments?MemberID={MemberID}&CouponCode={CouponCode}',
+    AddCoupon:'api/Member/RegisterCoupon?MemberID={MemberID}&CouponCode={CouponCode}',
+    redeemCoupon:'api/Member/RedeemCoupon?MemberID={MemberID}&CouponCode={CouponCode}',
+    
+    RedeemPoints:'api/Member/RedeemVoucher?MemberID={MemberID}&VoucherId={VoucherId}&PassCode={PassCode}',
+    RedeemDetails:'api/Member/MemberRedeemDetails?MemberID={MemberID}',
+
+    base64Ios:'RkU1QzM2RUYtOEJDNy00QkVDLUEyOUMtMkFCNzc2QjgxOUJDOkU4RUEwRjlDLUZDRjgtNEEwQi1CRjE2LTg1QTVGQ0I0RUE3MA==',
+    base64And:'QzcwOTNEQTAtRUU0Ri00RDkyLUIyNjktQTk4QjY5RTg1ODM2OkNCQjA0MTNCLTVGODUtNEFGRi1CQUNGLTJBNzRDMTIyQjJDMQ==',
+
+    parkData:'Home/Content?lang={Localize}&type=parkdetailsslider',//'https://www.leisure.qa/assets/parkDetails.txt',
+    countryinUseData:'Home/Content?lang=en&type=countrycodeslist',//'https://www.leisure.qa/assets/countrycodeinuse.txt',
+    localizeData:'Home/Content?lang={Localize}&type=localization',//'https://www.leisure.qa/assets/Localize.txt',
+
+    faq:'Home/Content?lang={Localize}&type=faqcontent',//'https://www.leisure.qa/assets/faq.txt',
+    resetPass:'https://www.leisure.qa/En/ChangePassword',
+    bannerData:'Home/Content?lang={Localize}&type=mainbanner',//'https://www.leisure.qa/assets/banner.txt',
+
+    abcard:'https://www.leisure.qa/assets/images/card/ab-card.png',
+    vccard:'https://www.leisure.qa/assets/images/card/vc-card.png',
+    sdcard:'https://www.leisure.qa/assets/images/card/sd-card.png',
+
+    generalcard:'https://www.leisure.qa/assets/images/card/general.png',
+
+    getOrders:'api/Member/Orders?MemberID={MemberID}',
+    getOrder:'api/Member/Order?MemberID={MemberID}&PNR={PNR}',
+    getMedias:'api/Member/Medias?MemberID={MemberID}',
+
+    informative:'infobol',
+    calendar:'onlnclndrrqrd',
+    calendarId:'onlnclndrid',
+    calendarEvent:'onlnClndrEvnt',
+    addonProduct:'AddOnEvents',
+    relatedProduct:'RelatedProducts',
+    shareurl:'shareurl',
+    priceInfo:'PriceInfo',
+    
+    mobileToken:'api/Member/DeviceToken',
+    profilewithToken:'api/Member/UpdateProfileWithToken?MemberID={MemberID}&TokenID={TokenID}',
+    getCatlog:'api/Cart/Catalog',
+    // catalogUrl:'Cash/catalog_40BC1EC2_2E2B_F096_2C0C_0182C135128E_.json',
+    // catalogUrl:'Cash/catalog_D27BB26B_5E2B_ABB2_55DA_018C5842C6DD_.json',//test
+    // catalogUrl:'Cash/catalog_309B111D_A2EE_E1E1_7039_018C5EA1C052_.json',//live
+    catalogUrl:'api/cart/catalog?cache=true',//'Cash/catalog_309B111D_A2EE_E1E1_7039_018C5EA1C052_appicons.json',//'api/cart/catalog?cache=true&version=appicons',//&version=newprices2024',//live https://webapi.leisure.qa/api/cart/catalog?cache=truehttps://webapi.leisure.qa/api/cart/catalog?cache=true&version=newprices2024
+    // catalogUrl:'Cash/catalog_309B111D_A2EE_E1E1_7039_018C5EA1C052_newprices2024.json',
+    detailsCatlog:'api/Cart/UpdateCatalogCash',
+    loadFormbyCatId:'api/Cart/LoadForm?AccCatId={AccCatId}',
+    searchMedia:'api/Cart/SearchMedia',
+    mediaSummary:'api/Member/MediasSummary?MemberID={MemberID}',
+    mediaDetails:'api/Member/MediaDetails?MemberMediaID={MediaID}',
+    calenderDates:'api/Cart/CalendarDates',
+    saveAccount:'api/Cart/SaveAccount',
+    addtoCart:'api/Cart/Add',
+    addCoupontoCart:'api/SnApp/Submit?cmd=SHOPCART',
+    checkSeat:'api/SnApp/Submit?cmd=SEAT',
+    loadCalendar:'api/SnApp/Submit?cmd=CALENDAR',
+    // addCoupontoCart:'api/Cart/AddCoupon',
+    modifyCart:'api/Cart/Modify',
+    removeCart:'api/Cart/Remove',
+    emptyCart:'api/Cart/Empty',
+    validateCart:'api/Cart/Validate',
+    submitCart:'api/Cart/Submit',
+    enigma:"Enigma",
+    eventpackage:"Packages",
+    EntityNo:5,
+    checkPerformances:'api/SnApp/Submit?cmd=PERFORMANCE',
+    tryagainLimit:3,
+    appurl:'https://bit.ly/31McaWU',
+    initskipcash:'api/Cart/InitSkipCash',
+    checkPayment:'api/Cart/CheckSkipCash?PaymentId={PaymentId}&ShopCartId={ShopCartId}',
+    getBenefits:'api/Member/Benefits?MemberId={MemberId}',
+    getUsedBenefits:'api/Member/BenefitsHistory?MemberId={MemberId}',
+    getAvailablePoints:'api/Cart/GetAvailablePayPoints?MemberId={MemberId}&SCID={SCID}',
+    redeemBenefits:'api/Member/RedeemBenefit?MemberBenefitId={MemberBenefitId}&PassCode={PassCode}',
+    setItemAccount:'api/Cart/SetItemAccount',
+    postTransaction:'api/SnApp/Submit?cmd=TRANSACTION',
+    workStationId:'40BF3922-3DC2-E512-6645-01633E6FDD42',
+    vgsOrderTempID:'D2A07393-2B21-6035-274A-01655153EDCC',
+    orderPrefix:'LA',
+    vgspaymentMethodId:'8B09EFAB-6A87-B251-0256-01612196709A',
+    vgsCategoryID: "40C6BA8A-F16B-E67D-3C9C-0178C57B9AEE",
+    vgsSurveyId: "BE582372-D7DC-CF42-3D20-0178C57F692C",
+    vgsMetaFieldCode: "ordidonline",
+    vgsToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJTTlAiLCJjbGkiOiJBUEkiLCJpYXQiOjE2NDc3MTU5MTksImV4cCI6MTY3OTQ2OTI1Miwid2lkIjoiNDBCRjM5MjItM0RDMi1FNTEyLTY2NDUtMDE2MzNFNkZERDQyIn0.T3Yjfc2pQ_34hQ4S3x-y5vjHGyyn8AKCUwBf1HUhLoE",
+    userAccountId:"ED0867D4-8590-EAF0-0946-017FB72E0DAB",
+    giftcardCode:"TESTGIFTCARD",
+    vgsCheckMediaCode:'api/SnApp/Submit?cmd=PORTFOLIO&format=json',
+    searchPerformanceDate:'api/SnApp/Submit?cmd=PERFORMANCE&format=json',
+    secure:"http://",
+    testURL:'http://10.10.130.75:1903/',//'https://webapi.leisure.qa/',
+    wordPressUrl:'https://tickets.leisure.qa/',
+    productsURL:'wp-json/wc/v3/products?per_page=50&orderby=menu_order&order=asc',//&category=63
+    productsAuth:'Basic Y2tfODc5NTUzMzY3NmE5NjYzNmMxYTk0OWQ5YjJiMTk2ZjNmODkwY2M1Nzpjc19mODM1ZWQ2ZDM2ZDA4MTU1MmFhODY4MGFjODRkMDA3YjA2YzMwOWVm',
+    variationsUrl:'/wp-json/wc/v3/products/{product_id}/variations?orderby=id&order=asc',
+    requestOTPMobile:'api/Member/RequestOTP?Mobile={Mobile}&Minutes=3',
+    requestOTP:'api/Member/RequestOTP?MemberID={MemberID}&Minutes=3',
+    deleteAccount:'api/Member/RequestOTP?MemberID={MemberID}&action=deleteaccount&Minutes=3',
+    deleteAccountOTP:'api/Member/ConfirmDelete?MemberID={MemberID}&OTPCode={OTPCode}',
+    confirmChangeOTP:'api/Member/UpdatePassword?MemberID={MemberID}&OTPCode={OTPCode}&Password={Password}',
+
+    changePass:'api/Member/RequestOTP?MemberID={MemberID}&action=changepassword&Minutes=3',
+    variableCommand:'variable',
+    productid:'productid',
+
+    topupCommand:'topup',
+    mediaRequire:'MediaRequired',
+    mediaCatalog:'media',
+    FolderCatalog:'2',
+
+    leisuremember:'Tejory Membership',
+    timeout:20000,
+    paymentReturnUrl:'https://tickets.leisure.qa/?wc-api=wc_gateway_skipcash_check',
+
+    searchMediaCard:'api/Member/SearchMediaCards?MemberID={MemberID}&MediaCode={MediaCode}',
+    registerMediaId:'api/Member/RegisterMedia?MemberID={MemberID}&MediaID={MediaID}',
+    unregisterMediaId:'api/Member/UnRegisterMedia?MemberID={MemberID}&MediaID={MediaID}',
+    findMemberCards:'api/Member/FindMemberCards?MemberID={MemberID}',
+    iosApp:'itms-apps://itunes.apple.com/app/apple-store/id1483032774?mt=8',
+    androidApp:'https://play.google.com/store/apps/details?id=com.leisureloyalty',
+    leisuresupportCall:'tel:+97440420444',
+    leisuresupportEmail:'mailto:info@leisure.qa',
+
+    helpnsupport:"Home/ContentViewer/42",
+    termsofuse:"Home/ContentViewer/43",
+    privacypolicy:"Home/ContentViewer/44",
+    uxp:'https://leisure.qa',
+    googleRecaptchaSiteURL:'https://www.leisure.qa/',
+    googleRecaptchaSiteKey:'6Lcf9zkkAAAAAC7554yi60DHUySp2ZIeARGYKauo'
+
+};
+
+
+// item:{value:itemIn,details:additionalInfo},count:totalNo
+//{"displayname":_cardNumber,"type":WebServices.topupCommand,"data": JSON.parse(responseJson)};
+//variable products
+/*
+with attributes - sku-"attribute"
+*/
+/*
+without sku - variable is sku
+*/

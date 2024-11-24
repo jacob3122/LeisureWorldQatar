@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "42258216922",
+    "firebase_url": "https://leisure-qatar.firebaseio.com",
+    "project_id": "leisure-qatar",
+    "storage_bucket": "leisure-qatar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42258216922:android:45fbf530f891968a2372e3",
+        "android_client_info": {
+          "package_name": "com.leisureloyalty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42258216922-pelcgk30vn5mmo6dfq135b35to2g8f5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKiwvXPJXSAzpU3_9CxKL5YMZN0AOKZjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42258216922-pelcgk30vn5mmo6dfq135b35to2g8f5h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "42258216922-t4pjnddp3ajlhr47m098s1t9e96i7i54.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.leisure.Loyalty"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

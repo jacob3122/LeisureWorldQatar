@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
-
+apply plugin: "com.google.gms.google-services"
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -77,13 +77,26 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.leisureworldqatar"
+
+    compileOptions {
+     sourceCompatibility JavaVersion.VERSION_1_8
+     targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // kotlinOptions {
+    //     jvmTarget = '1.8'
+    // }
+    namespace "com.leisureloyalty"
     defaultConfig {
-        applicationId "com.leisureworldqatar"
+        applicationId "com.leisureloyalty"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 76
+        versionName "2.1.5"
+        multiDexEnabled true
+         ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            // Excludes riscv64, which is unnecessary unless targeting WearOS
+        }
     }
     signingConfigs {
         debug {
@@ -92,24 +105,75 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+           release {
+           if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+               storeFile file(MYAPP_UPLOAD_STORE_FILE)
+               storePassword MYAPP_UPLOAD_STORE_PASSWORD
+               keyAlias MYAPP_UPLOAD_KEY_ALIAS
+               keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+           }
+       }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+        // release {
+        //     // Caution! In production, you need to generate your own keystore file.
+        //     // see https://reactnative.dev/docs/signed-apk-android.
+        //     signingConfig signingConfigs.debug
+        //     minifyEnabled enableProguardInReleaseBuilds
+        //     proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        // }
     }
 }
 
+// tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+//     kotlinOptions {
+//         jvmTarget = '1.8'
+//     }
+// }
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation("androidx.core:core:1.9.0")
+    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+    implementation project(":react-native-moengage")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.github.bumptech.glide:glide:4.9.0")
+    // core moengage features
+    implementation(moengage.core)
+    // optionally add this to use the cards feature
+//    implementation(moengage.cardsUi)
+    // optionally add this if you are using the core module of cards
+//    implementation(moengage.cardsCore)
+     // optionally add this to use the geofence feature
+//    implementation(moengage.geofence)
+    // optionally add this to use the Huaewi PushKit feature
+//    implementation(moengage.pushKit)
+    // optionally add this to use the Push Amp Plus feature
+    // implementation(moengage.pushAmpPlus)
+    // optionally add this to use the Inbox UI feature
+//    implementation(moengage.inboxUi)
+    // optionally add this if you are using the core module of Inbox
+//    implementation(moengage.inboxCore)
+    // optionally add this to use the Push Templates feature
+    implementation(moengage.richNotification)
+    // optionally add this to use the Device Trigger feature
+//    implementation(moengage.deviceTrigger)
+    // optionally add this to use the Push Amp feature
+//    implementation(moengage.pushAmp)
+    // optionally add this to use the InApp feature
+    implementation(moengage.inapp)
+
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

@@ -1,0 +1,130 @@
+{
+	"stores": [{
+		"id": 0,
+		"name": "ANGRY BIRDS",
+		"icon": "",
+		"products": [{
+			"id": 0,
+			"name": "Family Card",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+				"https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg"
+
+			],
+			"tagline":"COMING WITH YOUR FLOCK FOR A SPECIAL FAMILY DAY OUT?",
+			"description":"Our Family Card is perfect for you. With 250 QR of credit, you’ll have everything you need to max out on fun across our games arcade, rides, and attractions. The Family Card is flexible, designed for four people, so whether it’s friends or family, any group of four is fine with us! To return for more fun in the future, simply top up your card to 250QR to renew it.",
+			"cost": 250,
+			"currency": "QAR"
+
+		}, {
+			"id": 1,
+			"name": "Individual Card",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.angrybirdsworld.qa/wp-content/uploads/2021/09/Individual-card_box-e1653386495110.jpg",
+				"https://www.angrybirdsworld.qa/wp-content/uploads/2021/09/Individual-card_box-e1653386495110.jpg"
+
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 100,
+			"currency": "QAR"
+
+		}]
+	}, {
+		"id": 11,
+		"name": "SNOW DUNES",
+		"icon": "",
+		"products": [{
+			"id": 11,
+			"name": "Silver Package",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.snowdunes.qa/wp-content/uploads/2020/08/Silver-Package-1-1.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 250,
+			"currency": "QAR"
+
+		}, {
+			"id": 12,
+			"name": "Gold Package",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.snowdunes.qa/wp-content/uploads/2020/08/Gold-Package-1-1.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 240,
+			"currency": "QAR"
+
+		}, {
+			"id": 13,
+			"name": "Platinum Package",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.snowdunes.qa/wp-content/uploads/2020/08/Platinum-Package-1-1.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 450,
+			"currency": "QAR"
+
+		}]
+	}, {
+		"id": 2,
+		"name": "VIRTUOCITY",
+		"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+		"products": [{
+			"id": 21,
+			"name": "Arena - 1 hour",
+			"icon": "",
+			"images": [
+				"https://www.virtuocity.qa/wp-content/uploads/2020/08/ababa-1.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 50,
+			"currency": "QAR"
+
+		}, {
+			"id": 22,
+			"name": "Arena - 2 hours",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.virtuocity.qa/wp-content/uploads/2020/08/2-H.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 80,
+			"currency": "QAR"
+
+		}, {
+			"id": 23,
+			"name": "Arena - 3 hours",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.virtuocity.qa/wp-content/uploads/2020/08/3H.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 105,
+			"currency": "QAR"
+
+		}, {
+			"id": 24,
+			"name": "Arena - 5 hours",
+			"icon": "https://www.angrybirdsworld.qa/wp-content/uploads/2019/05/ABW_MOBILE1.jpg",
+			"images": [
+				"https://www.virtuocity.qa/wp-content/uploads/2020/08/5H.jpg"
+			],
+			"tagline":"START YOUR ANGRY BIRDS ADVENTURE BY FLYING IN FOR A VISIT TODAY!",
+			"description":"The Individual Card gives you 100 QR credit to get started across all our arcade games, rides, and attractions. You can visit us throughout the year, topping up your credit as you go. To keep coming back for more, simply renew it every year free of charge.",
+			"cost": 150,
+			"currency": "QAR"
+
+		}]
+	}]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#00060A</color>
+    <color name="white">#00060A</color>
+    <color name="notiColor">#ffffff</color>
+    <color name="primary_dark">#000000</color>
+    <color name="status_bar_color">#00060A</color>
+    <color name="navigation_bar_color">#00060A</color>
+</resources>

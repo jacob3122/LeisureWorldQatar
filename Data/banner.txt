@@ -1,0 +1,14 @@
+{
+  "bannerType": "",
+  "bannerWebUrl": 
+    "https://www.angrybirdsworld.qa/",
+  "bannerImg": [
+  ],
+  "url": [
+    "https://www.angrybirdsworld.qa/",
+    "https://www.snowdunes.qa/"
+  ],
+  "canclose": true,
+  "updatePopupios": "1.4.8",
+  "updatePopupandroid": "1.4.8"
+}

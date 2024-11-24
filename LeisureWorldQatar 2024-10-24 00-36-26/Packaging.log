@@ -1,0 +1,1557 @@
+2024-10-23 21:36:18 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x3cd120d30; archive(resolved)="<IDEArchive: 0x600059f2a530>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x3cd120d30; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x3cd108ce0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3eb5f0ec0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3dced2ca0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3dceb2d50; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x366207f30; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3c52d68b0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3dce36840; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3de47a2e0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006ee37c0; teamID='LP4AVJ58MH', teamName='LEISURE WLL', teamType='Company', username='info@leisure.qa', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3de44eca0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="(null)">
+	<IDEDistributionContext: 0x3de4b5ea0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="(null)">
+	<IDEDistributionContext: 0x360c23710; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="(null)">
+	<IDEDistributionContext: 0x3dce79ae0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600007493cb0>", team="(null)">
+	<IDEDistributionContext: 0x3dce956f0; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x360cb4f80; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x3eb612d10; archive = "<IDEArchive: 0x600059f2a530>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x3cd120d30>
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionCreateDestRootStep
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionCopyItemStep
+2024-10-23 21:36:18 +0000  Running /usr/bin/ditto '-V' '/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app' '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app'
+2024-10-23 21:36:18 +0000  >>> Copying /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app 
+2024-10-23 21:36:18 +0000  copying file ./_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  58889 bytes for ./_CodeSignature/CodeResources
+copying file ./FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+855 bytes for ./FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy
+copying file ./FirebaseCore_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  791 bytes for ./FirebaseCore_Privacy.bundle/Info.plist
+copying file ./glog_privacy.bundle/Info.plist ... 
+772 bytes for ./glog_privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  373 bytes for ./FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./FBLPromises_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  787 bytes for ./FBLPromises_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Leisure-logo-01.png ... 
+2024-10-23 21:36:18 +0000  79159 bytes for ./Leisure-logo-01.png
+2024-10-23 21:36:18 +0000  copying file ./PlugIns/NotificationService.appex/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  2040 bytes for ./PlugIns/NotificationService.appex/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./PlugIns/NotificationService.appex/NotificationService ... 
+2024-10-23 21:36:18 +0000  87872 bytes for ./PlugIns/NotificationService.appex/NotificationService
+2024-10-23 21:36:18 +0000  copying file ./PlugIns/NotificationService.appex/embedded.mobileprovision ... 
+2024-10-23 21:36:18 +0000  15891 bytes for ./PlugIns/NotificationService.appex/embedded.mobileprovision
+2024-10-23 21:36:18 +0000  copying file ./PlugIns/NotificationService.appex/Info.plist ... 
+2024-10-23 21:36:18 +0000  924 bytes for ./PlugIns/NotificationService.appex/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Cairo-SemiBold.ttf ... 
+2024-10-23 21:36:18 +0000  91728 bytes for ./Cairo-SemiBold.ttf
+copying file ./AppIcon60x60@2x.png ... 
+2024-10-23 21:36:18 +0000  4913 bytes for ./AppIcon60x60@2x.png
+copying file ./LeisureWorldQatar ... 
+2024-10-23 21:36:18 +0000  9538496 bytes for ./LeisureWorldQatar
+2024-10-23 21:36:18 +0000  copying file ./FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+855 bytes for ./FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./FirebaseCoreInternal_Privacy.bundle/Info.plist ... 
+807 bytes for ./FirebaseCoreInternal_Privacy.bundle/Info.plist
+copying file ./GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+1105 bytes for ./GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./GoogleDataTransport_Privacy.bundle/Info.plist ... 
+805 bytes for ./GoogleDataTransport_Privacy.bundle/Info.plist
+copying file ./React-cxxreact_privacy.bundle/PrivacyInfo.xcprivacy ... 
+552 bytes for ./React-cxxreact_privacy.bundle/PrivacyInfo.xcprivacy
+copying file ./React-cxxreact_privacy.bundle/Info.plist ... 
+795 bytes for ./React-cxxreact_privacy.bundle/Info.plist
+copying file ./nanopb_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+374 bytes for ./nanopb_Privacy.bundle/PrivacyInfo.xcprivacy
+copying file ./nanopb_Privacy.bundle/Info.plist ... 
+780 bytes for ./nanopb_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Cairo-Regular.ttf ... 
+2024-10-23 21:36:18 +0000  151032 bytes for ./Cairo-Regular.ttf
+2024-10-23 21:36:18 +0000  copying file ./GoogleService-Info.plist ... 
+2024-10-23 21:36:18 +0000  716 bytes for ./GoogleService-Info.plist
+2024-10-23 21:36:18 +0000  copying file ./FirebaseCoreExtension_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  478 bytes for ./FirebaseCoreExtension_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./FirebaseCoreExtension_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  809 bytes for ./FirebaseCoreExtension_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib ... 
+2024-10-23 21:36:18 +0000  1793 bytes for ./Base.lproj/LaunchScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib
+2024-10-23 21:36:18 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2024-10-23 21:36:18 +0000  258 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/UIViewController-Y6W-OH-hqX.nib ... 
+2024-10-23 21:36:18 +0000  924 bytes for ./Base.lproj/LaunchScreen.storyboardc/UIViewController-Y6W-OH-hqX.nib
+2024-10-23 21:36:18 +0000  copying file ./RCT-Folly_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  787 bytes for ./RCT-Folly_privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Assets.car ... 
+2024-10-23 21:36:18 +0000  228111 bytes for ./Assets.car
+2024-10-23 21:36:18 +0000  copying file ./FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  1105 bytes for ./FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./FirebaseInstallations_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  809 bytes for ./FirebaseInstallations_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+2024-10-23 21:36:18 +0000  6100 bytes for ./AppIcon76x76@2x~ipad.png
+2024-10-23 21:36:18 +0000  copying file ./GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  1233 bytes for ./GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./GoogleUtilities_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  796 bytes for ./GoogleUtilities_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./main.jsbundle ... 
+2024-10-23 21:36:18 +0000  7838857 bytes for ./main.jsbundle
+2024-10-23 21:36:18 +0000  copying file ./Cairo-Bold.ttf ... 
+2024-10-23 21:36:18 +0000  153640 bytes for ./Cairo-Bold.ttf
+2024-10-23 21:36:18 +0000  copying file ./PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  1042 bytes for ./PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./boost_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  775 bytes for ./boost_privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageCore.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/MoEngageCore.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageCore.framework/MoEngageCore ... 
+2024-10-23 21:36:18 +0000  2581712 bytes for ./Frameworks/MoEngageCore.framework/MoEngageCore
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageCore.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  923 bytes for ./Frameworks/MoEngageCore.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSecurity.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/MoEngageSecurity.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSecurity.framework/MoEngageSecurity ... 
+2024-10-23 21:36:18 +0000  380480 bytes for ./Frameworks/MoEngageSecurity.framework/MoEngageSecurity
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSecurity.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  933 bytes for ./Frameworks/MoEngageSecurity.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/libswift_Concurrency.dylib ... 
+2024-10-23 21:36:18 +0000  557584 bytes for ./Frameworks/libswift_Concurrency.dylib
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageAnalytics.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/MoEngageAnalytics.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics ... 
+2024-10-23 21:36:18 +0000  1012912 bytes for ./Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageAnalytics.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  935 bytes for ./Frameworks/MoEngageAnalytics.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageMessaging.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/MoEngageMessaging.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageMessaging.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  935 bytes for ./Frameworks/MoEngageMessaging.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageMessaging.framework/MoEngageMessaging ... 
+2024-10-23 21:36:18 +0000  683808 bytes for ./Frameworks/MoEngageMessaging.framework/MoEngageMessaging
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSDK.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  2034 bytes for ./Frameworks/MoEngageSDK.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSDK.framework/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  2150 bytes for ./Frameworks/MoEngageSDK.framework/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSDK.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  921 bytes for ./Frameworks/MoEngageSDK.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageSDK.framework/MoEngageSDK ... 
+2024-10-23 21:36:18 +0000  101872 bytes for ./Frameworks/MoEngageSDK.framework/MoEngageSDK
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageObjCUtils.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/MoEngageObjCUtils.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils ... 
+2024-10-23 21:36:18 +0000  178960 bytes for ./Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageObjCUtils.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  935 bytes for ./Frameworks/MoEngageObjCUtils.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageInApps.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  2470 bytes for ./Frameworks/MoEngageInApps.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageInApps.framework/MoEngageInApps ... 
+2024-10-23 21:36:18 +0000  1651376 bytes for ./Frameworks/MoEngageInApps.framework/MoEngageInApps
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageInApps.framework/Assets.car ... 
+2024-10-23 21:36:18 +0000  95199 bytes for ./Frameworks/MoEngageInApps.framework/Assets.car
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageInApps.framework/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  1088 bytes for ./Frameworks/MoEngageInApps.framework/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageInApps.framework/defaultCloseButton.png ... 
+2024-10-23 21:36:18 +0000  3037 bytes for ./Frameworks/MoEngageInApps.framework/defaultCloseButton.png
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageInApps.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  926 bytes for ./Frameworks/MoEngageInApps.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageTriggerEvaluator.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/MoEngageTriggerEvaluator.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageTriggerEvaluator.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  948 bytes for ./Frameworks/MoEngageTriggerEvaluator.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator ... 
+2024-10-23 21:36:18 +0000  487040 bytes for ./Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  3020 bytes for ./Frameworks/MoEngageRichNotification.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/MoEngagePushBodyView.nib ... 
+2024-10-23 21:36:18 +0000  4354 bytes for ./Frameworks/MoEngageRichNotification.framework/MoEngagePushBodyView.nib
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/MoEngagePushMediaView.nib ... 
+2024-10-23 21:36:18 +0000  2023 bytes for ./Frameworks/MoEngageRichNotification.framework/MoEngagePushMediaView.nib
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  1088 bytes for ./Frameworks/MoEngageRichNotification.framework/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionView.nib ... 
+2024-10-23 21:36:18 +0000  3159 bytes for ./Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionView.nib
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionViewCell.nib ... 
+2024-10-23 21:36:18 +0000  2121 bytes for ./Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionViewCell.nib
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/Info.plist ... 
+2024-10-23 21:36:18 +0000  949 bytes for ./Frameworks/MoEngageRichNotification.framework/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification ... 
+2024-10-23 21:36:18 +0000  370784 bytes for ./Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/hermes.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:18 +0000  1798 bytes for ./Frameworks/hermes.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/hermes.framework/hermes ... 
+2024-10-23 21:36:18 +0000  4616800 bytes for ./Frameworks/hermes.framework/hermes
+2024-10-23 21:36:18 +0000  copying file ./Frameworks/hermes.framework/Info.plist ... 
+815 bytes for ./Frameworks/hermes.framework/Info.plist
+copying file ./embedded.mobileprovision ... 
+2024-10-23 21:36:18 +0000  17097 bytes for ./embedded.mobileprovision
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png ... 
+2024-10-23 21:36:18 +0000  761 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png ... 
+2024-10-23 21:36:18 +0000  405 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon.png ... 
+2024-10-23 21:36:18 +0000  290 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png ... 
+2024-10-23 21:36:18 +0000  913 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/yandex-maps.png ... 
+2024-10-23 21:36:18 +0000  2340 bytes for ./assets/node_modules/react-native-map-link/src/images/yandex-maps.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/tmap.png ... 
+2024-10-23 21:36:18 +0000  2879 bytes for ./assets/node_modules/react-native-map-link/src/images/tmap.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/transit.png ... 
+2024-10-23 21:36:18 +0000  5879 bytes for ./assets/node_modules/react-native-map-link/src/images/transit.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/gett.png ... 
+2024-10-23 21:36:18 +0000  20151 bytes for ./assets/node_modules/react-native-map-link/src/images/gett.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/dgis.png ... 
+2024-10-23 21:36:18 +0000  4231 bytes for ./assets/node_modules/react-native-map-link/src/images/dgis.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/google-maps.png ... 
+2024-10-23 21:36:18 +0000  3865 bytes for ./assets/node_modules/react-native-map-link/src/images/google-maps.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/citymapper.png ... 
+2024-10-23 21:36:18 +0000  1838 bytes for ./assets/node_modules/react-native-map-link/src/images/citymapper.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/truckmap.png ... 
+2024-10-23 21:36:18 +0000  3295 bytes for ./assets/node_modules/react-native-map-link/src/images/truckmap.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/waze.png ... 
+2024-10-23 21:36:18 +0000  7947 bytes for ./assets/node_modules/react-native-map-link/src/images/waze.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/moovit.png ... 
+2024-10-23 21:36:18 +0000  3501 bytes for ./assets/node_modules/react-native-map-link/src/images/moovit.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/osmand.png ... 
+2024-10-23 21:36:18 +0000  10595 bytes for ./assets/node_modules/react-native-map-link/src/images/osmand.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/uber.png ... 
+2024-10-23 21:36:18 +0000  2941 bytes for ./assets/node_modules/react-native-map-link/src/images/uber.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/mapycz.png ... 
+2024-10-23 21:36:18 +0000  6594 bytes for ./assets/node_modules/react-native-map-link/src/images/mapycz.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/liftago.png ... 
+2024-10-23 21:36:18 +0000  16123 bytes for ./assets/node_modules/react-native-map-link/src/images/liftago.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/naver-map.png ... 
+2024-10-23 21:36:18 +0000  18987 bytes for ./assets/node_modules/react-native-map-link/src/images/naver-map.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/apple-maps.png ... 
+2024-10-23 21:36:18 +0000  4886 bytes for ./assets/node_modules/react-native-map-link/src/images/apple-maps.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/yandex.png ... 
+2024-10-23 21:36:18 +0000  3305 bytes for ./assets/node_modules/react-native-map-link/src/images/yandex.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/kakao-map.png ... 
+2024-10-23 21:36:18 +0000  11260 bytes for ./assets/node_modules/react-native-map-link/src/images/kakao-map.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/petalmaps.png ... 
+2024-10-23 21:36:18 +0000  27008 bytes for ./assets/node_modules/react-native-map-link/src/images/petalmaps.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/maps-me.png ... 
+2024-10-23 21:36:18 +0000  29308 bytes for ./assets/node_modules/react-native-map-link/src/images/maps-me.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/yandex-taxi.png ... 
+2024-10-23 21:36:18 +0000  7976 bytes for ./assets/node_modules/react-native-map-link/src/images/yandex-taxi.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-map-link/src/images/lyft.png ... 
+2024-10-23 21:36:18 +0000  4173 bytes for ./assets/node_modules/react-native-map-link/src/images/lyft.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png ... 
+2024-10-23 21:36:18 +0000  458 bytes for ./assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png ... 
+2024-10-23 21:36:18 +0000  462 bytes for ./assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/down@3x.png ... 
+2024-10-23 21:36:18 +0000  508 bytes for ./assets/node_modules/react-native-calendars/src/img/down@3x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/down@2x.png ... 
+2024-10-23 21:36:18 +0000  354 bytes for ./assets/node_modules/react-native-calendars/src/img/down@2x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/up.png ... 
+2024-10-23 21:36:18 +0000  215 bytes for ./assets/node_modules/react-native-calendars/src/img/up.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/down.png ... 
+2024-10-23 21:36:18 +0000  208 bytes for ./assets/node_modules/react-native-calendars/src/img/down.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/up@2x.png ... 
+2024-10-23 21:36:18 +0000  347 bytes for ./assets/node_modules/react-native-calendars/src/img/up@2x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/up@3x.png ... 
+2024-10-23 21:36:18 +0000  504 bytes for ./assets/node_modules/react-native-calendars/src/img/up@3x.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/card/app.png ... 
+2024-10-23 21:36:18 +0000  91685 bytes for ./assets/assets/card/app.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/card/cardde.png ... 
+2024-10-23 21:36:18 +0000  21672 bytes for ./assets/assets/card/cardde.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/card/red.png ... 
+2024-10-23 21:36:18 +0000  15074 bytes for ./assets/assets/card/red.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/card/carddeb.png ... 
+2024-10-23 21:36:18 +0000  31616 bytes for ./assets/assets/card/carddeb.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/sd.jpg ... 
+2024-10-23 21:36:18 +0000  207547 bytes for ./assets/assets/sd.jpg
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/load/load.gif ... 
+2024-10-23 21:36:18 +0000  413193 bytes for ./assets/assets/load/load.gif
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/email.png ... 
+2024-10-23 21:36:18 +0000  381 bytes for ./assets/assets/Icons/email.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/block-user.png ... 
+2024-10-23 21:36:18 +0000  18604 bytes for ./assets/assets/Icons/block-user.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/tejoryun.png ... 
+2024-10-23 21:36:18 +0000  3301 bytes for ./assets/assets/Icons/tejoryun.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/direction.png ... 
+2024-10-23 21:36:18 +0000  577 bytes for ./assets/assets/Icons/direction.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/event.png ... 
+2024-10-23 21:36:18 +0000  11826 bytes for ./assets/assets/Icons/event.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/items.png ... 
+2024-10-23 21:36:18 +0000  4174 bytes for ./assets/assets/Icons/items.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/redeem.png ... 
+2024-10-23 21:36:18 +0000  6840 bytes for ./assets/assets/Icons/redeem.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/leisure_white.png ... 
+2024-10-23 21:36:18 +0000  20312 bytes for ./assets/assets/Icons/leisure_white.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/UXP.png ... 
+2024-10-23 21:36:18 +0000  207690 bytes for ./assets/assets/Icons/UXP.png
+copying file ./assets/assets/Icons/wallet.png ... 
+2024-10-23 21:36:18 +0000  2942 bytes for ./assets/assets/Icons/wallet.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/rules.png ... 
+2024-10-23 21:36:18 +0000  5239 bytes for ./assets/assets/Icons/rules.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/login.png ... 
+2024-10-23 21:36:18 +0000  3659 bytes for ./assets/assets/Icons/login.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/cardpay.png ... 
+2024-10-23 21:36:18 +0000  2022 bytes for ./assets/assets/Icons/cardpay.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/storeun.png ... 
+2024-10-23 21:36:18 +0000  4684 bytes for ./assets/assets/Icons/storeun.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/cart.png ... 
+2024-10-23 21:36:18 +0000  460 bytes for ./assets/assets/Icons/cart.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/profileone.png ... 
+2024-10-23 21:36:18 +0000  2301 bytes for ./assets/assets/Icons/profileone.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/touchid.png ... 
+2024-10-23 21:36:18 +0000  6653 bytes for ./assets/assets/Icons/touchid.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/coup-2.png ... 
+2024-10-23 21:36:18 +0000  5789 bytes for ./assets/assets/Icons/coup-2.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/pcard.png ... 
+2024-10-23 21:36:18 +0000  5547 bytes for ./assets/assets/Icons/pcard.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/settings.png ... 
+2024-10-23 21:36:18 +0000  1423 bytes for ./assets/assets/Icons/settings.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/store.png ... 
+2024-10-23 21:36:18 +0000  3840 bytes for ./assets/assets/Icons/store.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/infoterms.png ... 
+2024-10-23 21:36:18 +0000  522 bytes for ./assets/assets/Icons/infoterms.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/order.png ... 
+2024-10-23 21:36:18 +0000  12506 bytes for ./assets/assets/Icons/order.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/mobileverify.png ... 
+2024-10-23 21:36:18 +0000  1904 bytes for ./assets/assets/Icons/mobileverify.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/coup-1.png ... 
+2024-10-23 21:36:18 +0000  8164 bytes for ./assets/assets/Icons/coup-1.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/rewards.png ... 
+2024-10-23 21:36:18 +0000  9364 bytes for ./assets/assets/Icons/rewards.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/claim.png ... 
+2024-10-23 21:36:18 +0000  9099 bytes for ./assets/assets/Icons/claim.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/couponlogoun.png ... 
+2024-10-23 21:36:18 +0000  6229 bytes for ./assets/assets/Icons/couponlogoun.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/tejory.png ... 
+2024-10-23 21:36:18 +0000  3872 bytes for ./assets/assets/Icons/tejory.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/blklock.png ... 
+2024-10-23 21:36:18 +0000  205 bytes for ./assets/assets/Icons/blklock.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/rewardpoint.png ... 
+2024-10-23 21:36:18 +0000  9367 bytes for ./assets/assets/Icons/rewardpoint.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/home.png ... 
+2024-10-23 21:36:18 +0000  3477 bytes for ./assets/assets/Icons/home.png
+copying file ./assets/assets/Icons/couponlogo.png ... 
+2024-10-23 21:36:18 +0000  7926 bytes for ./assets/assets/Icons/couponlogo.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/cal.png ... 
+2024-10-23 21:36:18 +0000  273 bytes for ./assets/assets/Icons/cal.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/changePass.png ... 
+2024-10-23 21:36:18 +0000  2897 bytes for ./assets/assets/Icons/changePass.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/camerabar.png ... 
+2024-10-23 21:36:18 +0000  763 bytes for ./assets/assets/Icons/camerabar.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/grid.png ... 
+2024-10-23 21:36:18 +0000  12397 bytes for ./assets/assets/Icons/grid.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/caret-down.png ... 
+2024-10-23 21:36:18 +0000  397 bytes for ./assets/assets/Icons/caret-down.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/search.png ... 
+2024-10-23 21:36:18 +0000  3452 bytes for ./assets/assets/Icons/search.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/gsicon.png ... 
+2024-10-23 21:36:18 +0000  266 bytes for ./assets/assets/Icons/gsicon.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/history.png ... 
+2024-10-23 21:36:18 +0000  8549 bytes for ./assets/assets/Icons/history.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/register0.png ... 
+2024-10-23 21:36:18 +0000  4272 bytes for ./assets/assets/Icons/register0.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/greylogo.png ... 
+2024-10-23 21:36:18 +0000  81388 bytes for ./assets/assets/Icons/greylogo.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/iconbg.png ... 
+2024-10-23 21:36:18 +0000  1860 bytes for ./assets/assets/Icons/iconbg.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/notify.png ... 
+2024-10-23 21:36:18 +0000  12490 bytes for ./assets/assets/Icons/notify.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/whitelogo.png ... 
+2024-10-23 21:36:18 +0000  14850 bytes for ./assets/assets/Icons/whitelogo.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/signoff.png ... 
+2024-10-23 21:36:18 +0000  397 bytes for ./assets/assets/Icons/signoff.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/add-to-cart.png ... 
+2024-10-23 21:36:18 +0000  11507 bytes for ./assets/assets/Icons/add-to-cart.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/share.png ... 
+2024-10-23 21:36:18 +0000  13282 bytes for ./assets/assets/Icons/share.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/profile.png ... 
+2024-10-23 21:36:18 +0000  2741 bytes for ./assets/assets/Icons/profile.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/web.png ... 
+2024-10-23 21:36:18 +0000  1097 bytes for ./assets/assets/Icons/web.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/mobile.png ... 
+2024-10-23 21:36:18 +0000  276 bytes for ./assets/assets/Icons/mobile.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/bottomsvg.png ... 
+2024-10-23 21:36:18 +0000  8433 bytes for ./assets/assets/Icons/bottomsvg.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/call.png ... 
+2024-10-23 21:36:18 +0000  707 bytes for ./assets/assets/Icons/call.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/delete.png ... 
+2024-10-23 21:36:18 +0000  767 bytes for ./assets/assets/Icons/delete.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/signout.png ... 
+2024-10-23 21:36:18 +0000  2253 bytes for ./assets/assets/Icons/signout.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/parks.png ... 
+2024-10-23 21:36:18 +0000  4222 bytes for ./assets/assets/Icons/parks.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/edit.png ... 
+2024-10-23 21:36:18 +0000  560 bytes for ./assets/assets/Icons/edit.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/next.png ... 
+2024-10-23 21:36:18 +0000  170 bytes for ./assets/assets/Icons/next.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/star.png ... 
+2024-10-23 21:36:18 +0000  748 bytes for ./assets/assets/Icons/star.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/lock-2.png ... 
+2024-10-23 21:36:18 +0000  494 bytes for ./assets/assets/Icons/lock-2.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/social-media.png ... 
+2024-10-23 21:36:18 +0000  8001 bytes for ./assets/assets/Icons/social-media.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/signin.png ... 
+2024-10-23 21:36:18 +0000  663 bytes for ./assets/assets/Icons/signin.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/warn.png ... 
+2024-10-23 21:36:18 +0000  924 bytes for ./assets/assets/Icons/warn.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/explore.png ... 
+2024-10-23 21:36:18 +0000  617 bytes for ./assets/assets/Icons/explore.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/faceid.png ... 
+2024-10-23 21:36:18 +0000  1199 bytes for ./assets/assets/Icons/faceid.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/camera.png ... 
+2024-10-23 21:36:18 +0000  383 bytes for ./assets/assets/Icons/camera.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/reg.png ... 
+2024-10-23 21:36:18 +0000  780 bytes for ./assets/assets/Icons/reg.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/square.png ... 
+2024-10-23 21:36:18 +0000  4436 bytes for ./assets/assets/Icons/square.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/loca.png ... 
+2024-10-23 21:36:18 +0000  6728 bytes for ./assets/assets/Icons/loca.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/back.png ... 
+2024-10-23 21:36:18 +0000  195 bytes for ./assets/assets/Icons/back.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/homeun.png ... 
+2024-10-23 21:36:18 +0000  2950 bytes for ./assets/assets/Icons/homeun.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/tejoryleisure.png ... 
+2024-10-23 21:36:18 +0000  4473 bytes for ./assets/assets/Icons/tejoryleisure.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/image.png ... 
+2024-10-23 21:36:18 +0000  314 bytes for ./assets/assets/Icons/image.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/burger.png ... 
+2024-10-23 21:36:18 +0000  153 bytes for ./assets/assets/Icons/burger.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/profileun.png ... 
+2024-10-23 21:36:18 +0000  2864 bytes for ./assets/assets/Icons/profileun.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/Icons/close.png ... 
+2024-10-23 21:36:18 +0000  1030 bytes for ./assets/assets/Icons/close.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/bg/bg-01.jpg ... 
+2024-10-23 21:36:18 +0000  441473 bytes for ./assets/assets/bg/bg-01.jpg
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/bg/Circles-Pattern.svg ... 
+2024-10-23 21:36:18 +0000  1957 bytes for ./assets/assets/bg/Circles-Pattern.svg
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/bg/bottombar.png ... 
+2024-10-23 21:36:18 +0000  8088 bytes for ./assets/assets/bg/bottombar.png
+2024-10-23 21:36:18 +0000  copying file ./assets/assets/bg/Back_app-04.svg ... 
+2024-10-23 21:36:18 +0000  54994 bytes for ./assets/assets/bg/Back_app-04.svg
+2024-10-23 21:36:18 +0000  copying file ./FirebaseCrashlytics_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  1383 bytes for ./FirebaseCrashlytics_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./FirebaseCrashlytics_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  805 bytes for ./FirebaseCrashlytics_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Info.plist ... 
+2024-10-23 21:36:18 +0000  3709 bytes for ./Info.plist
+2024-10-23 21:36:18 +0000  copying file ./RNCAsyncStorage_resources.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  512 bytes for ./RNCAsyncStorage_resources.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./RNCAsyncStorage_resources.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  799 bytes for ./RNCAsyncStorage_resources.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./PkgInfo ... 
+2024-10-23 21:36:18 +0000  8 bytes for ./PkgInfo
+2024-10-23 21:36:18 +0000  copying file ./slide-01-01.png ... 
+2024-10-23 21:36:18 +0000  23869 bytes for ./slide-01-01.png
+2024-10-23 21:36:18 +0000  copying file ./React-Core_privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  768 bytes for ./React-Core_privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./React-Core_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  787 bytes for ./React-Core_privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  copying file ./Promises_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:18 +0000  373 bytes for ./Promises_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:18 +0000  copying file ./Promises_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:18 +0000  781 bytes for ./Promises_Privacy.bundle/Info.plist
+2024-10-23 21:36:18 +0000  /usr/bin/ditto exited with 0
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionEmbedProfileStep
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x60008529eee0; bundleID='com.moengage.MoEngageAnalytics', path='<DVTFilePath:0x600059fd73a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4d20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageAnalytics', executablePath='<DVTFilePath:0x600059fd4c40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000852b2d60; bundleID='com.moengage.MoEngageCore', path='<DVTFilePath:0x600059fd5960:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a7f70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageCore', executablePath='<DVTFilePath:0x600085349d40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x60008529e940; bundleID='com.moengage.MoEngageInApps', path='<DVTFilePath:0x600059fd7720:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a6df0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageInApps', executablePath='<DVTFilePath:0x60008534a3a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000852a22e0; bundleID='com.moengage.MoEngageMessaging', path='<DVTFilePath:0x600059fd6ed0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b84b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064260b40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageMessaging', executablePath='<DVTFilePath:0x600059fd5c70:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x60008529df80; bundleID='com.moengage.MoEngageObjCUtils', path='<DVTFilePath:0x600059fd52d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600031613390; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageObjCUtils', executablePath='<DVTFilePath:0x600059fd42a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000852b08a0; bundleID='com.moengage.MoEngageRichNotification', path='<DVTFilePath:0x600085811400:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bbac0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageRichNotification', executablePath='<DVTFilePath:0x600059fd5730:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x60008529f480; bundleID='com.moengage.MoEngageSDK', path='<DVTFilePath:0x600059fd5c00:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4f50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSDK', executablePath='<DVTFilePath:0x60008534d800:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000852a1aa0; bundleID='com.moengage.MoEngageSecurity', path='<DVTFilePath:0x60006dca2ca0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bb9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSecurity', executablePath='<DVTFilePath:0x600059f2fa30:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x60008529d680; bundleID='com.moengage.MoEngageTriggerEvaluator', path='<DVTFilePath:0x600085b79280:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4730; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageTriggerEvaluator', executablePath='<DVTFilePath:0x600059f2f4f0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x60008529fba0; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x600059fd4bd0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a51d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600085349200:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000852b3180; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b94f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'>
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionInfoPlistStep
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionSymbolsStep
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionAppThinningStep
+2024-10-23 21:36:18 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2024-10-23 21:36:18 +0000  Processing step: IDEDistributionArchThinningStep
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageAnalytics" because arch "arm64e" wasn't found
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageCore" because arch "arm64e" wasn't found
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageInApps" because arch "arm64e" wasn't found
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageMessaging" because arch "arm64e" wasn't found
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageObjCUtils" because arch "arm64e" wasn't found
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageRichNotification" because arch "arm64e" wasn't found
+2024-10-23 21:36:18 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:18 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework are ["arm64e"]
+2024-10-23 21:36:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK' '-verify_arch' 'arm64e'
+2024-10-23 21:36:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:18 +0000  Skipping architecture thinning for item "MoEngageSDK" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:19 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework are ["arm64e"]
+2024-10-23 21:36:19 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity' '-verify_arch' 'arm64e'
+2024-10-23 21:36:19 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:19 +0000  Skipping architecture thinning for item "MoEngageSecurity" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:19 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework are ["arm64e"]
+2024-10-23 21:36:19 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator' '-verify_arch' 'arm64e'
+2024-10-23 21:36:19 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:19 +0000  Skipping architecture thinning for item "MoEngageTriggerEvaluator" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:19 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework are ["arm64e"]
+2024-10-23 21:36:19 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes' '-verify_arch' 'arm64e'
+2024-10-23 21:36:19 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:19 +0000  Skipping architecture thinning for item "hermes" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:19 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib are ["arm64e"]
+2024-10-23 21:36:19 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib' '-verify_arch' 'arm64e'
+2024-10-23 21:36:19 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:19 +0000  Skipping architecture thinning for item "libswift_Concurrency.dylib" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:19 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex are ["arm64e"]
+2024-10-23 21:36:19 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/NotificationService' '-verify_arch' 'arm64e'
+2024-10-23 21:36:19 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:19 +0000  Skipping architecture thinning for item "NotificationService" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-10-23 21:36:19 +0000  Archs to thin for item /Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app are ["arm64e"]
+2024-10-23 21:36:19 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/LeisureWorldQatar' '-verify_arch' 'arm64e'
+2024-10-23 21:36:19 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-10-23 21:36:19 +0000  Skipping architecture thinning for item "LeisureWorldQatar" because arch "arm64e" wasn't found
+2024-10-23 21:36:19 +0000  Processing step: IDEDistributionODRStep
+2024-10-23 21:36:19 +0000  Processing step: IDEDistributionStripXattrsStep
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-10-23 21:36:19 +0000  Processing step: IDEDistributionCodesignStep
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529eee0; bundleID='com.moengage.MoEngageAnalytics', path='<DVTFilePath:0x600059fd73a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4d20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageAnalytics', executablePath='<DVTFilePath:0x600059fd4c40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529eee0; bundleID='com.moengage.MoEngageAnalytics', path='<DVTFilePath:0x600059fd73a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4d20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageAnalytics', executablePath='<DVTFilePath:0x600059fd4c40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529eee0; bundleID='com.moengage.MoEngageAnalytics', path='<DVTFilePath:0x600059fd73a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4d20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000642609c0; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageAnalytics', executablePath='<DVTFilePath:0x600059fd4c40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~7eauNQ
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003161fcf0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~7eauNQ",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageAnalytics]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852b2d60; bundleID='com.moengage.MoEngageCore', path='<DVTFilePath:0x600059fd5960:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a7f70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageCore', executablePath='<DVTFilePath:0x600085349d40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852b2d60; bundleID='com.moengage.MoEngageCore', path='<DVTFilePath:0x600059fd5960:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a7f70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageCore', executablePath='<DVTFilePath:0x600085349d40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x6000852b2d60; bundleID='com.moengage.MoEngageCore', path='<DVTFilePath:0x600059fd5960:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a7f70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000642609c0; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageCore', executablePath='<DVTFilePath:0x600085349d40:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~vaEDxS
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d4dde50; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~vaEDxS",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageCore]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529e940; bundleID='com.moengage.MoEngageInApps', path='<DVTFilePath:0x600059fd7720:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a6df0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageInApps', executablePath='<DVTFilePath:0x60008534a3a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529e940; bundleID='com.moengage.MoEngageInApps', path='<DVTFilePath:0x600059fd7720:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a6df0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823b000; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageInApps', executablePath='<DVTFilePath:0x60008534a3a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529e940; bundleID='com.moengage.MoEngageInApps', path='<DVTFilePath:0x600059fd7720:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a6df0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ae80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageInApps', executablePath='<DVTFilePath:0x60008534a3a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Nc3vnq
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43f750; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Nc3vnq",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageInApps]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852a22e0; bundleID='com.moengage.MoEngageMessaging', path='<DVTFilePath:0x600059fd6ed0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b84b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064269f80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageMessaging', executablePath='<DVTFilePath:0x600059fd5c70:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852a22e0; bundleID='com.moengage.MoEngageMessaging', path='<DVTFilePath:0x600059fd6ed0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b84b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageMessaging', executablePath='<DVTFilePath:0x600059fd5c70:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x6000852a22e0; bundleID='com.moengage.MoEngageMessaging', path='<DVTFilePath:0x600059fd6ed0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b84b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60006420a4c0; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageMessaging', executablePath='<DVTFilePath:0x600059fd5c70:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~alkQAt
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d4dcd70; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~alkQAt",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageMessaging]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529df80; bundleID='com.moengage.MoEngageObjCUtils', path='<DVTFilePath:0x600059fd52d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600031613390; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064208e40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageObjCUtils', executablePath='<DVTFilePath:0x600059fd42a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529df80; bundleID='com.moengage.MoEngageObjCUtils', path='<DVTFilePath:0x600059fd52d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600031613390; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000642609c0; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageObjCUtils', executablePath='<DVTFilePath:0x600059fd42a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529df80; bundleID='com.moengage.MoEngageObjCUtils', path='<DVTFilePath:0x600059fd52d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600031613390; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageObjCUtils', executablePath='<DVTFilePath:0x600059fd42a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~izVNRa
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d4dc1e0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~izVNRa",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageObjCUtils]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852b08a0; bundleID='com.moengage.MoEngageRichNotification', path='<DVTFilePath:0x600085811400:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bbac0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageRichNotification', executablePath='<DVTFilePath:0x600059fd5730:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852b08a0; bundleID='com.moengage.MoEngageRichNotification', path='<DVTFilePath:0x600085811400:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bbac0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823b000; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageRichNotification', executablePath='<DVTFilePath:0x600059fd5730:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x6000852b08a0; bundleID='com.moengage.MoEngageRichNotification', path='<DVTFilePath:0x600085811400:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bbac0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ae80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageRichNotification', executablePath='<DVTFilePath:0x600059fd5730:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~23AjRu
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43f020; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~23AjRu",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageRichNotification]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529f480; bundleID='com.moengage.MoEngageSDK', path='<DVTFilePath:0x600059fd5c00:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4f50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSDK', executablePath='<DVTFilePath:0x60008534d800:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529f480; bundleID='com.moengage.MoEngageSDK', path='<DVTFilePath:0x600059fd5c00:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4f50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823b000; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSDK', executablePath='<DVTFilePath:0x60008534d800:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529f480; bundleID='com.moengage.MoEngageSDK', path='<DVTFilePath:0x600059fd5c00:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4f50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ae80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSDK', executablePath='<DVTFilePath:0x60008534d800:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~CglFoc
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43f980; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~CglFoc",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageSDK]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852a1aa0; bundleID='com.moengage.MoEngageSecurity', path='<DVTFilePath:0x60006dca2ca0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bb9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSecurity', executablePath='<DVTFilePath:0x600059f2fa30:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852a1aa0; bundleID='com.moengage.MoEngageSecurity', path='<DVTFilePath:0x60006dca2ca0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bb9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSecurity', executablePath='<DVTFilePath:0x600059f2fa30:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x6000852a1aa0; bundleID='com.moengage.MoEngageSecurity', path='<DVTFilePath:0x60006dca2ca0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4bb9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064268cc0; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageSecurity', executablePath='<DVTFilePath:0x600059f2fa30:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Ivvb8k
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d4dd7c0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Ivvb8k",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageSecurity]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529d680; bundleID='com.moengage.MoEngageTriggerEvaluator', path='<DVTFilePath:0x600085b79280:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4730; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageTriggerEvaluator', executablePath='<DVTFilePath:0x600059f2f4f0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529d680; bundleID='com.moengage.MoEngageTriggerEvaluator', path='<DVTFilePath:0x600085b79280:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4730; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ae80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageTriggerEvaluator', executablePath='<DVTFilePath:0x600059f2f4f0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529d680; bundleID='com.moengage.MoEngageTriggerEvaluator', path='<DVTFilePath:0x600085b79280:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a4730; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823b000; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.moengage.MoEngageTriggerEvaluator', executablePath='<DVTFilePath:0x600059f2f4f0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Yo3kWr
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43eee0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Yo3kWr",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework: signed bundle with Mach-O thin (arm64) [com.moengage.MoEngageTriggerEvaluator]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529fba0; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x600059fd4bd0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a51d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600085349200:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529fba0; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x600059fd4bd0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a51d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600085349200:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529fba0; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x600059fd4bd0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a51d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ae80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600085349200:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~SYbHVk
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43eb70; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~SYbHVk",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/hermes.framework"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/hermes.framework: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/hermes.framework: signed bundle with Mach-O thin (arm64) [dev.hermesengine.iphoneos]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852b3180; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b94f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'>: {
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000852b3180; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b94f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064263a80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x6000852b3180; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b94f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064260b40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='(null)', teamID='LP4AVJ58MH', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x600059fd59d0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~5J8wXr
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d4c7bb0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~5J8wXr",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib: signed Mach-O thin (arm64) [com.apple.dt.runtime.swiftConcurrency]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529f000; bundleID='com.leisure.Loyalty.NotificationService', path='<DVTFilePath:0x600059f2d030:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a3570; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064262a00; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='{
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty.NotificationService";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}', teamID='LP4AVJ58MH', identifier='com.leisure.Loyalty.NotificationService', executablePath='<DVTFilePath:0x600059f2d0a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex/NotificationService'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty.NotificationService";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x60008529f000; bundleID='com.leisure.Loyalty.NotificationService', path='<DVTFilePath:0x600059f2d030:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a3570; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ac40; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='{
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty.NotificationService";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}', teamID='LP4AVJ58MH', identifier='com.leisure.Loyalty.NotificationService', executablePath='<DVTFilePath:0x600059f2d0a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex/NotificationService'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty.NotificationService";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x60008529f000; bundleID='com.leisure.Loyalty.NotificationService', path='<DVTFilePath:0x600059f2d030:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4a3570; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823ae80; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='{
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty.NotificationService";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}', teamID='LP4AVJ58MH', identifier='com.leisure.Loyalty.NotificationService', executablePath='<DVTFilePath:0x600059f2d0a0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/PlugIns/NotificationService.appex/NotificationService'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~vpold2
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43f340; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~vpold2",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex"
+)'>
+2024-10-23 21:36:19 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex: signed bundle with Mach-O thin (arm64) [com.leisure.Loyalty.NotificationService]
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000853459e0; bundleID='com.leisure.Loyalty', path='<DVTFilePath:0x600059f2e450:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b8c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600064261980; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='{
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty";
+    "aps-environment" = development;
+    "com.apple.developer.associated-domains" =     (
+        "applinks:www.angrybirdsworld.qa/product",
+        "applinks:www.snowdunes.qa/product",
+        "applinks:www.virtuocity.qa/product"
+    );
+    "com.apple.developer.networking.slicing.appcategory" =     (
+    );
+    "com.apple.developer.networking.slicing.trafficcategory" =     (
+    );
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}', teamID='LP4AVJ58MH', identifier='com.leisure.Loyalty', executablePath='<DVTFilePath:0x600005c41ce0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/LeisureWorldQatar'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty";
+    "aps-environment" = development;
+    "com.apple.developer.associated-domains" =     (
+        "applinks:www.angrybirdsworld.qa/product",
+        "applinks:www.snowdunes.qa/product",
+        "applinks:www.virtuocity.qa/product"
+    );
+    "com.apple.developer.networking.slicing.appcategory" =     (
+    );
+    "com.apple.developer.networking.slicing.trafficcategory" =     (
+    );
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}
+2024-10-23 21:36:19 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-10-23 21:36:19 +0000  Entitlements for <IDEDistributionItem: 0x6000853459e0; bundleID='com.leisure.Loyalty', path='<DVTFilePath:0x600059f2e450:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b8c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823b300; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='{
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty";
+    "aps-environment" = development;
+    "com.apple.developer.associated-domains" =     (
+        "applinks:www.angrybirdsworld.qa/product",
+        "applinks:www.snowdunes.qa/product",
+        "applinks:www.virtuocity.qa/product"
+    );
+    "com.apple.developer.networking.slicing.appcategory" =     (
+    );
+    "com.apple.developer.networking.slicing.trafficcategory" =     (
+    );
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}', teamID='LP4AVJ58MH', identifier='com.leisure.Loyalty', executablePath='<DVTFilePath:0x600005c41ce0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/LeisureWorldQatar'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty";
+    "aps-environment" = development;
+    "com.apple.developer.associated-domains" =     (
+        "applinks:www.angrybirdsworld.qa/product",
+        "applinks:www.snowdunes.qa/product",
+        "applinks:www.virtuocity.qa/product"
+    );
+    "com.apple.developer.networking.slicing.appcategory" =     (
+    );
+    "com.apple.developer.networking.slicing.trafficcategory" =     (
+    );
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}
+2024-10-23 21:36:19 +0000  Writing entitlements for <IDEDistributionItem: 0x6000853459e0; bundleID='com.leisure.Loyalty', path='<DVTFilePath:0x600059f2e450:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003d4b8c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60007823b180; name='Apple Development: Mohamed Mansour (PG3W7S4N94)', hash='F7EAB2F24E23EECB3665E5CF946921874524855F', serialNumber='5660B67FA0B67095B52D052F447BE32B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-15 11:32:37 +0000''>', entitlements='{
+    "application-identifier" = "LP4AVJ58MH.com.leisure.Loyalty";
+    "aps-environment" = development;
+    "com.apple.developer.associated-domains" =     (
+        "applinks:www.angrybirdsworld.qa/product",
+        "applinks:www.snowdunes.qa/product",
+        "applinks:www.virtuocity.qa/product"
+    );
+    "com.apple.developer.networking.slicing.appcategory" =     (
+    );
+    "com.apple.developer.networking.slicing.trafficcategory" =     (
+    );
+    "com.apple.developer.team-identifier" = LP4AVJ58MH;
+    "com.apple.security.application-groups" =     (
+        "group.com.leisure.Loyalty.MoEngage"
+    );
+    "get-task-allow" = 1;
+}', teamID='LP4AVJ58MH', identifier='com.leisure.Loyalty', executablePath='<DVTFilePath:0x600005c41ce0:'/Users/RichardNavin/Library/Developer/Xcode/Archives/2024-10-24/LeisureWorldQatar 24-10-2024, 12.32 AM.xcarchive/Products/Applications/LeisureWorldQatar.app/LeisureWorldQatar'>', hardenedRuntime='0'>'> to: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Wlv0P5
+2024-10-23 21:36:19 +0000  invoking codesign: <NSConcreteTask: 0x60003d43e9e0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    F7EAB2F24E23EECB3665E5CF946921874524855F,
+    "--entitlements",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/entitlements~~~Wlv0P5",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app"
+)'>
+2024-10-23 21:36:20 +0000  codesign output: /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app: replacing existing signature
+/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app: signed app bundle with Mach-O thin (arm64) [com.leisure.Loyalty]
+2024-10-23 21:36:20 +0000  Processing step: IDEDistributionZipODRItemStep
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-10-23 21:36:20 +0000  Processing step: IDEDistributionCreateIPAStep
+2024-10-23 21:36:20 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root' '/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Packages/LeisureWorldQatar.ipa'
+2024-10-23 21:36:20 +0000  >>> Copying /var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root 
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  58889 bytes for ./Payload/LeisureWorldQatar.app/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  855 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCore_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  791 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCore_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/glog_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  772 bytes for ./Payload/LeisureWorldQatar.app/glog_privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  373 bytes for ./Payload/LeisureWorldQatar.app/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FBLPromises_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  787 bytes for ./Payload/LeisureWorldQatar.app/FBLPromises_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Leisure-logo-01.png ... 
+2024-10-23 21:36:20 +0000  79159 bytes for ./Payload/LeisureWorldQatar.app/Leisure-logo-01.png
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  2040 bytes for ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/NotificationService ... 
+2024-10-23 21:36:20 +0000  87872 bytes for ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/NotificationService
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/embedded.mobileprovision ... 
+2024-10-23 21:36:20 +0000  15891 bytes for ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/embedded.mobileprovision
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/Info.plist ... 
+2024-10-23 21:36:20 +0000  924 bytes for ./Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Cairo-SemiBold.ttf ... 
+2024-10-23 21:36:20 +0000  91728 bytes for ./Payload/LeisureWorldQatar.app/Cairo-SemiBold.ttf
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/AppIcon60x60@2x.png ... 
+2024-10-23 21:36:20 +0000  4913 bytes for ./Payload/LeisureWorldQatar.app/AppIcon60x60@2x.png
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/LeisureWorldQatar ... 
+2024-10-23 21:36:20 +0000  9538496 bytes for ./Payload/LeisureWorldQatar.app/LeisureWorldQatar
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  855 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCoreInternal_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  807 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCoreInternal_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  1105 bytes for ./Payload/LeisureWorldQatar.app/GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/GoogleDataTransport_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  805 bytes for ./Payload/LeisureWorldQatar.app/GoogleDataTransport_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/React-cxxreact_privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  552 bytes for ./Payload/LeisureWorldQatar.app/React-cxxreact_privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/React-cxxreact_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  795 bytes for ./Payload/LeisureWorldQatar.app/React-cxxreact_privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  374 bytes for ./Payload/LeisureWorldQatar.app/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/nanopb_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  780 bytes for ./Payload/LeisureWorldQatar.app/nanopb_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Cairo-Regular.ttf ... 
+2024-10-23 21:36:20 +0000  151032 bytes for ./Payload/LeisureWorldQatar.app/Cairo-Regular.ttf
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/GoogleService-Info.plist ... 
+2024-10-23 21:36:20 +0000  716 bytes for ./Payload/LeisureWorldQatar.app/GoogleService-Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCoreExtension_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  478 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCoreExtension_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCoreExtension_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  809 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCoreExtension_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Base.lproj/LaunchScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib ... 
+2024-10-23 21:36:20 +0000  1793 bytes for ./Payload/LeisureWorldQatar.app/Base.lproj/LaunchScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2024-10-23 21:36:20 +0000  258 bytes for ./Payload/LeisureWorldQatar.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-Y6W-OH-hqX.nib ... 
+2024-10-23 21:36:20 +0000  924 bytes for ./Payload/LeisureWorldQatar.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-Y6W-OH-hqX.nib
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/RCT-Folly_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  787 bytes for ./Payload/LeisureWorldQatar.app/RCT-Folly_privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Assets.car ... 
+2024-10-23 21:36:20 +0000  228111 bytes for ./Payload/LeisureWorldQatar.app/Assets.car
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  1105 bytes for ./Payload/LeisureWorldQatar.app/FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseInstallations_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  809 bytes for ./Payload/LeisureWorldQatar.app/FirebaseInstallations_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/AppIcon76x76@2x~ipad.png ... 
+2024-10-23 21:36:20 +0000  6100 bytes for ./Payload/LeisureWorldQatar.app/AppIcon76x76@2x~ipad.png
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  1233 bytes for ./Payload/LeisureWorldQatar.app/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/GoogleUtilities_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  796 bytes for ./Payload/LeisureWorldQatar.app/GoogleUtilities_Privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/main.jsbundle ... 
+2024-10-23 21:36:20 +0000  7838857 bytes for ./Payload/LeisureWorldQatar.app/main.jsbundle
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Cairo-Bold.ttf ... 
+2024-10-23 21:36:20 +0000  153640 bytes for ./Payload/LeisureWorldQatar.app/Cairo-Bold.ttf
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:20 +0000  1042 bytes for ./Payload/LeisureWorldQatar.app/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/boost_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:20 +0000  775 bytes for ./Payload/LeisureWorldQatar.app/boost_privacy.bundle/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore ... 
+2024-10-23 21:36:20 +0000  2581712 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/MoEngageCore
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/Info.plist ... 
+2024-10-23 21:36:20 +0000  923 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity ... 
+2024-10-23 21:36:20 +0000  380480 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/MoEngageSecurity
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/Info.plist ... 
+2024-10-23 21:36:20 +0000  933 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib ... 
+2024-10-23 21:36:20 +0000  557584 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics ... 
+2024-10-23 21:36:20 +0000  1012912 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/MoEngageAnalytics
+copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/Info.plist ... 
+2024-10-23 21:36:20 +0000  935 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/_CodeSignature/CodeResources
+copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/Info.plist ... 
+935 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/Info.plist
+copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging ... 
+2024-10-23 21:36:20 +0000  683808 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework/MoEngageMessaging
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  2034 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/PrivacyInfo.xcprivacy ... 
+2150 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/PrivacyInfo.xcprivacy
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/Info.plist ... 
+2024-10-23 21:36:20 +0000  921 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK ... 
+2024-10-23 21:36:20 +0000  101872 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework/MoEngageSDK
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils ... 
+2024-10-23 21:36:20 +0000  178960 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/MoEngageObjCUtils
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/Info.plist ... 
+2024-10-23 21:36:20 +0000  935 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework/Info.plist
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:20 +0000  2470 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:20 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps ... 
+2024-10-23 21:36:21 +0000  1651376 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/MoEngageInApps
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/Assets.car ... 
+2024-10-23 21:36:21 +0000  95199 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/Assets.car
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:21 +0000  1088 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/PrivacyInfo.xcprivacy
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/defaultCloseButton.png ... 
+2024-10-23 21:36:21 +0000  3037 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/defaultCloseButton.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/Info.plist ... 
+2024-10-23 21:36:21 +0000  926 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:21 +0000  1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/Info.plist ... 
+2024-10-23 21:36:21 +0000  948 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator ... 
+2024-10-23 21:36:21 +0000  487040 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework/MoEngageTriggerEvaluator
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:21 +0000  3020 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngagePushBodyView.nib ... 
+2024-10-23 21:36:21 +0000  4354 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngagePushBodyView.nib
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngagePushMediaView.nib ... 
+2024-10-23 21:36:21 +0000  2023 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngagePushMediaView.nib
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:21 +0000  1088 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/PrivacyInfo.xcprivacy
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionView.nib ... 
+2024-10-23 21:36:21 +0000  3159 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionView.nib
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionViewCell.nib ... 
+2024-10-23 21:36:21 +0000  2121 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageCarouselCollectionViewCell.nib
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/Info.plist ... 
+2024-10-23 21:36:21 +0000  949 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification ... 
+2024-10-23 21:36:21 +0000  370784 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework/MoEngageRichNotification
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/_CodeSignature/CodeResources ... 
+2024-10-23 21:36:21 +0000  1798 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/_CodeSignature/CodeResources
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes ... 
+2024-10-23 21:36:21 +0000  4616800 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/hermes
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/Info.plist ... 
+815 bytes for ./Payload/LeisureWorldQatar.app/Frameworks/hermes.framework/Info.plist
+copying file ./Payload/LeisureWorldQatar.app/embedded.mobileprovision ... 
+2024-10-23 21:36:21 +0000  17097 bytes for ./Payload/LeisureWorldQatar.app/embedded.mobileprovision
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png ... 
+2024-10-23 21:36:21 +0000  761 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png
+copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png ... 
+2024-10-23 21:36:21 +0000  405 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon.png ... 
+290 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png ... 
+913 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/yandex-maps.png ... 
+2024-10-23 21:36:21 +0000  2340 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/yandex-maps.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/tmap.png ... 
+2024-10-23 21:36:21 +0000  2879 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/tmap.png
+copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/transit.png ... 
+2024-10-23 21:36:21 +0000  5879 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/transit.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/gett.png ... 
+2024-10-23 21:36:21 +0000  20151 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/gett.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/dgis.png ... 
+2024-10-23 21:36:21 +0000  4231 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/dgis.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/google-maps.png ... 
+2024-10-23 21:36:21 +0000  3865 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/google-maps.png
+copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/citymapper.png ... 
+2024-10-23 21:36:21 +0000  1838 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/citymapper.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/truckmap.png ... 
+2024-10-23 21:36:21 +0000  3295 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/truckmap.png
+copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/waze.png ... 
+2024-10-23 21:36:21 +0000  7947 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/waze.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/moovit.png ... 
+2024-10-23 21:36:21 +0000  3501 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/moovit.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/osmand.png ... 
+2024-10-23 21:36:21 +0000  10595 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/osmand.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/uber.png ... 
+2024-10-23 21:36:21 +0000  2941 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/uber.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/mapycz.png ... 
+2024-10-23 21:36:21 +0000  6594 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/mapycz.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/liftago.png ... 
+2024-10-23 21:36:21 +0000  16123 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/liftago.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/naver-map.png ... 
+2024-10-23 21:36:21 +0000  18987 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/naver-map.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/apple-maps.png ... 
+2024-10-23 21:36:21 +0000  4886 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/apple-maps.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/yandex.png ... 
+2024-10-23 21:36:21 +0000  3305 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/yandex.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/kakao-map.png ... 
+2024-10-23 21:36:21 +0000  11260 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/kakao-map.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/petalmaps.png ... 
+2024-10-23 21:36:21 +0000  27008 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/petalmaps.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/maps-me.png ... 
+2024-10-23 21:36:21 +0000  29308 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/maps-me.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/yandex-taxi.png ... 
+2024-10-23 21:36:21 +0000  7976 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/yandex-taxi.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/lyft.png ... 
+2024-10-23 21:36:21 +0000  4173 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-map-link/src/images/lyft.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png ... 
+2024-10-23 21:36:21 +0000  458 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png ... 
+2024-10-23 21:36:21 +0000  462 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/down@3x.png ... 
+2024-10-23 21:36:21 +0000  508 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/down@3x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/down@2x.png ... 
+2024-10-23 21:36:21 +0000  354 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/down@2x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/up.png ... 
+2024-10-23 21:36:21 +0000  215 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/up.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/down.png ... 
+2024-10-23 21:36:21 +0000  208 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/down.png
+copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/up@2x.png ... 
+2024-10-23 21:36:21 +0000  347 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/up@2x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/up@3x.png ... 
+2024-10-23 21:36:21 +0000  504 bytes for ./Payload/LeisureWorldQatar.app/assets/node_modules/react-native-calendars/src/img/up@3x.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/card/app.png ... 
+2024-10-23 21:36:21 +0000  91685 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/card/app.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/card/cardde.png ... 
+2024-10-23 21:36:21 +0000  21672 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/card/cardde.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/card/red.png ... 
+2024-10-23 21:36:21 +0000  15074 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/card/red.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/card/carddeb.png ... 
+2024-10-23 21:36:21 +0000  31616 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/card/carddeb.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/sd.jpg ... 
+2024-10-23 21:36:21 +0000  207547 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/sd.jpg
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/load/load.gif ... 
+2024-10-23 21:36:21 +0000  413193 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/load/load.gif
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/email.png ... 
+2024-10-23 21:36:21 +0000  381 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/email.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/block-user.png ... 
+2024-10-23 21:36:21 +0000  18604 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/block-user.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/tejoryun.png ... 
+2024-10-23 21:36:21 +0000  3301 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/tejoryun.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/direction.png ... 
+2024-10-23 21:36:21 +0000  577 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/direction.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/event.png ... 
+2024-10-23 21:36:21 +0000  11826 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/event.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/items.png ... 
+2024-10-23 21:36:21 +0000  4174 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/items.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/redeem.png ... 
+2024-10-23 21:36:21 +0000  6840 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/redeem.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/leisure_white.png ... 
+2024-10-23 21:36:21 +0000  20312 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/leisure_white.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/UXP.png ... 
+2024-10-23 21:36:21 +0000  207690 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/UXP.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/wallet.png ... 
+2024-10-23 21:36:21 +0000  2942 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/wallet.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/rules.png ... 
+2024-10-23 21:36:21 +0000  5239 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/rules.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/login.png ... 
+2024-10-23 21:36:21 +0000  3659 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/login.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/cardpay.png ... 
+2024-10-23 21:36:21 +0000  2022 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/cardpay.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/storeun.png ... 
+2024-10-23 21:36:21 +0000  4684 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/storeun.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/cart.png ... 
+2024-10-23 21:36:21 +0000  460 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/cart.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/profileone.png ... 
+2024-10-23 21:36:21 +0000  2301 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/profileone.png
+copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/touchid.png ... 
+2024-10-23 21:36:21 +0000  6653 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/touchid.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/coup-2.png ... 
+2024-10-23 21:36:21 +0000  5789 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/coup-2.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/pcard.png ... 
+2024-10-23 21:36:21 +0000  5547 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/pcard.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/settings.png ... 
+2024-10-23 21:36:21 +0000  1423 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/settings.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/store.png ... 
+2024-10-23 21:36:21 +0000  3840 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/store.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/infoterms.png ... 
+2024-10-23 21:36:21 +0000  522 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/infoterms.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/order.png ... 
+2024-10-23 21:36:21 +0000  12506 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/order.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/mobileverify.png ... 
+2024-10-23 21:36:21 +0000  1904 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/mobileverify.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/coup-1.png ... 
+2024-10-23 21:36:21 +0000  8164 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/coup-1.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/rewards.png ... 
+2024-10-23 21:36:21 +0000  9364 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/rewards.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/claim.png ... 
+2024-10-23 21:36:21 +0000  9099 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/claim.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/couponlogoun.png ... 
+2024-10-23 21:36:21 +0000  6229 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/couponlogoun.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/tejory.png ... 
+2024-10-23 21:36:21 +0000  3872 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/tejory.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/blklock.png ... 
+2024-10-23 21:36:21 +0000  205 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/blklock.png
+copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/rewardpoint.png ... 
+2024-10-23 21:36:21 +0000  9367 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/rewardpoint.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/home.png ... 
+2024-10-23 21:36:21 +0000  3477 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/home.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/couponlogo.png ... 
+2024-10-23 21:36:21 +0000  7926 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/couponlogo.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/cal.png ... 
+2024-10-23 21:36:21 +0000  273 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/cal.png
+copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/changePass.png ... 
+2024-10-23 21:36:21 +0000  2897 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/changePass.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/camerabar.png ... 
+2024-10-23 21:36:21 +0000  763 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/camerabar.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/grid.png ... 
+2024-10-23 21:36:21 +0000  12397 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/grid.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/caret-down.png ... 
+2024-10-23 21:36:21 +0000  397 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/caret-down.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/search.png ... 
+2024-10-23 21:36:21 +0000  3452 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/search.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/gsicon.png ... 
+2024-10-23 21:36:21 +0000  266 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/gsicon.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/history.png ... 
+2024-10-23 21:36:21 +0000  8549 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/history.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/register0.png ... 
+2024-10-23 21:36:21 +0000  4272 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/register0.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/greylogo.png ... 
+2024-10-23 21:36:21 +0000  81388 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/greylogo.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/iconbg.png ... 
+2024-10-23 21:36:21 +0000  1860 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/iconbg.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/notify.png ... 
+2024-10-23 21:36:21 +0000  12490 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/notify.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/whitelogo.png ... 
+2024-10-23 21:36:21 +0000  14850 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/whitelogo.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/signoff.png ... 
+2024-10-23 21:36:21 +0000  397 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/signoff.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/add-to-cart.png ... 
+2024-10-23 21:36:21 +0000  11507 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/add-to-cart.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/share.png ... 
+2024-10-23 21:36:21 +0000  13282 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/share.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/profile.png ... 
+2024-10-23 21:36:21 +0000  2741 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/profile.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/web.png ... 
+2024-10-23 21:36:21 +0000  1097 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/web.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/mobile.png ... 
+2024-10-23 21:36:21 +0000  276 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/mobile.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/bottomsvg.png ... 
+2024-10-23 21:36:21 +0000  8433 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/bottomsvg.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/call.png ... 
+2024-10-23 21:36:21 +0000  707 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/call.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/delete.png ... 
+2024-10-23 21:36:21 +0000  767 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/delete.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/signout.png ... 
+2024-10-23 21:36:21 +0000  2253 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/signout.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/parks.png ... 
+2024-10-23 21:36:21 +0000  4222 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/parks.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/edit.png ... 
+2024-10-23 21:36:21 +0000  560 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/edit.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/next.png ... 
+2024-10-23 21:36:21 +0000  170 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/next.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/star.png ... 
+2024-10-23 21:36:21 +0000  748 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/star.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/lock-2.png ... 
+2024-10-23 21:36:21 +0000  494 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/lock-2.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/social-media.png ... 
+2024-10-23 21:36:21 +0000  8001 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/social-media.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/signin.png ... 
+2024-10-23 21:36:21 +0000  663 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/signin.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/warn.png ... 
+2024-10-23 21:36:21 +0000  924 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/warn.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/explore.png ... 
+2024-10-23 21:36:21 +0000  617 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/explore.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/faceid.png ... 
+2024-10-23 21:36:21 +0000  1199 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/faceid.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/camera.png ... 
+2024-10-23 21:36:21 +0000  383 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/camera.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/reg.png ... 
+2024-10-23 21:36:21 +0000  780 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/reg.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/square.png ... 
+2024-10-23 21:36:21 +0000  4436 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/square.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/loca.png ... 
+2024-10-23 21:36:21 +0000  6728 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/loca.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/back.png ... 
+2024-10-23 21:36:21 +0000  195 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/back.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/homeun.png ... 
+2024-10-23 21:36:21 +0000  2950 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/homeun.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/tejoryleisure.png ... 
+2024-10-23 21:36:21 +0000  4473 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/tejoryleisure.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/image.png ... 
+2024-10-23 21:36:21 +0000  314 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/image.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/burger.png ... 
+2024-10-23 21:36:21 +0000  153 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/burger.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/profileun.png ... 
+2024-10-23 21:36:21 +0000  2864 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/profileun.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/Icons/close.png ... 
+2024-10-23 21:36:21 +0000  1030 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/Icons/close.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/bg/bg-01.jpg ... 
+2024-10-23 21:36:21 +0000  441473 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/bg/bg-01.jpg
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/bg/Circles-Pattern.svg ... 
+2024-10-23 21:36:21 +0000  1957 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/bg/Circles-Pattern.svg
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/bg/bottombar.png ... 
+2024-10-23 21:36:21 +0000  8088 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/bg/bottombar.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/assets/assets/bg/Back_app-04.svg ... 
+2024-10-23 21:36:21 +0000  54994 bytes for ./Payload/LeisureWorldQatar.app/assets/assets/bg/Back_app-04.svg
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCrashlytics_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:21 +0000  1383 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCrashlytics_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/FirebaseCrashlytics_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:21 +0000  805 bytes for ./Payload/LeisureWorldQatar.app/FirebaseCrashlytics_Privacy.bundle/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Info.plist ... 
+2024-10-23 21:36:21 +0000  3709 bytes for ./Payload/LeisureWorldQatar.app/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/RNCAsyncStorage_resources.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:21 +0000  512 bytes for ./Payload/LeisureWorldQatar.app/RNCAsyncStorage_resources.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/RNCAsyncStorage_resources.bundle/Info.plist ... 
+2024-10-23 21:36:21 +0000  799 bytes for ./Payload/LeisureWorldQatar.app/RNCAsyncStorage_resources.bundle/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/PkgInfo ... 
+2024-10-23 21:36:21 +0000  8 bytes for ./Payload/LeisureWorldQatar.app/PkgInfo
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/slide-01-01.png ... 
+2024-10-23 21:36:21 +0000  23869 bytes for ./Payload/LeisureWorldQatar.app/slide-01-01.png
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/React-Core_privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:21 +0000  768 bytes for ./Payload/LeisureWorldQatar.app/React-Core_privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/React-Core_privacy.bundle/Info.plist ... 
+2024-10-23 21:36:21 +0000  787 bytes for ./Payload/LeisureWorldQatar.app/React-Core_privacy.bundle/Info.plist
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Promises_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2024-10-23 21:36:21 +0000  373 bytes for ./Payload/LeisureWorldQatar.app/Promises_Privacy.bundle/PrivacyInfo.xcprivacy
+2024-10-23 21:36:21 +0000  copying file ./Payload/LeisureWorldQatar.app/Promises_Privacy.bundle/Info.plist ... 
+2024-10-23 21:36:21 +0000  781 bytes for ./Payload/LeisureWorldQatar.app/Promises_Privacy.bundle/Info.plist
+2024-10-23 21:36:21 +0000  /usr/bin/ditto exited with 0
+2024-10-23 21:36:21 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2024-10-23 21:36:21 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2024-10-23 21:36:21 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c933a0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSecurity.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c92df0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageAnalytics.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x60000de10ee0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/hermes.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c8e840:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageMessaging.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600029e95ab0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageSDK.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c8ff70:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageCore.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x60000de10e70:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageInApps.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600085a33480:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageRichNotification.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c935d0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageObjCUtils.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c90fc0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>
+2024-10-23 21:36:21 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600015c90fc0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/libswift_Concurrency.dylib'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600085b4c100:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/Frameworks/MoEngageTriggerEvaluator.framework'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x60000de113b0:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app/PlugIns/NotificationService.appex'>
+2024-10-23 21:36:21 +0000  IDEDistributionItem init <DVTFilePath:0x600015c8ce70:'/var/folders/82/zx4v959j0zn3s_ylm0dwcbgm0000gp/T/XcodeDistPipeline.~~~8FZw7j/Root/Payload/LeisureWorldQatar.app'>
+2024-10-23 21:36:21 +0000  Processing step: IDEDistributionCreateManifestStep
