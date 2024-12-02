@@ -26,7 +26,7 @@ export default function App (props) {
       new MoEAnalyticsConfig(true)
     );
     ReactMoE.initialize("DCMBBW4GE1CX78NNNXFU1VN8", moEInitConfig);
-
+    global.profileUpdate=false;
     global.initProfile=undefined;
     global.rateVisible=false;
     global.loadingBar=0;

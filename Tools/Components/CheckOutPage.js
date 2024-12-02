@@ -34,12 +34,13 @@ import { useTheme } from '../context/ThemeProvider';
 import BackgroundWall from './BackgroundWall';
 // import Slider from '@react-native-community/slider';
 import CheckBox from '@react-native-community/checkbox';
-import { logAddPaymentInfoEvent, logBeginCheckoutEvent, logPurchaseEvent, logScreenViewEvent } from '../Analytics/AppAnalytics';
+import { logAddPaymentInfoEvent, logBeginCheckoutEvent, logCancelPaymentEvent, logPurchaseEvent, logScreenViewEvent } from '../Analytics/AppAnalytics';
 import { Modal } from 'react-native';
 import { StatusBar } from 'react-native';
 import { useState } from 'react';
 import { useAppContext } from '../../src/js/reducers/AppReducer';
 import QRCode from 'react-native-qrcode-svg';
+import ReactMoE from 'react-native-moengage';
 export default function CheckOutPage (props){
     const route=useRoute();
     const Colors=useTheme();
@@ -682,7 +683,7 @@ export default function CheckOutPage (props){
                             },5000)
                             .then((response) => response.text())
                             .then((responseJson) => {
-                                // console.log("validateShoppingCartVGS : "+responseJson);
+                                console.log("validateShoppingCartVGS : "+responseJson);
                                 
                                 var responseObj=JSON.parse(responseJson);
                                 if(!responseObj.Answer.ValidateShopCart.RestrictValidPayments){
@@ -808,9 +809,13 @@ export default function CheckOutPage (props){
                                         if(Tools.stringIsContains(responseObj.Result,"completed")){
                                             // var ondone=props.route.params.onDone;
                                             // ondone();
+                                            // console.log("Resp :"+JSON.stringify(responseObj));
+                                            // console.log("LastCartItems-"+ JSON.stringify(LastCartItems));
+                                            // console.log("LastShopcart-"+ JSON.stringify(LastShopcart));
+                                            // console.log("profile-"+ JSON.stringify(profile));
                                             logAddPaymentInfoEvent(responseObj);
                                             // logPurchaseEvent(responseObj,state.cartItems,shopCartInfo.Answer.ShopCart,state.profile);
-                                            logPurchaseEvent(responseObj,LastCartItems,LastShopcart,state.profile);
+                                            logPurchaseEvent(responseObj,LastShopcart,LastCartItems,profile);
                                             var onDoneCart=props.route.params.onDoneCart;
                                             onDoneCart();
                                             // DeviceEventEmitter.emit('onDoneCart');
@@ -948,6 +953,25 @@ export default function CheckOutPage (props){
                         }
                         const updateLoading=(_load)=>{
                             setIsLoading(_load);
+                        }
+
+                        const AddUserLevel=()=>{
+                            var dataGot=profile;
+                            console.log("USER : "+JSON.stringify(dataGot));
+                            ReactMoE.setUserUniqueID(dataGot.Mobile);
+                            setTimeout(() => {
+                              ReactMoE.setUserName(dataGot.Mobile);
+                              ReactMoE.setUserFirstName(dataGot.FirstName);
+                              ReactMoE.setUserLastName(dataGot.LastName);
+                              ReactMoE.setUserEmailID(dataGot.Email);
+                              ReactMoE.setUserContactNumber(dataGot.Mobile);
+                              ReactMoE.setUserAttribute("leisurepoints", dataGot.Points);
+                              ReactMoE.setUserAttribute("leisurecardno", dataGot.CardNo);
+                            //   ReactMoE.setUserAttribute("mediaId", GetMediaIDs(dataGot));
+                            //   mediaBalance=GetMediaBalanceIDs(dataGot).walletBalance;
+                            //   ReactMoE.setUserAttribute("mediaBalance", mediaBalance);
+                              
+                            }, 1500);
                         }
                         return (
                             <KeyboardAvoidingView style={{flex:1,backgroundColor:Colors.bgColor}} behavior={(Platform.OS === 'ios' ? 'padding' : 'undefined')} enabled>
@@ -1214,6 +1238,9 @@ export default function CheckOutPage (props){
                                         // addAlltoShoppingCartVGS(totalVal,profile,updateLoading);  
                                         // setAccountToCart(shopCartInfo,profile,shopCartInfo.Answer.ShopCart.TotalAmount,updateLoading);
                                         // console.log("P : "+JSON.stringify(state.profile));
+                                        if(Tools.IsNull(state.profile)){
+                                            AddUserLevel();
+                                        }
                                         logBeginCheckoutEvent(state.cartItems,shopCartInfo.Answer.ShopCart);
                                         saveShopCartAccount(shopCartInfo.Answer.ShopCart.ShopCartId,profile,finalAmount,updateLoading);
                                    
@@ -1252,6 +1279,7 @@ export default function CheckOutPage (props){
                                             onPress:()=>{
                                                 setPaymentWebUrl('');
                                                 setShowPay(false);
+                                                logCancelPaymentEvent(state.cartItems,shopCartInfo.Answer.ShopCart);
                                             }
                                         },
                                         {

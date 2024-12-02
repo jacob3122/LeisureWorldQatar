@@ -5,6 +5,7 @@ export default DarkColors={
   sdColor:'#00DFA0',
   black:'#ffffff',
   blackAlways:'#000000',
+  whiteAlways:'#ffffff',
   silver:'#D9D9D9',
   placeholdertext:'#676667',
   transparent:'rgba(0,0,0,0)',

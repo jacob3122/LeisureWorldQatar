@@ -44,7 +44,7 @@ export default function CartPage(props){
     
     // class CartPageC extends Component {
     cardNumberInputRef=React.createRef();
-    let empty=(Tools.IsNull(state.shopCartInfo)||(Tools.IsNull(state.shopCartInfo.Answer))||(Tools.IsNull(state.shopCartInfo.Answer.ShopCart))||state.shopCartInfo.Answer.ShopCart.Items.length==0);
+    let empty=(Tools.IsNull(state.shopCartInfo)||(Tools.IsNull(state.shopCartInfo.Answer))||(Tools.IsNull(state.shopCartInfo.Answer.ShopCart))||(Tools.IsNull(state.shopCartInfo.Answer.ShopCart.Items))||state.shopCartInfo.Answer.ShopCart.Items.length==0);
     const [gotData,setGotData]=useState(false);
     const [isAllowed, setIsAllowed] = useState(true);
     const [couponCode,setcouponCode]=useState("");
@@ -121,7 +121,7 @@ export default function CartPage(props){
         let mediaInfos=state.mediaInfo;
         // console.log("M :"+JSON.stringify(state.mediaInfo))
         // console.log("S :"+JSON.stringify(state.shopCartInfo))
-        if(!Tools.IsNull(shopItems)&&!Tools.IsNull(shopItems.Answer)&&!Tools.IsNull(shopItems.Answer.ShopCart)){
+        if(!Tools.IsNull(shopItems)&&!Tools.IsNull(shopItems.Answer)&&!Tools.IsNull(shopItems.Answer.ShopCart)&&!Tools.IsNull(shopItems.Answer.ShopCart.Items)){
             shopItems.Answer.ShopCart.Items=shopItems.Answer.ShopCart.Items.filter(itemSelect=>{
                 return (itemSelect.TotalNetFull!=0)
             });
@@ -151,12 +151,12 @@ export default function CartPage(props){
         React.useCallback(() => {
             // console.log("Focus");
             if (viewshopCartInfo !==shopCartInfo) {
-            ViewCartData();
+                ViewCartData();
             }
         }, [])
     );
     useEffect(()=>{
-
+        
         if (state.shopCartInfo !==shopCartInfo) {
             // console.log(JSON.stringify(state.shopCartInfo))
             setShopCartInfo(state.shopCartInfo);
@@ -211,10 +211,12 @@ export default function CartPage(props){
     
     
     const ViewCartData=()=>{
-        console.log("View cart");
-        logViewCartEvent(state.cartItems,state.shopCartInfo.Answer.ShopCart);
-        setViewCart(false);
-        setviewShopCartInfo(shopCartInfo);
+        if(!Tools.IsNull(state.shopCartInfo)){
+            console.log("View cart");
+            logViewCartEvent(state.cartItems,state.shopCartInfo.Answer.ShopCart);
+            setViewCart(false);
+            setviewShopCartInfo(shopCartInfo);
+        }
     }
     const getTotal=()=>{
         const allproducts = (Tools.IsNull(state.shopCartInfo)||Tools.IsNull(state.shopCartInfo.Answer)||Tools.IsNull(state.shopCartInfo.Answer.ShopCart))?[]:state.shopCartInfo.Answer.ShopCart.Items;
@@ -1021,7 +1023,7 @@ export default function CartPage(props){
                                                             ,justifyContent:'center',alignSelf:'center'
                                                             ,borderRadius:widthPercentageToDP(20)},styles.shadow]}>
                                                             <Image resizeMode='contain' style={{marginStart:widthPercentageToDP(4),tintColor:Colors.blueColor,width:widthPercentageToDP(10),height:widthPercentageToDP(10),}} source={cartIcon}/>
-                                                            {shopCartInfo!=undefined&&!Tools.IsNull(shopCartInfo.Answer)&&!Tools.IsNull(shopCartInfo.Answer.ShopCart) &&shopCartInfo.Answer.ShopCart.Items.length>0&&
+                                                            {shopCartInfo!=undefined&&!Tools.IsNull(shopCartInfo.Answer)&&!Tools.IsNull(shopCartInfo.Answer.ShopCart) &&(!Tools.IsNull(shopCartInfo.Answer.ShopCart.Items)&&shopCartInfo.Answer.ShopCart.Items.length>0)&&
                                                                 <View
                                                                 style={{position:'absolute',borderRadius:21,width:21,height:21,justifyContent:'center'
                                                                     ,end:12,top:12,backgroundColor:Colors.inputfontColor}}><Text allowFontScaling={false} style={{

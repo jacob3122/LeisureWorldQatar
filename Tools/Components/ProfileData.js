@@ -748,7 +748,7 @@ export default function ProfileData(props) {
       {
         global.checkBio=true;
         // setloading(false);
-        console.log("VL:"+(responseJson));
+        // console.log("VL:"+(responseJson));
         let dataGot = JSON.parse(responseJson);
         // console.log("J R :"+dataGot);
         if (!Tools.stringIsContains(responseJson, 'error')) 
@@ -814,6 +814,7 @@ export default function ProfileData(props) {
     });
   }
   const resetData=()=>{
+    global.profileUpdate=false;
     props.navigation.navigate('Homescreen');
     // console.log("Reset");
     // SignOut();
@@ -1360,7 +1361,7 @@ export default function ProfileData(props) {
     verifyurl=WebServices.catalogUrl;//+"?r="+Math.floor(Math.random()*100)+1;//.replace('{MemberID}',LmemberID);
     
     // console.log("CATALOG:"+WebServices.MainURL+verifyurl);
-    fetch (WebServices.MainURL+verifyurl,{
+    fetch (WebServices.CatalogMainUrl+verifyurl,{
       method: 'GET',
     },WebServices.timeout)
     .then((response) => {
@@ -1834,8 +1835,13 @@ export default function ProfileData(props) {
       const memoizedProfileData = useMemo(() => state.profile, [JSON.stringify(state.profile)]);
       const hasExecuted = useRef(false);
       useEffect(() => {
+        if(global.profileUpdate){
+          return;
+        }
+       
         if(!Tools.IsNull(state.profile)&& !hasExecuted.current) {
           hasExecuted.current = true;
+          global.profileUpdate=true;
           // console.log("P : "+JSON.stringify(memoizedProfileData));
           var dataGot=state.profile;
           // This effect will only trigger when memoizedProfileData changes

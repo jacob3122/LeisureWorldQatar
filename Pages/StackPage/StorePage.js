@@ -107,10 +107,9 @@ export default function StorePage(props){
     );
     useEffect(()=>{
         // console.log("StorePage");
-        if(!hasCalledEvent.current){
-            logScreenViewEvent('StorePage','Store');
-            hasCalledEvent.current=true;
-        }
+        // if(!hasCalledEvent.current){
+        //     hasCalledEvent.current=true;
+        // }
         // var getCatlog=props.fetchCatalog;
         // setisLoading(true);
         // setrefreshing(true);
@@ -243,6 +242,7 @@ export default function StorePage(props){
     
     const onFocus=()=>{
         console.log("Rest");
+        logScreenViewEvent('StorePage','Store');
         // OpenProductPage(state.OpenProduct);
     }
     
@@ -1542,7 +1542,7 @@ export default function StorePage(props){
                                                                 return response.text();
                                                             })
                                                             .then((responseJson) => {
-                                                                // console.log("R : "+responseJson);
+                                                                console.log("R : "+responseJson);
                                                                 shopCart=JSON.parse(responseJson);
                                                                 logAddToCartEvent(_itemtoCart,_priceIn,_count); 
                                                                 dispatch({

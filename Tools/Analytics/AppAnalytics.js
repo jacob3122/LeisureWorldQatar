@@ -20,17 +20,19 @@ function logEvent(_methodName,_dataIn){
 export async function logPurchaseEvent(_paymentResponse,_shopCart,_cart,_profile) {
     try {
         let itemsIn=addItems(_cart,_shopCart);
-        
+        // console.log("P : "+JSON.stringify(itemsIn));
         //moengage
         let properties = new MoEProperties();
         
         properties.addAttribute("currency", "QAR");
         properties.addAttribute("paymentType", "Skipcash");
+        properties.addAttribute("category", itemsIn.category);
         properties.addAttribute("price", _paymentResponse.Amount);
         properties.addAttribute("orderid", _paymentResponse.OrderSummary.SaleCode);
         properties.addAttribute("transactionId", _paymentResponse.OrderSummary.TransactionId);
         properties.addAttribute("email", _profile.Email);
-        properties.addAttribute("couponCode",itemsIn.couponCode);
+        if(!Tools.IsNull( itemsIn ))
+            properties.addAttribute("couponCode",itemsIn.couponCode);
         properties.addAttribute("customername", _profile.FullName);
         if(!Tools.IsNull(_profile.BillingAddress)){
             properties.addAttribute("country", _profile.BillingAddress.country);
@@ -38,13 +40,12 @@ export async function logPurchaseEvent(_paymentResponse,_shopCart,_cart,_profile
         }
         ReactMoE.trackEvent("purchase_completed", properties);
         
-        dataIn={
+        var dataIn={
             affiliation: "Leisure Store",
             currency: "QAR",
             start_date:moment(new Date()).format('YYYY-MM-DD'),
             price: _paymentResponse.Amount,
             transaction_id:_paymentResponse.OrderSummary.TransactionId,
-            items:itemsIn
         }
         await analytics().logEvent('purchase',dataIn );
         logEvent("logPurchaseEvent",dataIn);
@@ -107,7 +108,7 @@ function addItems(_cart,_shopCart){
     var discount=[];
     var couponCode=[];
     if(Tools.IsNull(_shopCart)||Tools.IsNull(_shopCart.Items))
-        return;
+        return undefined;
     
     for (let index = 0; index < _shopCart.Items.length; index++) {
         
@@ -507,5 +508,51 @@ export async function logViewCartEvent(_cart,_shopCart) {
         }
     } catch (error) {
         console.error('Error logging "logViewCartEvent" event:', error);
+    }
+}
+
+// Function 5: Log an "CancelPayment" event with relevant data
+export async function logCancelPaymentEvent(_cart,_shopCart) {
+    // console.log('logcancelPaymentEvent _cart:'+ JSON.stringify(_cart));
+    // console.log('_shopCart :'+ JSON.stringify(_shopCart));
+
+    try {
+        
+        let itemsIn=addItems(_cart,_shopCart);
+        if(!Tools.IsNull(itemsIn)){
+            let properties = new MoEProperties();
+            properties.addAttribute("currency", "QAR");
+            properties.addAttribute("price", itemsIn.price);
+            properties.addAttribute("subTotal", itemsIn.subTotal);
+            properties.addAttribute("quantity", itemsIn.quantity);
+            properties.addAttribute("itemId", itemsIn.itemId);
+            properties.addAttribute("itemDescription", itemsIn.itemDescription);
+            properties.addAttribute("itemImageUrl", itemsIn.itemImageUrl);
+            properties.addAttribute("category", itemsIn.category);
+            properties.addAttribute("sub category", itemsIn.subcategory);
+            properties.addAttribute("parkType", itemsIn.parkType);
+            properties.addAttribute("itemName", itemsIn.itemName);
+            properties.addAttribute("cartPrice", _shopCart.TotalAmount);
+            properties.addAttribute("itemName", itemsIn.itemName);
+            properties.addAttribute("discount", itemsIn.discount);
+            properties.addAttribute("couponCode", itemsIn.couponCode);
+            ReactMoE.trackEvent("cancel_payment", properties);
+            dataIn={
+                currency:"QAR",
+                cartprice:_shopCart.TotalAmount,
+                price:itemsIn.price,
+                quantity:itemsIn.quantity,
+                itemId:itemsIn.itemId,
+                itemImageUrl:itemsIn.itemImageUrl,
+                category:itemsIn.category,
+                subcategory:itemsIn.subcategory,
+                
+                parkType:itemsIn.parkType
+            };
+            await analytics().logEvent('cancel_payment',dataIn);
+            logEvent("logcancelPaymentEvent",dataIn);
+        }
+    } catch (error) {
+        console.error('Error logging "logcancelPaymentEvent" event:', error);
     }
 }

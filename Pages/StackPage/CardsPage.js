@@ -96,7 +96,6 @@ export default function CardsPage(props){
     // }
     // componentDidMount(){
     useEffect(()=>{
-        logScreenViewEvent("CardsPage","My Cards");
         AppState.addEventListener('change', handleAppStateChange);
         
         
@@ -168,6 +167,8 @@ useEffect(()=>{
         }
     };
     const onNavigatorEvent=()=>{
+        logScreenViewEvent("CardsPage","My Cards");
+
         let profileIn=Tools.IsNull(state.profile);
         // console.log("onNavigatorEvent"+profileIn)
         if(profileIn){
@@ -627,10 +628,10 @@ useEffect(()=>{
                     />   */}
                     <View style={{width:'100%',height:'100%'}}>
                     <View style={[{position:'absolute',flex:1, alignSelf:'flex-end',bottom:'25%'},i18n.locale=='ar'?{start:'4%'}:{end:'4%'}]}>
-                    <Text allowFontScaling={false} style={{fontSize:widthPercentageToDP(3.7),includeFontPadding:false,fontFamily:'Cairo-Regular',color:Colors.whiteColor}}>{i18n.t("playcardNumber")}</Text>
+                    <Text allowFontScaling={false} style={{fontSize:widthPercentageToDP(3.7),includeFontPadding:false,fontFamily:'Cairo-Bold',color:Colors.whiteAlways}}>{i18n.t("playcardNumber")}</Text>
                     {/* </View>
                 <View style={{position:'absolute',flexDirection:'row',flex:1, alignSelf:'flex-end',bottom:'25%',right:'4%'}}> */}
-                <Text allowFontScaling={false} style={{fontSize:widthPercentageToDP(5.2),fontFamily:'Cairo-Regular',color:Colors.whiteColor,includeFontPadding:false,}}>{cardNumber[_index]}</Text>
+                <Text allowFontScaling={false} style={{fontSize:widthPercentageToDP(5.2),fontFamily:'Cairo-Regular',color:Colors.whiteAlways,includeFontPadding:false,}}>{cardNumber[_index]}</Text>
                 </View>
                 
                 </View>

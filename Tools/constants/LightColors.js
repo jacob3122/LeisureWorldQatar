@@ -4,6 +4,7 @@ export default LightColors={
   vcColor:'#0099FF',
   sdColor:'#00DFA0',
   black:'#000000',
+  whiteAlways:'#ffffff',
   blackAlways:'#000000',
   silver:'#D9D9D9',
   placeholdertext:'#676667',
