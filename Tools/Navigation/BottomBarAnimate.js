@@ -79,8 +79,9 @@ const BottomBarAnimate = ({ state, descriptors, navigation }) => {
         const animationHorizontalValue = useRef(new Animated.Value(0)).current;
         
         const animate = (index) => {
+            // console.log(i18n.locale+"//"+index)
             Animated.spring(animationHorizontalValue, {
-                toValue:(Tools.stringIsContains(i18n.locale,'en')?1:-1) * index *TAB_BAR_WIDTH,
+                toValue:(Tools.stringIsContains(global.locale,'en')?1:-1) * index *TAB_BAR_WIDTH,
                 useNativeDriver: true,
             }).start();
         };
@@ -89,7 +90,11 @@ const BottomBarAnimate = ({ state, descriptors, navigation }) => {
             animate(state.index);
         }, [state.index]);
         
-        const valueX=(Tools.stringIsContains(i18n.locale,'en')?1:1);
+        useEffect(()=>{
+            i18n.locale=global.locale;
+        },[global.locale])
+        
+        // const valueX=(Tools.stringIsContains(i18n.locale,'en')?2:-1);
         return (
             <>
             <View style={[styles.container]}>
@@ -160,21 +165,21 @@ const BottomBarAnimate = ({ state, descriptors, navigation }) => {
                             marginTop:heightPercentageToDP(1),
                         },isFocused?{transform:[{translateY:-heightPercentageToDP(1.2)}]}:{}]} color={isFocused ? Colors.whiteColor : Colors.inputfontColor} />
                         
-                     
+                        
                         <AppText numberofWords={label.length} numberOfLines={1} type="heavy" style={[styles.iconText, { color: isFocused ? Colors.inputfontColor : Colors.inputfontColor }]}>
                         {label}
                         </AppText>
                         
                         </View>
                         </TouchableWithoutFeedback>
-                        );
-                    })}
-                    </View>
-                    </View>
-                    </>);
-                };
-                
-                
-                export default BottomBarAnimate;
-                
-                
+                    );
+                })}
+                </View>
+                </View>
+                </>);
+            };
+            
+            
+            export default BottomBarAnimate;
+            
+            

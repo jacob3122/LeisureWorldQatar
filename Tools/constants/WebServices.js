@@ -8,6 +8,7 @@ export default {
     CreatePass:'api/Member/CreatePassword?MemberID={MemberID}&Password={Password}',
     InviteCode:"invite",
     ProductCode:"product",
+    DeepLinkCode:"nav",
     AppIcon:"AppIcon-",
     AppHide:"Hidden",
     promo:"promotion",
@@ -167,8 +168,8 @@ export default {
     privacypolicy:"Home/ContentViewer/44",
     uxp:'https://leisure.qa',
     googleRecaptchaSiteURL:'https://www.leisure.qa/',
-    googleRecaptchaSiteKey:'6Lcf9zkkAAAAAC7554yi60DHUySp2ZIeARGYKauo'
-
+    googleRecaptchaSiteKey:'6Lcf9zkkAAAAAC7554yi60DHUySp2ZIeARGYKauo',
+    folderImage:'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/assets/images/Park/{park}.png'
 };
 
 

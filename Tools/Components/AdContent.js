@@ -27,8 +27,11 @@ const { height } = Dimensions.get('window');
 export default function AdContent(props){
     const Colors =useTheme();
     const insets = useSafeAreaInsets();
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
 
-    return <AdContentC {...props} insets={insets} Colors={Colors}/>
+    return <AdContentC {...props} locale={i18n.locale} insets={insets} Colors={Colors}/>
 }
 
 class AdContentC extends Component {
@@ -178,7 +181,7 @@ class AdContentC extends Component {
                                     systemFonts={systemFonts} 
                                     // onLinkPress={ (evt, href) => { Linking.openURL(href); }}
                                     contentWidth={widthPercentageToDP(80)}
-                                    source={{ html: "<p>"+(i18n.locale=='ar'?DataInfo.FullDescription:DataInfo.FullDescription
+                                    source={{ html: "<p>"+(this.props.locale=='ar'?DataInfo.FullDescription:DataInfo.FullDescription
                                     )+"</p>"}}
                                     />   
                                     {UiElements.drawGap(50)}

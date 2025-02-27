@@ -245,6 +245,11 @@ export default function EventPage(props){
                 return
             }
         }
+
+        useEffect(()=>{
+                i18n.locale=global.locale;
+            },[global.locale])
+            
         const shareInvite=()=>{
             // captureRef(viewshotRef, {format: "png", quality: 0.8, result: "base64"}).then(base64Data => {
             //     const base64DataIn = `data:image/png;base64,` + base64Data;

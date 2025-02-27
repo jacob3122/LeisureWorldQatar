@@ -20,11 +20,12 @@ import { useSelector } from "react-redux";
 import InviteCode from "../Navigation/InviteCode";
 import { useAppContext } from "../../src/js/reducers/AppReducer";
 import { StateContext } from "../context/ContextState";
+import FastImage from "react-native-fast-image";
 
 function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,route}) {
   const Colors = useTheme(); // Get the current color scheme's colors
   const { state, dispatch } = useAppContext(); 
-  const {openProductCode, setOpenProductCode} = useContext(StateContext);
+  // const {openProductCode, setOpenProductCode} = useContext(StateContext);
   i18n.translations = state.i18ntranslation;
   // const profileIn = state.profile;
   const displayItem={
@@ -66,6 +67,8 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
         "DiplayOrder": 10
       }]
     };
+    const [oneTime,setOneTime]=useState(-1);
+    const [currentSelf,setCurrentSelf]=useState(-1);
     const [homeData, setData] = useState([{
       "Id": 1,
       "Name": "Home",
@@ -76,6 +79,8 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
       ],
       "SubHolders": []
     }]);
+
+    const [homeFolderData,setFolderData]=useState(undefined);
     const [hamData, setHamData] = useState(undefined);
     const [showNofication, setShowNofication] = useState(false);
     const [unReadCount, setUnreadCount] = useState(0);
@@ -95,8 +100,9 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
         // console.log("signinwithSavedPass");
         // var updateLoad=this.props.updateLoading;
         // updateLoad(true);
-        global.initProfile="Y";
+        
         SecureStore.getItemAsync('accessToken').then(savedPass=>{
+          global.initProfile="Y";
           // Call the backend API to authenticate using the stored username+password
           // this.signinProfilewithBio(savedCredential,savedPass);
           if(savedPass!=undefined&&savedPass!=null&&savedPass.length>0){
@@ -230,8 +236,14 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
           }
           // console.log("D:"+responseJson);
           setLoading(false);
+          setCurrentSelf(-1);
           dataToDisplay=JSON.parse(responseJson);
           setData(dataToDisplay);
+          
+          var subHolder=dataToDisplay[0].SubHolders.filter((itemFIn)=>(!Tools.IsNull(itemFIn.Name)&&Tools.stringIsContains(itemFIn.Name,"-")));
+          if(!Tools.IsNull(subHolder[0]))
+            setOneTime(subHolder[0].Id);
+          setFolderData(subHolder);
         })
         .catch((error) =>{
           setLoading(false);
@@ -295,7 +307,30 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
           {isListEnd && <Text>No more ads at the moment</Text>}
           </View>
           )
-          
+          const getOneTimePark=()=>{
+            var dataOneTime=[];
+            if(!Tools.IsNull(homeFolderData)){
+            homeFolderData.map(itemOne=>{
+              var itemOneIn=itemOne;
+              dataOneTime.push(
+              <TouchableOpacity onPress={()=>{
+                setCurrentSelf(itemOneIn.Id);
+              }} style={{borderRadius:widthPercentageToDP(5),backgroundColor:Colors.whiteColor,margin:widthPercentageToDP(2)}}>
+              <FastImage resizeMode="contain" style={{width:widthPercentageToDP(40),aspectRatio:1}} 
+              source={{
+                uri: getFolderImage(itemOne.Name),
+                priority: FastImage.priority.high,
+            }}/>
+            </TouchableOpacity>
+            )
+            });
+            }
+            return(
+            // <NewsFeed news={item} profile={state.profile}/>
+            <View style={{width:widthPercentageToDP(90),alignSelf:'center',justifyContent:'space-between',flexDirection:'row',flexWrap:'wrap'}}>
+            {dataOneTime}
+            </View>)
+          }
           const getLoading=()=>{
             const Colors=useTheme();
             allLoad=[];
@@ -317,6 +352,13 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
                 )
               }}
               return allLoad;
+            }
+
+            const getFolderImage=(folderName)=>{
+              const folderParts = folderName.split('-');
+              var pathin= WebServices.folderImage.replace('{park}',folderParts[0]);
+              // console.log(pathin);
+              return pathin;
             }
             
             const renderEmpty = () => (
@@ -373,8 +415,17 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
                     style={{}}
                     contentContainerStyle={{paddingBottom:heightPercentageToDP(15)}}
                     data={homeData[0].SubHolders}
-                    renderItem={({ item}) => (
+                    renderItem={({ item,index}) => (
+                      <>
+                      {/* {(!Tools.IsNull(item.Name)&&!Tools.stringIsContains(item.Name,"-"))&&
+                      <NewsFeed news={item} profile={state.profile}/>}
+                      {oneTime==item.Id&&(!Tools.IsNull(item.Name)&&Tools.stringIsContains(item.Name,"-"))&&
+                      getOneTimePark()
+                      }
+                      {currentSelf!=-1&&currentSelf==item.Id&&
+                      <NewsFeed news={item} profile={state.profile}/>} */}
                       <NewsFeed news={item} profile={state.profile}/>
+                      </>
                       )}
                       ListHeaderComponent={renderHeader}
                       // ListFooterComponent={renderFooter}

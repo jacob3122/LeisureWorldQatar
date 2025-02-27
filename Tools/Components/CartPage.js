@@ -115,7 +115,9 @@ export default function CartPage(props){
                 setLoadingCart(p1));
         }
     },[]);
-    
+     useEffect(()=>{
+                    i18n.locale=global.locale;
+                },[global.locale])
     useEffect(()=>{
         let shopItems=state.shopCartInfo;
         let mediaInfos=state.mediaInfo;

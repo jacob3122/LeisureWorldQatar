@@ -31,19 +31,38 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
   
+  UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+  
     MoEngageSDKConfig* sdkConfig = [[MoEngageSDKConfig alloc] initWithAppId:@"DCMBBW4GE1CX78NNNXFU1VN8" dataCenter:MoEngageDataCenterData_center_02];
   sdkConfig.appGroupID=@"group.com.leisure.Loyalty.MoEngage";
 sdkConfig.consoleLogConfig = [[MoEngageConsoleLogConfig alloc] initWithIsLoggingEnabled:true loglevel:MoEngageLoggerTypeVerbose];
 [[MoEngageInitializer sharedInstance] initializeDefaultSDKConfig:sdkConfig andLaunchOptions:launchOptions];
   
   // Set the delegate
-  [[MoEngageSDKMessaging sharedInstance] setMessagingDelegate:self forAppID:@"DCMBBW4GE1CX78NNNXFU1VN8"];
+//  [[MoEngageSDKMessaging sharedInstance] setMessagingDelegate:self forAppID:@"DCMBBW4GE1CX78NNNXFU1VN8"];
   
   
-  [[MoEngageSDKMessaging sharedInstance] registerForRemoteNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
+//  [[MoEngageSDKMessaging sharedInstance] registerForRemoteNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
   
   [[MoEngageSDKMessaging sharedInstance] registerForRemoteProvisionalNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
   
+//  NSDictionary *remoteNotification = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+//
+//  if (remoteNotification) {
+//    NSDictionary *appExtra = remoteNotification[@"app_extra"]; // Ensure it's a dictionary
+//
+//    if ([appExtra isKindOfClass:[NSDictionary class]]) {
+//      NSString *deepLink = appExtra[@"moe_deeplink"]; // Extract the actual deep link
+//
+//      if (deepLink && [deepLink isKindOfClass:[NSString class]]) {
+//        NSURL *url = [NSURL URLWithString:deepLink];
+//        if (url) {
+//          [RCTLinkingManager application:application openURL:url options:@{}];
+//        }
+//      }
+//    }
+//  }
   
   // Hide the splash screen after a 1000ms delay (1 second)
 //     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -54,6 +73,27 @@ sdkConfig.consoleLogConfig = [[MoEngageConsoleLogConfig alloc] initWithIsLogging
 //                                                   moduleName:@"LeisureWorldQatar"
 //                                            initialProperties:nil];
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+[[MoEngageSDKMessaging sharedInstance] setPushToken:deviceToken];
+}
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+{
+  if (@available(iOS 14.0, *)) {
+    completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionList | UNNotificationPresentationOptionBanner);
+  } else {
+    // Fallback on earlier versions
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+  }
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
+{
+[[MoEngageSDKMessaging sharedInstance] userNotificationCenter:center didReceive:response];
+  completionHandler();
 }
 
 // Notification Clicked Callback
@@ -85,6 +125,8 @@ sdkConfig.consoleLogConfig = [[MoEngageConsoleLogConfig alloc] initWithIsLogging
 {
   return [RCTLinkingManager application:application openURL:url options:options];
 }
+
+
 
 // For universal links
 - (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity

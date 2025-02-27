@@ -70,9 +70,13 @@ export default function ProfileInHam({route,OpenMenu,hamView,referralCode,assign
             shadowOpacity: 0.12,
         },
     })
+    
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
     const getHamBurger=()=>{
         // console.log("getHamBurger"+(state.profile));
-
+        
         verifyurl=WebServices.hampageData.replace('{Lang}',Tools.stringIsContains(i18n.locale,'ar')?'ar':'en').replace('{MemberID}',Tools.IsNull(state.profile)?'':state.profile.Id);
         // console.log(verifyurl);
         return fetch (WebServices.MainURL+verifyurl+("&rand="+ (Math.floor(Math.random() * 100000) + 1)),{
@@ -124,7 +128,7 @@ export default function ProfileInHam({route,OpenMenu,hamView,referralCode,assign
                     dispatch({
                         type: 'update_Profile',
                         payload: undefined
-                      });
+                    });
                     SecureStore.setItemAsync('accessToken','');
                     SecureStore.setItemAsync('profile','');
                     // updateAccessToken({});
@@ -176,115 +180,115 @@ export default function ProfileInHam({route,OpenMenu,hamView,referralCode,assign
                         {UIElements.drawRGap(10)}
                         <Text style={styles.normalTxt}>{allItems[t].Title}</Text>
                         </TouchableOpacity>
-                        )
-                        allButtons.push(UIElements.drawLine(Colors.bluelightShadeColor,'100%',widthPercentageToDP(0.25)));
-                    }
+                    )
+                    allButtons.push(UIElements.drawLine(Colors.bluelightShadeColor,'100%',widthPercentageToDP(0.25)));
                 }
             }
-            return allButtons;
+        }
+        return allButtons;
+    }
+    
+    const OpenMenuTo=(menuTo)=>{
+        OpenMenu(menuTo);
+    }
+    const  cardFormatting=(cardNo)=>{
+        cardFormatNo='';
+        let n=0;
+        if(!Tools.stringIsEmpty(cardNo)){
+            for(let t=0;t<cardNo.length;t++){
+                if(n==4){
+                    cardFormatNo+='  ';
+                    n=0;
+                }
+                cardFormatNo+=cardNo[t];
+                n=n+1;
+            }}
+            return cardFormatNo;
         }
         
-        const OpenMenuTo=(menuTo)=>{
-            OpenMenu(menuTo);
-        }
-        const  cardFormatting=(cardNo)=>{
-            cardFormatNo='';
-            let n=0;
-            if(!Tools.stringIsEmpty(cardNo)){
-                for(let t=0;t<cardNo.length;t++){
-                    if(n==4){
-                        cardFormatNo+='  ';
-                        n=0;
-                    }
-                    cardFormatNo+=cardNo[t];
-                    n=n+1;
-                }}
-                return cardFormatNo;
-            }
-    
-    return(<View style={{}}>
+        return(<View style={{}}>
             {/* <Barcode value={"123456789"} viewStyle={{marginTop:heightPercentageToDP(1),marginBottom:heightPercentageToDP(1)}} width={widthPercentageToDP('.42%')} height={heightPercentageToDP('4.5%')}/> */}
-
-        {!Tools.IsNull(state.profile)&&state.profile.FirstName!=undefined&&<>
-            <View style={{marginHorizontal:widthPercentageToDP(3)}}>
-            <Text style={styles.nameTxt}>{state.profile.FirstName}</Text>
-            </View>
-            <View style={{width:'90%',alignSelf:'center',borderRadius:10,overflow:'visible',backgroundColor:'white'}}>
-            {/* <Barcode
-            value={state.profile.CardNo} 
-            width={widthPercentageToDP('.42%')} height={heightPercentageToDP('4.5%')}
-            format="CODE128" /> */}
-            <Barcode value={state.profile.CardNo} viewStyle={{marginTop:heightPercentageToDP(1),marginBottom:heightPercentageToDP(1)}} width={widthPercentageToDP('.32%')} height={heightPercentageToDP('4.5%')}/>
-            <Text  allowFontScaling={false} style ={styles.barCodeValue}>{cardFormatting(state.profile.CardNo)}</Text>
-            </View>
-            {UIElements.drawGap(20)}
-            </>}
-            {(Tools.IsNull(state.profile)||Tools.IsNull(state.profile.FirstName))&&<View>
-                <View style={{marginHorizontal:widthPercentageToDP(5)}}>
-                <Text style={styles.nameTxtPro}>{i18n.t('welcometo')}</Text>
-                <Text style={[styles.nameTxtPro,{fontSize:widthPercentageToDP(6)}]}>{i18n.t('leisureqatar')}</Text>
+            
+            {!Tools.IsNull(state.profile)&&state.profile.FirstName!=undefined&&<>
+                <View style={{marginHorizontal:widthPercentageToDP(3)}}>
+                <Text style={styles.nameTxt}>{state.profile.FirstName}</Text>
                 </View>
-                
-                <View style={{marginHorizontal:widthPercentageToDP(5),alignSelf:'flex-start',justifyContent:'space-around',}}>
-                {UIElements.drawGap(heightPercentageToDP(1))}
-                <TouchableOpacity
-                onPress={()=>{
-                    setLogin(true);
-                    menuVisible();
-                }}
-                style={[{height:heightPercentageToDP(4.75),alignSelf:'flex-start',
-                width:widthPercentageToDP(25),justifyContent:'center'
-                ,backgroundColor:Colors.whiteColor,borderRadius:heightPercentageToDP(4.75)},styles.shadow]}>
-                <Text style={{fontFamily:'Cairo-Regular',paddingHorizontal:widthPercentageToDP(4),
-                alignSelf:'center',lineHeight:widthPercentageToDP(4)*1.8
-                ,fontSize:widthPercentageToDP(4),color:Colors.blueColor}}>{i18n.t('signin')}</Text>
-                </TouchableOpacity>
-                {UIElements.drawGap(heightPercentageToDP(2))}
-                <TouchableOpacity
-                onPress={()=>{
-                    setRegister(true);
-                    menuVisible();
-                }}
-                style={[{height:heightPercentageToDP(4.75),justifyContent:'center',
-                width:widthPercentageToDP(25),justifyContent:'center'
-                ,backgroundColor:Colors.whiteColor,borderRadius:heightPercentageToDP(4.75)},styles.shadow]}>
-                <Text style={{fontFamily:'Cairo-Regular',paddingHorizontal:widthPercentageToDP(4),lineHeight:widthPercentageToDP(4)*1.8,
-                alignSelf:'center',fontSize:widthPercentageToDP(4),color:Colors.blueColor}}>{i18n.t('register')}</Text>
-                </TouchableOpacity>
-                </View>
-                {UIElements.drawGap(20)}
-                </View>}
-                <ScrollView style={{height:heightPercentageToDP(58),overflow:'hidden'}}>
-                <View style={{marginHorizontal:widthPercentageToDP(4)}}>
-                
-                {getDyanmicButtons(hamData,OpenMenu,selectedNo,setSelected,styles,Colors)}
-                {!Tools.IsNull(state.profile)&&state.profile.FirstName!=undefined&&<>
-                    <TouchableOpacity
-                    onPress={()=>{
-                        SignOut();
-                    }}
-                    style={[{flexDirection:'row',paddingVertical:heightPercentageToDP(1),paddingHorizontal:widthPercentageToDP(3)},{}]}>
-                    <View style={{width:widthPercentageToDP(6),height:widthPercentageToDP(6),borderRadius:widthPercentageToDP(6),alignSelf:'center',backgroundColor:Colors.whiteColor,justifyContent:'center'}}>
-                    <Image resizeMode='contain' style={{tintColor:Colors.blueColor, width:widthPercentageToDP(3.5),height:widthPercentageToDP(3.5),alignSelf:'center'}} source={signoffButton}/></View>
-                    {UIElements.drawRGap(10)}
-                    <Text style={styles.normalTxt}>{i18n.t('signout')}</Text>
-                    </TouchableOpacity></>}
+                <View style={{width:'90%',alignSelf:'center',borderRadius:10,overflow:'visible',backgroundColor:'white'}}>
+                {/* <Barcode
+                    value={state.profile.CardNo} 
+                    width={widthPercentageToDP('.42%')} height={heightPercentageToDP('4.5%')}
+                    format="CODE128" /> */}
+                    <Barcode value={state.profile.CardNo} viewStyle={{marginTop:heightPercentageToDP(1),marginBottom:heightPercentageToDP(1)}} width={widthPercentageToDP('.32%')} height={heightPercentageToDP('4.5%')}/>
+                    <Text  allowFontScaling={false} style ={styles.barCodeValue}>{cardFormatting(state.profile.CardNo)}</Text>
                     </View>
-                    </ScrollView>
-                    <OpenAuthenticate showLogin={showLogin} setLogin={setLogin} setRegister={setRegister} showRegister={showRegister} navigation={navigationIn}/>
-                    </View>)
-                }
-                
-               
+                    {UIElements.drawGap(20)}
+                    </>}
+                    {(Tools.IsNull(state.profile)||Tools.IsNull(state.profile.FirstName))&&<View>
+                        <View style={{marginHorizontal:widthPercentageToDP(5)}}>
+                        <Text style={styles.nameTxtPro}>{i18n.t('welcometo')}</Text>
+                        <Text style={[styles.nameTxtPro,{fontSize:widthPercentageToDP(6)}]}>{i18n.t('leisureqatar')}</Text>
+                        </View>
                         
-                        // function mapStateToProps(state) {
-                        //     return {  profile: state.profileReducer.profile, };
-                        // } function mapDispatchToProps(dispatch) {
-                        //     return {updateProfile: (pData) => dispatch(updateProfile(pData)),
-                        //         updateCart:(cData)=> dispatch(updateCart(cData)),
-                        //         updateAccessToken: (pData) => dispatch(updateAccessToken(pData)),
-                        //     }
-                        // } 
-                        
-                        // export default connect(mapStateToProps,mapDispatchToProps)(ProfileInHam);
-                        
+                        <View style={{marginHorizontal:widthPercentageToDP(5),alignSelf:'flex-start',justifyContent:'space-around',}}>
+                        {UIElements.drawGap(heightPercentageToDP(1))}
+                        <TouchableOpacity
+                        onPress={()=>{
+                            setLogin(true);
+                            menuVisible();
+                        }}
+                        style={[{height:heightPercentageToDP(4.75),alignSelf:'flex-start',
+                            width:widthPercentageToDP(25),justifyContent:'center'
+                            ,backgroundColor:Colors.whiteColor,borderRadius:heightPercentageToDP(4.75)},styles.shadow]}>
+                            <Text style={{fontFamily:'Cairo-Regular',paddingHorizontal:widthPercentageToDP(4),
+                                alignSelf:'center',lineHeight:widthPercentageToDP(4)*1.8
+                                ,fontSize:widthPercentageToDP(4),color:Colors.blueColor}}>{i18n.t('signin')}</Text>
+                                </TouchableOpacity>
+                                {UIElements.drawGap(heightPercentageToDP(2))}
+                                <TouchableOpacity
+                                onPress={()=>{
+                                    setRegister(true);
+                                    menuVisible();
+                                }}
+                                style={[{height:heightPercentageToDP(4.75),justifyContent:'center',
+                                    width:widthPercentageToDP(25),justifyContent:'center'
+                                    ,backgroundColor:Colors.whiteColor,borderRadius:heightPercentageToDP(4.75)},styles.shadow]}>
+                                    <Text style={{fontFamily:'Cairo-Regular',paddingHorizontal:widthPercentageToDP(4),lineHeight:widthPercentageToDP(4)*1.8,
+                                        alignSelf:'center',fontSize:widthPercentageToDP(4),color:Colors.blueColor}}>{i18n.t('register')}</Text>
+                                        </TouchableOpacity>
+                                        </View>
+                                        {UIElements.drawGap(20)}
+                                        </View>}
+                                        <ScrollView style={{height:heightPercentageToDP(58),overflow:'hidden'}}>
+                                        <View style={{marginHorizontal:widthPercentageToDP(4)}}>
+                                        
+                                        {getDyanmicButtons(hamData,OpenMenu,selectedNo,setSelected,styles,Colors)}
+                                        {!Tools.IsNull(state.profile)&&state.profile.FirstName!=undefined&&<>
+                                            <TouchableOpacity
+                                            onPress={()=>{
+                                                SignOut();
+                                            }}
+                                            style={[{flexDirection:'row',paddingVertical:heightPercentageToDP(1),paddingHorizontal:widthPercentageToDP(3)},{}]}>
+                                            <View style={{width:widthPercentageToDP(6),height:widthPercentageToDP(6),borderRadius:widthPercentageToDP(6),alignSelf:'center',backgroundColor:Colors.whiteColor,justifyContent:'center'}}>
+                                            <Image resizeMode='contain' style={{tintColor:Colors.blueColor, width:widthPercentageToDP(3.5),height:widthPercentageToDP(3.5),alignSelf:'center'}} source={signoffButton}/></View>
+                                            {UIElements.drawRGap(10)}
+                                            <Text style={styles.normalTxt}>{i18n.t('signout')}</Text>
+                                            </TouchableOpacity></>}
+                                            </View>
+                                            </ScrollView>
+                                            <OpenAuthenticate showLogin={showLogin} setLogin={setLogin} setRegister={setRegister} showRegister={showRegister} navigation={navigationIn}/>
+                                            </View>)
+                                        }
+                                        
+                                        
+                                        
+                                        // function mapStateToProps(state) {
+                                        //     return {  profile: state.profileReducer.profile, };
+                                        // } function mapDispatchToProps(dispatch) {
+                                        //     return {updateProfile: (pData) => dispatch(updateProfile(pData)),
+                                        //         updateCart:(cData)=> dispatch(updateCart(cData)),
+                                        //         updateAccessToken: (pData) => dispatch(updateAccessToken(pData)),
+                                        //     }
+                                        // } 
+                                        
+                                        // export default connect(mapStateToProps,mapDispatchToProps)(ProfileInHam);
+                                        

@@ -1,4 +1,4 @@
-import React, { Component, createRef, useState } from 'react'
+import React, { Component, createRef, useEffect, useState } from 'react'
 import {TouchableWithoutFeedback,Image,SafeAreaView, Dimensions,View,Text,StyleSheet, Alert, FlatList,RefreshControl,TouchableOpacity, ScrollView, TextInput, AppState, StatusBar} from 'react-native'
 import {I18n} from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json'
@@ -400,6 +400,9 @@ export default function AddCardsPage (props){
                 </View>
                 );
             }
+            useEffect(()=>{
+                    i18n.locale=global.locale;
+                },[global.locale])
             
             const getName=(_cardType)=>{
                 if(Tools.stringIsContains(_cardType,"wallet")){

@@ -16,7 +16,7 @@ export default function App (props) {
   const [fontload,setFontLoad]=useState(false);
   const [isEnabledForReleaseBuild,setisEnabledForReleaseBuild]=useState(true);
   
-  
+  const [notification,setNotification]=useState(undefined);
   useEffect(()=>{
     
     const moEInitConfig = new MoEInitConfig(
@@ -25,6 +25,19 @@ export default function App (props) {
       new MoEngageLogConfig(MoEngageLogLevel.VERBOSE, isEnabledForReleaseBuild),
       new MoEAnalyticsConfig(true)
     );
+    
+    
+    ReactMoE.setEventListener("pushTokenGenerated", (payload) => { 
+      console.log("pushTokenGenerated", payload); 
+    });
+    // console.log("pushClickedTest"); 
+    ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
+      // console.log("pushClicked"); 
+      console.log("Data push : ", notificationPayload); 
+      setNotification(notificationPayload);
+    });
+    
+    
     ReactMoE.initialize("DCMBBW4GE1CX78NNNXFU1VN8", moEInitConfig);
     global.profileUpdate=false;
     global.initProfile=undefined;
@@ -39,7 +52,7 @@ export default function App (props) {
     
     Text.defaultProps = Text.defaultProps || {};
     Text.defaultProps.allowFontScaling = false;
-
+    
     errorFix();
     setFontLoad(true);
     setTimeout(() => {
@@ -76,19 +89,18 @@ export default function App (props) {
     {/* <StatusBar translucent barStyle='dark-content' backgroundColor='rgba(0,0,0,0)'/> */}
     <View style={styles.container}>
     <AppProvider>
-    {fontload&&(<Localisation props={props}/>)}
+    {fontload&&(<Localisation notification={notification} props={props}/>)}
     </AppProvider>
     </View> 
     </ThemeProvider>
     </SafeAreaProvider></KeyboardProvider>
-    );
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
   }
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#ffffff',
-    }
-  });
-  
-  
+});
+

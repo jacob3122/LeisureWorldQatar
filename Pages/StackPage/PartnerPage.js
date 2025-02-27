@@ -147,7 +147,6 @@ export default function PartnerPage({navigation},props) {
                                 style={styles.image}
                                 source={{
                                     uri: Banner.MainBannerImgURL,
-                                    // headers: { Authorization: 'someAuthToken' },
                                     priority: FastImage.priority.normal,
                                 }}
                                 resizeMode={FastImage.resizeMode.contain}

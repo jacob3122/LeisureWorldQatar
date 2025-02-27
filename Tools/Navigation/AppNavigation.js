@@ -23,8 +23,9 @@ import InfoBar from '../Components/InfoBar';
 import { useAppContext } from '../../src/js/reducers/AppReducer';
 import WebServices from '../constants/WebServices';
 const Stack = createNativeStackNavigator();
+
 export const navigationRef = createNavigationContainerRef();
-function AppNavigation() {
+function AppNavigation({notification}) {
   const { state, dispatch } = useAppContext();
   const {bottomBar, setBottomBar} = useContext(StateContext);
   const {pageContent, setPageContent} = useContext(StateContext);
@@ -33,48 +34,28 @@ function AppNavigation() {
   const {pageToGo, setPageToGo} = useContext(StateContext);
   const [routeName, setRouteName] = useState();
   const [prevrouteName, setPrevRouteName] = useState();
+  
   const getRouteName=()=>{
     return routeName;
   }
+  useEffect(()=>{
+    console.log('Notification');
+    if(!Tools.IsNull(notification)){
+      console.log(JSON.stringify(notification));
+      reactToNotification(notification);
+    }
+  },[notification]);
   //#region  ReferralCode fromURL
   useEffect(() => {
     const getInitialUrl = async () => {
-      // console.log('getInitialUrl');
       try {
         const initialUrl = await Linking.getInitialURL();
+        console.log('getInitialUrl'+initialUrl);
+        
         if (!Tools.IsNull(initialUrl)) {
           
           const url = initialUrl;
-          const match = url.match(/:\/\/([^\/]+)\?(.*)/);
-          if (match && match[1] && match[2]) {
-            const action = match[1];
-            const queryParams = match[2];
-            const params = parseQueryStringDL(queryParams);
-            
-            // console.log('Action:', action);
-            // console.log('Referral Code:', params['referralcode']);
-            
-            if (action === 'refer' && params['referralcode']) {
-              const referralCode = params['referralcode'];
-              setreferralCode(referralCode);
-            }
-          }else{
-            console.log("URL "+url);
-            const pathSegments = url.split('/').filter(segment => segment);
-            
-            // Assuming the URL structure is known and fixed
-            if (pathSegments.length>3) {
-              action = pathSegments[2];
-              code = pathSegments[3];
-            }
-            console.log("Page "+action);
-            console.log("View "+code);
-            navigationRef.navigate(getAppNames(action),getScreen(code));
-            
-            // if (action==WebServices.ProductCode) {
-            //   setOpenProductCode(code);
-            // }
-          }
+          InitialURLNavigation(url);
           // const queryStartIndex = initialUrl.indexOf('?');
           // if (queryStartIndex !== -1) {
           //   const queryString = initialUrl.slice(queryStartIndex + 1);
@@ -94,6 +75,7 @@ function AppNavigation() {
       }
     };
     
+    
     getInitialUrl();
     const parseQueryStringDL=(queryString)=> {
       const params = {};
@@ -103,91 +85,114 @@ function AppNavigation() {
         const [key, value] = pair.split('=');
         params[decodeURIComponent(key)] = decodeURIComponent(value || '');
       });
-    
+      
       return params;
     }
+    
     const getDeepLinkParams = (event) => {
       try {
         console.log('getDeepLinkParams'+event.url);
-  
+        
         const url = event.url;
-        const match = url.match(/:\/\/([^\/]+)\?(.*)/);
-        if (match && match[1] && match[2]) {
-          const action = match[1];
-          const queryParams = match[2];
-          const params = parseQueryStringDL(queryParams);
+        UrlNavigation(url);
+        // const match = url.match(/:\/\/([^\/]+)\?(.*)/);
+        // if (match && match[1] && match[2]) {
+        //   const action = match[1];
+        //   const queryParams = match[2];
+        //   const params = parseQueryStringDL(queryParams);
           
-          console.log('Action:', action);
-          // console.log('Referral Code:', params['referralcode']);
+        //   // console.log('Action:', action);
           
-          if (action === 'refer' && params['referralcode']) {
-            const referralCode = params['referralcode'];
-            setreferralCode(referralCode);
-          }else if(params['view']){
-            navigationRef.navigate(getAppNames(action),getScreen(params['view']));
-          }
-        }
-        else{
-          const pathSegments = url.split('/').filter(segment => segment);
-          // console.log("P :"+pathSegments.length);
-          for (let index = 0; index < pathSegments.length; index++) {
-            const element = pathSegments[index];
-            // console.log(element);
+        //   // console.log('param:', JSON.stringify(params));
+          
+        //   if (action === 'refer' && params['referralcode']) {
+        //     const referralCode = params['referralcode'];
+        //     setreferralCode(referralCode);
+        //   }else if(params['view']){
+        //     // console.log('P:',params['view'])
+        //     navigationRef.navigate(getAppNames(action),getScreen(params['view']));
+        //   }
+        // }
+        // else{
+        //   const pathSegments = url.split('/').filter(segment => segment);
+        //   // console.log("P :"+pathSegments.length);
+        //   for (let index = 0; index < pathSegments.length; index++) {
+        //     const element = pathSegments[index];
+        //     // console.log(element);
             
-          }
-          // Assuming the URL structure is known and fixed
-          if (pathSegments.length>3) {
-            action = pathSegments[2];
-            code = pathSegments[3];
-          }
-          console.log("Page "+action);
-          console.log("View "+code);
-          navigationRef.navigate(getAppNames(action),getScreen(code));
-          // if (action==WebServices.ProductCode) {
-          //   setOpenProductCode(code);
-          // }
-        }
+        //   }
+        //   // Assuming the URL structure is known and fixed
+        //   if (pathSegments.length>3) {
+        //     action = pathSegments[2];
+        //     code = pathSegments[3];
+        //   }
+        //   // console.log("Page "+action);
+        //   // console.log("View "+code);
+        //   if(action==WebServices.DeepLinkCode){
+        //     console.log(pathSegments.length+"=DeepLinkCode "+code);
+        //     console.log("DeepLinkCode "+code);
+        //     if(code=='store'&&pathSegments.length>3&&Tools.stringIsContains(url,"=")){
+        //       const _segments = pathSegments[4].split('=');
+        //       // console.log(_segments);
+        //       console.log("DeepLinkCode "+code);
+        //       setOpenProductCode(_segments[1]);
+        //     }else if(pathSegments.length>3){
+        //       const _segments = pathSegments[4].split('=');
+        //       console.log(_segments);
+        //       navigationRef.navigate(getAppNames(code),getScreen(_segments[0]));
+        //     }
+        //   }else{
+        //     if (action==WebServices.ProductCode) {
+        //       setOpenProductCode(code);
+        //     }else{
+        //       navigationRef.navigate(getAppNames(action),getScreen(code));
+        //     }
+        //   }
+        //   // if (action==WebServices.ProductCode) {
+        //   //   setOpenProductCode(code);
+        //   // }
+        // }
       } catch (error) {
         console.error('Error handling deep link:', error);
       }
     };
     
     
-    getDeepLink=(event)=>{
-      // console.log('getDeepLink');
-      try {
-        const url = event.url;
+    // getDeepLink=(event)=>{
+    //   // console.log('getDeepLink');
+    //   try {
+    //     const url = event.url;
         
-        const queryStartIndex = url.indexOf('?');
-        if (queryStartIndex !== -1) {
-          const queryString = url.slice(queryStartIndex + 1);
-          // console.log("getDeepLink : "+queryString);
-          const params = parseQueryString(queryString);
-          // console.log("getDeepLink params: " + JSON.stringify(params));
-          const referralCode = params.referralcode;
+    //     const queryStartIndex = url.indexOf('?');
+    //     if (queryStartIndex !== -1) {
+    //       const queryString = url.slice(queryStartIndex + 1);
+    //       // console.log("getDeepLink : "+queryString);
+    //       const params = parseQueryString(queryString);
+    //       // console.log("getDeepLink params: " + JSON.stringify(params));
+    //       const referralCode = params.referralcode;
           
-          if (referralCode) {
-            setreferralCode(referralCode);
-          }
-        }else{
+    //       if (referralCode) {
+    //         setreferralCode(referralCode);
+    //       }
+    //     }else{
           
-          const pathSegments = url.split('/').filter(segment => segment);
+    //       const pathSegments = url.split('/').filter(segment => segment);
           
-          // Assuming the URL structure is known and fixed
-          if (pathSegments.length>3) {
-            action = pathSegments[2];
-            code = pathSegments[3];
-          }
+    //       // Assuming the URL structure is known and fixed
+    //       if (pathSegments.length>3) {
+    //         action = pathSegments[2];
+    //         code = pathSegments[3];
+    //       }
           
-          if (action==WebServices.ProductCode) {
-            setOpenProductCode(code);
-          }
-        }
+    //       if (action==WebServices.ProductCode) {
+    //         setOpenProductCode(code);
+    //       }
+    //     }
         
-      } catch (error) {
-        console.error('Error handling deep link:', error);
-      }
-    }
+    //   } catch (error) {
+    //     console.error('Error handling deep link:', error);
+    //   }
+    // }
     // Add the event listener when the component mounts
     Linking.addEventListener('url', getDeepLinkParams);
     
@@ -197,41 +202,166 @@ function AppNavigation() {
     };
     
   }, []);
+  const InitialURLNavigation=(_url)=>{
+    console.log("InitialURLNavigation "+_url);
+    const url=_url;
+    const match = url.match(/:\/\/([^\/]+)\?(.*)/);
+    if (match && match[1] && match[2]) {
+      console.log("URL if "+url);
+      const action = match[1];
 
+      const queryParams = match[2];
+      const params = parseQueryStringDL(queryParams);
+      
+      // console.log('Action:', action);
+      // console.log('Referral Code:', params['referralcode']);
+      
+      if (action === 'refer' && params['referralcode']) {
+        const referralCode = params['referralcode'];
+        setreferralCode(referralCode);
+      }
+    }else{
+      console.log("URL "+url);
+      const pathSegments = url.split('/').filter(segment => segment);
+      
+      // Assuming the URL structure is known and fixed
+      if (pathSegments.length>3) {
+        action = pathSegments[2];
+        code = pathSegments[3];
+      }
+      console.log("Page "+action);
+      console.log("View "+code);
+      if(action==WebServices.DeepLinkCode){
+        console.log(pathSegments.length+"=InitialUrlCode "+code);
+        if(code=='store'&&pathSegments.length>3&&Tools.stringIsContains(url,"=")){
+          const _segments = pathSegments[4].split('=');
+          console.log(_segments);
+          setOpenProductCode(_segments[1]);
+        }else if(pathSegments.length>3){
+          if (action==WebServices.ProductCode) {
+            setOpenProductCode(code);
+          }
+          // console.log(_segments);
+          navigationRef.navigate(getAppNames(code),getScreen(pathSegments[4]));
+        }
+      }else{
+        console.log("URL else "+url);
+        
+        if (action==WebServices.ProductCode) {
+          setOpenProductCode(code);
+        }else{
+        navigationRef.navigate(getAppNames(action),getScreen(code));
+        }
+      }
+    }
+  }
   const getAppNames=(_code)=>{
     if(_code=='home'||_code=='events'){
-        return 'Homescreen'
+      return 'Homescreen'
     }else if(_code=='wallet'){
-        return 'Walletscreen'
+      return 'Walletscreen'
     }else if(_code=='rewards'){
-        return 'Cardscreen'
+      return 'Cardscreen'
     }else if(_code=='partners'){
-        return 'Parkscreen'
+      return 'Parkscreen'
     }else if(_code=='store'||_code=='product'){
-        return 'Storescreen'
+      return 'Storescreen'
     }
     
-}
-
-const getScreenName=(_code)=>{
+  }
+  
+  
+  const reactToNotification=(_notification)=>{
+    if(!Tools.IsNull(_notification)&&!Tools.IsNull(_notification.data)&&!Tools.IsNull(_notification.data.payload)
+      &&!Tools.IsNull(_notification.data.payload.moeFeatures)&&!Tools.IsNull(_notification.data.payload.moeFeatures.richPush)&&!Tools.IsNull(_notification.data.payload.moeFeatures.richPush.defaultActions)&&
+    _notification.data.payload.moeFeatures.richPush.defaultActions.length>0&&_notification.data.payload.moeFeatures.richPush.defaultActions[0].type=="deepLink"){
+      InitialURLNavigation(_notification.data.payload.moeFeatures.richPush.defaultActions[0].value);
+    }
+  }
+  const UrlNavigation=(_url)=>{
+    try{
+      const url = _url;
+      const match = url.match(/:\/\/([^\/]+)\?(.*)/);
+      if (match && match[1] && match[2]) {
+        const action = match[1];
+        const queryParams = match[2];
+        const params = parseQueryStringDL(queryParams);
+        
+        // console.log('Action:', action);
+        
+        // console.log('param:', JSON.stringify(params));
+        
+        if (action === 'refer' && params['referralcode']) {
+          const referralCode = params['referralcode'];
+          setreferralCode(referralCode);
+        }else if(params['view']){
+          // console.log('P:',params['view'])
+          navigationRef.navigate(getAppNames(action),getScreen(params['view']));
+        }
+      }
+      else{
+        const pathSegments = url.split('/').filter(segment => segment);
+        // console.log("P :"+pathSegments.length);
+        for (let index = 0; index < pathSegments.length; index++) {
+          const element = pathSegments[index];
+          // console.log(element);
+          
+        }
+        // Assuming the URL structure is known and fixed
+        if (pathSegments.length>3) {
+          action = pathSegments[2];
+          code = pathSegments[3];
+        }
+        // console.log("Page "+action);
+        // console.log("View "+code);
+        if(action==WebServices.DeepLinkCode){
+          console.log(pathSegments.length+"=DeepLinkCode "+code);
+          console.log("DeepLinkCode "+code);
+          if(code=='store'&&pathSegments.length>3&&Tools.stringIsContains(url,"=")){
+            const _segments = pathSegments[4].split('=');
+            // console.log(_segments);
+            console.log("DeepLinkCode "+code);
+            setOpenProductCode(_segments[1]);
+          }else if(pathSegments.length>3){
+            const _segments = pathSegments[4].split('=');
+            console.log(_segments);
+            if (action==WebServices.ProductCode) {
+              setOpenProductCode(code);
+            }
+            navigationRef.navigate(getAppNames(code),getScreen(_segments[0]));
+          }
+        }else{
+          if (action==WebServices.ProductCode) {
+            setOpenProductCode(code);
+          }else{
+            navigationRef.navigate(getAppNames(action),getScreen(code));
+          }
+        }
+      }
+    }catch (error) {
+      console.error('Error handling deep link:', error);
+    }
+  }
+  
+  const getScreenName=(_code)=>{
     return _code;
     
-}
-const getScreen=(_code)=>{
+  }
+  const getScreen=(_code)=>{
     if(!Tools.stringIsEmpty(_code)){
-        return {screen:getScreenName(_code)}
+      return {screen:getScreenName(_code)}
     }else{
-        return {}
+      return {}
     }
-}
+  }
   
   useEffect(()=>{
-    if(openProductCode.length>0){
+    if(!Tools.IsNull(openProductCode)){
+      console.log("Open IN :"+openProductCode);
       // const navigationIn=useNavigation();
       navigationRef.navigate('Storescreen');
-      // navigationRef.popToTop();
     }
-    // console.log("PG");
+    console.log("Open P :"+openProductCode);
   },[openProductCode])
   
   const parseQueryString=(queryString)=>{
@@ -272,7 +402,7 @@ const getScreen=(_code)=>{
   //#endregion
   return (
     <View style={{width:'100%',height:'100%',backgroundColor:Colors.bgColor}}>
-    <NavigationContainer
+    <NavigationContainer    
     ref={navigationRef}
     onReady={() => {
       setRouteName(navigationRef.getCurrentRoute().name)
@@ -298,31 +428,32 @@ const getScreen=(_code)=>{
     <OpenFullScreen pageContent={pageContent} navigation={navigationRef}/>
     
     {/* <View style={{position:'absolute',top:0,height:'100%'}}>
-  <ProfileData pagetogo={pageToGo} navigation={navigationRef}/></View> */}
-  {/* <View style={{position:'absolute',bottom:0,width:'100%',backgroundColor:'transparent',height:StaticSafeAreaInsets.safeAreaInsetsBottom+heightPercentageToDP(15)}}> */}
-  <Stack.Navigator initialRouteName="Main" 
-  screenOptions={{
-    cardStyle: { backgroundColor: 'lightblue' },
-    headerShown:false
-  }}>
+      <ProfileData pagetogo={pageToGo} navigation={navigationRef}/></View> */}
+      {/* <View style={{position:'absolute',bottom:0,width:'100%',backgroundColor:'transparent',height:StaticSafeAreaInsets.safeAreaInsetsBottom+heightPercentageToDP(15)}}> */}
+      <Stack.Navigator initialRouteName="Main" 
+      screenOptions={{
+        cardStyle: { backgroundColor: 'lightblue' },
+        headerShown:false
+      }}>
+      
+      <Stack.Screen name="Main" 
+      component={MainTabNavigator} 
+      // initialParams={{ navigationRef: getRouteName }}
+      />
+      </Stack.Navigator>
+      {/* </View> */}
+      
+      </HamBurgerMenu>
+      </NavigationContainer>
+      
+      <View style={{position:'absolute',height:'112%',width:'80%',alignSelf:'center'}} pointerEvents="box-none">
+      {state.ShowInfo!=undefined&&<InfoBar textToDisplay={state.ShowInfo.textToDisplay} isopen={true}/>}
+      </View>
+      </View>
+    );
+  }
   
-  <Stack.Screen name="Main" 
-  component={MainTabNavigator} 
-  // initialParams={{ navigationRef: getRouteName }}
-  />
-  </Stack.Navigator>
-  {/* </View> */}
+  export default AppNavigation;
   
-  </HamBurgerMenu>
-  </NavigationContainer>
   
-  <View style={{position:'absolute',height:'112%',width:'80%',alignSelf:'center'}} pointerEvents="box-none">
-  {state.ShowInfo!=undefined&&<InfoBar textToDisplay={state.ShowInfo.textToDisplay} isopen={true}/>}
-  </View>
-  </View>
-);
-}
-
-export default AppNavigation;
-
-
+  

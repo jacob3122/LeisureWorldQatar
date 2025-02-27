@@ -44,9 +44,13 @@ export default function HamBurgerMenu(props){
     const [routeNameIn,setrouteNameIn]=useState('');
     const [showHam,setshowHam]=useState(true);
     
+    useEffect(()=>{
+        i18n.locale=global.locale;
+        closeHamBurger();
+    },[global.locale])
     
     openHamBurger=()=>{
-     
+        console.log("openHamBurger");
         Animated.timing(translateXIn,{
             toValue:1,
             duration:250, easing: Easing.quad,
@@ -102,7 +106,8 @@ export default function HamBurgerMenu(props){
             }
             setAppState(nextAppState);
         };
-        menuVisible=()=>{
+        const menuVisible=()=>{
+            console.log("menuVisible :"+hamView);
             if(hamView!=0){
                 closeHamBurger();
             }else{
@@ -110,9 +115,10 @@ export default function HamBurgerMenu(props){
             }
         }
         
-        closeHamBurger=()=>{
+        const closeHamBurger=()=>{
+            console.log(i18n.locale+"Close :"+(Tools.stringIsContains(i18n.locale,"ar")?1:-1));
             Animated.timing(translateXIn,{
-                toValue:0,
+                toValue:(Tools.stringIsContains(i18n.locale,"en")?-2:2),
                 duration:250, easing: Easing.quad,
                 useNativeDriver:true
             }).start(()=>{
@@ -122,7 +128,7 @@ export default function HamBurgerMenu(props){
         }
         
         const OpenMenu=(menuTo)=>{
-            // console.log(JSON.stringify(menuTo));
+            console.log(JSON.stringify(menuTo));
             closeHamBurger();
             if(menuTo!=undefined&&menuTo.Navigation.NavType=='view'){
                 props.navigation.navigate(getAppNames(menuTo.Navigation.NavURL),getScreen(menuTo.Navigation.NavParameter));
@@ -230,7 +236,8 @@ export default function HamBurgerMenu(props){
                             }} style={{backgroundColor:Colors.bluelightShadeColor, width:widthPercentageToDP(8),justifyContent:'center',alignSelf:'flex-end',
                             marginEnd:widthPercentageToDP(3),
                             height:widthPercentageToDP(8),borderRadius:widthPercentageToDP(8)}}>
-                            <Text style={{alignSelf:'center',includeFontPadding:false,textAlignVertical:'center',color:Colors.whiteColor,fontWeight:'500',fontSize:widthPercentageToDP(5),transform:[{scaleX:1.25}]}}>X</Text></TouchableOpacity>
+                            <Text style={{alignSelf:'center',includeFontPadding:false,textAlignVertical:'center',color:Colors.whiteColor,fontWeight:'500',fontSize:widthPercentageToDP(5),transform:[{scaleX:1.25}]}}>X</Text>
+                            </TouchableOpacity>
                             <ProfileInHam Colors={Colors} menuVisible={menuVisible} OpenMenu={OpenMenu} hamView={hamView}/>
                        
                             <Image source= {leisureIcon} resizeMode='contain'

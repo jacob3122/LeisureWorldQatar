@@ -31,6 +31,10 @@ const Tab = createBottomTabNavigator();
 
 export default function MainTabNavigator(props,navigation) {
   
+  useEffect(()=>{
+    i18n.locale=global.locale;
+  },[global.locale])
+  
   const [keyboardVisible, setKeyboardVisible] = useState(false);
   const { state, dispatch } = useAppContext();
   i18n.translations = state.i18ntranslation;
@@ -47,7 +51,7 @@ export default function MainTabNavigator(props,navigation) {
         setKeyboardVisible(false);
       }
     );
-
+    
     return () => {
       keyboardDidShowListener.remove();
       keyboardDidHideListener.remove();
@@ -56,7 +60,7 @@ export default function MainTabNavigator(props,navigation) {
   
   const {bottomBar, setBottomBar} = useContext(StateContext);
   const {pageContent, setPageContent} = useContext(StateContext);
-
+  
   const tabs = [
     {
       name: 'Storescreen',
@@ -86,7 +90,7 @@ export default function MainTabNavigator(props,navigation) {
   ];
   
   return (
-   <Tab.Navigator
+    <Tab.Navigator
     screenOptions={{
       headerShown:false,
       tabBarAllowFontScaling:false,
@@ -105,44 +109,43 @@ export default function MainTabNavigator(props,navigation) {
           tabBarLabel: _.label,
         }}
         />
-        );
-      })}
-      </Tab.Navigator>
       );
-    }
-    
-    
-    const styles=StyleSheet.create({
-      tabIcon:{width:widthPercentageToDP('7.75%'),height:widthPercentageToDP('7.75%'),resizeMode:'contain',alignSelf:'center',tintColor:Colors.inputfontColor},
-      imageView:{
-        width:widthPercentageToDP('7.75%'),height:widthPercentageToDP('7.75%'),
-        transform:[{translateY:heightPercentageToDP(1.5)}],
-        alignSelf:'center',justifyContent:'center',borderRadius:heightPercentageToDP('4%'),backgroundColor:Colors.whiteColor
-      },
-      tabImage:{width:heightPercentageToDP('4%'),height:heightPercentageToDP('4%'),resizeMode:'contain',alignSelf:'center'},
-      tabbarstyle:{
-        backgroundColor: 'black',
-        color:'black',
-        height:heightPercentageToDP('7.2%'),// AdaptiveHeight(16),
-        justifyContent:'center',
-      },
-      tabView:{
-        flex:0.33,
-        marginTop:'3%',
-        marginBottom:'3%',
-        alignSelf:'center',
-      },
-      tabtext:{
-        marginTop:'5%',
-        fontFamily:'Cairo-Bold',
-        fontSize:widthPercentageToDP('3.5%'),
-        lineHeight:widthPercentageToDP('4.5%'),
-        alignSelf:'center',
-        textAlign:'center',
-        color:Colors.whiteColor
-      },
-      
-    }
-    )
-    export {MainTabNavigator};
-    
+    })}
+    </Tab.Navigator>
+  );
+}
+
+
+const styles=StyleSheet.create({
+  tabIcon:{width:widthPercentageToDP('7.75%'),height:widthPercentageToDP('7.75%'),resizeMode:'contain',alignSelf:'center',tintColor:Colors.inputfontColor},
+  imageView:{
+    width:widthPercentageToDP('7.75%'),height:widthPercentageToDP('7.75%'),
+    transform:[{translateY:heightPercentageToDP(1.5)}],
+    alignSelf:'center',justifyContent:'center',borderRadius:heightPercentageToDP('4%'),backgroundColor:Colors.whiteColor
+  },
+  tabImage:{width:heightPercentageToDP('4%'),height:heightPercentageToDP('4%'),resizeMode:'contain',alignSelf:'center'},
+  tabbarstyle:{
+    backgroundColor: 'black',
+    color:'black',
+    height:heightPercentageToDP('7.2%'),// AdaptiveHeight(16),
+    justifyContent:'center',
+  },
+  tabView:{
+    flex:0.33,
+    marginTop:'3%',
+    marginBottom:'3%',
+    alignSelf:'center',
+  },
+  tabtext:{
+    marginTop:'5%',
+    fontFamily:'Cairo-Bold',
+    fontSize:widthPercentageToDP('3.5%'),
+    lineHeight:widthPercentageToDP('4.5%'),
+    alignSelf:'center',
+    textAlign:'center',
+    color:Colors.whiteColor
+  },
+  
+}
+)
+export {MainTabNavigator};

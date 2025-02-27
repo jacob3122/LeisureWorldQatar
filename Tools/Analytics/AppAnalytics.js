@@ -15,6 +15,48 @@ function logEvent(_methodName,_dataIn){
         console.log(_methodName+":"+JSON.stringify(_dataIn));
     }
 }
+// Function 1: Log a "Purchase" event with relevant data
+export async function logPurchaseFailedEvent(_cart,_shopCart){
+    try {
+        let itemsIn=addItems(_cart,_shopCart);
+        if(!Tools.IsNull(itemsIn)){
+            let properties = new MoEProperties();
+            properties.addAttribute("currency", "QAR");
+            properties.addAttribute("price", itemsIn.price);
+            properties.addAttribute("subTotal", itemsIn.subTotal);
+            properties.addAttribute("quantity", itemsIn.quantity);
+            properties.addAttribute("itemId", itemsIn.itemId);
+            properties.addAttribute("itemDescription", itemsIn.itemDescription);
+            properties.addAttribute("itemImageUrl", itemsIn.itemImageUrl);
+            properties.addAttribute("category", itemsIn.category);
+            properties.addAttribute("sub category", itemsIn.subcategory);
+            properties.addAttribute("parkType", itemsIn.parkType);
+            properties.addAttribute("itemName", itemsIn.itemName);
+            properties.addAttribute("cartPrice", _shopCart.TotalAmount);
+            properties.addAttribute("itemName", itemsIn.itemName);
+            properties.addAttribute("discount", itemsIn.discount);
+            properties.addAttribute("couponCode", itemsIn.couponCode);
+            ReactMoE.trackEvent("purchase_failed", properties);
+            dataIn={
+                currency:"QAR",
+                cartprice:_shopCart.TotalAmount,
+                price:itemsIn.price,
+                quantity:itemsIn.quantity,
+                itemId:itemsIn.itemId,
+                itemImageUrl:itemsIn.itemImageUrl,
+                category:itemsIn.category,
+                subcategory:itemsIn.subcategory,
+                
+                parkType:itemsIn.parkType
+            };
+            await analytics().logEvent('purchase_failed',dataIn);
+            logEvent("logpurchase_failedEvent",dataIn);
+        }
+    } catch (error) {
+        console.error('Error logging "logpurchase_failedEvent" event:', error);
+    }
+}
+
 
 // Function 1: Log a "Purchase" event with relevant data
 export async function logPurchaseEvent(_paymentResponse,_shopCart,_cart,_profile) {
@@ -182,7 +224,7 @@ export async function logAddToCartEvent(_cartItem,_price,_count) {
         if(!Tools.IsNull(_cartItem.item.value.Entity.ProductName)){
             properties.addAttribute("product", _cartItem.item.value.Entity.ProductName);
         }
-        console.log("Cart Item : "+JSON.stringify(_cartItem.item.value));
+        // console.log("Cart Item : "+JSON.stringify(_cartItem.item.value));
         // properties.addAttribute("productData",_cartItem.item.value.Entity)
         properties.addAttribute("currency", "QAR");
         properties.addAttribute("price", _price);//price

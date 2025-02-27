@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView } from 'react-native';
 import { Image as RNImage } from 'react-native-elements';
 import HorizontalFeed from './HorizontalFeed';
@@ -17,6 +17,9 @@ import { useAppContext } from '../../src/js/reducers/AppReducer';
 
 
 const NewsFeed = ({ news,profile }) => {
+    // useEffect(()=>{
+    //     console.log("News : "+JSON.stringify(news));
+    // },[])
     const Colors = useTheme(); // Get the current color scheme's colors
     const { state, dispatch } = useAppContext();
     i18n.translations = state.i18ntranslation;

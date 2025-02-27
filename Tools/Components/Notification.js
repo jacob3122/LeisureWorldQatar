@@ -32,25 +32,34 @@ export default function Notification(props){
   
   useEffect(()=>{
     // AppState.addEventListener('change', _handleAppStateChange);
-
+    
     if(Platform.OS=='ios'){
       ReactMoE.registerForPush();
       // ReactMoE.registerForProvisionalPush(); 
     }else{
       ReactMoE.requestPushPermissionAndroid()  
     }
-
-    ReactMoE.setEventListener("pushTokenGenerated", (payload) => { 
-      console.log("pushTokenGenerated", payload); 
-    });
-
-    ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
-      console.log("pushClicked", notificationPayload); 
-    });
+    
+    // ReactMoE.setEventListener("pushTokenGenerated", (payload) => { 
+    //   console.log("pushTokenGenerated", payload); 
+    // });
+    // console.log("pushClickedTest"); 
+    // ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
+    //   console.log("pushClicked"); 
+    //   console.log("Data push : ", notificationPayload); 
+    // });
+    
+    // ReactMoE.setEventListener("pushTokenGenerated", (payload) => { 
+      //   console.log("pushTokenGenerated", payload); 
+    // });
+    
+    // ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
+      //   console.log("pushClicked", notificationPayload); 
+    // });
     // checkPermission();
     // messageListener();
     // onTokenRefreshListener = messaging().onTokenRefresh(fcmToken => {
-    //   if (!Tools.IsNull(fcmToken)){
+      //   if (!Tools.IsNull(fcmToken)){
     //     console.log("Notify Token :"+fcmToken);
     //     ReactMoE.passFcmPushToken(fcmToken);
     //     if(global.mobileToken!=fcmToken){
@@ -66,98 +75,12 @@ export default function Notification(props){
     
   },[])
   
-  // _handleAppStateChange = (nextAppState) => {
-  //   if (
-  //     appState.match(/inactive|background/) &&
-  //     nextAppState === 'active'
-  //   ) {
-  //     // checkPermission();
-  //   }
-  //   setAppState(nextAppState);
-  // }
+
   updateToken=(LaccessToken)=>{
     global.mobileToken=LaccessToken;
     return;
-    SecureStore.getItemAsync('accessToken').then(accessToken=>{
-      if(Tools.stringIsEmpty(accessToken)){
-        verifyurl=WebServices.mobileToken;
-        // console.log("Device : "+Platform.Version);
-        
-        var details = {
-          'Token': LaccessToken,
-          'DeviceType': Platform.OS,
-          'DeviceName': Platform.Version,
-          'MemberID':''
-        };
-        // console.log("Token : "+JSON.stringify(details));
-        return fetch (WebServices.MainURL+verifyurl,{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body:JSON.stringify(details)
-        },5000)
-        .then((response) =>   response.text())
-        .then((responseJson) => {
-          // console.info('UP Tok'+responseJson);
-        })
-        .catch((error) =>{
-          // console.log('UPE '+error);
-        });
-      }
-    });
-    
   }
   
-  // const checkPermission = async () => {
-  //   const enabled = await messaging().hasPermission();
-  //   if (enabled==1) {
-  //     getFcmToken();
-  //   } else {
-  //     requestPermission();
-  //   }
-  // }
-  
-  // const getFcmToken = async () => {
-  //   const fcmToken = await messaging().getToken();
-  //   if (!Tools.IsNull(fcmToken)) {
-  //     console.log("Noti Token:/:"+fcmToken);
-  //     ReactMoE.passFcmPushToken(fcmToken);
-  //     if(global.mobileToken!=fcmToken){
-  //       updateToken(fcmToken);
-  //     }
-  //     messageListener();
-  //   } else {
-  //   }
-  // }
-  
-  // requestPermission = async () => {
-  //   try {
-  //     // const authorizationstatus=await messaging().requestPermission({
-  //     //   badge:true,
-  //     //   sound:true,
-  //     //   alert:true,
-  //     //   // provisional:true,
-  //     // });
-  //     const authorizationstatus=await requestNotifications(['alert', 'badge', 'sound']);
-      
-  //     if(authorizationstatus== messaging.AuthorizationStatus.AUTHORIZED){
-  //       // console.log("RP :"+authorizationstatus)
-  //     }else if (authorizationstatus== messaging.AuthorizationStatus.PROVISIONAL){
-  //       // console.log("RP P:"+authorizationstatus)
-  //     }
-      
-  //     const enabled = await messaging().hasPermission();
-  //     messaging().isAutoInitEnabled=true;
-  //     // console.log("RP :"+enabled)
-  //     // User has authorised
-  //     if(enabled==1){
-  //       getFcmToken();
-  //     }
-  //   } catch (error) {
-  //     // User has rejected permissions
-  //   }
-  // }
   createPageContent= (pageData)=>{
     // console.log("createPageContent"+JSON.stringify(pageData));
     // if(Tools.IsNull(pageData.data.nav_type))
@@ -206,7 +129,7 @@ export default function Notification(props){
       setNotificationIn(notificationOpen);
       createPageContent(notificationOpen);
       if(!Tools.IsNull(notificationOpen)&&!Tools.IsNull(notificationOpen.messageId))
-      updateNotification(notificationOpen.messageId,"read");
+        updateNotification(notificationOpen.messageId,"read");
     });
     
     // const notificationOpen = await messaging().getInitialNotification();
@@ -283,27 +206,9 @@ export default function Notification(props){
     }
     
     
-    // render() {
     return (<>
       </>
     )
-    // }
   }
-  // const mapStateToProps = state=>{
-    //   return {
-  //     profile: state.profileReducer.profile,
-  //     accessToken:state.profileReducer.accessToken,
-  
-  //   }                
-  // };
-  
-  // const mapDispatchToProps = (dispatch) => {
-    //   return{
-  //   };
-  // }
-  
-  // export default connect(
-  //   mapStateToProps,
-  //   mapDispatchToProps
-  //   )(Notification)
+
   

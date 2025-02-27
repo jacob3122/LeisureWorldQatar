@@ -54,7 +54,10 @@ import LoadingLine from './LoadingLine';
 import { useTheme } from '../context/ThemeProvider';
 export default function (props){
     const Colors=useTheme();
-    return <AccountHandle {...props} Colors={Colors}/>
+    useEffect(()=>{
+            i18n.locale=global.locale;
+        },[global.locale])
+    return <AccountHandle {...props}locale={i18n.locale} Colors={Colors}/>
 }
 class AccountHandle extends React.Component {
     constructor(props) {
@@ -244,7 +247,7 @@ class AccountHandle extends React.Component {
                         <View style={{flexDirection:'row'}}>
                         <Image style={{width:heightPercentageToDP(6),height:heightPercentageToDP(6),alignSelf:'center',tintColor:Colors.orangeShadeColor,marginEnd:10}} source={itemsButton}/>
                         <View style={{flex:1,alignSelf:'center'}}>
-                        <Text numberOfLines={2} allowFontScaling={false} style={[this.styles.title]}>{i18n.locale=='ar'?this.state.eventObjs[this.state.eventUpcoming].EventNameAr:
+                        <Text numberOfLines={2} allowFontScaling={false} style={[this.styles.title]}>{this.props.locale=='ar'?this.state.eventObjs[this.state.eventUpcoming].EventNameAr:
                         this.state.eventObjs[this.state.eventUpcoming].EventNameEn}</Text>
                         
                         {/* {this.getItems(this.state.orderObjs[t])} */}
@@ -259,7 +262,7 @@ class AccountHandle extends React.Component {
                         </View>*/}
                         <View style={{flexDirection:'row',justifyContent:'center',alignSelf:'center'}}>
                         <Image resizeMode='contain' style={{width:widthPercentageToDP(5),height:widthPercentageToDP(5),tintColor:Colors.orangeShadeColor}} source={locationIcon}/>
-                        <Text style={this.styles.subtitle} allowFontScaling={false}>{i18n.locale=='ar'?this.state.eventObjs[this.state.eventUpcoming].LocationNameAr:this.state.eventObjs[this.state.eventUpcoming].LocationName}</Text>
+                        <Text style={this.styles.subtitle} allowFontScaling={false}>{this.props.locale=='ar'?this.state.eventObjs[this.state.eventUpcoming].LocationNameAr:this.state.eventObjs[this.state.eventUpcoming].LocationName}</Text>
                         </View>
                         </TouchableOpacity>}
                         {this.getFirstthreebuttons()}

@@ -30,7 +30,11 @@ import Barcode from './Barcode.js';
 
 export default function (props){
     const Colors =useTheme();
-    return <PlayCardList {...props} Colors={Colors}/>
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
+
+    return <PlayCardList {...props} locale={i18n.locale} Colors={Colors}/>
 }
 
 class PlayCardList extends Component {
@@ -364,7 +368,7 @@ refreshControlUnReg(){
             resizeMode={FastImage.resizeMode.contain}
             />
             <View style={{width:'100%',height:'100%'}}>
-            <View style={[{position:'absolute',flex:1, alignSelf:'flex-end',bottom:'4%'},i18n.locale=='ar'?{start:'3%'}:{end:'3%'}]}>
+            <View style={[{position:'absolute',flex:1, alignSelf:'flex-end',bottom:'4%'},this.props.locale=='ar'?{start:'3%'}:{end:'3%'}]}>
             <Text allowFontScaling={false} style={{fontSize:widthPercentageToDP(3.7),fontFamily:'Cairo-Regular',color:Colors.whiteColor,alignSelf:'flex-start'}}>{i18n.t("playcardNumber")}</Text>
             {/* </View>
         <View style={{position:'absolute',flexDirection:'row',flex:1, alignSelf:'flex-end',bottom:'25%',right:'4%'}}> */}

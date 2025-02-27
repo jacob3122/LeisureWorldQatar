@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-import {View,StyleSheet,Text,I18nManager,NativeModules,TouchableOpacity,Image,ImageBackground,PixelRatio, SafeAreaView, TextInput,Switch, ScrollView, Linking} from 'react-native';
+import {View,StyleSheet,Text,I18nManager,NativeModules,TouchableOpacity,Image,ImageBackground,PixelRatio, SafeAreaView, TextInput,Switch, ScrollView, Linking, Platform} from 'react-native';
 import PropTypes from 'prop-types';
 import {I18n} from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json'
@@ -50,6 +50,8 @@ import { StatusBar } from 'react-native';
 import { useEffect } from 'react';
 import { useAppContext } from '../../src/js/reducers/AppReducer';
 import { getBuildId, getBuildNumber, getVersion } from 'react-native-device-info';
+import { MoEngagePermissionType } from 'react-native-moengage/src/models/MoEngagePermissionType';
+import ReactMoE from 'react-native-moengage';
 
 export default function SettingsHandle(props){
     const Colors=useTheme();
@@ -119,7 +121,10 @@ export default function SettingsHandle(props){
         }
         init();
     },[])
-    
+    useEffect(()=>{
+            i18n.locale=global.locale;
+            setTmpLanguage(i18n.locale)
+        },[global.locale])
     // const checkNotificationStatus= async()=>{
     //     if(Platform.OS === 'ios'){
     //         const authStatus = await messaging().hasPermission();
@@ -239,12 +244,15 @@ export default function SettingsHandle(props){
         setSmsNotify(!smsNotify);
     }
     const  setOnOffPush=async(_onoff)=>{
-        // console.log("B:"+_onoff)
+        console.log("B:"+_onoff);
         toggleNotification();
     }
     const toggleNotification=async()=>{
-        if(Platform.OS === 'ios'){
+        if(Platform.OS=='ios'){
+        console.log("B:"+ReactMoE.pushPermissionResponseAndroid );
+
             const authStatus = await messaging().hasPermission();
+            console.log("Auth"+JSON.stringify(authStatus));
             if (authStatus === messaging.AuthorizationStatus.NOT_DETERMINED) {
                 const authorizationStatus = await messaging().requestPermission();
                 if (authorizationStatus === messaging.AuthorizationStatus.AUTHORIZED) {
@@ -276,14 +284,14 @@ export default function SettingsHandle(props){
                         _onoff=!_onoff;
                         setAllowFaceID(_onoff);
                         SecureStore.setItemAsync('useBiometric',_onoff?'Y':'N');
-                        // console.log('successful biometrics provided')
+                        console.log('successful biometrics provided')
                     } else {
-                        // console.log('user cancelled biometric prompt')
+                        console.log('user cancelled biometric prompt')
                     }
                     
                 })
-                .catch(() => {
-                    // console.log('biometrics failed')
+                .catch((err) => {
+                    console.log('biometrics failed'+err)
                 })
                 
             }
@@ -379,12 +387,12 @@ export default function SettingsHandle(props){
             </View>
             </View>
             {/* {UIElements.drawGap(heightPercentageToDP(1))} */}
-            <View style={styles.infoBar}>
+            {/* <View style={styles.infoBar}>
             <View style={styles.infoBarHalf}>
             <Text allowFontScaling={false} style={styles.titleInfo}>{i18n.t('pushnotification')}</Text>
             </View>
             <SwitchColored stateIn={pushNotify} setOnOff={setOnOffPush}/>
-            </View>
+            </View> */}
             {!Tools.IsNull(state.profile)&&<>
                 <View style={styles.infoBar}>
                 <View style={styles.infoBarHalf}>

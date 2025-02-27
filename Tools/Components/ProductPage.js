@@ -205,7 +205,9 @@ export default function ProductPage(props){
             setSelectedDate(dateIn);
         }
     },[daysIn]);
-    
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
     
     useEffect(()=>{
         if(!Tools.IsNull(fdate))
@@ -571,9 +573,13 @@ export default function ProductPage(props){
                 // console.log(_product.Entity.ProductName+""+element);
                 allImages.push(<View>
                     <FastImage
-                    style={[styles.productImage,{
-                        width:widthPercentageToDP(!corner?15:25),
-                        height:widthPercentageToDP(!corner?5:9),
+                    style={[styles.productImage,Tools.stringIsContains(global.locale,'ar')?{
+                        left:-1*widthPercentageToDP(77),
+                    }:{
+                        right:0,
+                    },{
+                        width:widthPercentageToDP(25),
+                        height:widthPercentageToDP(9),
                     }]}
                     source={{
                         uri: WebServices.MainURL+WebServices.AppIconUrl.replace("{file}",element.replace(WebServices.AppIcon,"")+"_"+(Tools.stringIsContains(i18n.locale,'ar')?'ar':'en')),
@@ -739,11 +745,11 @@ export default function ProductPage(props){
                                         }
                                         // else{
                                         //     setMediaIds(profile.Medias);
-                                           
+                                        
                                         // //     console.log("media ids :"+JSON.stringify(profile.Medias));
                                         // //    console.log(product.parkType);
                                         // //    console.log("media ids :"+JSON.stringify(profile.Medias));
-
+                                        
                                         //     _mediaIds=profile.Medias.filter((_media)=>Tools.stringIsContains(_media.Location.toLowerCase(),product.parkType.toLowerCase()))
                                         //     setShowdropIcon(_mediaIds.length>0)
                                         //     setGotData(true);
@@ -1119,7 +1125,7 @@ export default function ProductPage(props){
                                                             const gettranslatedVersion=(_data)=>{
                                                                 arabicIn=Tools.stringIsContains(i18n.locale,'ar');
                                                                 for(let t=0;t<_data.length;t++){
-                                                                    // console.log(arabicIn+" Is Arabic "+_data[t].LangISO);
+                                                                    console.log(i18n.locale+"/"+arabicIn+" Is Arabic "+_data[t].LangISO);
                                                                     // console.log(" Data "+JSON.stringify(_data[t]));
                                                                     
                                                                     if(arabicIn&&_data[t].LangISO=="ar"){
@@ -1175,7 +1181,7 @@ export default function ProductPage(props){
                                                                 },5000)
                                                                 .then((response) => response.text())
                                                                 .then((responseJson) => {
-                                                                    console.log("fetchPerformanceDates R :"+responseJson);
+                                                                    // console.log("fetchPerformanceDates R :"+responseJson);
                                                                     setIsFetching(false);
                                                                     var responseObj=JSON.parse(responseJson);
                                                                     if(!Tools.IsNull(responseObj)&&!Tools.IsNull(responseObj.Answer)&&!Tools.IsNull(responseObj.Answer.SearchDate))
@@ -1313,7 +1319,7 @@ export default function ProductPage(props){
                                                                         for (let index = 0; index < responseObj.Answer.GetSellableProducts.ProductList.length; index++) {
                                                                             const element = responseObj.Answer.GetSellableProducts.ProductList[index];
                                                                             if(SelectedOption==undefined||(SelectedOption!=undefined&&element.ProductId==SelectedOption.Entity.ProductId)){
-                                                                                console.log("SO:"+JSON.stringify(SelectedOption));
+                                                                                // console.log("SO:"+JSON.stringify(SelectedOption));
                                                                                 setPriceIn(element.Price+elementOption.OptionalPrice);
                                                                                 index=1000;
                                                                             }
@@ -2032,7 +2038,8 @@ export default function ProductPage(props){
                                                                                                                                         }
                                                                                                                                         <View style={{width:'93%',alignSelf:'center',marginTop:heightPercentageToDP(0.5)}}>
                                                                                                                                         <View style={{justifyContent:'space-between',flexDirection:'row',width:'100%',alignSelf:'center'}}>
-                                                                                                                                        <View><Text allowFontScaling={false} style={styles.productTextTitle}>{getTranslatedProductName(params.product)}</Text>
+                                                                                                                                        <View>
+                                                                                                                                        <Text allowFontScaling={false} style={styles.productTextTitle}>{getTranslatedProductName(params.product)}</Text>
                                                                                                                                         <Text allowFontScaling={false} style={styles.productTheme}>{getTranslatedCatalogName(params.catalogName)}</Text>
                                                                                                                                         </View>
                                                                                                                                         </View>

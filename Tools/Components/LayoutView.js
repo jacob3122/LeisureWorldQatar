@@ -3,7 +3,7 @@ import { Linking, Platform, TouchableOpacity, View } from "react-native";
 import FastImage from "react-native-fast-image";
 import AppText from "./AppText";
 import AppIcon from "./AppIcon";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
 // import Colors from "../constants/Colors";
 import * as Tools from '../Components/Tools';
@@ -14,12 +14,13 @@ import { useAppContext } from "../../src/js/reducers/AppReducer";
 import { BlurView } from "@react-native-community/blur";
 import {I18n} from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json'
+import { StateContext } from "../context/ContextState";
 const i18n = new I18n(translations);
 function LayoutView({item,index,settings,news,profile}) {
     
     const [imageAspect, setImageAspect] = useState(0);
     const Colors = useTheme(); // Get the current color scheme's colors
-    
+    const {openProductCode, setOpenProductCode} = useContext(StateContext);
     
     // onImageIn=(evt)=>{
         //     // setImageAspect(evt.nativeEvent.width / evt.nativeEvent.height);
@@ -118,10 +119,11 @@ function LayoutView({item,index,settings,news,profile}) {
                                 Linking.openURL(item.Navigation.NavURL); 
                             }else if(item.Navigation.NavType=='view'){
                                 if(item.Navigation.NavURL=='store'){
-                                    dispatch({
-                                        type:'update_OpenProduct',
-                                        payload:item.Navigation.NavParameter
-                                    })
+                                    // dispatch({
+                                    //     type:'update_OpenProduct',
+                                    //     payload:item.Navigation.NavParameter
+                                    // })
+                                    setOpenProductCode(item.Navigation.NavParameter);
                                     const currentScreen = route.name;
                                     // console.log('Current screen name:', currentScreen);
                                     navigationIn.navigate('Storescreen');

@@ -51,7 +51,9 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
     useEffect(() => {
         getBenefits();
     }, []);
-    
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
     const getBenefits=()=>{
         setRefreshing(true);
         
@@ -98,7 +100,7 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
         },WebServices.timeout)
         .then((response) => {
             if(response.status==200)
-            return (response.text())
+                return (response.text())
             else{
                 setRefreshing(false);
             }
@@ -141,6 +143,7 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
                 return;
             }
             dataGot=JSON.parse(responseJson);
+            console.log(responseJson);
             // if(!Tools.stringIsContains(responseJson,'error')){
             
             //     showFinalPage(dataGot);
@@ -236,23 +239,23 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
             <TouchableOpacity disabled={!item.IsAllowed} onPress={()=>{
                 setbenefit(item);
             }} style={{flexDirection:'row',marginBottom:heightPercentageToDP(index==(allBenefits.length-1)?0:2),width:'85%',borderRadius:widthPercentageToDP(3)
-            ,alignSelf:'center',overflow:'hidden'}}>
-            <View style={{width:'100%',borderBottomWidth:1,borderBottomColor:Colors.blueColor,height:'100%',padding:widthPercentageToDP(3)}}>
-            <Text style={styles.title}>{Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr}</Text>
-            <View style={{flexDirection:'row',width:'95%'}}>
-            <Text numberOfLines={1} style={styles.contentHistory}>{i18n.t('redeemcode')} : </Text>
-            <Text style={[styles.contentHistory]}>{(item.RedeemCode)}</Text>
-            </View>
-            <View style={{flexDirection:'row',width:'95%'}}>
-            <Text numberOfLines={1} style={styles.contentHistory}>{i18n.t('redeemdate')} : </Text>
-            <Text style={styles.contentHistory}>{Tools.getTimefromString(item.RedeemDate)}</Text>
-            </View>
-            <View style={{flexDirection:'row',width:'95%'}}>
-            <Text numberOfLines={1} style={styles.contentHistory}>{i18n.t('redeemlocation')} : </Text>
-            <Text style={styles.contentHistory}>{Tools.stringIsContains(i18n.locale,'en')?(item.RedeemLocationEn):(item.RedeemLocationAr)}</Text>
-            </View>
-            </View>
-            </TouchableOpacity>
+                ,alignSelf:'center',overflow:'hidden'}}>
+                <View style={{width:'100%',borderBottomWidth:1,borderBottomColor:Colors.blueColor,height:'100%',padding:widthPercentageToDP(3)}}>
+                <Text style={styles.title}>{Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr}</Text>
+                <View style={{flexDirection:'row',width:'95%'}}>
+                <Text numberOfLines={1} style={styles.contentHistory}>{i18n.t('redeemcode')} : </Text>
+                <Text style={[styles.contentHistory]}>{(item.RedeemCode)}</Text>
+                </View>
+                <View style={{flexDirection:'row',width:'95%'}}>
+                <Text numberOfLines={1} style={styles.contentHistory}>{i18n.t('redeemdate')} : </Text>
+                <Text style={styles.contentHistory}>{Tools.getTimefromString(item.RedeemDate)}</Text>
+                </View>
+                <View style={{flexDirection:'row',width:'95%'}}>
+                <Text numberOfLines={1} style={styles.contentHistory}>{i18n.t('redeemlocation')} : </Text>
+                <Text style={styles.contentHistory}>{Tools.stringIsContains(i18n.locale,'en')?(item.RedeemLocationEn):(item.RedeemLocationAr)}</Text>
+                </View>
+                </View>
+                </TouchableOpacity>
             )
         }
         getBenefit= ({item, index}) => {
@@ -262,32 +265,32 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
                 const element = item.AvailableAt[index];
                 validIn+=element.Title;
                 if(index < (item.AvailableAt.length-1))
-                validIn+=', '
+                    validIn+=', '
             }
             return (
                 <TouchableOpacity disabled={!item.IsAllowed} onPress={()=>{
                     setbenefit(item);
                 }} style={{opacity:(item.IsAllowed?1:0.5),flexDirection:'row',marginBottom:-heightPercentageToDP(4),
-                width:'85%',borderRadius:widthPercentageToDP(3),maxHeight:heightPercentageToDP(30),overflow:'hidden',
-                alignSelf:'center'}}>
-                <View style={{width:'25%',backgroundColor:Colors.yellowShadeColor,height:'100%',justifyContent:'center'}}>
-                <FastImage style={[{alignSelf:'center',width:widthPercentageToDP(12),height:widthPercentageToDP(12)}]}
-                source={{
-                    uri: item.Icon,
-                    priority: FastImage.priority.normal,
-                }}
-                resizeMode={FastImage.resizeMode.stretch}/>    
-                </View>
-                <View style={{width:'75%',backgroundColor:Colors.blueColor,height:'100%',padding:widthPercentageToDP(3)}}>
-                <Text style={styles.title}>{Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr}</Text>
-                <View style={{flexDirection:'row',width:'99%'}}>
-                <Text numberOfLines={1} style={styles.content}>{i18n.t('validuntill')} : {Tools.getTimefromString(item.ValidTo)}</Text>
-                </View>
-                <View style={{flexDirection:'row',width:'99%'}}>
-                <Text numberOfLines={2} style={styles.content}>{i18n.t('validin')} : {validIn}</Text>
-                </View>
-                </View>
-                </TouchableOpacity>
+                    width:'85%',borderRadius:widthPercentageToDP(3),maxHeight:heightPercentageToDP(30),overflow:'hidden',
+                    alignSelf:'center'}}>
+                    <View style={{width:'25%',backgroundColor:Colors.yellowShadeColor,height:'100%',justifyContent:'center'}}>
+                    <FastImage style={[{alignSelf:'center',width:widthPercentageToDP(12),height:widthPercentageToDP(12)}]}
+                    source={{
+                        uri: item.Icon,
+                        priority: FastImage.priority.normal,
+                    }}
+                    resizeMode={FastImage.resizeMode.stretch}/>    
+                    </View>
+                    <View style={{width:'75%',backgroundColor:Colors.blueColor,height:'100%',padding:widthPercentageToDP(3)}}>
+                    <Text style={styles.title}>{Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr}</Text>
+                    <View style={{flexDirection:'row',width:'99%'}}>
+                    <Text numberOfLines={1} style={styles.content}>{i18n.t('validuntill')} : {Tools.getTimefromString(item.ValidTo)}</Text>
+                    </View>
+                    <View style={{flexDirection:'row',width:'99%'}}>
+                    <Text numberOfLines={2} style={styles.content}>{i18n.t('validin')} : {validIn}</Text>
+                    </View>
+                    </View>
+                    </TouchableOpacity>
                 )
             }
             const refreshControl=()=>{
@@ -297,143 +300,145 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
                     tintColor={Colors.blueColor}
                     refreshing={refreshing}
                     onRefresh={()=>refreshListView()} />
-                    )
+                )
+            }
+            const refreshListView=()=>{
+                if(showUsed){
+                    getUsedBenefits();
+                }else{
+                    getBenefits();
                 }
-                const refreshListView=()=>{
-                    if(showUsed){
-                        getUsedBenefits();
-                    }else{
-                        getBenefits();
-                    }
-                }
-                getBenefitIn= (item,onlybar=false) => {
-                    // console.log(Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr);
-                    validIn='';
-                    for (let index = 0; index < item.AvailableAt.length; index++) {
-                        const element = item.AvailableAt[index];
-                        validIn+=element.Title;
-                        if(index < (item.AvailableAt.length-1))
+            }
+            getBenefitIn= (item,onlybar=false) => {
+                // console.log(Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr);
+                validIn='';
+                for (let index = 0; index < item.AvailableAt.length; index++) {
+                    const element = item.AvailableAt[index];
+                    validIn+=element.Title;
+                    if(index < (item.AvailableAt.length-1))
                         validIn+=','
-                    }
-                    return (
-                        <View >
-                        <View style={{flexDirection:'row',width:'85%',maxHeight:heightPercentageToDP(12),minHeight:heightPercentageToDP(10),borderRadius:widthPercentageToDP(3),alignSelf:'center',overflow:'hidden'}}>
-                        <View style={{width:'25%',backgroundColor:Colors.yellowShadeColor,height:'100%',justifyContent:'center'}}>
-                        <FastImage style={[{alignSelf:'center',width:widthPercentageToDP(12),height:widthPercentageToDP(12)}]}
-                        source={{
-                            uri: item.Icon,
-                            priority: FastImage.priority.normal,
+                }
+                return (
+                    <View >
+                    <View style={{flexDirection:'row',width:'85%',maxHeight:heightPercentageToDP(12),minHeight:heightPercentageToDP(10),borderRadius:widthPercentageToDP(3),alignSelf:'center',overflow:'hidden'}}>
+                    <View style={{width:'25%',backgroundColor:Colors.yellowShadeColor,height:'100%',justifyContent:'center'}}>
+                    <FastImage style={[{alignSelf:'center',width:widthPercentageToDP(12),height:widthPercentageToDP(12)}]}
+                    source={{
+                        uri: item.Icon,
+                        priority: FastImage.priority.normal,
+                    }}
+                    resizeMode={FastImage.resizeMode.stretch}/>   
+                    </View>
+                    <View style={{width:'75%',backgroundColor:Colors.blueColor,padding:widthPercentageToDP(3)}}>
+                    <Text style={styles.title}>{Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr}</Text>
+                    <View style={{flexDirection:'row',width:'95%'}}>
+                    <Text numberOfLines={1} style={styles.content}>{i18n.t('validuntill')} :</Text>
+                    <Text style={styles.content}>{Tools.getTimefromString(item.ValidTo)}</Text>
+                    </View>
+                    <View style={{flexDirection:'row',width:'95%'}}>
+                    <Text numberOfLines={1} style={styles.content}>{i18n.t('validin')} :</Text>
+                    <Text style={styles.content}>{validIn}</Text>
+                    </View>
+                    </View>
+                    </View>
+                    {!onlybar&&<>
+                        <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        horizontal={false}
+                        contentContainerStyle={{paddingBottom:heightPercentageToDP(6)}}
+                        style={{width:'80%',height:'78%',paddingTop:widthPercentageToDP(4),alignSelf:'center'}}>
+                        <RenderHtml
+                        defaultTextProps={{allowFontScaling:false}}
+                        baseStyle={{
+                            textAlign:'left',fontFamily:'Cairo-Regular',
+                            fontSize:widthPercentageToDP(3.75),
+                            marginTop:-heightPercentageToDP(0.02),
+                            marginBottom:-heightPercentageToDP(0.15),
+                            color:Colors.black,
                         }}
-                        resizeMode={FastImage.resizeMode.stretch}/>   
-                        </View>
-                        <View style={{width:'75%',backgroundColor:Colors.blueColor,padding:widthPercentageToDP(3)}}>
-                        <Text style={styles.title}>{Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr}</Text>
-                        <View style={{flexDirection:'row',width:'95%'}}>
-                        <Text numberOfLines={1} style={styles.content}>{i18n.t('validuntill')} :</Text>
-                        <Text style={styles.content}>{Tools.getTimefromString(item.ValidTo)}</Text>
-                        </View>
-                        <View style={{flexDirection:'row',width:'95%'}}>
-                        <Text numberOfLines={1} style={styles.content}>{i18n.t('validin')} :</Text>
-                        <Text style={styles.content}>{validIn}</Text>
-                        </View>
-                        </View>
-                        </View>
-                        {!onlybar&&<>
-                            <ScrollView
-                            showsVerticalScrollIndicator={false}
-                            horizontal={false}
-                            contentContainerStyle={{paddingBottom:heightPercentageToDP(6)}}
-                            style={{width:'80%',height:'78%',paddingTop:widthPercentageToDP(4),alignSelf:'center'}}>
-                            <RenderHtml
-                            defaultTextProps={{allowFontScaling:false}}
-                            baseStyle={{
-                                textAlign:'left',fontFamily:'Cairo-Regular',
-                                fontSize:widthPercentageToDP(3.75),
-                                marginTop:-heightPercentageToDP(0.02),
-                                marginBottom:-heightPercentageToDP(0.15),
-                                color:Colors.black,
+                        GenericPressable={ (evt, href) => {
+                            if(Tools.stringIsContains(href,WebServices.appurl)){
+                            }else{
+                                Linking.openURL(href); 
+                            }}}
+                            tagsStyles={{
+                                p: {
+                                    fontSize:widthPercentageToDP(3.75),
+                                    marginTop:-heightPercentageToDP(0.02),
+                                    marginBottom:-heightPercentageToDP(0.15),
+                                    color:Colors.black,
+                                    width:'100%',
+                                },
                             }}
-                            GenericPressable={ (evt, href) => {
-                                if(Tools.stringIsContains(href,WebServices.appurl)){
-                                }else{
-                                    Linking.openURL(href); 
-                                }}}
-                                tagsStyles={{
-                                    p: {
-                                        fontSize:widthPercentageToDP(3.75),
-                                        marginTop:-heightPercentageToDP(0.02),
-                                        marginBottom:-heightPercentageToDP(0.15),
-                                        color:Colors.black,
-                                        width:'100%',
-                                    },
-                                }}
-                                // fallbackFonts='Cairo-Regular'
-                                systemFonts={systemFonts} 
-                                // onLinkPress={ (evt, href) => { Linking.openURL(href); }}
-                                contentWidth={widthPercentageToDP(80)}
-                                source={{ html: "<p>"+(i18n.locale=='ar'?item.DescriptionAr:item.DescriptionEn)+"</p>"}}
-                                
-                                />  
-                                </ScrollView></>}
-                                </View>
-                                )
+                            // fallbackFonts='Cairo-Regular'
+                            systemFonts={systemFonts} 
+                            // onLinkPress={ (evt, href) => { Linking.openURL(href); }}
+                            contentWidth={widthPercentageToDP(80)}
+                            source={{ html: "<p>"+(i18n.locale=='ar'?item.DescriptionAr:item.DescriptionEn)+"</p>"}}
+                            
+                            />  
+                            </ScrollView></>}
+                            </View>
+                        )
+                    }
+                    const getBenefitPage=()=>{
+                        return(
+                            <View style={{width:'90%',height:'75%',borderWidth:0,backgroundColor:Colors.whiteColor,alignSelf:'center',borderRadius:widthPercentageToDP(6),overflow:'visible',paddingTop:heightPercentageToDP(3)}}>
+                            {showTiers&& <WebView
+                                source={{uri:WebServices.MainURL+(Tools.stringIsContains(i18n.locale,'en')?WebServices.tierPageEn:WebServices.tierPageAr)}}
+                                />
                             }
-                            const getBenefitPage=()=>{
-                                return(
-                                    <View style={{width:'90%',height:'75%',borderWidth:0,backgroundColor:Colors.whiteColor,alignSelf:'center',borderRadius:widthPercentageToDP(6),overflow:'visible',paddingTop:heightPercentageToDP(3)}}>
-                                    {showTiers&& <WebView
-                                        source={{uri:WebServices.MainURL+(Tools.stringIsContains(i18n.locale,'en')?WebServices.tierPageEn:WebServices.tierPageAr)}}
-                                        />
-                                    }
-                                    {refreshing&&allBenefits==undefined&&<ActivityIndicator
-                                        size='large'
-                                        color={Colors.bluedarkShadeColor}/>}
-                                        {benefit==undefined&&!showUsed&&!showTiers&&allBenefits!=undefined&&<FlatList
-                                            horizontal={false}
-                                            style={{borderWidth:0,maxHeight:'88%',height:'88%'}}
-                                            // contentContainerStyle={{justifyContent:'center',alignContent:'space-around'}}
-                                            snapToAlignment="center"
-                                            data={allBenefits}
-                                            ItemSeparatorComponent={UiElements.drawGap(10)}
-                                            ListEmptyComponent={<View style={{width:'80%',alignSelf:'center'}}><Text style={styles.titlepass}>{i18n.t("nobenefits")}</Text></View>}
-                                            refreshControl={refreshControl()}
-                                            renderItem={getBenefit}/>
-                                        }
-                                        {allUsedBenefits!=undefined&&showUsed&&!showTiers&&<View style={{overflow:'hidden',height:'90%'}}>
-                                        <Text style={styles.titlepass}>{i18n.t('usedbenefits')}</Text>
-                                        <FlatList
-                                        removeClippedSubviews={false}
-                                        refreshControl={refreshControl()}
-                                        style={{borderWidth:0,maxHeight:'90%',height:'90%'}}
-                                        ListEmptyComponent={<View style={{width:'80%',alignSelf:'center'}}><Text style={styles.titlepass}>{i18n.t("nobenefitshistory")}</Text></View>}
-                                        data={ allUsedBenefits==undefined?[]:allUsedBenefits}
-                                        renderItem={getUsedBenefit}/>
-                                        </View>
-                                    }
-                                    {benefit!=undefined&&!useit&&<View style={{marginBottom:benefit.IsRedeemable?heightPercentageToDP(6.5):0}}>
-                                    {getBenefitIn(benefit)}
-                                    </View>
+                            {refreshing&&allBenefits==undefined&&<ActivityIndicator
+                                size='large'
+                                color={Colors.bluedarkShadeColor}/>}
+                                {benefit==undefined&&!showUsed&&!showTiers&&allBenefits!=undefined&&<FlatList
+                                    horizontal={false}
+                                    style={{borderWidth:0,maxHeight:'88%',height:'88%'}}
+                                    // contentContainerStyle={{justifyContent:'center',alignContent:'space-around'}}
+                                    snapToAlignment="center"
+                                    data={allBenefits}
+                                    ItemSeparatorComponent={UiElements.drawGap(10)}
+                                    ListEmptyComponent={<View style={{width:'80%',alignSelf:'center'}}><Text style={styles.titlepass}>{i18n.t("nobenefits")}</Text></View>}
+                                    refreshControl={refreshControl()}
+                                    renderItem={getBenefit}/>
                                 }
-                                {
-                                    finalPage!=undefined&&benefit!=undefined&&<View>
-                                    {getBenefitIn(benefit,true)}
-                                    {UiElements.drawGap(heightPercentageToDP(3))}
-                                    <Text style={styles.titlepass}>{i18n.t("redeemcode")}</Text>
-                                    {UiElements.drawGap(heightPercentageToDP(3))}
-                                    <Text style={[styles.contentCode,{textTransform:'uppercase'}]}>{finalPage.Result}</Text>
-                                    {!Tools.stringIsEmpty(finalPage.Result)&&<Barcode value={finalPage.Result} 
-                                    viewStyle={{marginTop:heightPercentageToDP(1),marginBottom:heightPercentageToDP(1)}} width={widthPercentageToDP('.32%')} height={heightPercentageToDP('5%')}
-                                    format="CODE128" />}
-                                    <MarqueeLine bgColor={Colors.black} style={{width:widthPercentageToDP(70)}}/>
-                                    </View>
-                                }
-                                {
-                                    finalPage==undefined&&benefit!=undefined&&useit&&<>
-                                    {getBenefitIn(benefit,true)}
-                                    {UiElements.drawGap(heightPercentageToDP(3))}
-                                    <Text style={styles.titlepass}>{i18n.t("benefitpasscode")}</Text>
-                                    <OTP title={false} onChangeText={(text) => {setPassCode(text)}}/>
-                                    <View style={{width:'80%',height:'53%',alignSelf:'center',
+                                {allUsedBenefits!=undefined&&showUsed&&!showTiers&&<View style={{overflow:'hidden',height:'90%'}}>
+                                <Text style={styles.titlepass}>{i18n.t('usedbenefits')}</Text>
+                                <FlatList
+                                removeClippedSubviews={false}
+                                refreshControl={refreshControl()}
+                                style={{borderWidth:0,maxHeight:'90%',height:'90%'}}
+                                ListEmptyComponent={<View style={{width:'80%',alignSelf:'center'}}><Text style={styles.titlepass}>{i18n.t("nobenefitshistory")}</Text></View>}
+                                data={ allUsedBenefits==undefined?[]:allUsedBenefits}
+                                renderItem={getUsedBenefit}/>
+                                </View>
+                            }
+                            {benefit!=undefined&&!useit&&<View style={{marginBottom:benefit.IsRedeemable?heightPercentageToDP(6.5):0}}>
+                            {getBenefitIn(benefit)}
+                            </View>
+                        }
+                        {
+                            finalPage!=undefined&&benefit!=undefined&&<View>
+                            {getBenefitIn(benefit,true)}
+                            {UiElements.drawGap(heightPercentageToDP(3))}
+                            <Text style={styles.titlepass}>{i18n.t("redeemcode")}</Text>
+                            {UiElements.drawGap(heightPercentageToDP(3))}
+                            <Text style={[styles.contentCode,{textTransform:'uppercase'}]}>{finalPage.Result}</Text>
+                            {!Tools.stringIsEmpty(finalPage.Result)&&<View>
+                                <Barcode value={finalPage.Result} viewStyle={{marginTop:heightPercentageToDP(1),marginBottom:heightPercentageToDP(1)}} width={widthPercentageToDP('.32%')} height={heightPercentageToDP('4.5%')}/>
+                                <Text  allowFontScaling={false} style ={styles.barCodeValue}>{cardFormatting(state.profile.CardNo)}</Text>
+                                <MarqueeLine bgColor={Colors.black} style={{width:widthPercentageToDP(70)}}/>
+                                </View>}
+                                
+                                </View>
+                            }
+                            {
+                                finalPage==undefined&&benefit!=undefined&&useit&&<>
+                                {getBenefitIn(benefit,true)}
+                                {UiElements.drawGap(heightPercentageToDP(3))}
+                                <Text style={styles.titlepass}>{i18n.t("benefitpasscode")}</Text>
+                                <OTP title={false} onChangeText={(text) => {setPassCode(text)}}/>
+                                <View style={{width:'80%',height:'53%',alignSelf:'center',
                                 }}>
                                 {UiElements.drawGap(heightPercentageToDP(5))}
                                 <TouchableOpacity onPress={()=>{
@@ -475,36 +480,36 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
                                         benefit!=undefined&&benefit.IsRedeemable&&!useit&&<><TouchableOpacity onPress={()=>{
                                             setuseItPop(true);
                                         }} style={{backgroundColor:Colors.blueColor,borderRadius:widthPercentageToDP(5),paddingHorizontal:widthPercentageToDP(5),position:'absolute',bottom:heightPercentageToDP(6.5)
-                                        ,height:heightPercentageToDP(4),justifyContent:'center',alignSelf:'center'}}><Text style={styles.contentButton}>{i18n.t('useit').toUpperCase()}</Text></TouchableOpacity>
-                                        {UiElements.drawGap(heightPercentageToDP(1))}
-                                        </>}
-                                        {
-                                            benefit!=undefined&&<>
-                                            <TouchableOpacity onPress={()=>{
-                                                if(finalPage!=undefined)
-                                                {
-                                                    showFinalPage(undefined);
-                                                    setShowUsed(false);
-                                                    setbenefit(undefined);
-                                                }
-                                                if(!useit)
-                                                {
-                                                    setbenefit(undefined);
-                                                }
-                                                setuseIt(false);
-                                            }}
-                                            style={styles.closeIcon}>
-                                            <TabBarIcon
-                                            style={{alignSelf:'center'}}
-                                            width={widthPercentageToDP(8)}
-                                            height={widthPercentageToDP(8)}
-                                            focused={true}
-                                            name={'close'}/>
-                                            </TouchableOpacity>
-                                            </>
-                                        }
-                                        
-                                        </View>
+                                            ,height:heightPercentageToDP(4),justifyContent:'center',alignSelf:'center'}}><Text style={styles.contentButton}>{i18n.t('useit').toUpperCase()}</Text></TouchableOpacity>
+                                            {UiElements.drawGap(heightPercentageToDP(1))}
+                                            </>}
+                                            {
+                                                benefit!=undefined&&<>
+                                                <TouchableOpacity onPress={()=>{
+                                                    if(finalPage!=undefined)
+                                                        {
+                                                        showFinalPage(undefined);
+                                                        setShowUsed(false);
+                                                        setbenefit(undefined);
+                                                    }
+                                                    if(!useit)
+                                                        {
+                                                        setbenefit(undefined);
+                                                    }
+                                                    setuseIt(false);
+                                                }}
+                                                style={styles.closeIcon}>
+                                                <TabBarIcon
+                                                style={{alignSelf:'center'}}
+                                                width={widthPercentageToDP(8)}
+                                                height={widthPercentageToDP(8)}
+                                                focused={true}
+                                                name={'close'}/>
+                                                </TouchableOpacity>
+                                                </>
+                                            }
+                                            
+                                            </View>
                                         )
                                     }
                                     const OnVerifyDone=(_param,_stateIn)=>{
@@ -526,9 +531,9 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
                                         {UiElements.drawGap(heightPercentageToDP(2))}
                                         {getBenefitPage()}
                                         {useitpop&&(<PopUpModal title={i18n.t('areyousuretobenefit')+
-                                        (i18n.t('questionmark'))} onDone={OnVerifyDone}/>)}
-                                        {Loading&&<OverlayLoad size='small' color={Colors.whiteColor} isopen={Loading} />}
-                                        </View>
+                                            (i18n.t('questionmark'))} onDone={OnVerifyDone}/>)}
+                                            {Loading&&<OverlayLoad size='small' color={Colors.whiteColor} isopen={Loading} />}
+                                            </View>
                                         );
                                     }
                                     

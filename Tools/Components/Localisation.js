@@ -113,7 +113,7 @@ export default function Localisation (props) {
         if(check)
         return (
     // <View></View>
-        <AppNavigation reload={reloadApp}/>
+        <AppNavigation notification={props.notification} reload={reloadApp}/>
         );
     }
     

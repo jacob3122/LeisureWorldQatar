@@ -59,7 +59,7 @@ export default function StorePage(props){
     const [sortVisible,setsortVisible]=useState(0);
     const [ShowInfo,setShowInfo]=useState(undefined);
     const [viewType,setviewType]=useState(0);
-    const [OpenProduct,setOpenProduct]=useState(state.OpenProduct);
+    const [OpenProduct,setOpenProduct]=useState('');
     const [cartItems,setcartItems]=useState([]);
     const [totalItems,settotalItems]=useState(0);
     const [cartModal,setcartModal]=useState(false);
@@ -76,6 +76,7 @@ export default function StorePage(props){
     const [showPay,setshowPay]=useState(false);
     const [paymentWebUrl,setpaymentWebUrl]=useState('');
     const [showLogin,setshowLogin]=useState(false);
+    const [changeRequired,setChangeRequired]=useState(false);
     
     const [folderDesc,setFolderDest]=useState(undefined);
     const hasCalledEvent = useRef(false);
@@ -88,17 +89,27 @@ export default function StorePage(props){
     },[sorttext])
     
     useEffect(()=>{
-        console.log("Profile store")
+        if(!Tools.IsNull(state.profile)){
+            console.log("Profile store"+state.profile.Id);
+            setChangeRequired(true);
+        }else{
+        }
         // fetchCatalog
         var getCatlog=props.fetchCatalog;
         setisLoading(true);
         setrefreshing(true);
         getCatlog();
+        
     },[state.profile]);
     
     // useEffect(()=>{
         
     // })
+    
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
+    
     useFocusEffect(
         React.useCallback(() => {
             // setcartItems(state.cartItems);
@@ -133,15 +144,15 @@ export default function StorePage(props){
         
         // DeviceEventEmitter.addListener("onDoneCart", () => 
             // onDoneCart());
-        if(state.OpenProduct!=undefined&&state.OpenProduct!==OpenProduct){
-            // console.log("OP : "+JSON(state.OpenProduct));
-            setOpenProduct(state.OpenProduct);
-            OpenProductPageWeb(state.OpenProduct)
-        }
-        if(openProductCode.length>0){
-            // console.log("OPCode : "+openProductCode);
-            OpenProductPageWeb(openProductCode);
-        }
+        // if(state.OpenProduct!=undefined&&state.OpenProduct!==OpenProduct){
+        //     // console.log("OP : "+JSON(state.OpenProduct));
+        //     setOpenProduct(state.OpenProduct);
+        //     OpenProductPageWeb(state.OpenProduct)
+        // }
+        // if(openProductCode.length>0){
+        //     // console.log("OPCode : "+openProductCode);
+        //     OpenProductPageWeb(openProductCode);
+        // }
         return()=>{
             // if(willFocus)
             // willFocus.remove();
@@ -168,25 +179,84 @@ export default function StorePage(props){
         setcartItems(state.cartItems);
         settotalItems(state.cartItems.length)
     },[state.cartItems]);
-    useEffect(()=>{
-        if(state.OpenProduct!==OpenProduct){
-            setOpenProduct(state.OpenProduct);
+    
+    // useEffect(()=>{
+        //     if(state.OpenProduct!==OpenProduct){
+    //         setOpenProduct(state.OpenProduct);
+    //     }
+    //     OpenProductPageWeb(state.OpenProduct)
+    // },[state.OpenProduct])
+    
+    // useEffect(()=>{
+        //         if(openProductCode.length>0){
+    //             OpenProductPageWeb(openProductCode);
+    //         }
+    // },[openProductCode])
+    const openProductInit=(_stateIn)=>{
+        console.log("_stateIn:"+_stateIn+"changeRequired"+changeRequired)
+        if(openProductCode.length>0&&changeRequired&&_stateIn){
+            OpenProductPageWeb(openProductCode);
+            setChangeRequired(false);
+        }else if(!Tools.stringIsEmpty(OpenProduct)){
+            OpenProductPageWeb(OpenProduct);
         }
-        OpenProductPageWeb(state.OpenProduct)
-    },[state.OpenProduct])
+        
+    }
+    useEffect(()=>{
+        
+        if(!Tools.IsNull(state.profile)){
+            console.log("Profile Found :"+state.profile.Id);
+        }else{
+            console.log("Profile not found");
+        }
+        
+        SecureStore.getItemAsync('accessToken').then(savedPass=>{
+            if(savedPass!=undefined&&savedPass!=null&&savedPass.length>0){
+                openProductInit(true);
+            }else{
+                openProductInit(false);
+            }
+        }).catch(error => {
+            // console.log(error);
+            openProductInit(false);
+        });
+        // if(state.OpenProduct.length>0){
+        //     OpenProductPageWeb(state.OpenProduct);
+        // }
+        // else
+        
+        
+    },[allProducts])
     
     useEffect(()=>{
-        if(openProductCode.length>0){
-            OpenProductPageWeb(openProductCode);
+        console.log(changeRequired+"//"+OpenProduct+"//"+openProductCode);
+        SecureStore.getItemAsync('accessToken').then(savedPass=>{
+        console.log("save /"+savedPass);
+
+            if(savedPass!=undefined&&savedPass!=null&&savedPass.length>0){
+                OpenProductPageWeb(openProductCode);
+            }else{
+                if(Tools.stringIsEmpty(OpenProduct)){
+                    setOpenProduct(openProductCode);
+                }
+            }
+        }).catch(error => {
+        if(Tools.stringIsEmpty(OpenProduct)){
+            setOpenProduct(openProductCode);
         }
+    });
     },[openProductCode])
     
     useEffect(()=>{
-        OpenProductPageWeb(state.OpenProduct);
-        if(openProductCode.length>0){
-            OpenProductPageWeb(openProductCode);
+        
+        console.log(OpenProduct+"//OPEN");
+        if(!Tools.stringIsEmpty(OpenProduct)){
+            console.log(OpenProduct+"//OPENIn");
+            OpenProductPageWeb(OpenProduct);
         }
-    },[allProducts])
+        
+        
+    },[OpenProduct])
     
     useEffect(()=>{
         if(props.storeCatalog!==storeCatalog){
@@ -518,7 +588,11 @@ export default function StorePage(props){
                     // console.log(_product.Entity.ProductName+""+element);
                     allImages.push(<View>
                         <FastImage
-                        style={[styles.productImage,{
+                        style={[styles.productImage,Tools.stringIsContains(global.locale,'ar')?{
+                            left:widthPercentageToDP(-72),
+                        }:{
+                            right:0,
+                        },{
                             width:widthPercentageToDP(25),
                             height:widthPercentageToDP(9),
                         }]}
@@ -770,8 +844,8 @@ export default function StorePage(props){
                                                         }
                                                         const OpenProductPageWeb=(_OpenProduct)=>{
                                                             openItem=!Tools.stringIsEmpty(_OpenProduct)?_OpenProduct.replaceAll('"',''):'';
-                                                            // console.log(allProducts.length+'Open'+ openItem)
                                                             if((!Tools.stringIsEmpty(openItem))){
+                                                                console.log(allProductsRandom.length+'Open'+ openItem)
                                                                 if(allProductsRandom!=undefined&&allProductsRandom.length>0)
                                                                     {
                                                                     allProductsRandom.map((productIn,index)=>{
@@ -780,12 +854,14 @@ export default function StorePage(props){
                                                                                 // console.log('Open'+ openItem+"//"+JSON.stringify(productIn));
                                                                                 if(!Tools.IsNull(productIn)){
                                                                                     // console.log(JSON.stringify(productIn))
-                                                                                    if((!Tools.stringIsEmpty(openItem)&&(openItem==productIn.EntityId||(!Tools.IsNull(productIn.Entity)&&(checkProductUrl(productIn,openProductCode)))))){
+                                                                                    if((!Tools.stringIsEmpty(openItem)&&(openItem==productIn.EntityId||(!Tools.IsNull(productIn.Entity)&&(checkProductUrl(productIn,openItem)))))){
                                                                                         // console.log('Open'+ openItem+"//"+productIn.CatalogType)
                                                                                         // console.log('Open'+ JSON.stringify(productIn))
                                                                                         onProductSelect(productIn);
-                                                                                        setOpenProductAll('');
-                                                                                        setOpenProductCode('');
+                                                                                        // setOpenProductAll('');
+                                                                                        setOpenProduct('');
+                                                                                        // setOpenProductCode(''); 
+                                                                                        
                                                                                         // setState({OpenProduct:''})
                                                                                         return;
                                                                                     }
@@ -814,8 +890,10 @@ export default function StorePage(props){
                                                                                         // console.log('Open'+ openItem+"//"+productIn.CatalogType)
                                                                                         // console.log('Open'+ JSON.stringify(productIn))
                                                                                         onProductSelect(productIn);
-                                                                                        setOpenProductAll('');
-                                                                                        setOpenProductCode('');
+                                                                                        setTimeout(() => {
+                                                                                            setOpenProductAll('');
+                                                                                            setOpenProductCode(''); 
+                                                                                        }, 1000);
                                                                                         // setState({OpenProduct:''})
                                                                                         return;
                                                                                     }
@@ -828,13 +906,14 @@ export default function StorePage(props){
                                                             }
                                                             
                                                         }
-                                                        const setOpenProductAll=(valueIn)=>{
-                                                            dispatch({
-                                                                type:'update_OpenProduct',
-                                                                payload:valueIn
-                                                            })
-                                                            setOpenProduct(valueIn);
-                                                        }
+                                                        // const setOpenProductAll=(valueIn)=>{
+                                                            //     // dispatch({
+                                                        //     //     type:'update_OpenProduct',
+                                                        //     //     payload:valueIn
+                                                        //     // })
+                                                        //     setOpenProductCode(valueIn);
+                                                        //     // setOpenProduct(valueIn);
+                                                        // }
                                                         const getProductnItems=()=>{
                                                             let allProductsIn=[];
                                                             let allProductCat=[];
@@ -933,10 +1012,10 @@ export default function StorePage(props){
                                                             }
                                                         }
                                                         const  getCatlogName=(_productCatId)=>{
-                                                            console.log("getCatlogName"+_productCatId);
+                                                            // console.log("getCatlogName"+_productCatId);
                                                             for (let index = 0; index < props.storeCatalog.Nodes.length; index++) {
                                                                 const element = props.storeCatalog.Nodes[index];
-                                                                console.log(element.CatalogId+":"+_productCatId);
+                                                                // console.log(element.CatalogId+":"+_productCatId);
                                                                 
                                                                 if(element.CatalogId==_productCatId){
                                                                     return element;//.CatalogName;
@@ -1520,7 +1599,7 @@ export default function StorePage(props){
                                                                 "MemberId":Tools.IsNull(profile)?"":profile.Id,
                                                                 "ValidFrom":((!Tools.IsNull(_itemtoCart.item.details)&&!Tools.IsNull(_itemtoCart.item.details.displayname)&&_itemtoCart.item.details.displayname=='date')?_itemtoCart.item.details.data:'')
                                                             }
-                                                            // console.log("Add - "+JSON.stringify(bodyData));
+                                                            console.log("Add - "+JSON.stringify(bodyData));
                                                             fetch (WebServices.MainURL+WebServices.addtoCart,{
                                                                 method: 'POST',
                                                                 headers: {

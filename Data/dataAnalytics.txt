@@ -1,0 +1,22 @@
+
+// "Purchase" event with relevant data
+        
+        "currency", "QAR"
+        "paymentType", "Skipcash"
+        "category", itemsIn.category
+        "price", _paymentResponse.Amount
+        "orderid", _paymentResponse.OrderSummary.SaleCode
+        "transactionId", _paymentResponse.OrderSummary.TransactionId
+        "email", _profile.Email
+        "couponCode",itemsIn.couponCode
+        "customername", _profile.FullName
+        "country", _profile.BillingAddress.country
+        "shippingAddress", _profile.BillingAddress.street+','+_profile.BillingAddress.city+','+_profile.BillingAddress.country+","+_profile.BillingAddress.postalCode
+        Event-"purchase_completed", properties
+
+// Media Details
+
+
+        
+
+

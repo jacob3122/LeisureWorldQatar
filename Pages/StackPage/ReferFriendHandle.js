@@ -114,7 +114,9 @@ export default function ReferFriendHandle(props){
             setLanguage(langcode);
             changeHappened();
         }
-        
+        useEffect(()=>{
+                i18n.locale=global.locale;
+            },[global.locale])
         const changeLanguage=(langToggle)=>{
             SecureStore.getItemAsync('languageENAR').then(lan=>{
                 if(lan!==langToggle){

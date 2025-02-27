@@ -141,6 +141,9 @@ export default function EventsPage(props){
         {
             setEventObj(_eventData);
         }
+        useEffect(()=>{
+                i18n.locale=global.locale;
+            },[global.locale])
         const getEvents=()=>{
             events=[];
             if(eventObjs!==undefined){

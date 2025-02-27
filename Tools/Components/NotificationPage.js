@@ -51,6 +51,11 @@ export default function NotificationPage(props){
     const [tryagain, settryagain] = useState(0);
     const[notificationObj,setnotificationObj]=useState(undefined)
     
+
+    useEffect(()=>{
+        i18n.locale=global.locale;
+    },[global.locale])
+    
     // class NotificationPageC extends Component {
     let _isMounted=false;
     // constructor (props)
