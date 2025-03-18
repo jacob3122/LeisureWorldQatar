@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import  { View,Text,StyleSheet,Dimensions,TextInput, TouchableOpacity,Linking,Image,ScrollView, SafeAreaView } from 'react-native';
 import * as UiElements from './UIElements';
 import {I18n} from 'i18n-js';

@@ -39,7 +39,7 @@ function AppNavigation({notification}) {
     return routeName;
   }
   useEffect(()=>{
-    console.log('Notification');
+    // console.log('Notification');
     if(!Tools.IsNull(notification)){
       console.log(JSON.stringify(notification));
       reactToNotification(notification);
@@ -50,7 +50,7 @@ function AppNavigation({notification}) {
     const getInitialUrl = async () => {
       try {
         const initialUrl = await Linking.getInitialURL();
-        console.log('getInitialUrl'+initialUrl);
+        // console.log('getInitialUrl'+initialUrl);
         
         if (!Tools.IsNull(initialUrl)) {
           
@@ -91,7 +91,7 @@ function AppNavigation({notification}) {
     
     const getDeepLinkParams = (event) => {
       try {
-        console.log('getDeepLinkParams'+event.url);
+        // console.log('getDeepLinkParams'+event.url);
         
         const url = event.url;
         UrlNavigation(url);
@@ -203,11 +203,11 @@ function AppNavigation({notification}) {
     
   }, []);
   const InitialURLNavigation=(_url)=>{
-    console.log("InitialURLNavigation "+_url);
+    // console.log("InitialURLNavigation "+_url);
     const url=_url;
     const match = url.match(/:\/\/([^\/]+)\?(.*)/);
     if (match && match[1] && match[2]) {
-      console.log("URL if "+url);
+      // console.log("URL if "+url);
       const action = match[1];
 
       const queryParams = match[2];
@@ -221,7 +221,7 @@ function AppNavigation({notification}) {
         setreferralCode(referralCode);
       }
     }else{
-      console.log("URL "+url);
+      // console.log("URL "+url);
       const pathSegments = url.split('/').filter(segment => segment);
       
       // Assuming the URL structure is known and fixed
@@ -232,7 +232,7 @@ function AppNavigation({notification}) {
       console.log("Page "+action);
       console.log("View "+code);
       if(action==WebServices.DeepLinkCode){
-        console.log(pathSegments.length+"=InitialUrlCode "+code);
+        // console.log(pathSegments.length+"=InitialUrlCode "+code);
         if(code=='store'&&pathSegments.length>3&&Tools.stringIsContains(url,"=")){
           const _segments = pathSegments[4].split('=');
           console.log(_segments);
@@ -315,8 +315,8 @@ function AppNavigation({notification}) {
         // console.log("Page "+action);
         // console.log("View "+code);
         if(action==WebServices.DeepLinkCode){
-          console.log(pathSegments.length+"=DeepLinkCode "+code);
-          console.log("DeepLinkCode "+code);
+          // console.log(pathSegments.length+"=DeepLinkCode "+code);
+          // console.log("DeepLinkCode "+code);
           if(code=='store'&&pathSegments.length>3&&Tools.stringIsContains(url,"=")){
             const _segments = pathSegments[4].split('=');
             // console.log(_segments);
@@ -324,7 +324,7 @@ function AppNavigation({notification}) {
             setOpenProductCode(_segments[1]);
           }else if(pathSegments.length>3){
             const _segments = pathSegments[4].split('=');
-            console.log(_segments);
+            // console.log(_segments);
             if (action==WebServices.ProductCode) {
               setOpenProductCode(code);
             }
@@ -357,11 +357,11 @@ function AppNavigation({notification}) {
   
   useEffect(()=>{
     if(!Tools.IsNull(openProductCode)){
-      console.log("Open IN :"+openProductCode);
+      // console.log("Open IN :"+openProductCode);
       // const navigationIn=useNavigation();
       navigationRef.navigate('Storescreen');
     }
-    console.log("Open P :"+openProductCode);
+    // console.log("Open P :"+openProductCode);
   },[openProductCode])
   
   const parseQueryString=(queryString)=>{

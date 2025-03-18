@@ -1,6 +1,6 @@
 import React, { Component, useContext, useEffect, useReducer, useState } from 'react';
 import { Children } from 'react';
-import { Alert, Appearance, AppState, DeviceEventEmitter, Linking, StyleSheet,View } from 'react-native';
+import { Alert, Appearance, AppState, DeviceEventEmitter, Linking, Platform, StyleSheet,View } from 'react-native';
 // import Colors from '../constants/Colors';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import { Text,Animated,Image,SafeAreaView } from 'react-native';
@@ -195,12 +195,23 @@ export default function HamBurgerMenu(props){
                 <Animated.View style={[styles.childView,{
                 }]}>
                 {props.children}
-                {hamView!=0&&
+                {hamView!=0&&Platform.OS=="ios"&&
                 <BlurView
                     blurType={Appearance.getColorScheme()=="dark"? "dark":"light"}
                     blurAmount={5}
                     reducedTransparencyFallbackColor="white"
                 style={{position:'absolute',width:'100%',height:'100%'}}
+                // blurType="light"
+                // blurAmount={10}
+                // reducedTransparencyFallbackColor="white"
+                // blurAmount={5}
+                // reducedTransparencyFallbackColor="white"
+                />}
+                 {hamView!=0&&Platform.OS=="android"&&
+                <View
+                    // blurType={Appearance.getColorScheme()=="dark"? "dark":"light"}
+                    // blurAmount={5}
+                style={{position:'absolute',backgroundColor:Colors.transparentMildWhite,width:'100%',height:'100%'}}
                 // blurType="light"
                 // blurAmount={10}
                 // reducedTransparencyFallbackColor="white"

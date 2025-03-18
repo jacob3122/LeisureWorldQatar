@@ -33,7 +33,7 @@ export default function App (props) {
     // console.log("pushClickedTest"); 
     ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
       // console.log("pushClicked"); 
-      console.log("Data push : ", notificationPayload); 
+      // console.log("Data push : ", notificationPayload); 
       setNotification(notificationPayload);
     });
     

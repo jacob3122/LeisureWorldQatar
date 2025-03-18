@@ -42,10 +42,9 @@ sdkConfig.consoleLogConfig = [[MoEngageConsoleLogConfig alloc] initWithIsLogging
   // Set the delegate
 //  [[MoEngageSDKMessaging sharedInstance] setMessagingDelegate:self forAppID:@"DCMBBW4GE1CX78NNNXFU1VN8"];
   
+  [[MoEngageSDKMessaging sharedInstance] registerForRemoteNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
   
-//  [[MoEngageSDKMessaging sharedInstance] registerForRemoteNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
-  
-  [[MoEngageSDKMessaging sharedInstance] registerForRemoteProvisionalNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
+//  [[MoEngageSDKMessaging sharedInstance] registerForRemoteProvisionalNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
   
 //  NSDictionary *remoteNotification = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
 //

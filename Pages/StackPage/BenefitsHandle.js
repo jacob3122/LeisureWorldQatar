@@ -232,6 +232,19 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
         }
         
     });
+    const cardFormatting=(cardNo)=>{
+        let cardFormatNo='';
+        let n=0;
+        for(let t=0;t<cardNo.length;t++){
+            if(n==4){
+                cardFormatNo+='  ';
+                n=0;
+            }
+            cardFormatNo+=cardNo[t];
+            n=n+1;
+        }
+        return cardFormatNo;
+    }
     getUsedBenefit= ({item, index}) => {
         // console.log(Tools.stringIsContains(i18n.locale,'en')?item.NameEn:item.NameAr);
         validIn='';
