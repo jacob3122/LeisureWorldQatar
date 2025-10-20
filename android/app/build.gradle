@@ -90,8 +90,8 @@ android {
         applicationId "com.leisureloyalty"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 81
-        versionName "2.1.9"
+        versionCode 84
+        versionName "2.2.0"
         multiDexEnabled true
          ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
@@ -149,6 +149,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.github.bumptech.glide:glide:4.9.0")
+    // Google Play Services Location - Required for Geofencing
+    implementation("com.google.android.gms:play-services-location:21.0.1")
     // core moengage features
     implementation(moengage.core)
     // optionally add this to use the cards feature
@@ -156,7 +158,7 @@ dependencies {
     // optionally add this if you are using the core module of cards
 //    implementation(moengage.cardsCore)
      // optionally add this to use the geofence feature
-//    implementation(moengage.geofence)
+   implementation(moengage.geofence)
     // optionally add this to use the Huaewi PushKit feature
 //    implementation(moengage.pushKit)
     // optionally add this to use the Push Amp Plus feature

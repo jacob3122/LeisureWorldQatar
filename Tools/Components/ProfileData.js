@@ -1662,59 +1662,123 @@ export default function ProfileData(props) {
       }
       
       const fetchRedeemPoints=async(LmemberID,LaccessToken,tokenId,passcode,_callback=null)=>{
-        // console.log(LmemberID+','+LaccessToken);
-        setloading(true);
-        // LoaderView.show();
-        verifyurl=WebServices.RedeemPoints.replace('{MemberID}',LmemberID).replace('{VoucherId}',tokenId).replace('{PassCode}',passcode);
-        // console.log('fetchRedeemPointsurl :'+verifyurl);
-        
-        return fetch (WebServices.MainURL+verifyurl,{
-          method: 'POST',
-          headers:{
-            'Authorization':'Bearer'+' '+LaccessToken,
-          },
-        },WebServices.timeout)
-        .then((response) => response.text())
-        .then((responseJson) => {
-          // console.log(responseJson);
-          // LoaderView.close();
-          // dataGot=JSON.parse(responseJson);
-          if(Tools.stringIsContains(responseJson,'denied')){
-            refreshAccesstoken((mid,a_token)=>{fetchRedeemPoints(mid,a_token,tokenId,passcode,callback)});
-          }
-          else if(Tools.stringIsContains(responseJson,'already')){
-            //gotprofile
-            FeedBack=[i18n.t('redeemfail'),i18n.t('alreadyredeemed')+tokenId];
-          }else if(Tools.stringIsContains(responseJson,'notenoughpoints')){
-            //gotprofile
-            FeedBack=[i18n.t('redeemfail'),i18n.t('notenough')];
-          }
-          else if(!Tools.stringIsContains(responseJson,'invalid')&&!Tools.stringIsContains(responseJson,'error')&&!Tools.stringIsContains(responseJson,'authorization')){
-            //gotprofile
-            // Alert.alert('Redeem Success','Successfully claimed : '+tokenId);
-            PopupInfo.Title=i18n.t('congrats')
-            PopupInfo.SubHeading=i18n.t('yourvoucherno')
-            PopupInfo.ContentCode=responseJson;
-            if(_callback){
-              _callback();
-            }
-            setshowPop(true);
-          }else if (Tools.stringIsContains(responseJson,'invalid')){
-            FeedBack=[i18n.t('redeemfail'),i18n.t('invalidpass')];
-          }else {
-            FeedBack=[i18n.t('redeemfail'),i18n.t('failredeemed')+tokenId];
-          }
-          // setloading(true);
-          showAlert(FeedBack);
-          // props.updateonDismiss({'FeedBack':FeedBack});
-          setloading(false);
-        })
-        .catch((error) =>{
-          // console.error(error);
-          setloading(false);
-          // LoaderView.close();
-        });
+  // console.log(LmemberID+','+LaccessToken);
+  setloading(true);
+    console.log('═════════════════════════════════════════════');
+  console.log('🚀 REDEEM POINTS - STARTING');
+  console.log('═════════════════════════════════════════════');
+  console.log('📤 REQUEST PARAMETERS:');
+  console.log('   Member ID:', LmemberID);
+  console.log('   Voucher ID:', tokenId);
+  console.log('   Passcode:', passcode);
+  console.log('   Access Token:', LaccessToken ? LaccessToken.substring(0, 20) + '...' : 'null');
+  // LoaderView.show();
+  verifyurl=WebServices.RedeemPoints.replace('{MemberID}',LmemberID).replace('{VoucherId}',tokenId).replace('{PassCode}',passcode);
+  // console.log('fetchRedeemPointsurl :'+verifyurl);
+  
+  return fetch (WebServices.MainURL+verifyurl,{
+    method: 'POST',
+    headers:{
+      'Authorization':'Bearer'+' '+LaccessToken,
+    },
+  },WebServices.timeout)
+  .then((response) => {  console.log('═════════════════════════════════════════════');
+    console.log('📥 RESPONSE RECEIVED');
+    console.log('═════════════════════════════════════════════');
+    console.log('   HTTP Status:', response.status);
+    console.log('   Status Text:', response.statusText);
+    console.log('   OK:', response.ok); return response.text()})
+  .then((responseJson) => {
+     console.log('📦 RESPONSE BODY:', responseJson);
+    console.log('   Response Type:', typeof responseJson);
+    console.log('   Response Length:', responseJson.length);
+    console.log('═════════════════════════════════════════════');
+    // console.log(responseJson);
+    // LoaderView.close();
+    // dataGot=JSON.parse(responseJson);
+    
+    // Check for exact backend error responses first
+    if(responseJson==='InvalidPointsActivity'){
+       console.log('❌ ERROR: Invalid Points Activity (24 hour waiting period or other restriction)');
+      //24 hour waiting period for newly claimed points
+      FeedBack=[i18n.t('redeemfail'),i18n.t('invalidpointsactivity')];
+    }
+    else if(responseJson==='InvalidPasscode' || responseJson==='InvalidPassCode'){
+        console.log('❌ ERROR: Invalid Passcode');
+      //Invalid passcode entered
+      FeedBack=[i18n.t('redeemfail'),i18n.t('invalidpass')];
+    }
+    else if(responseJson==='NotEnoughPoints'){
+       console.log('❌ ERROR: Not Enough Points');
+      //Not enough points to redeem
+      FeedBack=[i18n.t('redeemfail'),i18n.t('notenough')];
+    }
+    // Then check for legacy/generic error patterns (backward compatibility)
+    else if(Tools.stringIsContains(responseJson,'denied')){
+      console.log('⚠️ TOKEN DENIED - Refreshing access token...');
+      refreshAccesstoken((mid,a_token)=>{fetchRedeemPoints(mid,a_token,tokenId,passcode,callback)});
+      return; // Exit early, don't show alert
+    }
+    else if(Tools.stringIsContains(responseJson,'already')){
+       console.log('❌ ERROR: Already Redeemed');
+      //gotprofile
+      FeedBack=[i18n.t('redeemfail'),i18n.t('alreadyredeemed')+tokenId];
+    }
+    else if(Tools.stringIsContains(responseJson,'notenoughpoints')){
+       console.log('❌ ERROR: Not Enough Points (legacy format)');
+      //gotprofile - legacy format
+      FeedBack=[i18n.t('redeemfail'),i18n.t('notenough')];
+    }
+    // Check for success (anything that doesn't contain error keywords)
+    else if(!Tools.stringIsContains(responseJson,'invalid')&&!Tools.stringIsContains(responseJson,'error')&&!Tools.stringIsContains(responseJson,'authorization')){
+        console.log('✅ SUCCESS: Redeem Successful!');
+      console.log('🎟️ Voucher Code:', responseJson);
+      //gotprofile - Success! Voucher code returned
+      // Alert.alert('Redeem Success','Successfully claimed : '+tokenId);
+      PopupInfo.Title=i18n.t('congrats')
+      PopupInfo.SubHeading=i18n.t('yourvoucherno')
+      PopupInfo.ContentCode=responseJson;
+      if(_callback){
+         console.log('📞 Calling success callback...');
+        _callback();
       }
+      setshowPop(true);
+      setloading(false);
+         console.log('═════════════════════════════════════════════');
+      console.log('🏁 REDEEM FLOW COMPLETED SUCCESSFULLY');
+      console.log('═════════════════════════════════════════════');
+      return; // Exit early, don't show alert
+    }
+    else if (Tools.stringIsContains(responseJson,'invalid')){
+       console.log('❌ ERROR: Generic Invalid Error');
+      //Generic invalid error (fallback)
+      FeedBack=[i18n.t('redeemfail'),i18n.t('invalidpass')];
+    }
+    else {
+       console.log('❌ ERROR: Unknown Error');
+      //Unknown error
+      FeedBack=[i18n.t('redeemfail'),i18n.t('failredeemed')+tokenId];
+    }
+    
+    // setloading(true);
+    showAlert(FeedBack);
+    // props.updateonDismiss({'FeedBack':FeedBack});
+    setloading(false);
+   console.log('═════════════════════════════════════════════');
+    console.log('💥 NETWORK ERROR / EXCEPTION');
+    console.log('═════════════════════════════════════════════');
+    console.error('   Error:', error);
+    console.error('   Error Message:', error.message);
+    console.error('   Error Stack:', error.stack);
+    setloading(false);
+    console.log('═════════════════════════════════════════════');
+  })
+  .catch((error) =>{
+    // console.error(error);
+    setloading(false);
+    // LoaderView.close();
+  });
+}
       
       const AssignProfile=(_profileIn,profilePass,isMobile,callbackOnSuccess=null,callbackOnFail=null)=> {
         if(!state.isConnected){

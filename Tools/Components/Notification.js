@@ -44,10 +44,10 @@ export default function Notification(props){
     //   console.log("pushTokenGenerated", payload); 
     // });
     // console.log("pushClickedTest"); 
-    // ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
-    //   console.log("pushClicked"); 
-    //   console.log("Data push : ", notificationPayload); 
-    // });
+    ReactMoE.setEventListener("pushClicked", (notificationPayload) => { 
+      console.log("pushClicked"); 
+      console.log("Data push : ", notificationPayload); 
+    });
     
     // ReactMoE.setEventListener("pushTokenGenerated", (payload) => { 
       //   console.log("pushTokenGenerated", payload); 

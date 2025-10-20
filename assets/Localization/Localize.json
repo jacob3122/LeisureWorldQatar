@@ -11,7 +11,10 @@
 		"rateapp": "Rate the App",
 		"update": "Update",
 		"newupdate": "New update available!",
-
+		"locationPermissionTitle": "Enable Location Services",
+"locationPermissionMessage": "We use your location to send you personalized offers when you're near our partners. This helps you discover nearby experiences.",
+"allowLocation": "Allow Location",
+"notNow": "Not Now",
 		"moredetails":"More Details",
 		"readmore": "VISIT WEBSITE",
 		"getdirection": "GET DIRECTIONS",
@@ -45,7 +48,7 @@
 		"noredeem": "You have not made a redeem yet.",
 		"questionmark": "?",
 		"ourpark": "Parks",
-
+		"invalidpointsactivity": "Invalid points activity",
 		"close": "Close",
 
 
@@ -290,7 +293,10 @@
 		"yesenablebiometric":"Yes, Enable Biometric",
 		"nothankyou":"No, Thank you",
 		"dontshowagain":"Don't Show this again",
-		
+		"locationPermissionTitle": "تفعيل خدمات الموقع",
+"locationPermissionMessage": "نستخدم موقعك لإرسال عروض مخصصة لك عندما تكون بالقرب من شركائنا. يساعدك هذا في اكتشاف التجارب القريبة منك.",
+"allowLocation": "السماح بالموقع",
+"notNow": "ليس الآن",
 		"rewards":"المكافآت",
 		"wallet":"محفظة",
 		"name":"الاسم",
@@ -313,7 +319,7 @@
 
 		"moredetails":"More Details",
 		"readmore": "الموقع الإلكتروني",
-		
+		"invalidpointsactivity": "نشاط النقاط غير صالح",
 		"getdirection": "اظهار الاتجاهات على الخريطة",
 		"cardtitle": "بطاقة تجوري",
 		"settings": "الإعدادات",

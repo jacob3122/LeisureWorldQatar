@@ -4,11 +4,11 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-sdk
-        android:minSdkVersion="23"
-        android:targetSdkVersion="34" />
     <application
         android:name=".MainApplication"
         android:label="@string/app_name"
@@ -25,6 +25,13 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <!-- MoEngage Geofence Service for Android 10+ (API 29+) -->
+        <service
+            android:name="com.moengage.geofence.GeofenceJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:foregroundServiceType="location"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"

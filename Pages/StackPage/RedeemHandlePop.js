@@ -320,7 +320,7 @@ export default function RedeemHandlePop(props){
                                             setVoucherInfo(undefined);
                                             setRedeemState({
                                                 title:i18n.t('choosevoucher'),
-                                                stage:1
+                                                stage:12021
                                             })
                                         }
                                     }
