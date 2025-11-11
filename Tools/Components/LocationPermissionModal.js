@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Modal, Platform } from 'react-native';
 import { widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen';
 import { I18n } from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json';
@@ -120,7 +120,7 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
           <Text style={styles.message}>
   {i18n.locale === 'ar'
     ? 'نحتاج إلى الوصول إلى موقعك الدقيق (إحداثيات GPS) لإرسال إشعارات وعروض مخصصة عندما تكون بالقرب من شركائنا.\n\nسيتم جمع بيانات الموقع في الخلفية حتى عندما يكون التطبيق مغلقًا لتمكين ميزات التسييج الجغرافي.\n\nيتم معالجة بيانات موقعك بواسطة MoEngage لأغراض التحليلات والإشعارات المستندة إلى الموقع.'
-    : 'We need access to your precise location (GPS coordinates) to send you personalized notifications and offers when you\'re near our partners.\n\nLocation data is collected in the background even when the app is closed to enable geofencing features.\n\nYour location data is processed by MoEngage for analytics and location-based notifications.'}
+    : `We need access to your precise location (GPS coordinates) to send you personalized notifications and offers when you're near our partners.\n\nLocation data is collected in the background even when the app is closed to enable geofencing features.\n\n${Platform.OS === 'ios' ? 'Please select "Allow While Using App" then "Change to Always Allow" in the next screen.' : ''}\n\nYour location data is processed by MoEngage for analytics and location-based notifications.`}
 </Text>
 
           {/* Buttons */}

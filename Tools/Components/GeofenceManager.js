@@ -15,32 +15,46 @@ class GeofenceManager {
   async checkLocationPermission() {
     console.log('🔍 [GeofenceManager] Checking location permissions...');
 
-    if (Platform.OS !== 'android') {
-      console.log('❌ [GeofenceManager] Geofencing only supported on Android');
+    if (Platform.OS !== 'android' && Platform.OS !== 'ios') {
+      console.log('❌ [GeofenceManager] Geofencing only supported on Android and iOS');
       return false;
     }
 
     try {
-      const fineLocationStatus = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-      const backgroundLocationStatus = await check(PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION);
+      let granted = false;
 
-      console.log('📍 [GeofenceManager] Fine Location Status:', fineLocationStatus);
-      console.log('📍 [GeofenceManager] Background Location Status:', backgroundLocationStatus);
+      if (Platform.OS === 'android') {
+        const fineLocationStatus = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+        const backgroundLocationStatus = await check(PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION);
 
-      const granted =
-        fineLocationStatus === RESULTS.GRANTED &&
-        backgroundLocationStatus === RESULTS.GRANTED;
+        console.log('📍 [GeofenceManager] Android Fine Location Status:', fineLocationStatus);
+        console.log('📍 [GeofenceManager] Android Background Location Status:', backgroundLocationStatus);
 
-      this.permissionGranted = granted;
+        granted = fineLocationStatus === RESULTS.GRANTED && backgroundLocationStatus === RESULTS.GRANTED;
 
-      if (granted) {
-        console.log('✅ [GeofenceManager] All location permissions GRANTED');
-      } else {
-        console.log('❌ [GeofenceManager] Location permissions NOT granted');
-        console.log('   - Fine Location:', fineLocationStatus);
-        console.log('   - Background Location:', backgroundLocationStatus);
+        if (granted) {
+          console.log('✅ [GeofenceManager] Android location permissions GRANTED');
+        } else {
+          console.log('❌ [GeofenceManager] Android location permissions NOT granted');
+          console.log('   - Fine Location:', fineLocationStatus);
+          console.log('   - Background Location:', backgroundLocationStatus);
+        }
+      } else if (Platform.OS === 'ios') {
+        const locationStatus = await check(PERMISSIONS.IOS.LOCATION_ALWAYS);
+        
+        console.log('📍 [GeofenceManager] iOS Location Always Status:', locationStatus);
+        
+        granted = locationStatus === RESULTS.GRANTED;
+        
+        if (granted) {
+          console.log('✅ [GeofenceManager] iOS location permission GRANTED');
+        } else {
+          console.log('❌ [GeofenceManager] iOS location permission NOT granted');
+          console.log('   - Location Always:', locationStatus);
+        }
       }
 
+      this.permissionGranted = granted;
       return granted;
     } catch (error) {
       console.error('❌ [GeofenceManager] Error checking location permission:', error);
@@ -52,39 +66,57 @@ class GeofenceManager {
   async requestLocationPermission() {
     console.log('🙏 [GeofenceManager] Requesting location permissions...');
 
-    if (Platform.OS !== 'android') {
-      console.log('❌ [GeofenceManager] Geofencing only supported on Android');
+    if (Platform.OS !== 'android' && Platform.OS !== 'ios') {
+      console.log('❌ [GeofenceManager] Geofencing only supported on Android and iOS');
       return false;
     }
 
     try {
-      // First request fine location
-      console.log('📍 [GeofenceManager] Requesting FINE location permission...');
-      const fineLocationResult = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-      console.log('📍 [GeofenceManager] Fine Location Permission Result:', fineLocationResult);
+      let granted = false;
 
-      if (fineLocationResult !== RESULTS.GRANTED) {
-        console.log('❌ [GeofenceManager] Fine location permission DENIED');
-        return false;
+      if (Platform.OS === 'android') {
+        // First request fine location
+        console.log('📍 [GeofenceManager] Requesting Android FINE location permission...');
+        const fineLocationResult = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+        console.log('📍 [GeofenceManager] Fine Location Permission Result:', fineLocationResult);
+
+        if (fineLocationResult !== RESULTS.GRANTED) {
+          console.log('❌ [GeofenceManager] Fine location permission DENIED');
+          return false;
+        }
+
+        console.log('✅ [GeofenceManager] Fine location permission GRANTED');
+
+        // Then request background location (required for Android 10+)
+        console.log('📍 [GeofenceManager] Requesting Android BACKGROUND location permission...');
+        const backgroundLocationResult = await request(PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION);
+        console.log('📍 [GeofenceManager] Background Location Permission Result:', backgroundLocationResult);
+
+        granted = backgroundLocationResult === RESULTS.GRANTED;
+
+        if (granted) {
+          console.log('✅ [GeofenceManager] Android background location permission GRANTED');
+          console.log('✅ [GeofenceManager] ALL Android permissions granted successfully!');
+        } else {
+          console.log('❌ [GeofenceManager] Android background location permission DENIED');
+        }
+      } else if (Platform.OS === 'ios') {
+        // Request iOS location always permission
+        console.log('📍 [GeofenceManager] Requesting iOS LOCATION ALWAYS permission...');
+        const locationResult = await request(PERMISSIONS.IOS.LOCATION_ALWAYS);
+        console.log('📍 [GeofenceManager] iOS Location Always Permission Result:', locationResult);
+
+        granted = locationResult === RESULTS.GRANTED;
+
+        if (granted) {
+          console.log('✅ [GeofenceManager] iOS location always permission GRANTED');
+          console.log('✅ [GeofenceManager] iOS permissions granted successfully!');
+        } else {
+          console.log('❌ [GeofenceManager] iOS location always permission DENIED');
+        }
       }
 
-      console.log('✅ [GeofenceManager] Fine location permission GRANTED');
-
-      // Then request background location (required for Android 10+)
-      console.log('📍 [GeofenceManager] Requesting BACKGROUND location permission...');
-      const backgroundLocationResult = await request(PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION);
-      console.log('📍 [GeofenceManager] Background Location Permission Result:', backgroundLocationResult);
-
-      const granted = backgroundLocationResult === RESULTS.GRANTED;
       this.permissionGranted = granted;
-
-      if (granted) {
-        console.log('✅ [GeofenceManager] Background location permission GRANTED');
-        console.log('✅ [GeofenceManager] ALL permissions granted successfully!');
-      } else {
-        console.log('❌ [GeofenceManager] Background location permission DENIED');
-      }
-
       return granted;
     } catch (error) {
       console.error('❌ [GeofenceManager] Error requesting location permission:', error);
@@ -142,10 +174,10 @@ class GeofenceManager {
         console.log('🔑 [GeofenceManager] Workspace ID:', WORKSPACE_ID);
         console.log('📡 [GeofenceManager] Calling ReactMoEGeofence.startGeofenceMonitoring()...');
 
-        // THIS IS THE KEY LINE - Start MoEngage geofence monitoring
+        // Start MoEngage geofence monitoring for Android
         ReactMoEGeofence.startGeofenceMonitoring(WORKSPACE_ID);
 
-        console.log('✅ [GeofenceManager] MoEngage Geofence monitoring API called successfully');
+        console.log('✅ [GeofenceManager] Android MoEngage Geofence monitoring API called successfully');
         console.log('📡 [GeofenceManager] MoEngage should now:');
         console.log('   1. Contact MoEngage servers');
         console.log('   2. Download active geofences from dashboard');
@@ -154,9 +186,26 @@ class GeofenceManager {
         console.log('🔔 [GeofenceManager] Workspace:', WORKSPACE_ID);
 
         return true;
+      } else if (Platform.OS === 'ios') {
+        console.log('📱 [GeofenceManager] Platform: iOS ✅');
+        console.log('🔑 [GeofenceManager] Workspace ID:', WORKSPACE_ID);
+        console.log('📡 [GeofenceManager] Calling ReactMoEGeofence.startGeofenceMonitoring()...');
+
+        // Start MoEngage geofence monitoring for iOS
+        ReactMoEGeofence.startGeofenceMonitoring(WORKSPACE_ID);
+
+        console.log('✅ [GeofenceManager] iOS MoEngage Geofence monitoring API called successfully');
+        console.log('📡 [GeofenceManager] MoEngage should now:');
+        console.log('   1. Contact MoEngage servers');
+        console.log('   2. Download active geofences from dashboard');
+        console.log('   3. Register geofences with iOS Core Location');
+        console.log('   4. Start monitoring your location');
+        console.log('🔔 [GeofenceManager] Workspace:', WORKSPACE_ID);
+
+        return true;
       }
 
-      console.log('❌ [GeofenceManager] Platform is not Android, geofencing not supported');
+      console.log('❌ [GeofenceManager] Platform not supported, geofencing only works on Android and iOS');
       return false;
     } catch (error) {
       console.error('❌ [GeofenceManager] ERROR starting geofence monitoring:', error);
@@ -168,9 +217,9 @@ class GeofenceManager {
   // Stop geofence monitoring
   async stopGeofenceMonitoring() {
     try {
-      if (Platform.OS === 'android') {
+      if (Platform.OS === 'android' || Platform.OS === 'ios') {
         ReactMoEGeofence.stopGeofenceMonitoring(WORKSPACE_ID);
-        console.log('🛑 [GeofenceManager] MoEngage Geofence monitoring stopped');
+        console.log(`🛑 [GeofenceManager] ${Platform.OS} MoEngage Geofence monitoring stopped`);
       }
       this.isInitialized = false;
       return true;

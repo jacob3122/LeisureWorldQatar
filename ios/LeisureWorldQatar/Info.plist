@@ -66,6 +66,10 @@
 	<string>Application Authentication</string>
 	<key>NSLocationUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to Location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need location access to send you personalized offers when you're near our partners</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need location access to send you personalized offers when you're near our partners, even when the app is in the background</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Camera access to read the barcode</string>
 	<key>NSPhotoLibraryUsageDescription</key>
