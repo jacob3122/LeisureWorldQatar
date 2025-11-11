@@ -45,6 +45,7 @@ settings.local.json
 current_session.txt
 latest_logs.txt
 check_campaigns.txt
+nul
 
 # fastlane
 #
