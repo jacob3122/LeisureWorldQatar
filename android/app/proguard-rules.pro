@@ -8,3 +8,18 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# MoEngage ProGuard Rules
+-keep class com.moengage.** { *; }
+-dontwarn com.moengage.**
+-keep interface com.moengage.** { *; }
+-keep class com.moe.pushlibrary.** { *; }
+-dontwarn com.moe.pushlibrary.**
+
+# MoEngage Geofence
+-keep class com.moengage.geofence.** { *; }
+-dontwarn com.moengage.geofence.**
+
+# Google Play Services Location (required for geofencing)
+-keep class com.google.android.gms.location.** { *; }
+-dontwarn com.google.android.gms.location.**

@@ -235,6 +235,8 @@ export default function ProductPage(props){
     },[gotData])
     useEffect(()=>{
         setOpened(true);
+        console.log("[CALENDAR DEBUG] Product opened:", getTranslatedProductName(params.product));
+        console.log("[CALENDAR DEBUG] Product entity:", JSON.stringify(params.product.Entity, null, 2));
         checkProduct(params.product);
         
         // console.log("catalogProducts :"+props.route.params.catalogProducts.length);
@@ -331,63 +333,89 @@ export default function ProductPage(props){
     
     
     const getValidPerformanceDays=(_DateList)=>{
-        // console.log(selectedDate+"getValidPerformanceDays"+JSON.stringify(_DateList));
+        console.log("[CALENDAR DEBUG] getValidPerformanceDays called with:", JSON.stringify(_DateList, null, 2));
+        console.log("[CALENDAR DEBUG] selectedDate:", selectedDate ? selectedDate.format('YYYY-MM-DD') : 'null');
+        
         currentYear=null;
         daysList={};
         var firstdate=null;
         currentDateAvail=false;
         if(!Tools.IsNull(_DateList)){
+            console.log("[CALENDAR DEBUG] Processing", _DateList.length, "performance dates");
             for (let index = 0; index < _DateList.length; index++) {
                 const element = _DateList[index];
+                console.log("[CALENDAR DEBUG] Performance date", index, ":", element.Date);
                 _dateIn= moment(new Date(element.Date));
+                console.log("[CALENDAR DEBUG] Processed performance date:", _dateIn.format('YYYY-MM-DD'));
+                
                 if(firstdate==null){
                     firstdate=CalendarUtils.getCalendarDateString(new Date(_dateIn));
+                    console.log("[CALENDAR DEBUG] First performance date set to:", firstdate);
                     var dateInFDate=moment(firstdate);//.add(4,'hours')//+3gmt
                     if(_dateIn.format('YYYY-MM-DD')==(Tools.IsNull(dateInFDate)?"":dateInFDate.format('YYYY-MM-DD'))){
                         daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
                     }
                 }
                 
+                const calendarDateString = CalendarUtils.getCalendarDateString(new Date(_dateIn));
+                console.log("[CALENDAR DEBUG] Adding performance date to daysList:", calendarDateString);
+                
                 if(!Tools.IsNull(selectedDate)&&_dateIn.format('YYYY-MM-DD')==(selectedDate).format('YYYY-MM-DD')){
-                    daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
+                    daysList[calendarDateString]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
+                    console.log("[CALENDAR DEBUG] Performance date marked as selected:", calendarDateString);
                 }else{
-                    daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,inactive:false ,disableTouchEvent: false};
+                    daysList[calendarDateString]={disabled:false,inactive:false ,disableTouchEvent: false};
+                    console.log("[CALENDAR DEBUG] Performance date marked as available:", calendarDateString);
                 }
             }
         }
+        console.log("[CALENDAR DEBUG] Final performance daysList:", JSON.stringify(daysList, null, 2));
         setDays(daysList);
         setFirstDate(firstdate);
         
     }
     
     const getValidEventDays=()=>{
-        console.log("getValidEventDays");
+        console.log("[CALENDAR DEBUG] getValidEventDays called");
+        console.log("[CALENDAR DEBUG] calendarEventsIn:", JSON.stringify(calendarEventsIn, null, 2));
         
         currentYear=null;
         daysList={};
         var firstdate=null;
         currentDateAvail=false;
         if(!Tools.IsNull(calendarEventsIn)){
+            console.log("[CALENDAR DEBUG] Processing", calendarEventsIn.length, "calendar events");
             for (let index = 0; index < calendarEventsIn.length; index++) {
                 const element = calendarEventsIn[index];
+                console.log("[CALENDAR DEBUG] Event", index, "DateTimeFrom:", element.DateTimeFrom);
+                _originalDate = moment(new Date(element.DateTimeFrom));
                 _dateIn= moment(new Date(element.DateTimeFrom)).add(4,'hours');
+                console.log("[CALENDAR DEBUG] Original date:", _originalDate.format('YYYY-MM-DD'));
+                console.log("[CALENDAR DEBUG] Processed date:", _dateIn.format('YYYY-MM-DD'));
+                
                 if(firstdate==null){
-                    firstdate=CalendarUtils.getCalendarDateString(new Date(_dateIn));
+                    firstdate=CalendarUtils.getCalendarDateString(new Date(_originalDate));
+                    console.log("[CALENDAR DEBUG] First date set to:", firstdate);
                     var dateInFDate=moment(firstdate).add(4,'hours')//+3gmt
-                    if(_dateIn.format('YYYY-MM-DD')==(Tools.IsNull(dateInFDate)?"":dateInFDate.format('YYYY-MM-DD'))){
-                        daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
+                    if(_originalDate.format('YYYY-MM-DD')==(Tools.IsNull(dateInFDate)?"":dateInFDate.format('YYYY-MM-DD'))){
+                        daysList[CalendarUtils.getCalendarDateString(new Date(_originalDate))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
                     }
                     setFirstDate(firstdate);
                 }
-                // console.log("F D "+firstdate);
                 
-                if(_dateIn.format('YYYY-MM-DD')==(Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'))){
-                    daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
+                const calendarDateString = CalendarUtils.getCalendarDateString(new Date(_originalDate));
+                console.log("[CALENDAR DEBUG] Adding date to daysList:", calendarDateString);
+                
+                if(_originalDate.format('YYYY-MM-DD')==(Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'))){
+                    daysList[calendarDateString]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
+                    console.log("[CALENDAR DEBUG] Date marked as selected:", calendarDateString);
                 }else{
-                    daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,inactive:false ,disableTouchEvent: false};
+                    daysList[calendarDateString]={disabled:false,inactive:false ,disableTouchEvent: false};
+                    console.log("[CALENDAR DEBUG] Date marked as available:", calendarDateString);
                 }
             }
         }
+        console.log("[CALENDAR DEBUG] Final daysList:", JSON.stringify(daysList, null, 2));
         setDays(daysList);
     }
     const checkCalendarEvents=()=>{

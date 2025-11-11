@@ -39,6 +39,12 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+*.log
+*.txt
+settings.local.json
+current_session.txt
+latest_logs.txt
+check_campaigns.txt
 
 # fastlane
 #

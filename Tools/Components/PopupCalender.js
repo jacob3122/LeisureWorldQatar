@@ -149,11 +149,16 @@ export default function PopupCalender(props){
     // },[calendarIn]);
     useEffect(()=>{
         setIsFetching(false);
-        // console.log(JSON.stringify(daysIn));
-        // console.log("T :"+moment(new Date()).format("YYYY-MM-DD"));
-        // console.log("T :"+JSON.stringify(daysIn[moment(new Date()).format("YYYY-MM-DD")]));
+        console.log("[CALENDAR DEBUG] daysIn object:", JSON.stringify(daysIn, null, 2));
+        console.log("[CALENDAR DEBUG] Today's date:", moment(new Date()).format("YYYY-MM-DD"));
+        console.log("[CALENDAR DEBUG] Today's availability:", JSON.stringify(daysIn[moment(new Date()).format("YYYY-MM-DD")]));
+        
+        // Log all available dates
+        const availableDates = Object.keys(daysIn).filter(date => !daysIn[date].disabled);
+        console.log("[CALENDAR DEBUG] All available dates:", availableDates);
+        
         var ColrIn=Tools.IsNull(daysIn[moment(new Date()).format("YYYY-MM-DD")])?Colors.silver:Colors.black;
-        // console.log("C :"+ColrIn);
+        console.log("[CALENDAR DEBUG] Today's color:", ColrIn);
         var currentTheme=appliedTheme;
         currentTheme.todayTextColor=ColrIn;
         setappliedTheme(currentTheme);
@@ -199,6 +204,8 @@ export default function PopupCalender(props){
             hideExtraDays
             onDayPress={(day) => 
                 {
+                    console.log("[CALENDAR DEBUG] Day pressed:", day.dateString);
+                    console.log("[CALENDAR DEBUG] Day availability:", JSON.stringify(daysIn[day.dateString]));
                     setSelectedDate(day.dateString);
                 }
             }

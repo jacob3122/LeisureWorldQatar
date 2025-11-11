@@ -6857,10 +6857,10 @@ react-native-moengage-geofence@^7.0.3:
   resolved "https://registry.npmjs.org/react-native-moengage-geofence/-/react-native-moengage-geofence-7.0.3.tgz"
   integrity sha512-dXj5g/ElMqsSs63irCcQ/QFYTUgS6HuIZJdjcGq9EjMTjUMaB2X3OSkNBFkZgP3qrdwu1NapGDxgFVISncQxXQ==
 
-react-native-moengage@^11.0.0:
-  version "11.1.0"
-  resolved "https://registry.npmjs.org/react-native-moengage/-/react-native-moengage-11.1.0.tgz"
-  integrity sha512-674vHOesO/RApQkV6VLzh+dJfyDviOO6Dlzd+aHLy1rNFK0NDbCNDJD4QrehO/8Q4/vZ++/12jiXZVzvXvSPMQ==
+react-native-moengage@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.npmjs.org/react-native-moengage/-/react-native-moengage-12.3.0.tgz"
+  integrity sha512-JmRjJpzlFEWa2/4dT0kHPIs45PlgVFgyXekXbHMcaIQ5G16lcImNx4tj9D2zCGKMEduhwn3S5Fqr1OnUXVkGNg==
 
 react-native-permissions@^3.6.1:
   version "3.10.1"
