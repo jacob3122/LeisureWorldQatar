@@ -20,8 +20,9 @@ export default function App (props) {
   const [isEnabledForReleaseBuild,setisEnabledForReleaseBuild]=useState(true);
   
   const [notification,setNotification]=useState(undefined);
-    const [showLocationPermission, setShowLocationPermission] = useState(false);
+  const [showLocationPermission, setShowLocationPermission] = useState(false);
   const [locationPermissionChecked, setLocationPermissionChecked] = useState(false);
+  const [canShowMainApp, setCanShowMainApp] = useState(false);
   useEffect(()=>{
     console.log('🚀 [App.js] ========================================');
     console.log('🚀 [App.js] APP STARTING - MOENGAGE INITIALIZATION');
@@ -153,16 +154,16 @@ ReactMoE.setEventListener("geoFenceEvent", (geofenceEvent) => {
         console.log('❌ [App.js] Permission not granted, geofencing cannot start');
       }
       setLocationPermissionChecked(true);
+      setCanShowMainApp(true);
       return;
     }
 
     console.log('📍 [App.js] First time asking for permission');
-    console.log('⏱️  [App.js] Will show permission modal in 1.5 seconds...');
-    // CHANGE THIS LINE - Add a delay
+    console.log('⏱️  [App.js] Will show permission modal in 6 seconds...');
     setTimeout(() => {
       console.log('📱 [App.js] Showing location permission modal now');
       setShowLocationPermission(true);
-    }, 1500); // Wait 1.5 seconds for locale to be ready
+    }, 6000);
 
     setLocationPermissionChecked(true);
   } catch (error) {
@@ -179,11 +180,9 @@ const handleLocationPermissionAllow = async () => {
     setShowLocationPermission(false);
     console.log('📱 [App.js] Modal hidden');
 
-    // Mark that we've asked
     await SecureStore.setItemAsync('locationPermissionAsked', 'true');
     console.log('💾 [App.js] Saved permission asked flag to storage');
 
-    // Request permission
     console.log('🙏 [App.js] Requesting location permissions from system...');
     const granted = await geofenceManager.requestLocationPermission();
 
@@ -196,8 +195,12 @@ const handleLocationPermissionAllow = async () => {
       console.log('❌ [App.js] Location permission DENIED by user');
       console.log('❌ [App.js] Geofencing will NOT work');
     }
+    
+    console.log('🚪 [App.js] Allowing user to enter main app');
+    setCanShowMainApp(true);
   } catch (error) {
     console.error('❌ [App.js] Error handling location permission:', error);
+    setCanShowMainApp(true);
   }
 };
 
@@ -208,13 +211,16 @@ const handleLocationPermissionDeny = async () => {
   try {
     setShowLocationPermission(false);
 
-    // Mark that we've asked
     await SecureStore.setItemAsync('locationPermissionAsked', 'true');
 
     console.log('❌ [App.js] User declined location permission');
     console.log('❌ [App.js] Geofencing will NOT work');
+    
+    console.log('🚪 [App.js] Allowing user to enter main app');
+    setCanShowMainApp(true);
   } catch (error) {
     console.error('❌ [App.js] Error handling location permission denial:', error);
+    setCanShowMainApp(true);
   }
 };
   
@@ -226,7 +232,7 @@ const handleLocationPermissionDeny = async () => {
     {/* <StatusBar translucent barStyle='dark-content' backgroundColor='rgba(0,0,0,0)'/> */}
     <View style={styles.container}>
     <AppProvider>
-    {fontload&&(<Localisation notification={notification} props={props}/>)}
+    {fontload && canShowMainApp && (<Localisation notification={notification} props={props}/>)}
     <LocationPermissionModal
     visible={showLocationPermission}
     onAllow={handleLocationPermissionAllow}
