@@ -96,10 +96,18 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
     },
   });
 
-  // Don't render modal if translations aren't ready
-  if (!i18n.translations || Object.keys(i18n.translations).length === 0) {
+  // Don't render modal if not visible or translations aren't ready
+  if (!visible) {
     return null;
   }
+  
+  // Always use hardcoded fallback text to ensure modal shows
+  const titleText = i18n.locale === 'ar' ? 'تفعيل خدمات الموقع' : 'Enable Location Services';
+  const messageText = i18n.locale === 'ar'
+    ? 'نحتاج إلى الوصول إلى موقعك الدقيق (إحداثيات GPS) لإرسال إشعارات وعروض مخصصة عندما تكون بالقرب من شركائنا.\n\nسيتم جمع بيانات الموقع في الخلفية حتى عندما يكون التطبيق مغلقًا لتمكين ميزات التسييج الجغرافي.\n\nيتم معالجة بيانات موقعك بواسطة MoEngage لأغراض التحليلات والإشعارات المستندة إلى الموقع.'
+    : `We need access to your precise location (GPS coordinates) to send you personalized notifications and offers when you're near our partners.\n\nLocation data is collected in the background even when the app is closed to enable geofencing features.\n\n${Platform.OS === 'ios' ? 'Please select "Allow While Using App" in the next screen.' : ''}\n\nYour location data is processed by MoEngage for analytics and location-based notifications.`;
+  const allowText = i18n.locale === 'ar' ? 'السماح بالموقع' : 'Allow Location';
+  const denyText = i18n.locale === 'ar' ? 'ليس الآن' : 'Not Now';
 
   return (
     <Modal
@@ -119,18 +127,10 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
           </View>
 
           {/* Title */}
-          <Text style={styles.title}>
-  {i18n.locale === 'ar' 
-    ? 'تفعيل خدمات الموقع'
-    : 'Enable Location Services'}
-</Text>
+          <Text style={styles.title}>{titleText}</Text>
 
           {/* Message */}
-          <Text style={styles.message}>
-  {i18n.locale === 'ar'
-    ? 'نحتاج إلى الوصول إلى موقعك الدقيق (إحداثيات GPS) لإرسال إشعارات وعروض مخصصة عندما تكون بالقرب من شركائنا.\n\nسيتم جمع بيانات الموقع في الخلفية حتى عندما يكون التطبيق مغلقًا لتمكين ميزات التسييج الجغرافي.\n\nيتم معالجة بيانات موقعك بواسطة MoEngage لأغراض التحليلات والإشعارات المستندة إلى الموقع.'
-    : `We need access to your precise location (GPS coordinates) to send you personalized notifications and offers when you're near our partners.\n\nLocation data is collected in the background even when the app is closed to enable geofencing features.\n\n${Platform.OS === 'ios' ? 'Please select "Allow While Using App" then "Change to Always Allow" in the next screen.' : ''}\n\nYour location data is processed by MoEngage for analytics and location-based notifications.`}
-</Text>
+          <Text style={styles.message}>{messageText}</Text>
 
           {/* Buttons */}
           <View style={styles.buttonContainer}>
@@ -138,18 +138,14 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
     style={styles.allowButton} 
     onPress={onAllow}
   >
-    <Text style={styles.allowButtonText}>
-      {i18n.locale === 'ar' ? 'السماح بالموقع' : 'Allow Location'}
-    </Text>
+    <Text style={styles.allowButtonText}>{allowText}</Text>
   </TouchableOpacity>
 
   <TouchableOpacity 
     style={styles.denyButton} 
     onPress={onDeny}
   >
-    <Text style={styles.denyButtonText}>
-      {i18n.locale === 'ar' ? 'ليس الآن' : 'Not Now'}
-    </Text>
+    <Text style={styles.denyButtonText}>{denyText}</Text>
   </TouchableOpacity>
 </View>
         </View>
