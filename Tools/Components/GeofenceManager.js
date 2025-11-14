@@ -137,6 +137,10 @@ class GeofenceManager {
 
     try {
       console.log('🔍 [GeofenceManager] Step 1: Checking location permissions...');
+      
+      // Wait a moment for permissions to be fully processed
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
       const hasPermission = await this.checkLocationPermission();
 
       if (!hasPermission) {
