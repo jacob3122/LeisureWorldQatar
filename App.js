@@ -23,7 +23,13 @@ export default function App (props) {
   const [showLocationPermission, setShowLocationPermission] = useState(false);
   const [locationPermissionChecked, setLocationPermissionChecked] = useState(false);
   const [canShowMainApp, setCanShowMainApp] = useState(false);
+  
   useEffect(()=>{
+    console.log('🟢 [APP.JS] ========== APP COMPONENT MOUNTED ==========');
+    console.log('🟢 [APP.JS] Initial State:');
+    console.log('   - showLocationPermission:', false);
+    console.log('   - locationPermissionChecked:', false);
+    console.log('   - canShowMainApp:', false);
     console.log('🚀 [App.js] ========================================');
     console.log('🚀 [App.js] APP STARTING - MOENGAGE INITIALIZATION');
     console.log('🚀 [App.js] ========================================');
@@ -102,8 +108,8 @@ ReactMoE.setEventListener("geoFenceEvent", (geofenceEvent) => {
       ReactMoE.showInApp();
     }, 1000);
 
-     console.log('📍 [App.js] Starting geofencing initialization...');
-     initializeGeofencing();
+     console.log('📍 [App.js] About to call initializeGeofencing()...');
+    initializeGeofencing();
 
     return () => {
       // This code will run when the component unmounts
@@ -138,88 +144,118 @@ ReactMoE.setEventListener("geoFenceEvent", (geofenceEvent) => {
   }
 
   const initializeGeofencing = async () => {
-  console.log('🎯 [App.js] initializeGeofencing() called');
+  console.log('\n🎯 [APP.JS] ========== initializeGeofencing() STARTED ==========');
+  console.log('🎯 [APP.JS] Timestamp:', new Date().toISOString());
   try {
+    console.log('🔍 [APP.JS] Checking SecureStore for locationPermissionAsked...');
     const askedBefore = await SecureStore.getItemAsync('locationPermissionAsked');
-    console.log('🔍 [App.js] Checked if permission was asked before:', askedBefore);
+    console.log('🔍 [APP.JS] SecureStore result:', askedBefore);
+    console.log('🔍 [APP.JS] askedBefore === "true"?', askedBefore === 'true');
 
     if (askedBefore === 'true') {
-      console.log('✅ [App.js] User was asked before, checking current permission status...');
+      console.log('\n✅ [APP.JS] ========== USER WAS ASKED BEFORE ==========');
+      console.log('✅ [APP.JS] Checking current permission status...');
       const hasPermission = await geofenceManager.checkLocationPermission();
+      console.log('✅ [APP.JS] Permission check result:', hasPermission);
+      
       if (hasPermission) {
         console.log('✅ [App.js] Permission granted, initializing geofencing...');
         await geofenceManager.initializeGeofencing();
         console.log('✅ [App.js] Geofencing initialized - permission already granted');
       } else {
-        console.log('❌ [App.js] Permission not granted, geofencing cannot start');
+        console.log('❌ [APP.JS] Permission not granted, geofencing cannot start');
       }
+      console.log('🚪 [APP.JS] Setting canShowMainApp = true (user was asked before)');
       setLocationPermissionChecked(true);
       setCanShowMainApp(true);
+      console.log('🎯 [APP.JS] ========== initializeGeofencing() ENDED (asked before) ==========\n');
       return;
     }
 
-    console.log('📍 [App.js] First time asking for permission');
-    console.log('⏱️  [App.js] Will show permission modal in 8 seconds...');
+    console.log('\n📍 [APP.JS] ========== FIRST TIME USER ==========');
+    console.log('📍 [APP.JS] User has never been asked for location permission');
+    console.log('⏱️  [APP.JS] Setting 8-second timer to show modal...');
+    console.log('⏱️  [APP.JS] Timer will fire at:', new Date(Date.now() + 8000).toISOString());
+    
     setTimeout(() => {
-      console.log('📱 [App.js] Showing location permission modal now');
+      console.log('\n⏰ [APP.JS] ========== 8-SECOND TIMER FIRED ==========');
+      console.log('⏰ [APP.JS] Timestamp:', new Date().toISOString());
+      console.log('⏰ [APP.JS] About to call setShowLocationPermission(true)');
       setShowLocationPermission(true);
+      console.log('⏰ [APP.JS] setShowLocationPermission(true) called');
+      console.log('⏰ [APP.JS] Modal should now be visible');
     }, 8000);
 
     setLocationPermissionChecked(true);
+    console.log('🎯 [APP.JS] ========== initializeGeofencing() ENDED (first time) ==========\n');
   } catch (error) {
-    console.error('❌ [App.js] Error initializing geofencing:', error);
+    console.error('❌ [APP.JS] ========== ERROR in initializeGeofencing ==========');
+    console.error('❌ [APP.JS] Error:', error);
     setLocationPermissionChecked(true);
   }
 };
 
 const handleLocationPermissionAllow = async () => {
-  console.log('✅ [App.js] ========================================');
-  console.log('✅ [App.js] USER CLICKED "ALLOW LOCATION"');
-  console.log('✅ [App.js] ========================================');
+  console.log('\n✅ [APP.JS] ========================================');
+  console.log('✅ [APP.JS] USER CLICKED "ALLOW LOCATION" BUTTON');
+  console.log('✅ [APP.JS] ========================================');
+  console.log('✅ [APP.JS] Timestamp:', new Date().toISOString());
   try {
+    console.log('📱 [APP.JS] Calling setShowLocationPermission(false)...');
     setShowLocationPermission(false);
-    console.log('📱 [App.js] Modal hidden');
+    console.log('📱 [APP.JS] Modal hidden');
 
+    console.log('💾 [APP.JS] Saving to SecureStore: locationPermissionAsked = true');
     await SecureStore.setItemAsync('locationPermissionAsked', 'true');
-    console.log('💾 [App.js] Saved permission asked flag to storage');
+    console.log('💾 [APP.JS] Saved to SecureStore successfully');
 
-    console.log('🙏 [App.js] Requesting location permissions from system...');
+    console.log('🙏 [APP.JS] Calling geofenceManager.requestLocationPermission()...');
     const granted = await geofenceManager.requestLocationPermission();
+    console.log('🙏 [APP.JS] Permission request result:', granted);
 
     if (granted) {
-      console.log('✅ [App.js] Permissions GRANTED by user');
-      console.log('🚀 [App.js] Initializing geofencing...');
+      console.log('✅ [APP.JS] Permissions GRANTED by user');
+      console.log('🚀 [APP.JS] Calling geofenceManager.initializeGeofencing()...');
       await geofenceManager.initializeGeofencing();
-      console.log('🎉 [App.js] Location permission granted and geofencing initialized');
+      console.log('🎉 [APP.JS] Geofencing initialized successfully');
     } else {
-      console.log('❌ [App.js] Location permission DENIED by user');
-      console.log('❌ [App.js] Geofencing will NOT work');
+      console.log('❌ [APP.JS] Location permission DENIED by user');
+      console.log('❌ [APP.JS] Geofencing will NOT work');
     }
     
-    console.log('🚪 [App.js] Allowing user to enter main app');
+    console.log('🚪 [APP.JS] Setting canShowMainApp = true');
     setCanShowMainApp(true);
+    console.log('✅ [APP.JS] ========== handleLocationPermissionAllow ENDED ==========\n');
   } catch (error) {
-    console.error('❌ [App.js] Error handling location permission:', error);
+    console.error('❌ [APP.JS] ========== ERROR in handleLocationPermissionAllow ==========');
+    console.error('❌ [APP.JS] Error:', error);
     setCanShowMainApp(true);
   }
 };
 
 const handleLocationPermissionDeny = async () => {
-  console.log('❌ [App.js] ========================================');
-  console.log('❌ [App.js] USER CLICKED "NOT NOW" - PERMISSION DENIED');
-  console.log('❌ [App.js] ========================================');
+  console.log('\n❌ [APP.JS] ========================================');
+  console.log('❌ [APP.JS] USER CLICKED "NOT NOW" BUTTON');
+  console.log('❌ [APP.JS] ========================================');
+  console.log('❌ [APP.JS] Timestamp:', new Date().toISOString());
   try {
+    console.log('📱 [APP.JS] Calling setShowLocationPermission(false)...');
     setShowLocationPermission(false);
+    console.log('📱 [APP.JS] Modal hidden');
 
+    console.log('💾 [APP.JS] Saving to SecureStore: locationPermissionAsked = true');
     await SecureStore.setItemAsync('locationPermissionAsked', 'true');
+    console.log('💾 [APP.JS] Saved to SecureStore successfully');
 
-    console.log('❌ [App.js] User declined location permission');
-    console.log('❌ [App.js] Geofencing will NOT work');
+    console.log('❌ [APP.JS] User declined location permission');
+    console.log('❌ [APP.JS] Geofencing will NOT work');
     
-    console.log('🚪 [App.js] Allowing user to enter main app');
+    console.log('🚪 [APP.JS] Setting canShowMainApp = true');
     setCanShowMainApp(true);
+    console.log('❌ [APP.JS] ========== handleLocationPermissionDeny ENDED ==========\n');
   } catch (error) {
-    console.error('❌ [App.js] Error handling location permission denial:', error);
+    console.error('❌ [APP.JS] ========== ERROR in handleLocationPermissionDeny ==========');
+    console.error('❌ [APP.JS] Error:', error);
     setCanShowMainApp(true);
   }
 };

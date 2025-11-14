@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Modal, Platform } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Platform } from 'react-native';
 import { widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen';
-import { I18n } from 'i18n-js';
-import translations from '../../assets/Localization/Localize.json';
 import BackgroundWall from './BackgroundWall';
 import { useTheme } from '../context/ThemeProvider';
-import { useAppContext } from '../../src/js/reducers/AppReducer';
-
-const i18n = new I18n(translations);
 
 export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
   const Colors = useTheme();
-  const { state } = useAppContext();
-  
-  // Use translations from state if available, otherwise use default
-  if (state.i18ntranslation && Object.keys(state.i18ntranslation).length > 0) {
-    i18n.translations = state.i18ntranslation;
-  }
-  i18n.locale = global.locale || 'en';
+
+  useEffect(() => {
+    console.log('\n🟡 [MODAL] ========== LocationPermissionModal MOUNTED ==========');
+    console.log('🟡 [MODAL] Initial visible prop:', visible);
+  }, []);
+
+  useEffect(() => {
+    console.log('\n🔵 [MODAL] ========== visible prop CHANGED ==========');
+    console.log('🔵 [MODAL] New visible value:', visible);
+    console.log('🔵 [MODAL] Timestamp:', new Date().toISOString());
+    if (visible) {
+      console.log('✅ [MODAL] Modal should now be VISIBLE on screen');
+    } else {
+      console.log('❌ [MODAL] Modal should now be HIDDEN');
+    }
+  }, [visible]);
 
   const styles = StyleSheet.create({
     modal: {
@@ -96,18 +100,12 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
     },
   });
 
-  // Don't render modal if not visible or translations aren't ready
   if (!visible) {
+    console.log('🚫 [MODAL] Returning null (visible=false)');
     return null;
   }
-  
-  // Always use hardcoded fallback text to ensure modal shows
-  const titleText = i18n.locale === 'ar' ? 'تفعيل خدمات الموقع' : 'Enable Location Services';
-  const messageText = i18n.locale === 'ar'
-    ? 'نحتاج إلى الوصول إلى موقعك الدقيق (إحداثيات GPS) لإرسال إشعارات وعروض مخصصة عندما تكون بالقرب من شركائنا.\n\nسيتم جمع بيانات الموقع في الخلفية حتى عندما يكون التطبيق مغلقًا لتمكين ميزات التسييج الجغرافي.\n\nيتم معالجة بيانات موقعك بواسطة MoEngage لأغراض التحليلات والإشعارات المستندة إلى الموقع.'
-    : `We need access to your precise location (GPS coordinates) to send you personalized notifications and offers when you're near our partners.\n\nLocation data is collected in the background even when the app is closed to enable geofencing features.\n\n${Platform.OS === 'ios' ? 'Please select "Allow While Using App" in the next screen.' : ''}\n\nYour location data is processed by MoEngage for analytics and location-based notifications.`;
-  const allowText = i18n.locale === 'ar' ? 'السماح بالموقع' : 'Allow Location';
-  const denyText = i18n.locale === 'ar' ? 'ليس الآن' : 'Not Now';
+
+  console.log('✅ [MODAL] Rendering modal (visible=true)');
 
   return (
     <Modal
@@ -115,7 +113,10 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
       transparent={true}
       animationType="fade"
       statusBarTranslucent={true}
-      onRequestClose={onDeny}
+      onRequestClose={() => {
+        console.log('🔙 [MODAL] onRequestClose triggered');
+        onDeny();
+      }}
     >
       <View style={styles.modal}>
         <BackgroundWall blur={true} opacity={0.8} />
@@ -126,26 +127,35 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
             <Text style={styles.iconText}>📍</Text>
           </View>
 
-          {/* Title */}
-          <Text style={styles.title}>{titleText}</Text>
+          <Text style={styles.title}>Enable Location Services</Text>
 
-          {/* Message */}
-          <Text style={styles.message}>{messageText}</Text>
+          <Text style={styles.message}>
+            We need access to your precise location to send you personalized notifications and offers when you're near our partners.{"\n\n"}
+            Location data is collected in the background even when the app is closed to enable geofencing features.{"\n\n"}
+            {Platform.OS === 'ios' && "Please select 'Allow While Using App' in the next screen.\n\n"}
+            Your location data is processed by MoEngage for analytics and location-based notifications.
+          </Text>
 
           {/* Buttons */}
           <View style={styles.buttonContainer}>
   <TouchableOpacity 
     style={styles.allowButton} 
-    onPress={onAllow}
+    onPress={() => {
+      console.log('✅ [MODAL] "Allow Location" button pressed');
+      onAllow();
+    }}
   >
-    <Text style={styles.allowButtonText}>{allowText}</Text>
+    <Text style={styles.allowButtonText}>Allow Location</Text>
   </TouchableOpacity>
 
   <TouchableOpacity 
     style={styles.denyButton} 
-    onPress={onDeny}
+    onPress={() => {
+      console.log('❌ [MODAL] "Not Now" button pressed');
+      onDeny();
+    }}
   >
-    <Text style={styles.denyButtonText}>{denyText}</Text>
+    <Text style={styles.denyButtonText}>Not Now</Text>
   </TouchableOpacity>
 </View>
         </View>
