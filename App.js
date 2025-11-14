@@ -144,17 +144,14 @@ ReactMoE.setEventListener("geoFenceEvent", (geofenceEvent) => {
 
     if (askedBefore === 'true') {
       console.log('✅ [App.js] User was asked before, checking current permission status...');
-      // Wait a moment for app to fully load before checking permissions
-      setTimeout(async () => {
-        const hasPermission = await geofenceManager.checkLocationPermission();
-        if (hasPermission) {
-          console.log('✅ [App.js] Permission granted, initializing geofencing...');
-          await geofenceManager.initializeGeofencing();
-          console.log('✅ [App.js] Geofencing initialized - permission already granted');
-        } else {
-          console.log('❌ [App.js] Permission not granted, geofencing cannot start');
-        }
-      }, 2000);
+      const hasPermission = await geofenceManager.checkLocationPermission();
+      if (hasPermission) {
+        console.log('✅ [App.js] Permission granted, initializing geofencing...');
+        await geofenceManager.initializeGeofencing();
+        console.log('✅ [App.js] Geofencing initialized - permission already granted');
+      } else {
+        console.log('❌ [App.js] Permission not granted, geofencing cannot start');
+      }
       setLocationPermissionChecked(true);
       return;
     }
@@ -193,11 +190,8 @@ const handleLocationPermissionAllow = async () => {
     if (granted) {
       console.log('✅ [App.js] Permissions GRANTED by user');
       console.log('🚀 [App.js] Initializing geofencing...');
-      // Wait a moment for permissions to be fully processed
-      setTimeout(async () => {
-        await geofenceManager.initializeGeofencing();
-        console.log('🎉 [App.js] Location permission granted and geofencing initialized');
-      }, 1000);
+      await geofenceManager.initializeGeofencing();
+      console.log('🎉 [App.js] Location permission granted and geofencing initialized');
     } else {
       console.log('❌ [App.js] Location permission DENIED by user');
       console.log('❌ [App.js] Geofencing will NOT work');
