@@ -12,7 +12,11 @@ const i18n = new I18n(translations);
 export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
   const Colors = useTheme();
   const { state } = useAppContext();
-  i18n.translations = state.i18ntranslation;
+  
+  // Use translations from state if available, otherwise use default
+  if (state.i18ntranslation && Object.keys(state.i18ntranslation).length > 0) {
+    i18n.translations = state.i18ntranslation;
+  }
   i18n.locale = global.locale || 'en';
 
   const styles = StyleSheet.create({
@@ -91,6 +95,11 @@ export default function LocationPermissionModal({ visible, onAllow, onDeny }) {
       color: Colors.inputfontColor,
     },
   });
+
+  // Don't render modal if translations aren't ready
+  if (!i18n.translations || Object.keys(i18n.translations).length === 0) {
+    return null;
+  }
 
   return (
     <Modal

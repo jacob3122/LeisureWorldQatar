@@ -159,11 +159,11 @@ ReactMoE.setEventListener("geoFenceEvent", (geofenceEvent) => {
     }
 
     console.log('📍 [App.js] First time asking for permission');
-    console.log('⏱️  [App.js] Will show permission modal in 6 seconds...');
+    console.log('⏱️  [App.js] Will show permission modal in 8 seconds...');
     setTimeout(() => {
       console.log('📱 [App.js] Showing location permission modal now');
       setShowLocationPermission(true);
-    }, 6000);
+    }, 8000);
 
     setLocationPermissionChecked(true);
   } catch (error) {
