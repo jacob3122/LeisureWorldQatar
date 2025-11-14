@@ -21,6 +21,11 @@ end
 
 target 'LeisureWorldQatar' do
   config = use_native_modules!
+  
+  # Permissions for react-native-permissions
+  pod 'Permission-LocationAlways', :path => "../node_modules/react-native-permissions/ios/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "../node_modules/react-native-permissions/ios/LocationWhenInUse"
+  
   pod 'FirebaseCore', :modular_headers => true;
   pod 'GoogleUtilities', :modular_headers => true;
   pod 'FirebaseCrashlytics', :modular_headers => true;
