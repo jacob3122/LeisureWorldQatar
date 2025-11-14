@@ -47,20 +47,22 @@ class GeofenceManager {
         console.log('📍 [GeofenceManager] iOS When In Use Status:', whenInUseStatus);
         console.log('📍 [GeofenceManager] iOS Location Always Status:', alwaysStatus);
         
-        granted = alwaysStatus === RESULTS.GRANTED;
+        // Accept either "always" or "when in use" as valid
+        granted = alwaysStatus === RESULTS.GRANTED || whenInUseStatus === RESULTS.GRANTED;
         
         if (granted) {
           console.log('✅ [GeofenceManager] iOS location permission GRANTED');
+          if (alwaysStatus === RESULTS.GRANTED) {
+            console.log('✅ [GeofenceManager] Permission level: ALWAYS (optimal for geofencing)');
+          } else {
+            console.log('ℹ️ [GeofenceManager] Permission level: WHEN IN USE (geofencing may be limited)');
+            console.log('ℹ️ [GeofenceManager] For best results, upgrade to "Always" in Settings');
+          }
         } else {
           console.log('❌ [GeofenceManager] iOS location permission NOT granted');
           console.log('   - When In Use:', whenInUseStatus);
           console.log('   - Location Always:', alwaysStatus);
-          
-          if (whenInUseStatus !== RESULTS.GRANTED) {
-            console.log('ℹ️ [GeofenceManager] Need to grant "While Using App" permission first');
-          } else {
-            console.log('ℹ️ [GeofenceManager] Need to change to "Always" permission in Settings');
-          }
+          console.log('ℹ️ [GeofenceManager] Need to grant location permission first');
         }
       }
 
@@ -111,8 +113,8 @@ class GeofenceManager {
           console.log('❌ [GeofenceManager] Android background location permission DENIED');
         }
       } else if (Platform.OS === 'ios') {
-        // iOS requires two-step permission process
-        console.log('📍 [GeofenceManager] Step 1: Requesting iOS WHEN IN USE permission...');
+        // iOS: First request when-in-use permission
+        console.log('📍 [GeofenceManager] Requesting iOS WHEN IN USE permission...');
         const whenInUseResult = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
         console.log('📍 [GeofenceManager] iOS When In Use Permission Result:', whenInUseResult);
 
@@ -122,23 +124,13 @@ class GeofenceManager {
         }
 
         console.log('✅ [GeofenceManager] iOS when in use permission GRANTED');
-        console.log('📍 [GeofenceManager] Step 2: Requesting iOS ALWAYS permission...');
         
-        // Wait a moment for iOS to process the first permission
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // For iOS, we accept "when in use" as sufficient for now
+        // The user can upgrade to "always" later in Settings
+        granted = true;
         
-        const alwaysResult = await request(PERMISSIONS.IOS.LOCATION_ALWAYS);
-        console.log('📍 [GeofenceManager] iOS Always Permission Result:', alwaysResult);
-
-        granted = alwaysResult === RESULTS.GRANTED;
-
-        if (granted) {
-          console.log('✅ [GeofenceManager] iOS location always permission GRANTED');
-          console.log('✅ [GeofenceManager] iOS permissions granted successfully!');
-        } else {
-          console.log('❌ [GeofenceManager] iOS location always permission DENIED');
-          console.log('ℹ️ [GeofenceManager] User must grant "Allow While Using App" first, then "Change to Always Allow"');
-        }
+        console.log('✅ [GeofenceManager] iOS permissions granted successfully!');
+        console.log('📝 [GeofenceManager] Note: User can upgrade to "Always" in Settings > Privacy & Security > Location Services > Your App > Always');
       }
 
       this.permissionGranted = granted;
