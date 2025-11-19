@@ -66,6 +66,8 @@
 	<string>Application Authentication</string>
 	<key>NSLocationUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to Location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need location access to send you personalized offers when you're near our partners, even when the app is in the background</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need location access to send you personalized offers when you're near our partners</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -84,6 +86,7 @@
 	<array>
 		<string>remote-notification</string>
 		<string>fetch</string>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

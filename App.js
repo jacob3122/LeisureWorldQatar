@@ -23,6 +23,8 @@ export default function App (props) {
     const [showLocationPermission, setShowLocationPermission] = useState(false);
   const [locationPermissionChecked, setLocationPermissionChecked] = useState(false);
   useEffect(()=>{
+ console.log('🚀🚀🚀 APP.JS USEEFFECT STARTED 🚀🚀🚀'); // ADD THIS LINE
+    console.log('🚀 [App.js] ========================================');
     console.log('🚀 [App.js] ========================================');
     console.log('🚀 [App.js] APP STARTING - MOENGAGE INITIALIZATION');
     console.log('🚀 [App.js] ========================================');
@@ -139,6 +141,7 @@ ReactMoE.setEventListener("geoFenceEvent", (geofenceEvent) => {
   const initializeGeofencing = async () => {
   console.log('🎯 [App.js] initializeGeofencing() called');
   try {
+
     const askedBefore = await SecureStore.getItemAsync('locationPermissionAsked');
     console.log('🔍 [App.js] Checked if permission was asked before:', askedBefore);
 
