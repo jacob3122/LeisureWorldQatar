@@ -474,67 +474,71 @@ export default function ProductPage(props){
     
     
     
-    const getValidDays=()=>{
-        currentYear=null;
-        daysList={};
-        var firstdate=null;
-        currentDateAvail=false;
-        if(!Tools.IsNull(calendarIn.YearList)){
-            for (let index = 0; index < calendarIn.YearList.length; index++) {
-                const element = calendarIn.YearList[index];
-                if(element.Year>=new Date().getFullYear())
-                    {
-                    currentYear=element;
-                    // console.log(new Date().getFullYear()+"Year :"+currentYear.Year);
-                    if(!Tools.IsNull(currentYear)){
-                        for (let index1 = 0; index1 < currentYear.MonthList.length; index1++) {
-                            const elementMonth = currentYear.MonthList[index1];
-                            if(elementMonth.Month>new Date().getMonth()){
-                                // console.log(elementMonth.DayList.length+" Month :"+elementMonth.Month);
-                                for (let index2 = 0; index2 < elementMonth.DayList.length; index2++) {
-                                    // const elementDay = elementMonth.DayList[index2];
-                                    indexDay=elementMonth.DayList[index2].Day;
-                                    if(new Date(currentYear.Year,elementMonth.Month-1,indexDay+1)>=new Date())
-                                        {
-                                        if(firstdate==null){
-                                            firstdate=CalendarUtils.getCalendarDateString(new Date(currentYear.Year,elementMonth.Month-1,indexDay));
-                                        }
-                                        if(new Date(currentYear.Year,elementMonth.Month-1,indexDay+1).toISOString().split('T')[0]==new Date().toISOString().split('T')[0]){
-                                            firstdate=CalendarUtils.getCalendarDateString(new Date(currentYear.Year,elementMonth.Month-1,indexDay));
-                                            currentDateAvail=true;
-                                        }
-                                        var dateS=CalendarUtils.getCalendarDateString(new Date(currentYear.Year, elementMonth.Month-1,indexDay));
-                                        if(!Tools.IsNull(selectedDate)){
-                                            // console.log(dateS+"=="+selectedDate.format('YYYY-MM-DD'));
-                                            daysList[dateS]={disabled:false,selected:((dateS==(selectedDate.format('YYYY-MM-DD')))?true:false),inactive:false ,disableTouchEvent: false};
-                                        }else{
-                                            daysList[dateS]={disabled:false,inactive:false ,disableTouchEvent: false};
-                                        }
-                                    }
-                                }
-                            }
+   const getValidDays = () => {
+    currentYear = null;
+    daysList = {};
+    var firstdate = null;
+    currentDateAvail = false;
+
+    if (!Tools.IsNull(calendarIn.YearList)) {
+        for (let index = 0; index < calendarIn.YearList.length; index++) {
+            const element = calendarIn.YearList[index];
+
+            // ❗ removed: if (element.Year >= new Date().getFullYear())
+
+            for (let index1 = 0; index1 < element.MonthList.length; index1++) {
+                const elementMonth = element.MonthList[index1];
+
+                // ❗ removed: if(elementMonth.Month >= new Date().getMonth())
+
+                for (let index2 = 0; index2 < elementMonth.DayList.length; index2++) {
+
+                    const indexDay = elementMonth.DayList[index2].Day;
+
+                    // ⭐ THE ONLY VALIDATION YOU NEED:
+                    const dateObj = new Date(element.Year, elementMonth.Month - 1, indexDay);
+
+                    if (dateObj >= new Date().setHours(0,0,0,0)) {
+
+                        const dateStr = CalendarUtils.getCalendarDateString(dateObj);
+
+                        // set first available date
+                        if (firstdate == null) {
+                            firstdate = dateStr;
+                        }
+
+                        // detect "today available" case
+                        if (dateStr === new Date().toISOString().split('T')[0]) {
+                            firstdate = dateStr;
+                            currentDateAvail = true;
+                        }
+
+                        // keep your existing selectedDate logic EXACTLY as-is
+                        if (!Tools.IsNull(selectedDate)) {
+                            daysList[dateStr] = {
+                                disabled: false,
+                                selected: (dateStr == selectedDate.format('YYYY-MM-DD')),
+                                inactive: false,
+                                disableTouchEvent: false
+                            };
+                        } else {
+                            daysList[dateStr] = {
+                                disabled: false,
+                                inactive: false,
+                                disableTouchEvent: false
+                            };
                         }
                     }
                 }
             }
         }
-        setFirstDate(firstdate);
-        setDays(daysList);
-        // if(!currentDateAvail){
-        //     daysList[new Date().toISOString().split('T')[0]]= {
-        //         disabled: true,
-        //         disableTouchEvent: true,
-        //     };
-        // }
-        // setCallbackReg(
-        //   ()=>{
-            //     console.log("firstdate : "+fdate);
-        //     dateIn=moment(fdate).add(4,'hours')//+3gmt
-        //     if(fdate!=null)
-        //         setSelectedDate(dateIn);
-        // });
-        
     }
+
+    setFirstDate(firstdate);
+    setDays(daysList);
+};
+
+
     
     const checkCalendar=()=>{
         if(calendarId==null){
