@@ -90,11 +90,11 @@ android {
         applicationId "com.leisureloyalty"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 85
+        versionCode 87
         versionName "2.2.0"
         multiDexEnabled true
          ndk {
-            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            abiFilters "armeabi-v7a", "arm64-v8a"
             // Excludes riscv64, which is unnecessary unless targeting WearOS
         }
     }
@@ -130,6 +130,11 @@ android {
         //     minifyEnabled enableProguardInReleaseBuilds
         //     proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         // }
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = false
+        }
     }
 }
 
