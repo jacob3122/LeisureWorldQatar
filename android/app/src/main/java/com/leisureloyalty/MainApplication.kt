@@ -18,8 +18,6 @@ import com.moengage.core.config.FcmConfig
 import com.moengage.core.config.LogConfig
 import com.moengage.core.config.NotificationConfig
 import com.moengage.geofence.MoEGeofenceHelper
-import com.moengage.core.config.MoEngageEnvironmentConfig
-import com.moengage.core.model.environment.MoEngageEnvironment
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
@@ -49,7 +47,6 @@ class MainApplication : Application(), ReactApplication {
     val moEngage = MoEngage.Builder(this, "DCMBBW4GE1CX78NNNXFU1VN8", DataCenter.DATA_CENTER_2)
     	.configureNotificationMetaData(NotificationConfig(R.drawable.notify, R.drawable._024icon ))//R.color.notiColor, null, true, isBuildingBackStackEnabled = false, isLargeIconDisplayEnabled = true)
     // .configureFcm(FcmConfig(false))
-    .configureMoEngageEnvironment(MoEngageEnvironmentConfig(MoEngageEnvironment.TEST))
     // .build()
     //replace X with your data center number
     MoEInitializer.initializeDefaultInstance(applicationContext, moEngage)

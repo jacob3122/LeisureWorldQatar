@@ -90,7 +90,7 @@ android {
         applicationId "com.leisureloyalty"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 87
+        versionCode 92
         versionName "2.2.0"
         multiDexEnabled true
          ndk {
@@ -133,7 +133,7 @@ android {
     }
     packagingOptions {
         jniLibs {
-            useLegacyPackaging = false
+            useLegacyPackaging = true
         }
     }
 }
