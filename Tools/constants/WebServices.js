@@ -1,6 +1,6 @@
 export default {
-    CatalogMainUrl:'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',
-    MainURL:'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://ewallet.leisure.qa:1139/',//'http://10.11.2.36:2136/',//'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://webapi.leisure.qa/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureapi.uxpglobal.com/',//'https://leisureqastgapi.azurewebsites.net/',//'http://10.10.130.75:1903/',//'https://leisureapi.uxpglobal.com/',//'https://stagingloyaltyapi.azurewebsites.net/',//'https://webapi.leisure.qa/',//'http://10.10.130.62:8989/',//'http://10.10.130.75:1903/',//',
+    CatalogMainUrl:'https://ewallet.leisure.qa:1139/',
+    MainURL: 'https://ewallet.leisure.qa:1139/', //'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://ewallet.leisure.qa:1139/',//'http://10.11.2.36:2136/',//'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://webapi.leisure.qa/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureapi.uxpglobal.com/',//'https://leisureqastgapi.azurewebsites.net/',//'http://10.10.130.75:1903/',//'https://leisureapi.uxpglobal.com/',//'https://stagingloyaltyapi.azurewebsites.net/',//'https://webapi.leisure.qa/',//'http://10.10.130.62:8989/',//'http://10.10.130.75:1903/',//',
     CreateProfile:'api/Member/CreateMember',
     ValidateProfile:'api/Member/ValidateMember',
     VerifyMemberOTP:'api/Member/VerifyMobileOTP?MemberID={MemberID}&OTPCode={OTPCode}',
@@ -111,6 +111,8 @@ export default {
     appurl:'https://bit.ly/31McaWU',
     initskipcash:'api/Cart/InitSkipCash',
     checkPayment:'api/Cart/CheckSkipCash?PaymentId={PaymentId}&ShopCartId={ShopCartId}',
+    initPayLater: 'api/Cart/InitPayLater',
+    checkPayLater: 'api/Cart/CheckPayLater?PaymentId={PaymentId}&ShopCartId={ShopCartId}&Amount={Amount}&PayPoints={PayPoints}',
     getBenefits:'api/Member/Benefits?MemberId={MemberId}',
     getUsedBenefits:'api/Member/BenefitsHistory?MemberId={MemberId}',
     getAvailablePoints:'api/Cart/GetAvailablePayPoints?MemberId={MemberId}&SCID={SCID}',
@@ -153,6 +155,8 @@ export default {
     leisuremember:'Tejory Membership',
     timeout:20000,
     paymentReturnUrl:'https://tickets.leisure.qa/?wc-api=wc_gateway_skipcash_check',
+    payLaterSuccessUrl:'leisure.qa/Success',
+    payLaterFailureUrl:'leisure.qa/Failure',
 
     searchMediaCard:'api/Member/SearchMediaCards?MemberID={MemberID}&MediaCode={MediaCode}',
     registerMediaId:'api/Member/RegisterMedia?MemberID={MemberID}&MediaID={MediaID}',

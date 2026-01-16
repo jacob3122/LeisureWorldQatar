@@ -52,6 +52,7 @@ export default function CheckOutPage (props){
     const [finalPoints, setFinalPoints] = useState(0);
     const [finalAmount, setFinalAmount] = useState(props.route.params.shopCartInfo.Answer.ShopCart.TotalAmount);
     const [beforefinalAmount, setBeforeFinalAmount] = useState(props.route.params.shopCartInfo.Answer.ShopCart.TotalAmount);
+    const [paymentMethod, setPaymentMethod] = useState('skipcash'); // 'skipcash' or 'paylater'
     const [pointsSlider, setPointsSlider] = useState(0);
     const [errorcheck, setErrorCheck] = useState(0);
     const [usePoints, setUsePoints] = useState(false);
@@ -82,6 +83,8 @@ export default function CheckOutPage (props){
     const [shopCartInfo, setShopCartInfo] = useState(props.route.params.shopCartInfo);
     const [profileIn, setProfileIn] = useState(state.profile);
     const [accessToken, setAccessToken] = useState(state.accessToken);
+    const payLaterReferenceRef = React.useRef(null);
+
     const [profile, setProfile] = useState({
         "Id": "",
         "FirstName": "",
@@ -357,6 +360,13 @@ export default function CheckOutPage (props){
                     setFinalPoints(points);
                     setFinalAmount(beforefinalAmount-(points/availablePoints.CalcRate));
                 }
+                console.log('=== Tejory Points Update ===');
+                console.log('Points Step:', availablePoints.PointsStep);
+                console.log('Calc Rate:', availablePoints.CalcRate);
+                console.log('Final Points:', points);
+                console.log('Before Final Amount:', beforefinalAmount);
+                console.log('New Final Amount:', beforefinalAmount - (points / availablePoints.CalcRate));
+                console.log('=== End Tejory Debug ===');
             }
             
             const checkAddress=()=>{
@@ -676,6 +686,9 @@ export default function CheckOutPage (props){
                         "LangIso": "en",
                         "MemberId": Tools.IsNull(_profile.Id)?"":_profile.Id
                     }
+                    console.log('=== validateShoppingCartVGS API Request ===');
+                    console.log('Full bodyData:', JSON.stringify(bodyData, null, 2));
+                    console.log('=== End validateShoppingCartVGS Request ===');
                     fetch (WebServices.MainURL+WebServices.validateCart,{
                         method: 'POST',
                         headers: {
@@ -686,12 +699,23 @@ export default function CheckOutPage (props){
                     .then((response) => response.text())
                     .then((responseJson) => {
                         // console.log("validateShoppingCartVGS : "+responseJson);
-                        
+                        console.log('=== validateShoppingCartVGS API Response ===');
+                        console.log('Full response:', responseJson);
+                        console.log('=== End validateShoppingCartVGS Response ===');
+
                         var responseObj=JSON.parse(responseJson);
                         if(!responseObj.Answer.ValidateShopCart.RestrictValidPayments){
                             // console.log("getPaymentURL");
                             // postTransaction(_shotCartId,_totalVal,_LoadUpdate)
-                            getPaymentURL(_shotCartId,_profile,_totalVal)
+                            console.log('=== validateShoppingCartVGS Debug ===');
+                            console.log('_totalVal being passed:', _totalVal);
+                            console.log('paymentMethod:', paymentMethod);
+                            console.log('=== End validateShoppingCartVGS Debug ===');
+                               if (paymentMethod === 'paylater') {
+                getPayLaterURL(_shotCartId, _profile, _totalVal);
+            } else {
+                getPaymentURL(_shotCartId, _profile, _totalVal);
+            }
                             // saveShopCartAccount(_shotCartId,_profile,_totalVal,_LoadUpdate);
                         }
                         else{
@@ -703,6 +727,30 @@ export default function CheckOutPage (props){
                         throwPaymentError("Check"+error);
                     });
                 }
+
+             const generatePayLaterReference = () => {
+  const timestamp = Date.now().toString(36);
+
+  let perfEntropy = '';
+  try {
+    if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
+      perfEntropy = Math.floor(performance.now()).toString(36);
+    } else {
+      perfEntropy = Math.floor(Math.random() * 1e6).toString(36);
+    }
+  } catch (e) {
+    perfEntropy = Math.floor(Math.random() * 1e6).toString(36);
+  }
+
+  const randomPart = Math.random().toString(36).substring(2, 10);
+
+  return `PL-${timestamp}-${perfEntropy}-${randomPart}`;
+};
+
+
+
+
+
                 const getAvailableTejoryPoints=()=>{
                     var verifyUrl=WebServices.getAvailablePoints.replace("{MemberId}",profileIn.Id).replace('{SCID}',shopCartInfo.Answer.ShopCart.ShopCartId)
                     // console.log("getAvailableTejoryPoints - "+verifyUrl);
@@ -725,6 +773,9 @@ export default function CheckOutPage (props){
                 }
                 
                 const saveShopCartAccount=(_shotCartId,_profile,_totalVal,_LoadUpdate)=>{
+                    console.log('=== saveShopCartAccount Debug ===');
+                    console.log('Received _totalVal:', _totalVal);
+                    console.log('=== End saveShopCartAccount Debug ===');
                     if(_LoadUpdate!=null){
                         _LoadUpdate(true);
                     }
@@ -758,7 +809,10 @@ export default function CheckOutPage (props){
                             }
                         ]
                     }
-                    
+                    console.log('=== saveShopCartAccount API Request ===');
+                    console.log('Full bodyData:', JSON.stringify(bodyData, null, 2));
+                    console.log('=== End saveShopCartAccount Request ===');
+
                     fetch (WebServices.MainURL+WebServices.saveAccount,{
                         method: 'POST',
                         headers: {
@@ -791,6 +845,12 @@ export default function CheckOutPage (props){
                     });
                 }
                 const checkPayment=(_paymentID,_shopcartID)=>{
+                    console.log('🔁 [checkPayment START]', {
+  paymentID: _paymentID,
+  shopcartID: _shopcartID,
+  errorcheck
+});
+
                     var checkPay=WebServices.checkPayment.replace("{PaymentId}",_paymentID).replace("{ShopCartId}",_shopcartID);
                     console.log(checkPay);
                     fetch (WebServices.MainURL+checkPay,{
@@ -858,9 +918,86 @@ export default function CheckOutPage (props){
                         updateLoading(false);
                     });
                 }
+
+                const checkPayLaterPayment = (_paymentID, _shopcartID, _amount, _payPoints) => {
+                    console.log('🔁 [checkPayLater START]', {
+  paymentID: _paymentID,
+  shopcartID: _shopcartID,
+  amount: _amount,
+  payPoints: _payPoints,
+  errorcheck
+});
+
+    var checkPayUrl = WebServices.checkPayLater
+        .replace("{PaymentId}", _paymentID)
+        .replace("{ShopCartId}", _shopcartID)
+        .replace("{Amount}", _amount)
+        .replace("{PayPoints}", _payPoints);
+    
+    console.log('checkPayLater URL:', checkPayUrl);
+    
+    fetch(WebServices.MainURL + checkPayUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }, 5000)
+    .then((response) => response.text())
+    .then((responseJson) => {
+        console.log('checkPayLater Response:', responseJson);
+        var responseObj = JSON.parse(responseJson);
+        console.log('📦 [checkPayLater RESPONSE]', responseObj);
+
+
+        if (Tools.stringIsEmpty(responseObj.Error)) {
+            if (Tools.stringIsContains(responseObj.Result, "completed") || Tools.stringIsContains(responseObj.Result, "failed")) {
+                updateLoading(false);
+                setReceiptData(responseObj);
+                setShowReceipt(true);
+                if (Tools.stringIsContains(responseObj.Result, "completed")) {
+                    console.log('🎉 [checkPayment SUCCESS]');
+
+                    logAddPaymentInfoEvent(responseObj);
+                    logPurchaseEvent(responseObj, LastShopcart, LastCartItems, profile);
+                    var onDoneCart = props.route.params.onDoneCart;
+                    onDoneCart();
+                    SecureStore.setItemAsync("shopcart", undefined);
+                }
+            } else {
+                console.log('⏳ [checkPayment RETRY]', {
+  currentErrorCheck: errorcheck,
+  nextRetryInSeconds: 5
+});
+
+                // Payment still pending - retry
+                const tmpCheck = errorcheck + 1;
+                setErrorCheck(errorcheck => errorcheck + 1);
+                if (errorcheck < 5) {
+                    setTimeout(() => {
+                        checkPayLaterPayment(_paymentID, _shopcartID, _amount, _payPoints);
+                    }, 5000);
+                } else {
+                    updateLoading(false);
+                    console.log('💥 [checkPayment FINAL ERROR]');
+
+                    throwPaymentError(errorcheck + " PayLater Check Error");
+                }
+            }
+        } else {
+            updateLoading(false);
+            Alert.alert(responseObj.Error);
+        }
+    })
+    .catch((error) => {
+        throwPaymentError("PayLater Check Error: " + error);
+        updateLoading(false);
+    });
+}
+
                 
                 const throwPaymentError=(_from)=>{
                     // console.log("Error"+_from);
+                    console.log('🚨 [throwPaymentError CALLED FROM] =>', _from);
                     Alert.alert(i18n.t('errorpayment'));
                     logPurchaseFailedEvent(state.cartItems,shopCartInfo.Answer.ShopCart);
                 }
@@ -911,6 +1048,62 @@ export default function CheckOutPage (props){
                         throwPaymentError("Check"+error);
                     });
                 }
+
+                const getPayLaterURL = (_shopCardID, _profile, _totalAmount) => {
+    console.log('=== getPayLaterURL Debug ===');
+    console.log('Received _totalAmount:', _totalAmount);
+    console.log('finalPoints state:', finalPoints);
+    console.log('bodyData Amount will be:', _totalAmount);
+    console.log('=== End getPayLaterURL Debug ===');
+    var bodyData = {
+        "MemberId": _profile.Id,
+        "ShopcartId": _shopCardID,
+        "Amount": _totalAmount,
+        "PayByPoints": finalPoints,
+        "CustomReference": payLaterReferenceRef.current,
+        "Address": {
+            "street": _profile.BillingAddress.street,
+            "city": _profile.BillingAddress.city,
+            "country": _profile.BillingAddress.country,
+            "postalCode": _profile.BillingAddress.postalCode
+        },
+        "Account": {
+            "firstName": _profile.FirstName,
+            "lastName": _profile.LastName,
+            "phone": _profile.Mobile,
+            "email": _profile.Email
+        }
+    }
+    console.log('initPayLater Request:', JSON.stringify(bodyData));
+    
+    fetch(WebServices.MainURL + WebServices.initPayLater, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bodyData)
+    }, 5000)
+    .then((response) => response.text())
+    .then((responseJson) => {
+        console.log('initPayLater Response:', responseJson);
+        var responseObj = JSON.parse(responseJson);
+        if (Tools.IsNull(responseObj.Error)) {
+            updateLoading(false);
+            // PaymentURL - same key as SkipCash (confirmed by BE)
+            setPaymentWebUrl(responseObj.PaymentURL);
+            setShowPay(true);
+        } else {
+            throwPaymentError("PayLater Init Error: " + responseJson);
+            updateLoading(false);
+        }
+    })
+    .catch((error) => {
+        updateLoading(false);
+        throwPaymentError("PayLater Init Error: " + error);
+    });
+}
+
+
                 const getproductID=(_product)=>{
                     for (let index = 0; index < _product.attributes.length; index++) {
                         const element = _product.attributes[index];
@@ -1233,6 +1426,122 @@ export default function CheckOutPage (props){
                                                         </View>
                                                         </TouchableOpacity>
                                                     }
+
+                                                    {/* Payment Method Selection */}
+{!showReceipt && (
+    <View style={{backgroundColor: Colors.whiteColor, borderRadius: 20, padding: 10, marginBottom: 15}}>
+        <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 10}}>
+            <Image 
+                style={{width: heightPercentageToDP(4), height: heightPercentageToDP(4), marginRight: 10, tintColor: Colors.blueColor}} 
+                source={cardButton}
+            />
+            <Text allowFontScaling={false} style={[styles.productData, {fontSize: 20}]}>
+                {i18n.t('paymentmethod') || 'Payment Method'}
+            </Text>
+        </View>
+        
+        {/* Pay Now Option */}
+        <TouchableOpacity 
+            style={{
+                flexDirection: 'row', 
+                alignItems: 'center', 
+                padding: 12,
+                borderWidth: 1,
+                borderColor: paymentMethod === 'skipcash' ? Colors.blueColor : Colors.bgColor,
+                borderRadius: 10,
+                marginBottom: 8,
+                backgroundColor: paymentMethod === 'skipcash' ? Colors.bgColor : Colors.whiteColor
+            }}
+            onPress={() => setPaymentMethod('skipcash')}
+        >
+            <View style={{
+                width: 20,
+                height: 20,
+                borderRadius: 10,
+                borderWidth: 2,
+                borderColor: Colors.blueColor,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 12
+            }}>
+                {paymentMethod === 'skipcash' && (
+                    <View style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 5,
+                        backgroundColor: Colors.blueColor
+                    }}/>
+                )}
+            </View>
+            <View>
+                <Text style={{fontFamily: 'Cairo-SemiBold', fontSize: 16, color: Colors.black}}>
+                    {i18n.t('paynow') || 'Pay Now'}
+                </Text>
+                <Text style={{fontFamily: 'Cairo-Regular', fontSize: 12, color: Colors.inputfontColor}}>
+                    {i18n.t('paynowdesc') || 'Pay full amount with card'}
+                </Text>
+            </View>
+        </TouchableOpacity>
+
+        {/* Pay Later Option */}
+        <TouchableOpacity 
+            style={{
+                flexDirection: 'row', 
+                alignItems: 'center', 
+                padding: 12,
+                borderWidth: 1,
+                borderColor: paymentMethod === 'paylater' ? Colors.blueColor : Colors.bgColor,
+                borderRadius: 10,
+                backgroundColor: paymentMethod === 'paylater' ? Colors.bgColor : Colors.whiteColor,
+                opacity: (finalAmount >= 300 && finalAmount <= 25000) ? 1 : 0.5
+            }}
+            onPress={() => {
+                if (finalAmount >= 300 && finalAmount <= 25000) {
+                    setPaymentMethod('paylater');
+                } else {
+                    Alert.alert(
+                        i18n.t('paylaternotavailable') || 'Pay Later Not Available',
+                        i18n.t('paylateramountlimit') || 'Pay Later is only available for amounts between 300 - 25,000 QAR'
+                    );
+                }
+            }}
+            disabled={!(finalAmount >= 300 && finalAmount <= 25000)}
+        >
+            <View style={{
+                width: 20,
+                height: 20,
+                borderRadius: 10,
+                borderWidth: 2,
+                borderColor: (finalAmount >= 300 && finalAmount <= 25000) ? Colors.blueColor : Colors.inputfontColor,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 12
+            }}>
+                {paymentMethod === 'paylater' && (
+                    <View style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 5,
+                        backgroundColor: Colors.blueColor
+                    }}/>
+                )}
+            </View>
+            <View style={{flex: 1}}>
+                <Text style={{fontFamily: 'Cairo-SemiBold', fontSize: 16, color: Colors.black}}>
+                    {i18n.t('paylater') || 'Pay Later'}
+                </Text>
+                <Text style={{fontFamily: 'Cairo-Regular', fontSize: 12, color: Colors.inputfontColor}}>
+                    {i18n.t('paylaterdesc') || 'Pay in installments'}
+                </Text>
+                {!(finalAmount >= 300 && finalAmount <= 25000) && (
+                    <Text style={{fontFamily: 'Cairo-Regular', fontSize: 11, color: Colors.warningColor}}>
+                        {i18n.t('paylateramountlimit') || 'Available for 300 - 25,000 QAR only'}
+                    </Text>
+                )}
+            </View>
+        </TouchableOpacity>
+    </View>
+)}
                                                     
                                                     {!showReceipt&&
                                                         <TouchableHighlight underlayColor={Colors.transparent} disabled={(!allproducts.length>0)||!canPay} style={[styles.addCart,{opacity:((!allproducts.length>0)||!canPay)?0.5:1}]} onPress={()=>{
@@ -1245,6 +1554,19 @@ export default function CheckOutPage (props){
                                                                 AddUserLevel();
                                                             }
                                                             logBeginCheckoutEvent(state.cartItems,shopCartInfo.Answer.ShopCart);
+                                                            console.log('=== Proceed to Pay Debug ===');
+                                                            console.log('Shop Cart Total:', shopCartInfo.Answer.ShopCart.TotalAmount);
+                                                            console.log('beforefinalAmount:', beforefinalAmount);
+                                                            console.log('finalAmount (being sent):', finalAmount);
+                                                            console.log('finalPoints:', finalPoints);
+                                                            console.log('Payment Method:', paymentMethod);
+                                                            if (paymentMethod === 'paylater') {
+    payLaterReferenceRef.current = generatePayLaterReference();
+    console.log('🔑 Generated PayLater CustomReference:', payLaterReferenceRef.current);
+}
+
+console.log('=== End Proceed Debug ===');
+                                                            console.log('=== End Proceed Debug ===');
                                                             saveShopCartAccount(shopCartInfo.Answer.ShopCart.ShopCartId,profile,finalAmount,updateLoading);
                                                             
                                                         }}>
@@ -1298,19 +1620,61 @@ export default function CheckOutPage (props){
                                                         style={{height:'100%'}}
                                                         onNavigationStateChange={(navState) => {
                                                             // console.log("navState.url ", navState)
-                                                            
-                                                            if (Tools.stringIsContains(navState.url,WebServices.paymentReturnUrl)) {
-                                                                var paymentID=paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/')+1);
-                                                                // console.log("ID "+paymentID);
+                                                            console.log("WebView URL:---------------------------------------------------------->", navState.url);
+                                                            console.log('🧭 [WebView NAV]---------------------------', {
+  url: navState.url,
+  loading: navState.loading,
+  canGoBack: navState.canGoBack,
+  paymentMethod,
+  showPay,
+  paymentWebUrl
+});
+
+                                                            console.log('=== WebView Navigation Debug ===');
+                                                            console.log('Full URL:', navState.url);
+                                                            console.log('Payment Method:', paymentMethod);
+                                                            console.log('Contains SkipCash Return URL:', Tools.stringIsContains(navState.url, WebServices.paymentReturnUrl));
+                                                            console.log('Contains PayLater Success URL:', Tools.stringIsContains(navState.url, 'leisure.qa/Success'));
+                                                            console.log('Contains PayLater Failure URL:', Tools.stringIsContains(navState.url, 'leisure.qa/Failure'));
+                                                            console.log('Contains leisure.qa:', Tools.stringIsContains(navState.url, 'leisure.qa'));
+                                                            console.log('URL lowercase:', navState.url.toLowerCase());
+                                                            console.log('=== End Debug ===');
+                                                            console.log('➡️ Checking SkipCash return URL');
+
+console.log('🧪 WebView condition evaluation START');
+
+                                                            if (Tools.stringIsContains(navState.url, WebServices.paymentReturnUrl)) {
+                                                                // SkipCash payment return
+                                                                var paymentID = paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/') + 1).split('?')[0];
                                                                 setShowPay(false);
                                                                 setPaymentWebUrl('');
                                                                 setErrorCheck(0);
-                                                                //fetch receipt-showReceipt
                                                                 updateLoading(true);
-                                                                // checkPayment(paymentID,shopCartInfo.Answer.ShopCart.ShopCartId);
-                                                                setTimeout(()=>{
-                                                                    checkPayment(paymentID,shopCartInfo.Answer.ShopCart.ShopCartId);
-                                                                },2000);
+                                                                setTimeout(() => {
+                                                                    checkPayment(paymentID, shopCartInfo.Answer.ShopCart.ShopCartId);
+                                                                }, 2000);
+                                                            } else if (paymentMethod === 'paylater') {
+                                                                if (Tools.stringIsContains(navState.url, WebServices.payLaterSuccessUrl)) {
+                                                                    console.log('✅ PayLater SUCCESS URL detected');
+
+                                                                    // PayLater Success - verify payment
+                                                                    var paymentID = paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/') + 1).split('?')[0];
+                                                                    setShowPay(false);
+                                                                    setPaymentWebUrl('');
+                                                                    setErrorCheck(0);
+                                                                    updateLoading(true);
+                                                                    setTimeout(() => {
+                                                                        checkPayLaterPayment(paymentID, shopCartInfo.Answer.ShopCart.ShopCartId, finalAmount, finalPoints);
+                                                                    }, 2000);
+                                                                } else if (Tools.stringIsContains(navState.url, WebServices.payLaterFailureUrl)) {
+                                                                    console.log('❌ PayLater FAILURE URL detected');
+
+                                                                    // PayLater Failure - show error
+                                                                    setShowPay(false);
+                                                                    setPaymentWebUrl('');
+                                                                    Alert.alert(i18n.t('paymentfailed') || 'Payment Failed', i18n.t('payaborttryagain') || 'Your payment was not successful. Please try again.');
+                                                                    logCancelPaymentEvent(state.cartItems, shopCartInfo.Answer.ShopCart);
+                                                                }
                                                             }
                                                         }}
                                                         enableApplePay={(Platform=="ios")?true:false}

@@ -283,7 +283,14 @@
 		"playcards":"Play Cards",
 		"packages":"Packages",
 		"expireson":"Expires on",
-		"expired":"Expired"
+		"expired":"Expired",
+		"paymentmethod": "Payment Method",
+		"paynow": "Pay Now",
+		"paynowdesc": "Pay full amount with card",
+		"paylater": "Pay Later",
+		"paylaterdesc": "Pay in installments",
+		"paylaternotavailable": "Pay Later Not Available",
+		"paylateramountlimit": "Available for 300 - 25,000 QAR only"
 
 	},
 
@@ -563,7 +570,14 @@
 		"playcards":"Play Cards",
 		"packages":"Packages",
 		"expireson":"Expires on",
-		"expired":"Expired"
+		"expired":"Expired",
+		"paymentmethod": "طريقة الدفع",
+"paynow": "ادفع الآن",
+"paynowdesc": "ادفع المبلغ كاملاً بالبطاقة",
+"paylater": "ادفع لاحقاً",
+"paylaterdesc": "ادفع على أقساط",
+"paylaternotavailable": "الدفع لاحقاً غير متاح",
+"paylateramountlimit": "متاح للمبالغ بين 300 - 25,000 ريال قطري فقط"
 
 	}
 }
