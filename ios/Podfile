@@ -8,9 +8,13 @@ require Pod::Executable.execute_command('node', ['-p',
 ENV['SWIFT_VERSION'] = '5'
 
 # Define the minimum iOS version supported
-min_ios_version_supported = '14.0'
+min_ios_version_supported = '15.1'
 
 platform :ios, min_ios_version_supported
+
+# Disable New Architecture for iOS
+ENV['RCT_NEW_ARCH_ENABLED'] = '0'
+
 prepare_react_native_project!
 
 linkage = ENV['USE_FRAMEWORKS']
