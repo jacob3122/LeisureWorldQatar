@@ -851,6 +851,11 @@ export default function CheckOutPage (props){
   errorcheck
 });
 
+if (showReceipt) {
+    console.log('🛑 checkPayment aborted — receipt already shown');
+    return;
+  }
+
                     var checkPay=WebServices.checkPayment.replace("{PaymentId}",_paymentID).replace("{ShopCartId}",_shopcartID);
                     console.log(checkPay);
                     fetch (WebServices.MainURL+checkPay,{
@@ -927,6 +932,11 @@ export default function CheckOutPage (props){
   payPoints: _payPoints,
   errorcheck
 });
+
+ if (showReceipt) {
+    console.log('🛑 checkPayLater aborted — receipt already shown');
+    return;
+  }
 
     var checkPayUrl = WebServices.checkPayLater
         .replace("{PaymentId}", _paymentID)
