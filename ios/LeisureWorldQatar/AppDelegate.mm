@@ -3,6 +3,7 @@
 
 #import <UserNotifications/UserNotifications.h>
 #import <React/RCTBundleURLProvider.h>
+#import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
 
 #import <React/RCTBridge.h>
 #import <React/RCTRootView.h>
@@ -43,7 +44,10 @@ sdkConfig.consoleLogConfig = [[MoEngageConsoleLogConfig alloc] initWithIsLogging
 //  [[MoEngageSDKMessaging sharedInstance] setMessagingDelegate:self forAppID:@"DCMBBW4GE1CX78NNNXFU1VN8"];
   
   [[MoEngageSDKMessaging sharedInstance] registerForRemoteNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
-  
+
+  // RN 0.77 dependency provider
+  self.dependencyProvider = [RCTAppDependencyProvider new];
+
 //  [[MoEngageSDKMessaging sharedInstance] registerForRemoteProvisionalNotificationWithCategories:nil andUserNotificationCenterDelegate:self];
   
 //  NSDictionary *remoteNotification = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
