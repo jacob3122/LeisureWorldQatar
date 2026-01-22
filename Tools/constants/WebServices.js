@@ -1,6 +1,6 @@
 export default {
-    CatalogMainUrl:'https://ewallet.leisure.qa:1139/',
-    MainURL: 'https://ewallet.leisure.qa:1139/', //'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://ewallet.leisure.qa:1139/',//'http://10.11.2.36:2136/',//'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://webapi.leisure.qa/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureapi.uxpglobal.com/',//'https://leisureqastgapi.azurewebsites.net/',//'http://10.10.130.75:1903/',//'https://leisureapi.uxpglobal.com/',//'https://stagingloyaltyapi.azurewebsites.net/',//'https://webapi.leisure.qa/',//'http://10.10.130.62:8989/',//'http://10.10.130.75:1903/',//',
+    CatalogMainUrl:'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',
+    MainURL: 'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/', //'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://ewallet.leisure.qa:1139/',//'http://10.11.2.36:2136/',//'https://lfadmin-exdphccqamfwh3hq.z01.azurefd.net/',//'https://webapi.leisure.qa/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureqastgapi.azurewebsites.net/',//'https://leisureapi.uxpglobal.com/',//'https://leisureqastgapi.azurewebsites.net/',//'http://10.10.130.75:1903/',//'https://leisureapi.uxpglobal.com/',//'https://stagingloyaltyapi.azurewebsites.net/',//'https://webapi.leisure.qa/',//'http://10.10.130.62:8989/',//'http://10.10.130.75:1903/',//',
     CreateProfile:'api/Member/CreateMember',
     ValidateProfile:'api/Member/ValidateMember',
     VerifyMemberOTP:'api/Member/VerifyMobileOTP?MemberID={MemberID}&OTPCode={OTPCode}',

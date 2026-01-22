@@ -21,6 +21,7 @@ import OverlayLoad from './OverlayLoad';
 
 import SVGbg from'../../assets/bg/Circles-Pattern.svg'
 // import SVGbg from'../../assets/bg/Back_app-04.svg'
+import paylaterLogo from '../../assets/Icons/paylater-logo.png'
 import WebView from 'react-native-webview';
 import PhoneDropDownInput from './PhoneDropDownInput';
 
@@ -1537,9 +1538,10 @@ if (showReceipt) {
                 )}
             </View>
             <View style={{flex: 1}}>
-                <Text style={{fontFamily: 'Cairo-SemiBold', fontSize: 16, color: Colors.black}}>
-                    {i18n.t('paylater') || 'Pay Later'}
-                </Text>
+                <Image
+                    source={paylaterLogo}
+                    style={{width: 120, height: 27, marginBottom: 4, resizeMode: 'contain'}}
+                />
                 <Text style={{fontFamily: 'Cairo-Regular', fontSize: 12, color: Colors.inputfontColor}}>
                     {i18n.t('paylaterdesc') || 'Pay in installments'}
                 </Text>
@@ -1605,92 +1607,70 @@ console.log('=== End Proceed Debug ===');
                                                         </ScrollView>
                                                         </View>
                                                         {isLoading&&<OverlayLoad size='small' color={Colors.whiteColor} isopen={isLoading} />}
-                                                        {showPay&&<Modal><SafeAreaView style={{backgroundColor:Colors.bgColor,position:'absolute',width:'100%',alignSelf:'center',height:heightPercentageToDP(100)}}>
-                                                        <View style={{width:'90%',paddingTop:heightPercentageToDP(1),paddingBottom:heightPercentageToDP(1),alignSelf:'center'}}>
-                                                        <TouchableOpacity onPress={()=>{
-                                                            Alert.alert(i18n.t("surewanttocancelpay"),"",[
-                                                                {
-                                                                    text:i18n.t('yes'),
-                                                                    onPress:()=>{
-                                                                        setPaymentWebUrl('');
-                                                                        setShowPay(false);
-                                                                        logCancelPaymentEvent(state.cartItems,shopCartInfo.Answer.ShopCart);
-                                                                    }
-                                                                },
-                                                                {
-                                                                    text:i18n.t('no'),
-                                                                    onPress:()=>{
-                                                                    }
-                                                                }
-                                                            ])
-                                                        }}>
-                                                        <Image style={{tintColor:Colors.blueColor,width:25,height:25,transform:[{scaleX:Tools.stringIsContains(i18n.locale,'en')?1:-1}]}} source={backButton}/>
-                                                        </TouchableOpacity></View>
-                                                        <WebView
-                                                        style={{height:'100%'}}
-                                                        onNavigationStateChange={(navState) => {
-                                                            // console.log("navState.url ", navState)
-                                                            console.log("WebView URL:---------------------------------------------------------->", navState.url);
-                                                            console.log('🧭 [WebView NAV]---------------------------', {
-  url: navState.url,
-  loading: navState.loading,
-  canGoBack: navState.canGoBack,
-  paymentMethod,
-  showPay,
-  paymentWebUrl
-});
+                                                        {showPay && (
+                                                            <Modal statusBarTranslucent={true}>
+                                                                <SafeAreaView style={{flex: 1, backgroundColor: Colors.bgColor}}>
+                                                                    <View style={{width:'90%', paddingTop: heightPercentageToDP(2.5), paddingBottom: heightPercentageToDP(1), alignSelf:'center'}}>
+                                                                        <TouchableOpacity onPress={()=>{
+                                                                            Alert.alert(i18n.t("surewanttocancelpay"),"",[
+                                                                                {
+                                                                                    text: i18n.t('yes'),
+                                                                                    onPress: () => {
+                                                                                        setPaymentWebUrl('');
+                                                                                        setShowPay(false);
+                                                                                        logCancelPaymentEvent(state.cartItems, shopCartInfo.Answer.ShopCart);
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    text: i18n.t('no'),
+                                                                                    onPress: () => {}
+                                                                                }
+                                                                            ])
+                                                                        }}>
+                                                                            <Image style={{tintColor:Colors.blueColor, width:25, height:25, transform:[{scaleX:Tools.stringIsContains(i18n.locale,'en')?1:-1}]}} source={backButton}/>
+                                                                        </TouchableOpacity>
+                                                                    </View>
+                                                                    <WebView
+                                                                        style={{flex: 1}}
+                                                                        onNavigationStateChange={(navState) => {
+                                                                            console.log("WebView URL:", navState.url);
 
-                                                            console.log('=== WebView Navigation Debug ===');
-                                                            console.log('Full URL:', navState.url);
-                                                            console.log('Payment Method:', paymentMethod);
-                                                            console.log('Contains SkipCash Return URL:', Tools.stringIsContains(navState.url, WebServices.paymentReturnUrl));
-                                                            console.log('Contains PayLater Success URL:', Tools.stringIsContains(navState.url, 'leisure.qa/Success'));
-                                                            console.log('Contains PayLater Failure URL:', Tools.stringIsContains(navState.url, 'leisure.qa/Failure'));
-                                                            console.log('Contains leisure.qa:', Tools.stringIsContains(navState.url, 'leisure.qa'));
-                                                            console.log('URL lowercase:', navState.url.toLowerCase());
-                                                            console.log('=== End Debug ===');
-                                                            console.log('➡️ Checking SkipCash return URL');
-
-console.log('🧪 WebView condition evaluation START');
-
-                                                            if (Tools.stringIsContains(navState.url, WebServices.paymentReturnUrl)) {
-                                                                // SkipCash payment return
-                                                                var paymentID = paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/') + 1).split('?')[0];
-                                                                setShowPay(false);
-                                                                setPaymentWebUrl('');
-                                                                setErrorCheck(0);
-                                                                updateLoading(true);
-                                                                setTimeout(() => {
-                                                                    checkPayment(paymentID, shopCartInfo.Answer.ShopCart.ShopCartId);
-                                                                }, 2000);
-                                                            } else if (paymentMethod === 'paylater') {
-                                                                if (Tools.stringIsContains(navState.url, WebServices.payLaterSuccessUrl)) {
-                                                                    console.log('✅ PayLater SUCCESS URL detected');
-
-                                                                    // PayLater Success - verify payment
-                                                                    var paymentID = paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/') + 1).split('?')[0];
-                                                                    setShowPay(false);
-                                                                    setPaymentWebUrl('');
-                                                                    setErrorCheck(0);
-                                                                    updateLoading(true);
-                                                                    setTimeout(() => {
-                                                                        checkPayLaterPayment(paymentID, shopCartInfo.Answer.ShopCart.ShopCartId, finalAmount, finalPoints);
-                                                                    }, 2000);
-                                                                } else if (Tools.stringIsContains(navState.url, WebServices.payLaterFailureUrl)) {
-                                                                    console.log('❌ PayLater FAILURE URL detected');
-
-                                                                    // PayLater Failure - show error
-                                                                    setShowPay(false);
-                                                                    setPaymentWebUrl('');
-                                                                    Alert.alert(i18n.t('paymentfailed') || 'Payment Failed', i18n.t('payaborttryagain') || 'Your payment was not successful. Please try again.');
-                                                                    logCancelPaymentEvent(state.cartItems, shopCartInfo.Answer.ShopCart);
-                                                                }
-                                                            }
-                                                        }}
-                                                        enableApplePay={(Platform=="ios")?true:false}
-                                                        source={{uri:paymentWebUrl}}
-                                                        /></SafeAreaView></Modal> 
-                                                    }
+                                                                            // SkipCash payment return
+                                                                            if (Tools.stringIsContains(navState.url, WebServices.paymentReturnUrl)) {
+                                                                                var paymentID = paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/') + 1).split('?')[0];
+                                                                                setShowPay(false);
+                                                                                setPaymentWebUrl('');
+                                                                                setErrorCheck(0);
+                                                                                updateLoading(true);
+                                                                                setTimeout(() => {
+                                                                                    checkPayment(paymentID, shopCartInfo.Answer.ShopCart.ShopCartId);
+                                                                                }, 2000);
+                                                                            } else if (paymentMethod === 'paylater') {
+                                                                                if (Tools.stringIsContains(navState.url, WebServices.payLaterSuccessUrl)) {
+                                                                                    console.log('PayLater SUCCESS URL detected');
+                                                                                    var paymentID = paymentWebUrl.substring(paymentWebUrl.lastIndexOf('/') + 1).split('?')[0];
+                                                                                    setShowPay(false);
+                                                                                    setPaymentWebUrl('');
+                                                                                    setErrorCheck(0);
+                                                                                    updateLoading(true);
+                                                                                    setTimeout(() => {
+                                                                                        checkPayLaterPayment(paymentID, shopCartInfo.Answer.ShopCart.ShopCartId, finalAmount, finalPoints);
+                                                                                    }, 2000);
+                                                                                } else if (Tools.stringIsContains(navState.url, WebServices.payLaterFailureUrl)) {
+                                                                                    console.log('PayLater FAILURE URL detected');
+                                                                                    setShowPay(false);
+                                                                                    setPaymentWebUrl('');
+                                                                                    Alert.alert(i18n.t('paymentfailed') || 'Payment Failed', i18n.t('payaborttryagain') || 'Your payment was not successful. Please try again.');
+                                                                                    logCancelPaymentEvent(state.cartItems, shopCartInfo.Answer.ShopCart);
+                                                                                }
+                                                                            }
+                                                                        }}
+                                                                        enableApplePay={Platform.OS === "ios"}
+                                                                        source={{uri: paymentWebUrl}}
+                                                                    />
+                                                                </SafeAreaView>
+                                                            </Modal>
+                                                        )}
                                                     </SafeAreaView>
                                                     </KeyboardAvoidingView>
                                                     // </Modal>
