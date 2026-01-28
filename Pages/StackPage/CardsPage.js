@@ -689,18 +689,13 @@ useEffect(()=>{
                         <GestureFlipView
                         key={localIndex}
                         ref={ref=>{
-                            // if(cardsViewRef[localIndex]!=undefined)
-                            {
-                                cardsViewRef[localIndex]=ref;
-                            }
+                            cardsViewRef[localIndex]=ref;
                         }}
-                        // gestureEnabled={true}
                         width={(widthPercentageToDP(79))}
                         height={(widthPercentageToDP(79)/1.58)}
-                        >
-                        {renderFront(localItem,localIndex)}
-                        {renderBack(localItem,localIndex)}
-                        </GestureFlipView>
+                        renderFront={() => renderFront(localItem, localIndex)}
+                        renderBack={() => renderBack(localItem, localIndex)}
+                        />
                         </View>
                         </TouchableWithoutFeedback>
                         )
@@ -966,7 +961,7 @@ useEffect(()=>{
                     data={cardLists}
                     keyExtractor={(item) => item.Id.toString()}
                     initialNumToRender={5}
-                    removeClippedSubviews
+                    // removeClippedSubviews
                     ItemSeparatorComponent={()=><View style={{height:20}}></View>}
                     showsVerticalScrollIndicator={false}
                     refreshControl={refreshControl()}

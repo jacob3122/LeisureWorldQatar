@@ -507,13 +507,11 @@ export default function AddCardsPage (props){
                                             cardsViewRef[localIndex].current=ref;
                                         }
                                     }}
-                                    // gestureEnabled={true}
                                     width={(widthPercentageToDP(79))}
                                     height={(widthPercentageToDP(79)/1.58)}
-                                    >
-                                    {renderFront(localItem,localIndex)}
-                                    {renderBack(localItem,localIndex)}
-                                    </GestureFlipView>
+                                    renderFront={() => renderFront(localItem, localIndex)}
+                                    renderBack={() => renderBack(localItem, localIndex)}
+                                    />
                                     </View>
                                     </TouchableWithoutFeedback>
                                     )

@@ -1,7 +1,7 @@
 import {I18n} from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json'
 const i18n = new I18n(translations);
-import React, { Component, useCallback, useReducer } from 'react'
+import React, { Component, useCallback, useReducer, useEffect } from 'react'
 import { PureComponent } from 'react';
 import { StyleSheet,Modal, View,Text,Dimensions,Image, TouchableOpacity,TextInput,FlatList,RefreshControl,TouchableWithoutFeedback,ScrollView, SafeAreaView} from 'react-native';
 // import Colors from '../constants/Colors';
@@ -465,13 +465,11 @@ refreshControlUnReg(){
                             this.props.unregcardsViewRef[localIndex].current=ref;
                         }
                     }}
-                    // gestureEnabled={true}
                     width={(widthPercentageToDP(79))}
                     height={(widthPercentageToDP(79)/1.58)}
-                    >
-                    {this.renderunRegFront(localItem,localIndex)}
-                    {this.renderunRegBack(localItem,localIndex)}
-                    </GestureFlipView>
+                    renderFront={() => this.renderunRegFront(localItem, localIndex)}
+                    renderBack={() => this.renderunRegBack(localItem, localIndex)}
+                    />
                     </View>
                     </TouchableWithoutFeedback>
                     )

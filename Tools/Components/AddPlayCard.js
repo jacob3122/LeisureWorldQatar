@@ -198,10 +198,10 @@ export default function AddPlayCard(props){
                     cardsViewRef.current=ref;
                 }}
                 width={widthPercentageToDP(79)}
-                height={heightPercentageToDP(25)}>
-                {renderFront(card)}
-                {renderBack(card)}
-                </GestureFlipView>
+                height={heightPercentageToDP(25)}
+                renderFront={() => renderFront(card)}
+                renderBack={() => renderBack(card)}
+                />
                 </TouchableOpacity></View>
                 )
                 ;
