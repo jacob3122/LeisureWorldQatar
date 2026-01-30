@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity,Linking } from 'react-native';
 import { Image as RNImage } from 'react-native-elements';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
@@ -75,7 +75,6 @@ const HorizontalFeed = ({ news,settings,profile}) => {
     const { state, dispatch } = useAppContext();
     i18n.translations = state.i18ntranslation;
     const [imageAspect, setImageAspect] = useState(imageIn);
-    const [reset, setReset] = useState(0);
     const [showLogin,setLogin]=useState(false);
     const [showRegister,setRegister]=useState(false);
     
@@ -154,10 +153,14 @@ const HorizontalFeed = ({ news,settings,profile}) => {
                 }>
                 <FastImage
                 onLoad={(evt)=>{
-                    // console.log((evt.nativeEvent));
-                    imageAspect[index]=evt.nativeEvent.width / evt.nativeEvent.height;
-                    setImageAspect(imageAspect);
-                    setReset(Math.floor(Math.random() * 100000) + 1)
+                    const newAspect = evt.nativeEvent.width / evt.nativeEvent.height;
+                    if (Math.abs(newAspect - (imageAspect[index] || 1)) > 0.01) {
+                        setImageAspect(prevAspects => {
+                            const newAspects = [...prevAspects];
+                            newAspects[index] = newAspect;
+                            return newAspects;
+                        });
+                    }
                 }}
                 style={[{alignSelf:'center',width:widthPercentageToDP(settings.itemwidth/100*90),backgroundColor:Colors.whiteColor,height:((widthPercentageToDP(settings.itemwidth/100*90)/checkValue(imageAspect[0])))}]}
                 source={{
@@ -214,5 +217,5 @@ const HorizontalFeed = ({ news,settings,profile}) => {
             )
         }
         
-        export default HorizontalFeed;
+        export default memo(HorizontalFeed);
         

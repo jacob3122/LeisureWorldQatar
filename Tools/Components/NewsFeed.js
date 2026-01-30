@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { memo } from 'react'
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView } from 'react-native';
 import { Image as RNImage } from 'react-native-elements';
 import HorizontalFeed from './HorizontalFeed';
@@ -57,5 +57,5 @@ const NewsFeed = ({ news,profile }) => {
         )
     }
     
-    export default NewsFeed
+    export default memo(NewsFeed)
     

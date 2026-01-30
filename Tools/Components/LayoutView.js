@@ -3,7 +3,7 @@ import { Linking, Platform, TouchableOpacity, View } from "react-native";
 import FastImage from "@d11/react-native-fast-image";
 import AppText from "./AppText";
 import AppIcon from "./AppIcon";
-import { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
 // import Colors from "../constants/Colors";
 import * as Tools from '../Components/Tools';
@@ -30,7 +30,6 @@ function LayoutView({item,index,settings,news,profile}) {
     // }
     const {state,dispatch}=useAppContext();
     
-    const [reset, setReset] = useState(0);
     const [showLogin,setLogin]=useState(false);
     const [showRegister,setRegister]=useState(false);
     
@@ -159,10 +158,13 @@ function LayoutView({item,index,settings,news,profile}) {
                     
                     <FastImage
                     onLoad={(evt)=>{
-                        {
-                            setImageAspect((evt.nativeEvent.width / evt.nativeEvent.height));
-                            setReset(Math.floor(Math.random() * 100000) + 1)
-                        }
+                        const newAspect = evt.nativeEvent.width / evt.nativeEvent.height;
+                        setImageAspect(prevAspect => {
+                            if (Math.abs(newAspect - prevAspect) > 0.01) {
+                                return newAspect;
+                            }
+                            return prevAspect;
+                        });
                     }}
                     style={[{alignSelf:'flex-start',
                         width:widthPercentageToDP(settings.itemwidth/100*90),
@@ -244,4 +246,4 @@ function LayoutView({item,index,settings,news,profile}) {
                                         )
                                     }
                                     
-                                    export default LayoutView;
+                                    export default memo(LayoutView);

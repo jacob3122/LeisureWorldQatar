@@ -1,9 +1,9 @@
-import { ActivityIndicator, Button, FlatList, Image, RefreshControl, StyleSheet, Text, View ,TouchableOpacity} from "react-native";
+import { ActivityIndicator, Button, FlatList, Image, Platform, RefreshControl, StyleSheet, Text, View ,TouchableOpacity} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SVGbg from'../../assets/bg/Circles-Pattern.svg'
 // import Colors from "../constants/Colors";
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback, useMemo } from "react";
 import WebServices from "../constants/WebServices";
 import {I18n} from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json'
@@ -145,12 +145,11 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
     // },[openProductCode])
     
     useEffect(() => {
-      const checkData = () => {
+      const focusListener = navigation.addListener('focus', () => {
         handleUnRead();
-      };
-      const focusListener = navigation.addListener('focus', checkData);
+      });
       return () => {
-        // focusListener.remove();
+        focusListener();  // React Navigation 5+ returns unsubscribe function
       };
     }, [navigation]);
     
@@ -367,6 +366,20 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
               <TouchableOpacity style={styles.button} onPress={getHomeData}><Text style={styles.buttontxt}>{i18n.t('refresh')}</Text></TouchableOpacity>
               </View>
               )
+
+              // Memoized renderItem with null safety check
+              const renderFeedItem = useCallback(({ item, index }) => {
+                if (Tools.IsNull(item)) {
+                    return null;
+                }
+                return <NewsFeed news={item} profile={state.profile} />;
+              }, [state.profile]);
+
+              // Memoized keyExtractor
+              const keyExtractor = useCallback((item, index) =>
+                item.Id ? `feed-${item.Id}` : `feed-index-${index}`,
+              []);
+
               const styles = StyleSheet.create({
                 button:{
                   alignSelf:'center',justifyContent:'center',
@@ -408,35 +421,24 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
                 </View>)
                 :(homeData!=undefined&&
                   <FlatList
-                  removeClippedSubviews={false}
+                  removeClippedSubviews={Platform.OS === 'ios'}
                   initialNumToRender={3}
-                  maxToRenderPerBatch={1}
+                  maxToRenderPerBatch={2}
+                  windowSize={5}
                   onEndReachedThreshold={0.1}
                   showsVerticalScrollIndicator={false}
                   refreshControl={<RefreshControl
                     colors={["#9Bd35A", "#689F38"]}
-                    // refreshing={this.props.refreshing}
                     onRefresh={getHomeData} />}
-                    style={{}}
                     contentContainerStyle={{paddingBottom:heightPercentageToDP(15)}}
                     data={homeData[0].SubHolders}
-                    renderItem={({ item,index}) => (
-                      <>
-                      {/* {(!Tools.IsNull(item.Name)&&!Tools.stringIsContains(item.Name,"-"))&&
-                      <NewsFeed news={item} profile={state.profile}/>}
-                      {oneTime==item.Id&&(!Tools.IsNull(item.Name)&&Tools.stringIsContains(item.Name,"-"))&&
-                      getOneTimePark()
-                      }
-                      {currentSelf!=-1&&currentSelf==item.Id&&
-                      <NewsFeed news={item} profile={state.profile}/>} */}
-                      <NewsFeed news={item} profile={state.profile}/>
-                      </>
-                      )}
-                      ListHeaderComponent={renderHeader}
-                      // ListFooterComponent={renderFooter}
-                      ListEmptyComponent={renderEmpty}
-                      onEndReached={fetchMoreData}
-                      />)
+                    keyExtractor={keyExtractor}
+                    renderItem={renderFeedItem}
+                    extraData={state.profile}
+                    ListHeaderComponent={renderHeader}
+                    ListEmptyComponent={renderEmpty}
+                    onEndReached={fetchMoreData}
+                    />)
                     }
 
                     {/* {showNofication&&<NotificationPage assignProfile={this.props.assignProfile} accessToken={this.props.accessToken} isopen={this.state.showNofication} profile={profile} isopen={showNofication} onDone={()=>{
