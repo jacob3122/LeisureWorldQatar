@@ -21,7 +21,7 @@ import WebServices from '../../Tools/constants/WebServices';
 import InfoBar from '../../Tools/Components/InfoBar';
 import WebView from 'react-native-webview';
 import ProfileData from '../../Tools/Components/ProfileData';
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 
 import { StateContext } from '../../Tools/context/ContextState';
 import {DeviceEventEmitter} from "react-native"

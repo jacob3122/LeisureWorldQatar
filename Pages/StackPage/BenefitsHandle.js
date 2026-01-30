@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import WebServices from "../../Tools/constants/WebServices";
 import OTP from "../../Tools/Components/OTP";
 import RenderHtml,{defaultSystemFonts}from 'react-native-render-html';
-import FastImage from "react-native-fast-image";
+import FastImage from "@d11/react-native-fast-image";
 import PopUpModal from "../../Tools/Components/PopUpModal";
 import OverlayLoad from "../../Tools/Components/OverlayLoad";
 import TabBarIcon from "../../Tools/Components/TabBarIcon";
@@ -307,7 +307,6 @@ export default function BenefitsHandle({navigation,assignProfile,isLoading,redee
                 )
             }
             const refreshControl=()=>{
-                const Colors=useTheme();
                 return (
                     <RefreshControl
                     tintColor={Colors.blueColor}

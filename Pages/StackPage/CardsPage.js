@@ -20,7 +20,7 @@ import proceedB from '../../assets/Icons/back.png'
 import AddPlayCard from '../../Tools/Components/AddPlayCard';
 import WebServices from '../../Tools/constants/WebServices';
 // import OverlayLoad from '../../Tools/Components/OverlayLoad';
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 import deleteButton from '../../assets/Icons/delete.png'
 import PlayCardList from '../../Tools/Components/PlayCardList';
 import ProfileData from '../../Tools/Components/ProfileData';

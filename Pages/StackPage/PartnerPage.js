@@ -4,7 +4,7 @@ import backButton from '../../assets/Icons/back.png'
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
 // import Colors from "../../Tools/constants/Colors";
 import { useEffect, useState } from "react";
-import FastImage from "react-native-fast-image";
+import FastImage from "@d11/react-native-fast-image";
 import WebServices from "../../Tools/constants/WebServices";
 import * as Tools from '../../Tools/Components/Tools'
 import {I18n} from 'i18n-js';

@@ -8,7 +8,7 @@ import translations from '../../assets/Localization/Localize.json'
 const i18n = new I18n(translations);
 import WebServices from '../constants/WebServices';
 import tools from '../Components/Tools'
-import FastImage from 'react-native-fast-image';
+import FastImage from '@d11/react-native-fast-image';
 import { useTheme } from '../context/ThemeProvider';
 import { invalid } from 'moment';
 import { useAppContext } from '../../src/js/reducers/AppReducer';

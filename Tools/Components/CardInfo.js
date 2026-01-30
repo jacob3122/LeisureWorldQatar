@@ -30,7 +30,7 @@ import settingsIcon from '../../assets/Icons/settings.png'
 import passIcon from '../../assets/Icons/changePass.png' 
 import MarqueeLine from './MarqueeLine';
 import { useTheme } from '../context/ThemeProvider';
-import FastImage from 'react-native-fast-image';
+import FastImage from '@d11/react-native-fast-image';
 import { useRef } from 'react';
 import { useAppContext } from '../../src/js/reducers/AppReducer';
 import Barcode from './Barcode';

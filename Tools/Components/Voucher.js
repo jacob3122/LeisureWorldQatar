@@ -3,7 +3,7 @@ import {Image, View,ScrollView,StyleSheet,Dimensions,Text,Platform,Alert,Touchab
 import {I18n} from 'i18n-js';
 import translations from '../../assets/Localization/Localize.json'
 const i18n = new I18n(translations);
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 import * as UIElements from './UIElements'
 import Verfication from './Verification';
 const { width } = Dimensions.get('window');

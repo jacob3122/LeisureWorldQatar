@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 import * as UIElements from './UIElements';
 import {AdaptiveWidth,AdaptiveHeight} from '../Components/AdaptiveSize'
 // import firebase from 'react-native-firebase';
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');

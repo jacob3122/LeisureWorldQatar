@@ -11,7 +11,7 @@ const i18n = new I18n(translations);
 import AppIcon from './AppIcon';
 import * as Tools from '../../Tools/Components/Tools'
 import { useEffect } from 'react';
-import FastImage from 'react-native-fast-image';
+import FastImage from '@d11/react-native-fast-image';
 import OpenAuthenticate from './OpenAuthenticate';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import WebServices from '../constants/WebServices';

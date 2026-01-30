@@ -22,7 +22,7 @@ import proceedB from '../../assets/Icons/back.png'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import OverlayLoad from './OverlayLoad';
 import WebServices from '../constants/WebServices';
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 import BarcodeInput from './BarcodeInput';
 import BackgroundWall from './BackgroundWall';
 import { useTheme } from '../context/ThemeProvider';

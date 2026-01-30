@@ -1,4 +1,5 @@
-import { ActivityIndicator, Button, FlatList, Image, RefreshControl, SafeAreaView,StatusBar, StyleSheet, Text, View ,TouchableOpacity} from "react-native";
+import { ActivityIndicator, Button, FlatList, Image, RefreshControl, StyleSheet, Text, View ,TouchableOpacity} from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SVGbg from'../../assets/bg/Circles-Pattern.svg'
 // import Colors from "../constants/Colors";
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
@@ -20,10 +21,11 @@ import { useSelector } from "react-redux";
 import InviteCode from "../Navigation/InviteCode";
 import { useAppContext } from "../../src/js/reducers/AppReducer";
 import { StateContext } from "../context/ContextState";
-import FastImage from "react-native-fast-image";
+import FastImage from "@d11/react-native-fast-image";
 
 function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,route}) {
   const Colors = useTheme(); // Get the current color scheme's colors
+  const insets = useSafeAreaInsets();
   const { state, dispatch } = useAppContext(); 
   // const {openProductCode, setOpenProductCode} = useContext(StateContext);
   i18n.translations = state.i18ntranslation;
@@ -332,7 +334,6 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
             </View>)
           }
           const getLoading=()=>{
-            const Colors=useTheme();
             allLoad=[];
             {for (let index = 0; index < 3; index++) {
               randHeight=Tools.randomNumberInRange(32,35);
@@ -383,20 +384,24 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
               })
               return(
                 <>
-                <SafeAreaView
-                style={{ paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : '11%',
-                backgroundColor:Colors.bgColor}}
+                <View
+                style={{
+                  paddingTop: insets.top,
+                  paddingBottom: insets.bottom,
+                  backgroundColor:Colors.bgColor,
+                  flex: 1
+                }}
                 >
                 <BackgroundWall/>
-                {/* <SVGbg preserveAspectRatio="xMinYMax meet" width="540" height={heightPercentageToDP(100)} style={{position:'absolute',tintColor:Colors.whiteColor}} 
+                {/* <SVGbg preserveAspectRatio="xMinYMax meet" width="540" height={heightPercentageToDP(100)} style={{position:'absolute',tintColor:Colors.whiteColor}}
               viewBox="0 -200 540 663"/> */}
               {/* <SVGbg style={{position:'absolute',borderWidth:2}} viewBox="0 0 540 663" preserveAspectRatio="xMinYMin slice"/> */}
-              
+
               <View style={{alignSelf:'flex-end',marginEnd:'1.5%',width:40,height:40,marginTop:heightPercentageToDP(1),}}>
               {getNotifications()}
               </View>
-              
-              <SafeAreaView>
+
+              <View style={{flex: 1}}>
               {isLoading?
                 (<View style={styles.loading}>
                 {getLoading()}
@@ -433,13 +438,13 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
                       onEndReached={fetchMoreData}
                       />)
                     }
-                    
+
                     {/* {showNofication&&<NotificationPage assignProfile={this.props.assignProfile} accessToken={this.props.accessToken} isopen={this.state.showNofication} profile={profile} isopen={showNofication} onDone={()=>{
                       setShowNofication(false);
                     }}/>} */}
-                    
-                    </SafeAreaView>
-                    </SafeAreaView>
+
+                    </View>
+                    </View>
                 </>
                     );
                     

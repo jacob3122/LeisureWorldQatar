@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, FlatList, Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import FastImage from '@d11/react-native-fast-image';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 
 function Slider({

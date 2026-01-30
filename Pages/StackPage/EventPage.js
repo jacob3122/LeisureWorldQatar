@@ -22,7 +22,7 @@ import WebServices from '../../Tools/constants/WebServices';
 // import ViewShot,{captureRef} from "react-native-view-shot";
 import QRCode from 'react-native-qrcode-svg';
 import LoadingLine from '../../Tools/Components/LoadingLine';
-import FastImage from 'react-native-fast-image';
+import FastImage from '@d11/react-native-fast-image';
 import { string } from 'i/lib/util';
 import RenderHtml,{defaultSystemFonts}from 'react-native-render-html';
 const systemFonts = [...defaultSystemFonts, 'Cairo-Regular']

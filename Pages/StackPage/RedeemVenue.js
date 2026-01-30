@@ -9,7 +9,7 @@ const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 import * as Tools from '../../Tools/Components/Tools.js'
 import OtpVerify from '../../Tools/Components/OtpVerify';
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 export default class RedeemVenue extends Component {
     
     constructor(props){

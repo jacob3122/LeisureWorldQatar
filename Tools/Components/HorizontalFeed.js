@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity,Linking } fro
 import { Image as RNImage } from 'react-native-elements';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import Colors from '../constants/Colors';
-import FastImage from 'react-native-fast-image';
+import FastImage from '@d11/react-native-fast-image';
 import AppText from './AppText';
 import { useNavigation } from '@react-navigation/native';
 import {I18n} from 'i18n-js';

@@ -15,7 +15,7 @@ const i18n = new I18n(translations);
 
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
-import FastImage from 'react-native-fast-image'
+import FastImage from '@d11/react-native-fast-image'
 import HeaderLogo from './HeaderLogo';
 import ImageSlider from 'react-native-image-slider-box';
 
