@@ -219,17 +219,25 @@ export default function HamBurgerMenu(props){
                 // reducedTransparencyFallbackColor="white"
                 />}
                 </Animated.View>
-                {global.showHamView&& 
-                    <SafeAreaView style={{width:widthPercentageToDP(10),marginTop:StatusBar.currentHeight}}>
-                    <TouchableOpacity style={{width:30,height:30
-                        
-                        // ,marginTop:StaticSafeAreaInsets.safeAreaInsetsTop+widthPercentageToDP(2),
-                        ,marginTop:widthPercentageToDP(2),
-                        marginBottom:widthPercentageToDP(2),}} onPress={()=>{
+                {global.showHamView&&
+                    <View style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: widthPercentageToDP(10),
+                        paddingTop: insets.top,
+                    }}>
+                    <TouchableOpacity style={{
+                        width: 40,
+                        height: 40,
+                        marginTop: heightPercentageToDP(1),
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }} onPress={()=>{
                             openHamBurger();
                         }}>
                         <Image source={burgerIcon} style={[styles.profileIcon,{}]}/>
-                        </TouchableOpacity></SafeAreaView>}
+                        </TouchableOpacity></View>}
                         {hamView==1&&<TouchableOpacity style={{position:'absolute',width:'100%',height:'100%'}}
                         onPress={()=>{
                             closeHamBurger();
