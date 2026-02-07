@@ -1,4 +1,4 @@
-import React, { PureComponent, useEffect, useReducer, useState } from 'react';
+import React, { PureComponent, useEffect, useReducer, useRef, useState } from 'react';
 import { SafeAreaView, Text, Dimensions, StyleSheet } from 'react-native';
 import NetInfo, { addEventListener } from "@react-native-community/netinfo";
 const { width } = Dimensions.get('window');
@@ -27,6 +27,7 @@ export default function OfflineNotice(props){
 
   const[isConnected,setIsConnected]=useState(true);
   const[canshow,setcanshow]=useState(false);
+  const prevConnectedRef = useRef(true);
 
   useEffect(()=>{
     addEventListener(stateNet => {
@@ -42,13 +43,15 @@ export default function OfflineNotice(props){
   },[])
 
 
-  handleConnectivityChange = isConnected => {
-    setcanshow(!isConnected);
-    console.log('dispatch : update_Network'+isConnected)
+  const handleConnectivityChange = (newIsConnected) => {
+    if (newIsConnected !== prevConnectedRef.current) {
+      prevConnectedRef.current = newIsConnected;
+      setcanshow(!newIsConnected);
       dispatch({
         type: 'update_Network',
-        stateIn: isConnected
-    });
+        stateIn: newIsConnected
+      });
+    }
   };
 
   // render() {

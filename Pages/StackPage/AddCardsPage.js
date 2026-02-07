@@ -46,7 +46,7 @@ export default function AddCardsPage (props){
     const[findcard,setFindcard]=useState(0);
     const[selectedItem,setSelectedItem]=useState(0);
     const[loaded,setLoaded]=useState(0);
-    const[loadedUnreg,setLoadedUnReg]=[];
+    const[loadedUnreg,setLoadedUnReg]=useState(0);
     const[cardNumber,setCardNumber]=useState([]);
     const[cardNoInput,setCardNoInput]=useState({});
     const[cardLists,setCardLists]=useState([]);
