@@ -90,7 +90,7 @@ android {
         applicationId "com.leisureloyalty"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 98
+        versionCode 100
         versionName "2.3.4"
         multiDexEnabled true
          ndk {
