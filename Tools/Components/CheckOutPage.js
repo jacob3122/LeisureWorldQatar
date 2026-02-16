@@ -1172,8 +1172,8 @@ if (showReceipt) {
                         ReactMoE.setUserLastName(dataGot.LastName);
                         ReactMoE.setUserEmailID(dataGot.Email);
                         ReactMoE.setUserContactNumber(dataGot.Mobile);
-                        ReactMoE.setUserAttribute("leisurepoints", dataGot.Points);
-                        ReactMoE.setUserAttribute("leisurecardno", dataGot.CardNo);
+                        if(dataGot.Points != null) ReactMoE.setUserAttribute("leisurepoints", dataGot.Points);
+                        if(dataGot.CardNo != null) ReactMoE.setUserAttribute("leisurecardno", dataGot.CardNo);
                         //   ReactMoE.setUserAttribute("mediaId", GetMediaIDs(dataGot));
                         //   mediaBalance=GetMediaBalanceIDs(dataGot).walletBalance;
                         //   ReactMoE.setUserAttribute("mediaBalance", mediaBalance);

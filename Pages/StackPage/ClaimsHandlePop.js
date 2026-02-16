@@ -201,7 +201,7 @@ export default function ClaimsHandlePop(props){
             setClaimCheck(true);
             let claimReq=props.claimpoint;
             claimReq(claimNo);
-            textInputClaimNo.current.clear();
+            textInputClaimNo.current?.clear();
         }
         
         const refreshControl=()=>{
