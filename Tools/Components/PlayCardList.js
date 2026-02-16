@@ -59,18 +59,19 @@ class PlayCardList extends Component {
         }
         
         this.updateInput=this.updateInput.bind(this)
+        console.log("DEBUG [PlayCardList] constructor, props.isLoading:", this.props.isLoading, "props.loadedUnreg:", this.props.loadedUnreg, "props.unregcardLists length:", this.props.unregcardLists?.length);
     }
-    componentDidUpdate(prevProps,prevState){
-        if(this.props.isLoading!=prevProps.isLoading){
-            this.setState({isLoading:this.props.isLoading})
-        }
-    }
-    
     componentDidMount(){
+        console.log("DEBUG [PlayCardList] componentDidMount");
         this._isMounted=true;
+        this.setState({isLoading: true});
         setTimeout(() => {
             var findcard=this.props.findPlayCard;
-            findcard();
+            findcard(null, null, () => {
+                if(this._isMounted){
+                    this.setState({isLoading: false});
+                }
+            });
         }, 100);
         var times=0;
         for (let index = 0; index < this.props.unregcardLists.length; index++) {
@@ -86,6 +87,15 @@ class PlayCardList extends Component {
             this.setState({showNoItems:true})
         }else{
             this.setState({showNoItems:false})
+        }
+    }
+    componentDidUpdate(prevProps, prevState){
+        console.log("DEBUG [PlayCardList] componentDidUpdate — props.isLoading:", this.props.isLoading, "prev.isLoading:", prevProps.isLoading, "props.loadedUnreg:", this.props.loadedUnreg, "prev.loadedUnreg:", prevProps.loadedUnreg, "props.unregcardLists length:", this.props.unregcardLists?.length, "state.isLoading:", this.state.isLoading, "state.showNoItems:", this.state.showNoItems);
+        // Stop loading when the FindPlayCard operation completes (success or failure)
+        if(this.props.loadedUnreg !== prevProps.loadedUnreg && this.props.loadedUnreg === 1){
+            if(this._isMounted){
+                this.setState({isLoading: false});
+            }
         }
     }
     componentWillUnmount(){
@@ -479,6 +489,7 @@ refreshControlUnReg(){
         }
         
         render() {
+            console.log("DEBUG [PlayCardList] render — state.isLoading:", this.state.isLoading, "state.showNoItems:", this.state.showNoItems, "state.refreshingUR:", this.state.refreshingUR, "props.loadedUnreg:", this.props.loadedUnreg, "props.unregcardLists length:", this.props.unregcardLists?.length, "props.isLoading:", this.props.isLoading);
             const {Colors}=this.props;
             const styles = StyleSheet.create({
                 container:{
@@ -589,6 +600,7 @@ refreshControlUnReg(){
                 <View style={styles.loading} >
                 <SafeAreaView style={{width:widthPercentageToDP(93),alignSelf:'center'}}>
                 <TouchableOpacity style={{marginTop:heightPercentageToDP(1)}} onPress={()=>{
+                    console.log("DEBUG [PlayCardList] Back button pressed");
                     var ondone=this.props.onDone;
                     ondone();}}>
                     <Image style={{tintColor:Colors.blueColor,width:25,height:25,transform:[{scaleX:tools.stringIsContains(i18n.locale,'en')?1:-1}]}} source={backButton}/>

@@ -65,6 +65,7 @@ export default function AddCardsPage (props){
     i18n.translations = state.i18ntranslation;
     
     const initUnregister=(_cards)=>{
+        console.log("DEBUG [AddCards] initUnregister called, _cards:", _cards, "_cards length:", _cards?.length, "type:", typeof _cards);
         var _unregCards=_cards;
         setLoadedUnReg(0);
         if(_unregCards===undefined)
@@ -82,7 +83,8 @@ export default function AddCardsPage (props){
         setunregcardNumber(cards)
         setunregcardFullNumber(cardFullNumber);
         setLoadedUnReg(1);
-        
+        console.log("DEBUG [AddCards] initUnregister done, setLoadedUnReg(1) called");
+
     }
     
     const initCards=(_CardsObj)=>{
@@ -108,11 +110,12 @@ export default function AddCardsPage (props){
         
     }
     const FindPlayCard=(_memberID=null,_access=null,callback=null)=>{
-        updateLoad(true);
+        console.log("DEBUG [AddCards] FindPlayCard called, isLoading:", isLoading);
         // console.log(_access+" - Token Find:"+(_access==null?props.accessToken.access_token:_access));
         setFindcard(0);
         // updateLoad(true);
         var search=WebServices.findMemberCards.replace('{MemberID}',_memberID==null?props.accessToken.MemberID:_memberID);
+        console.log("DEBUG [AddCards] FindPlayCard URL:", WebServices.MainURL+search);
         // console.log("FPC"+search);
         fetch (WebServices.MainURL+search,{
             method: 'GET',
@@ -120,19 +123,24 @@ export default function AddCardsPage (props){
                 'Authorization':'Bearer'+' '+(_access==null?props.accessToken.access_token:_access.access_token),
             },
         },5000)
-        .then((response) => response.text())
+        .then((response) => {
+            console.log("DEBUG [AddCards] FindPlayCard raw response status:", response.status);
+            return response.text();
+        })
         .then((responseJson) => {
+            console.log("DEBUG [AddCards] FindPlayCard responseJson received, length:", responseJson?.length, "first 200 chars:", responseJson?.substring(0,200));
             setFindcard(1);
             // console.log("Find Play Card : "+responseJson);
-            
-            updateLoad(false)
+
             if(Tools.stringIsContains(responseJson,'denied')){
                 if(props.assignProfile!=null){
                     props.assignProfile("user",'','',(_memberID,_access)=>{FindPlayCard(_memberID,_access,callback)})
                 }
+                setLoadedUnReg(1);
                 return;
             }
             var responseObj=JSON.parse(responseJson);
+            console.log("DEBUG [AddCards] FindPlayCard response, Error:", responseObj.Error, "Medias count:", responseObj.Medias?.length);
             if(Tools.stringIsEmpty(responseObj.Error))
             {
                 initUnregister(responseObj.Medias)
@@ -140,14 +148,17 @@ export default function AddCardsPage (props){
                     callback();
                 }
             }else{
+                setLoadedUnReg(1);
                 if(callback!=null){
                     callback();
                 }
             }
             
         }).catch((error) =>{
+            console.log("DEBUG [AddCards] FindPlayCard CATCH error:", error, "error message:", error?.message);
             setFindcard(2);
-            
+            setLoadedUnReg(1);
+
             updateLoad(false)
             
             // console.log('Find play card '+error);
@@ -546,6 +557,7 @@ export default function AddCardsPage (props){
                                     fetchMedias();
                                 }
                                 const updateLoad=(_state)=>{
+                                    console.log("DEBUG [AddCards] updateLoad called with:", _state);
                                     // var loading=props.updateLoading;
                                     // loading(_state);
                                     setIsLoading(_state);
@@ -718,13 +730,13 @@ export default function AddCardsPage (props){
                                 });
                                 
                                 const OnDone=()=>{
+                                    console.log("DEBUG [AddCards] OnDone called");
                                     setAddCardView(false);
                                     setAddPlayCardView(false);
-                                    // var fetchmedia=props.fetchmedia;
-                                    fetchMedias();
                                     props.navigation.goBack();
                                 }
                                 const OnDonePL=(_doneVal=false,callback=null)=>{
+                                    console.log("DEBUG [AddCards] OnDonePL called, _doneVal:", _doneVal);
                                     setAddPlayCardView(false);
                                     if(_doneVal){
                                         setAddCardView(true);

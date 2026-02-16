@@ -96,10 +96,11 @@ export default function CardsPage(props){
     // }
     // componentDidMount(){
     useEffect(()=>{
+        console.log("DEBUG [CardsPage] useEffect mount, profile:", Tools.IsNull(state.profile), "cardLists:", Tools.IsNull(cardLists));
         AppState.addEventListener('change', handleAppStateChange);
-        
-        
-        
+
+
+
         if(Tools.IsNull(state.profile)){
 
         }else if (Tools.IsNull(cardLists)){
@@ -118,9 +119,10 @@ export default function CardsPage(props){
     },[])
     useFocusEffect(
         React.useCallback(() => {
+          console.log("DEBUG [CardsPage] useFocusEffect triggered, alreadyIn:", alreadyIn);
           // Do something when the screen is focused
           onNavigatorEvent();
-          if(setAlreadyIn){
+          if(alreadyIn){
             if(state.profile!=undefined){
                 // console.log("Already");
                 fetchMedias();
@@ -143,6 +145,7 @@ useEffect(()=>{
  
     
     const handleAppStateChange = (nextAppState) => {
+        console.log("DEBUG [CardsPage] handleAppStateChange:", nextAppState);
         if (nextAppState === 'active') {
             // console.log("Focus")
             if(state.profile!=undefined){
@@ -182,10 +185,11 @@ useEffect(()=>{
     }
     
     useEffect(()=>{
+        console.log("DEBUG [CardsPage] useEffect props triggered");
         if(state.profile!==undefined&&state.profile.FirstName!==undefined){
             setShowLogin(false);
         }
-    },[props]) 
+    },[state.profile])
     
     const initUnregister=(_cards)=>{
         var _unregCards=_cards;
@@ -210,6 +214,7 @@ useEffect(()=>{
     }
     
     const initCards=(_CardsObj)=>{
+            console.log("DEBUG [CardsPage] initCards called, _CardsObj length:", _CardsObj?.length);
             var _cardsObj=_CardsObj;
             setLoaded(0);
         
@@ -727,6 +732,7 @@ useEffect(()=>{
                         )
                     }
                     const refreshListView=()=>{
+                        console.log("DEBUG [CardsPage] refreshListView called");
                         fetchMedias();
                     }
                     const updateLoad=(_state)=>{
@@ -734,6 +740,8 @@ useEffect(()=>{
                         // loading(_state);
                     }
                     const fetchMedias=()=>{
+                        console.log("DEBUG [CardsPage] fetchMedias called");
+                        console.log("DEBUG [CardsPage] fetchMedias caller stack:", new Error().stack);
                         // console.log("Token :"+props.accessToken.access_token);
                         updateLoad(true);
                         // var orders=WebServices.getMedias.replace("{MemberID}",props.accessToken.MemberID)
