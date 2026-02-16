@@ -160,7 +160,7 @@ function AdnHome({navigation,setSignOff,accessToken,lookStored,assignProfile,rou
       if (onGoBack) {
         handleUnRead();
       }
-    }, [route]);
+    }, [route?.params?.onGoBack]);
     
     // Function to be called when navigating back
     const handleGoBack = () => {
