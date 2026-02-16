@@ -25,8 +25,8 @@ export default function AppVersionChecker(props){
   
   const Colors=useTheme();
   i18n.translations = state.i18ntranslation;
-  CurrentiOSversion='2.3.4';
-  CurrentAndroidversion='2.3.4';
+  CurrentiOSversion='2.3.5';
+  CurrentAndroidversion='2.3.5';
   const [needUpdate,setNeedUpdate]=useState(false);
   const [canshow,setcanshow]=useState(false);
   
