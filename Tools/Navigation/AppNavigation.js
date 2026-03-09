@@ -95,105 +95,15 @@ function AppNavigation({notification}) {
         
         const url = event.url;
         UrlNavigation(url);
-        // const match = url.match(/:\/\/([^\/]+)\?(.*)/);
-        // if (match && match[1] && match[2]) {
-        //   const action = match[1];
-        //   const queryParams = match[2];
-        //   const params = parseQueryStringDL(queryParams);
-          
-        //   // console.log('Action:', action);
-          
-        //   // console.log('param:', JSON.stringify(params));
-          
-        //   if (action === 'refer' && params['referralcode']) {
-        //     const referralCode = params['referralcode'];
-        //     setreferralCode(referralCode);
-        //   }else if(params['view']){
-        //     // console.log('P:',params['view'])
-        //     navigationRef.navigate(getAppNames(action),getScreen(params['view']));
-        //   }
-        // }
-        // else{
-        //   const pathSegments = url.split('/').filter(segment => segment);
-        //   // console.log("P :"+pathSegments.length);
-        //   for (let index = 0; index < pathSegments.length; index++) {
-        //     const element = pathSegments[index];
-        //     // console.log(element);
-            
-        //   }
-        //   // Assuming the URL structure is known and fixed
-        //   if (pathSegments.length>3) {
-        //     action = pathSegments[2];
-        //     code = pathSegments[3];
-        //   }
-        //   // console.log("Page "+action);
-        //   // console.log("View "+code);
-        //   if(action==WebServices.DeepLinkCode){
-        //     console.log(pathSegments.length+"=DeepLinkCode "+code);
-        //     console.log("DeepLinkCode "+code);
-        //     if(code=='store'&&pathSegments.length>3&&Tools.stringIsContains(url,"=")){
-        //       const _segments = pathSegments[4].split('=');
-        //       // console.log(_segments);
-        //       console.log("DeepLinkCode "+code);
-        //       setOpenProductCode(_segments[1]);
-        //     }else if(pathSegments.length>3){
-        //       const _segments = pathSegments[4].split('=');
-        //       console.log(_segments);
-        //       navigationRef.navigate(getAppNames(code),getScreen(_segments[0]));
-        //     }
-        //   }else{
-        //     if (action==WebServices.ProductCode) {
-        //       setOpenProductCode(code);
-        //     }else{
-        //       navigationRef.navigate(getAppNames(action),getScreen(code));
-        //     }
-        //   }
-        //   // if (action==WebServices.ProductCode) {
-        //   //   setOpenProductCode(code);
-        //   // }
-        // }
+       
+        
       } catch (error) {
         console.error('Error handling deep link:', error);
       }
     };
     
     
-    // getDeepLink=(event)=>{
-    //   // console.log('getDeepLink');
-    //   try {
-    //     const url = event.url;
-        
-    //     const queryStartIndex = url.indexOf('?');
-    //     if (queryStartIndex !== -1) {
-    //       const queryString = url.slice(queryStartIndex + 1);
-    //       // console.log("getDeepLink : "+queryString);
-    //       const params = parseQueryString(queryString);
-    //       // console.log("getDeepLink params: " + JSON.stringify(params));
-    //       const referralCode = params.referralcode;
-          
-    //       if (referralCode) {
-    //         setreferralCode(referralCode);
-    //       }
-    //     }else{
-          
-    //       const pathSegments = url.split('/').filter(segment => segment);
-          
-    //       // Assuming the URL structure is known and fixed
-    //       if (pathSegments.length>3) {
-    //         action = pathSegments[2];
-    //         code = pathSegments[3];
-    //       }
-          
-    //       if (action==WebServices.ProductCode) {
-    //         setOpenProductCode(code);
-    //       }
-    //     }
-        
-    //   } catch (error) {
-    //     console.error('Error handling deep link:', error);
-    //   }
-    // }
-    // Add the event listener when the component mounts
+    
     Linking.addEventListener('url', getDeepLinkParams);
     
     // Remove the event listener when the component unmounts
