@@ -25,13 +25,13 @@ export default function VisionCamera(props){
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'code-128'],
     onCodeScanned: (codes) => {
-      console.log(`Scanned ${codes.length} codes!`)
-      props.onBarCodeScanGotData
-      var onBarCodeScan  =  props.onBarCodeScanGotData;
-      if(onBarCodeScan!=undefined&&codes.length>0)
-        console.log(`Scanned ${JSON.stringify(codes[0].value)} code!`)
+    console.log(`Scanned ${codes.length} codes!`);
+    var onBarCodeScan = props.onBarCodeScanGotData;
+    if (onBarCodeScan != undefined && codes.length > 0) {
+        console.log(`Scanned ${JSON.stringify(codes[0].value)} code!`);
         onBarCodeScan(codes[0].value);
     }
+}
   })
   return hasPermission&&<Camera style={StyleSheet.absoluteFill} {...props} isActive={true} device={device} codeScanner={codeScanner} />
 }
