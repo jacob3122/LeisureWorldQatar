@@ -14,7 +14,7 @@
  */
 
 import React, { useCallback } from 'react';
-import { View, FlatList, RefreshControl, StyleSheet } from 'react-native';
+import { View, Text, FlatList, RefreshControl, StyleSheet } from 'react-native';
 import { widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen';
 import StorePageProductCard from './StorePageProductCard';
 
@@ -95,6 +95,24 @@ const StorePageProductList = ({
 
     // ─── RefreshControl ──────────────────────────────────────────────────────────
 
+    const listHeader = useCallback(() => (
+    <View style={{ width: widthPercentageToDP(93), alignSelf: 'center' }}>
+        <Text allowFontScaling={false} style={{
+            includeFontPadding: false,
+            color: Colors.black,
+            width: widthPercentageToDP(92),
+            textAlign: 'left',
+            fontFamily: 'Cairo-Regular',
+            fontSize: widthPercentageToDP(3.75),
+            lineHeight: widthPercentageToDP(3.75) * 1.5,
+            flexWrap: 'wrap',
+            alignSelf: 'center',
+        }}>
+            {folderDesc != undefined ? folderDesc : defaultDesc}
+        </Text>
+    </View>
+), [folderDesc, defaultDesc, Colors]);
+
     const refreshControl = (
         <RefreshControl
             tintColor={Colors.orangeShadeColor}
@@ -107,17 +125,21 @@ const StorePageProductList = ({
 
     return (
         <View style={styles.productView}>
-            <FlatList
-                ref={mainScrollRef}
-                showsVerticalScrollIndicator={false}
-                initialNumToRender={3}
-                data={allProducts}
-                keyExtractor={keyExtractor}
-                contentContainerStyle={styles.productContain}
-                refreshControl={refreshControl}
-                style={styles.productsView}
-                renderItem={renderItem}
-            />
+   <FlatList
+    ref={mainScrollRef}
+    key={viewType}
+    numColumns={viewType == 1 ? 2 : 1}
+    showsVerticalScrollIndicator={false}
+    initialNumToRender={3}
+    data={allProducts.filter(item => item !== undefined)}
+    keyExtractor={keyExtractor}
+    contentContainerStyle={styles.productContain}
+    columnWrapperStyle={viewType == 1 ? { justifyContent: 'center' } : undefined}
+    ListHeaderComponent={listHeader}
+    refreshControl={refreshControl}
+    style={styles.productsView}
+    renderItem={renderItem}
+/>
         </View>
     );
 };

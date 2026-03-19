@@ -66,7 +66,7 @@ const StorePageProductCard = ({
 
     if (item == undefined) {
         return (
-            <View>
+            <View style={{ width: viewType == 1 ? widthPercentageToDP(93) : undefined }}>
                 <Text allowFontScaling={false} style={descStyles(Colors).storedesc}>
                     {folderDesc != undefined ? folderDesc : defaultDesc}
                 </Text>
@@ -85,19 +85,19 @@ const StorePageProductCard = ({
                         width: widthPercentageToDP(95),
                         margin: 10,
                     } : {
-                        width: widthPercentageToDP(37),
-                        margin: 10,
+                        width: widthPercentageToDP(44),
+    margin: 5,
                     }]}
                     onPress={() => { onProductSelectEvent(item); }}
                 >
                     <View style={[cardStyles(Colors).productImage, {
-                        width: widthPercentageToDP(viewType == 0 ? 95 : 37),
-                        height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : heightPercentageToDP(37),
+                        width: widthPercentageToDP(viewType == 0 ? 95 : 44),
+height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : widthPercentageToDP(44),
                     }]}>
                         {item.Entity.ProfilePictureId != null && <FastImage
                             style={[cardStyles(Colors).productImage, {
-                                width: widthPercentageToDP(viewType == 0 ? 95 : 37),
-                                height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : heightPercentageToDP(37),
+                                width: widthPercentageToDP(viewType == 0 ? 95 : 44),
+height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : widthPercentageToDP(44),
                             }]}
                             source={{
                                 uri: WebServices.MainURL + item.Entity.ProfilePictureId,
@@ -161,19 +161,19 @@ const StorePageProductCard = ({
                         width: widthPercentageToDP(95),
                         margin: 10,
                     } : {
-                        width: widthPercentageToDP(37),
-                        margin: 10,
+                       width: widthPercentageToDP(44),
+    margin: 5,
                     }]}
                     onPress={() => { onProductSelect(item); }}
                 >
                     <View style={[cardStyles(Colors).productImage, {
-                        width: widthPercentageToDP(viewType == 0 ? 95 : 37),
-                        height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : heightPercentageToDP(37),
+                       width: widthPercentageToDP(viewType == 0 ? 95 : 44),
+height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : widthPercentageToDP(44),
                     }]}>
                         {item.ProfilePictureId != null && <FastImage
                             style={[cardStyles(Colors).productImage, {
-                                width: widthPercentageToDP(viewType == 0 ? 95 : 37),
-                                height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : heightPercentageToDP(37),
+                                width: widthPercentageToDP(viewType == 0 ? 95 : 44),
+height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : widthPercentageToDP(44),
                             }]}
                             source={{
                                 uri: WebServices.MainURL + item.Entity.ProfilePictureId,
@@ -238,19 +238,19 @@ const StorePageProductCard = ({
                         width: widthPercentageToDP(95),
                         margin: 10,
                     } : {
-                        width: widthPercentageToDP(37),
-                        margin: 10,
+                        width: widthPercentageToDP(44),
+    margin: 5,
                     }]}
                     onPress={() => { onProductSelectFolder(item); }}
                 >
                     <View style={[cardStyles(Colors).productImage, {
-                        width: widthPercentageToDP(viewType == 0 ? 95 : 37),
-                        height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : heightPercentageToDP(37),
+                        width: widthPercentageToDP(viewType == 0 ? 95 : 44),
+height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : widthPercentageToDP(44),
                     }]}>
                         {item.ProfilePictureId != null && <FastImage
                             style={[cardStyles(Colors).productImage, {
-                                width: widthPercentageToDP(viewType == 0 ? 95 : 37),
-                                height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : heightPercentageToDP(37),
+                                width: widthPercentageToDP(viewType == 0 ? 95 : 44),
+height: viewType == 0 ? (widthPercentageToDP(95) / 1.69) : widthPercentageToDP(44),
                             }]}
                             source={{
                                 uri: WebServices.MainURL + item.ProfilePictureId,

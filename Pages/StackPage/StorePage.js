@@ -77,7 +77,7 @@ export default function StorePage(props) {
 
     const [ShowInfo, setShowInfo] = useState(undefined);
     const [showLogin, setShowLogin] = useState(false);
-    const [viewType, setViewType] = useState(0);
+    const [viewType, setViewType] = useState(1);
 
     // ─── Refs ────────────────────────────────────────────────────────────────────
 
