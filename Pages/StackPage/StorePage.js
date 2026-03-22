@@ -77,7 +77,7 @@ export default function StorePage(props) {
 
     const [ShowInfo, setShowInfo] = useState(undefined);
     const [showLogin, setShowLogin] = useState(false);
-    const [viewType, setViewType] = useState(1);
+    const [viewType, setViewType] = useState(0);
 
     // ─── Refs ────────────────────────────────────────────────────────────────────
 
@@ -290,17 +290,19 @@ export default function StorePage(props) {
                 />
 
                 <StorePageFilters
-                    allStoresIn={products.allStoresIn}
-                    selectedStore={products.selectedStore}
-                    allProductCategory={products.allProductCategory}
-                    filterProductCategory={products.filterProductCategory}
-                    locale={global.locale}
-                    Colors={Colors}
-                    allLabel={i18n.t('all')}
-                    onStoreSelect={products.onStoreSelect}
-                    onCategorySelect={products.onCategorySelect}
-                    mainScrollRef={mainScrollRef}
-                />
+    allStoresIn={products.allStoresIn}
+    selectedStore={products.selectedStore}
+    allProductCategory={products.allProductCategory}
+    filterProductCategory={products.filterProductCategory}
+    locale={global.locale}
+    Colors={Colors}
+    allLabel={i18n.t('all')}
+    onStoreSelect={products.onStoreSelect}
+    onCategorySelect={products.onCategorySelect}
+    mainScrollRef={mainScrollRef}
+    viewType={viewType}
+    onToggleView={() => setViewType(v => v === 0 ? 1 : 0)}
+/>
 
                 <StorePageProductList
                     allProducts={products.allProducts}

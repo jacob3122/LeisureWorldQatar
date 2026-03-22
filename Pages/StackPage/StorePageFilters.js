@@ -40,6 +40,8 @@ const StorePageFilters = ({
     onStoreSelect,
     onCategorySelect,
     mainScrollRef,
+    viewType,
+    onToggleView,
 }) => {
 
     // ─── Store pill renderer ─────────────────────────────────────────────────────
@@ -176,6 +178,31 @@ const StorePageFilters = ({
             >
                 {getProductCategory()}
             </ScrollView>
+            <View style={filterStyles(Colors).toggleRow}>
+                <TouchableOpacity onPress={onToggleView} style={filterStyles(Colors).toggleButton}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <View style={[filterStyles(Colors).toggleIcon, viewType === 0 && { backgroundColor: Colors.blueColor }]}>
+                            <View style={filterStyles(Colors).listIconInner}>
+                                <View style={[filterStyles(Colors).listLine, viewType === 0 && { backgroundColor: Colors.whiteColor }]} />
+                                <View style={[filterStyles(Colors).listLine, viewType === 0 && { backgroundColor: Colors.whiteColor }]} />
+                                <View style={[filterStyles(Colors).listLine, viewType === 0 && { backgroundColor: Colors.whiteColor }]} />
+                            </View>
+                        </View>
+                        <View style={[filterStyles(Colors).toggleIcon, { marginStart: 6 }, viewType === 1 && { backgroundColor: Colors.blueColor }]}>
+                            <View style={filterStyles(Colors).gridIconInner}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <View style={[filterStyles(Colors).gridBox, viewType === 1 && { backgroundColor: Colors.whiteColor }]} />
+                                    <View style={[filterStyles(Colors).gridBox, { marginStart: 3 }, viewType === 1 && { backgroundColor: Colors.whiteColor }]} />
+                                </View>
+                                <View style={{ flexDirection: 'row', marginTop: 3 }}>
+                                    <View style={[filterStyles(Colors).gridBox, viewType === 1 && { backgroundColor: Colors.whiteColor }]} />
+                                    <View style={[filterStyles(Colors).gridBox, { marginStart: 3 }, viewType === 1 && { backgroundColor: Colors.whiteColor }]} />
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -199,6 +226,46 @@ const filterStyles = (Colors) => StyleSheet.create({
         flexDirection: 'row',
         padding: 5,
         alignContent: 'space-between'
+    },
+    toggleRow: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        paddingEnd: widthPercentageToDP(4),
+        marginTop: heightPercentageToDP(0.5),
+        marginBottom: heightPercentageToDP(0.5),
+    },
+    toggleButton: {
+        padding: 4,
+    },
+    toggleIcon: {
+        width: 28,
+        height: 28,
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: Colors.blueColor,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    listIconInner: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    listLine: {
+        width: 14,
+        height: 2.5,
+        backgroundColor: Colors.blueColor,
+        borderRadius: 1,
+        marginVertical: 1.5,
+    },
+    gridIconInner: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    gridBox: {
+        width: 8,
+        height: 8,
+        backgroundColor: Colors.blueColor,
+        borderRadius: 2,
     },
 });
 
