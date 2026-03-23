@@ -220,13 +220,13 @@ export default function PhoneDropDownInput(props){
                         onChangeText={
                             (textIn)=>{
                                 var TextInp=textIn;
-                                var TextInp_DCode=countryCode[datafromDropDown].dial_code;
-                                
+                                var TextInp_DCode=countryCode[datafromDropDown]?.dial_code || "+974";
+
                                 const separatedNumbers = separateCountryCode(textIn);
                                 if(!Tools.IsNull(separatedNumbers.countryCode)){
                                     // console.log('Country Code:', separatedNumbers.countryCode);
                                     // console.log('Phone Number:', separatedNumbers.phoneNumber);
-                                    var json = global.countryCode;
+                                    var json = global.countryCode || countryCode;
                                     setCountryCode(json);
                                     setLoading(false)
                                     for (let index = 0; index < json.length; index++) {
@@ -252,15 +252,15 @@ export default function PhoneDropDownInput(props){
                         onEndEditing={(textIn)=>{
                             
                             var TextInp=textIn.nativeEvent.text;
-                            var TextInp_DCode=countryCode[datafromDropDown].dial_code;
-                            
+                            var TextInp_DCode=countryCode[datafromDropDown]?.dial_code || "+974";
+
                             // console.log('End:', TextInp_DCode+TextInp);
-                            
+
                             const separatedNumbers = separateCountryCode(TextInp);
                             if(!Tools.IsNull(separatedNumbers.countryCode)){
                                 // console.log('Country Code End:', separatedNumbers.countryCode);
                                 // console.log('Phone Number End:', separatedNumbers.phoneNumber);
-                                var json = global.countryCode;
+                                var json = global.countryCode || countryCode;
                                 setCountryCode(json);
                                 setLoading(false)
                                 for (let index = 0; index < json.length; index++) {

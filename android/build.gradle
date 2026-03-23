@@ -25,3 +25,28 @@ allprojects {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+// Inject 16KB flexible page size support for all subprojects with CMake builds.
+// Required for Google Play 16KB page size compliance (Android 15+).
+// The RN Gradle Plugin only injects this flag for New Architecture apps,
+// so we must do it globally for Old Architecture.
+subprojects { subproject ->
+    def applyPageSizeFlag = { proj ->
+        def androidExt = proj.extensions.findByName('android')
+        if (androidExt != null) {
+            try {
+                if (androidExt.externalNativeBuild.cmake.path != null) {
+                    def cmakeArgs = androidExt.defaultConfig.externalNativeBuild.cmake.arguments
+                    if (!cmakeArgs.any { arg -> arg.contains('ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES') }) {
+                        cmakeArgs.add('-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON')
+                    }
+                }
+            } catch (Exception ignored) {}
+        }
+    }
+    if (subproject.state.executed) {
+        applyPageSizeFlag(subproject)
+    } else {
+        subproject.afterEvaluate { applyPageSizeFlag(subproject) }
+    }
+}

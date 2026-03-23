@@ -25,57 +25,48 @@ export default function AppVersionChecker(props){
   
   const Colors=useTheme();
   i18n.translations = state.i18ntranslation;
-  CurrentiOSversion='2.3.6';
-  CurrentAndroidversion='2.3.6';
   const [needUpdate,setNeedUpdate]=useState(false);
   const [canshow,setcanshow]=useState(false);
   
-  getVersionNo=(_no)=>{
-    Numb=0;
-    _no=_no.replace('.','');
-    // console.log("test"+Number(_no));
+  const getVersionNo=(_no)=>{
+    _no=_no.replace(/\./g,'');
     return Number(_no);
-    
   }
   useEffect(()=>{
-    global.CurrentiOSversion=CurrentiOSversion;
-    global.CurrentAndroidversion=CurrentAndroidversion;
-    global.needUpdate=false;
     async function versionCheck() {
       try {
         const version = await checkVersion();
         const versionNo=getVersionNo(version.version);
-        
+
         const storedVersion = await AsyncStorage.getItem('appVersion');
         console.log(JSON.stringify(storedVersion));
         if (!storedVersion) {
           // First install
           console.log('Welcome', 'Thanks for installing the app!');
           await AsyncStorage.setItem('appVersion', ""+versionNo);
-          
+
           //For Fresh Install of App
           ReactMoE.setAppStatus(MoEAppStatus.Install);
-          
+
         } else if (storedVersion !== (""+versionNo)) {
           // Update
           console.log('Update Detected', 'Thanks for updating the app!');
           await AsyncStorage.setItem('appVersion', ""+versionNo);
-          
+
           // For Existing user who has updated the app
           ReactMoE.setAppStatus(MoEAppStatus.Update);
         } else {
           // Normal launch (no change in version)
         }
-        
-        console.log(state.isConnected+":"+versionNo+"//"+getVersionNo(CurrentiOSversion));
-        if (Platform.OS==='ios'?(versionNo>getVersionNo(CurrentiOSversion)):(versionNo>getVersionNo(CurrentAndroidversion))) {
+
+        console.log(state.isConnected+":"+version.version+" needsUpdate:"+version.needsUpdate);
+        if (version.needsUpdate) {
           setcanshow(true);
           setNeedUpdate(true);
           dispatch({
             type: 'update_App',
             stateIn: true
           });
-          // global.needUpdate=true;
         }
       } catch (error) {
         console.error('Error fetching data:', error);

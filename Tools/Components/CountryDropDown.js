@@ -27,7 +27,7 @@ export default function CountryDropDown({defaultValue,textStyle,updateData,ItemS
         getCountryInUseData();
     },[])
     const getCountryInUseData=()=>{
-        if(global.countryCode!=undefined||global.countryCode!=null){
+        if(global.countryCode!=undefined&&global.countryCode!=null){
             var json = global.countryCode;
             setCountryCode(json);
             setLoading(false);
@@ -151,7 +151,7 @@ export default function CountryDropDown({defaultValue,textStyle,updateData,ItemS
                             }}>
                         <View style={{flexDirection:'row',justifyContent:'space-between',alignSelf:'center',width:'80%'}}>
                         <Text allowFontScaling={false} style={[{width:'100%',color:Colors.inputfontColor},textStyle,{opacity:(countryCode.length>0&&datafromDropDown!=-1)?1:0.6}]}>
-                        {(countryCode.length>0&&datafromDropDown!=-1)?countryCode[datafromDropDown].name:("*"+i18n.t('country'))}
+                        {(countryCode.length>0&&datafromDropDown!=-1)?countryCode[datafromDropDown]?.name || ("*"+i18n.t('country')):("*"+i18n.t('country'))}
                         </Text>
                         <Image style={{width:12,height:12,alignSelf:'center',tintColor:Colors.blueColor}} source={dropIcon}/></View>
                         </TouchableOpacity>

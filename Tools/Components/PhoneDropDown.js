@@ -11,7 +11,7 @@ import WebServices from '../constants/WebServices';
 import { useTheme } from '../context/ThemeProvider';
 import { useAppContext } from '../../src/js/reducers/AppReducer';
 
-export default function PhoneDropDown({updateData,textStyle,ItemSelectedStyle,defaultValue,data,editable = true }){
+export default function PhoneDropDown({updateData,textStyle,ItemSelectedStyle,defaultValue = 0,data = [],editable = true }){
     const Colors =useTheme();
     const { state, dispatch } = useAppContext();
     i18n.translations = state.i18ntranslation;
@@ -58,9 +58,9 @@ const drawLine=(colorstr,width)=>{
                     resizeMode='stretch'
                     style={{width:widthPercentageToDP(9),height:widthPercentageToDP(6.5),alignSelf:'center'}}
                     source={{
-                        uri:WebServices.flagUrl.replace('{Code}',data[inValue].code.toLowerCase())}}/>
-                        <Text allowFontScaling={false} key={"index1"+inValue} style={[styles.textStyle,defaultValue==inValue?{}:{}]}>{data[inValue].dial_code}</Text>
-                        <Text  allowFontScaling={false} key={"index2"+inValue}style={[styles.textStyle,defaultValue==inValue?{}:{}]}>{data[inValue].name}</Text>
+                        uri:WebServices.flagUrl.replace('{Code}',data[inValue]?.code?.toLowerCase())}}/>
+                        <Text allowFontScaling={false} key={"index1"+inValue} style={[styles.textStyle,defaultValue==inValue?{}:{}]}>{data[inValue]?.dial_code}</Text>
+                        <Text  allowFontScaling={false} key={"index2"+inValue}style={[styles.textStyle,defaultValue==inValue?{}:{}]}>{data[inValue]?.name}</Text>
                         </TouchableOpacity>
                         {/* {drawLine(Colors.inputfontColor,0.75)} */}
                         </View>
@@ -93,7 +93,7 @@ const drawLine=(colorstr,width)=>{
                                 }}>
                             <View style={{flexDirection:'row',justifyContent:'space-between',alignSelf:'center',width:widthPercentageToDP(15),justifyContent:'center'}}>
                             <Text allowFontScaling={false} style={[textStyle,{includeFontPadding:false,color:editable?Colors.inputfontColor:Colors.inactiveTab,height:'100%'}]}>
-                            {data.length>0?data[defaultValue].dial_code:"+974"}
+                            {data.length > 0 ? data[defaultValue]?.dial_code || "+974" : "+974"}
                             </Text>
                             <Image style={{width:12,height:12,alignSelf:'center',tintColor:editable?Colors.blueColor:Colors.inactiveTab}} source={dropIcon}/></View>
                             </TouchableOpacity>
