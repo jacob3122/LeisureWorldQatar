@@ -128,7 +128,7 @@ export default function ProductPage(props){
     }
     
     useEffect(()=>{
-        console.log("Profile product");
+        // console.log("Profile product");
         if(opened){
             props.navigation.goBack();
         }
@@ -140,7 +140,7 @@ export default function ProductPage(props){
     // },[addonEvent,selectedDate,totalNo]);
     
     useEffect(()=>{
-        console.log("Add info :"+JSON.stringify(AdditionalInfo))
+        // console.log("Add info :"+JSON.stringify(AdditionalInfo))
     },[AdditionalInfo])
     
     useEffect(()=>{
@@ -198,9 +198,9 @@ export default function ProductPage(props){
     useEffect(()=>{
         if(!Tools.IsNull(fdate))
             {
-            console.log("F"+fdate);
+            // console.log("F"+fdate);
             var dateIn=moment(fdate).add(4,'hours')//+3gmt
-            console.log("F"+dateIn);
+            // console.log("F"+dateIn);
             
             setSelectedDate(dateIn);
         }
@@ -212,9 +212,9 @@ export default function ProductPage(props){
     useEffect(()=>{
         if(!Tools.IsNull(fdate))
             {
-            console.log("F"+fdate);
+            // console.log("F"+fdate);
             var dateIn=moment(fdate).add(4,'hours')//+3gmt
-            console.log("F"+dateIn);
+            // console.log("F"+dateIn);
             
             setSelectedDate(dateIn);
         }
@@ -231,12 +231,23 @@ export default function ProductPage(props){
         }
     },[isCalendar])
     useEffect(()=>{
-        console.log(isCalendar+"G "+gotData);
+        // console.log(isCalendar+"G "+gotData);
     },[gotData])
     useEffect(()=>{
         setOpened(true);
-        console.log("[CALENDAR DEBUG] Product opened:", getTranslatedProductName(params.product));
-        console.log("[CALENDAR DEBUG] Product entity:", JSON.stringify(params.product.Entity, null, 2));
+        // console.log("[CALENDAR DEBUG] Product opened:", getTranslatedProductName(params.product));
+        // console.log("[CALENDAR DEBUG] Product entity:", JSON.stringify(params.product.Entity, null, 2));
+        try {
+            const _p = props.route.params.product;
+            console.log("[SNOWY-TUESDAY] ============ Product opened ============");
+            console.log("[SNOWY-TUESDAY] name:", (_p && _p.Entity && _p.Entity.ProductName) || (_p && _p.CatalogName) || "?");
+            console.log("[SNOWY-TUESDAY] EntityType:", _p && _p.EntityType, " CatalogType:", _p && _p.CatalogType);
+            console.log("[SNOWY-TUESDAY] Entity.ParentEntityType:", _p && _p.Entity && _p.Entity.ParentEntityType, " Entity.ParentEntityId:", _p && _p.Entity && _p.Entity.ParentEntityId);
+            console.log("[SNOWY-TUESDAY] Entity.ProductId:", _p && _p.Entity && _p.Entity.ProductId);
+            console.log("[SNOWY-TUESDAY] checkCalenderProduct():", checkCalenderProduct(), " isCalendar:", isCalendar);
+            console.log("[SNOWY-TUESDAY] _variableIndex:", checkIsVariable(_p));
+            console.log("[SNOWY-TUESDAY] WebServices.EntityNo constant:", WebServices.EntityNo);
+        } catch (e) { console.log("[SNOWY-TUESDAY] product-info log error:", e && e.message); }
         checkProduct(params.product);
         
         // console.log("catalogProducts :"+props.route.params.catalogProducts.length);
@@ -251,9 +262,11 @@ export default function ProductPage(props){
             if((!Tools.IsNull(params.product.Entity)&&!Tools.IsNull(params.product.Entity.ParentEntityType)&&params.product.Entity.ParentEntityType==WebServices.EntityNo)&&!checkCalenderProduct()){
                 setGotData(false);
                 fetchVarationsWp(params.product,_variableIndex,false)
+                console.log("[SNOWY-TUESDAY] BRANCH A (variableIndex, non-calendar) → calling fetchPerformanceDates");
                 fetchPerformanceDates(params.product);
             }else{
                 // fetchPerformanceDates(params.product);
+                console.log("[SNOWY-TUESDAY] BRANCH A-else (variableIndex, calendar-product) → NOT calling fetchPerformanceDates, only fetchVarationsWp");
                 fetchVarationsWp(params.product,_variableIndex)
             }
         }else if(!Tools.IsNull(params.product.CatalogType)&&params.product.CatalogType==WebServices.FolderCatalog){
@@ -267,10 +280,12 @@ export default function ProductPage(props){
                 fetchMedias();
         }else {
             if((!Tools.IsNull(params.product.Entity)&&!Tools.IsNull(params.product.Entity.ParentEntityType)&&params.product.Entity.ParentEntityType==WebServices.EntityNo)&&!isCalendar){
-                console.log("Calender");
+                // console.log("Calender");
+                console.log("[SNOWY-TUESDAY] BRANCH B (no variableIndex, ParentEntityType=EntityNo, !isCalendar) → calling fetchPerformanceDates");
                 fetchPerformanceDates(params.product);
             }else{
-                console.log("setTimeout");
+                // console.log("setTimeout");
+                console.log("[SNOWY-TUESDAY] BRANCH C (fallback) → setTimeout setGotData(true), NO date fetch runs");
                 setTimeout(() => {
                     setGotData(true);
                 }, 200);
@@ -300,7 +315,7 @@ export default function ProductPage(props){
         const{params}=props.route;
         
         if((!Tools.IsNull(params.product.Entity)&&!Tools.IsNull(params.product.Entity.ParentEntityType)&&params.product.Entity.ParentEntityType==WebServices.EntityNo)){
-            console.log(Tools.IsNull(tmpSelectedDate)?"":tmpSelectedDate.format('YYYY-MM-DD')+" D:"+Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'));
+            // console.log(Tools.IsNull(tmpSelectedDate)?"":tmpSelectedDate.format('YYYY-MM-DD')+" D:"+Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'));
             
             getallTimingsofPerformances(params.product.Entity.ProductId,params.product.Entity.ParentEntityId,Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'),checkIsVariable(params.product)!=-1?0:5);
             setSelectedPerformance(null);
@@ -309,7 +324,7 @@ export default function ProductPage(props){
         if((!Tools.IsNull(params.product.EntityType)&&params.product.EntityType==WebServices.EntityNo)){
             getallTimingsofPerformances(params.product.Nodes[0].Entity.ProductId,params.product.Nodes[0].Entity.ParentEntityId,Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'),params.product.EntityType,5);
             setGotData(false);
-            console.log("onFocus")
+            // console.log("onFocus")
             
         }
         setTimeout(() => {
@@ -320,107 +335,120 @@ export default function ProductPage(props){
     
     useEffect(()=>{
         if(!Tools.IsNull(eventId)){
+            console.log("[SNOWY-TUESDAY] eventId useEffect fired, eventId=", eventId, " → calling checkCalendarEvents");
             checkCalendarEvents();
         }
     },[eventId])
     
     useEffect(()=>{
         if(!Tools.IsNull(calendarEventsIn)){
-            console.log(JSON.stringify(calendarEventsIn));
+            // console.log(JSON.stringify(calendarEventsIn));
             getValidEventDays();
         }
     },[calendarEventsIn]);
     
     
     const getValidPerformanceDays=(_DateList)=>{
-        console.log("[CALENDAR DEBUG] getValidPerformanceDays called with:", JSON.stringify(_DateList, null, 2));
-        console.log("[CALENDAR DEBUG] selectedDate:", selectedDate ? selectedDate.format('YYYY-MM-DD') : 'null');
-        
+        // console.log("[CALENDAR DEBUG] getValidPerformanceDays called with:", JSON.stringify(_DateList, null, 2));
+        // console.log("[CALENDAR DEBUG] selectedDate:", selectedDate ? selectedDate.format('YYYY-MM-DD') : 'null');
+        console.log("[SNOWY-TUESDAY] getValidPerformanceDays → in.length=", (_DateList && _DateList.length) || 0);
+
         currentYear=null;
         daysList={};
         var firstdate=null;
         currentDateAvail=false;
         if(!Tools.IsNull(_DateList)){
-            console.log("[CALENDAR DEBUG] Processing", _DateList.length, "performance dates");
+            // console.log("[CALENDAR DEBUG] Processing", _DateList.length, "performance dates");
             for (let index = 0; index < _DateList.length; index++) {
                 const element = _DateList[index];
-                console.log("[CALENDAR DEBUG] Performance date", index, ":", element.Date);
+                // console.log("[CALENDAR DEBUG] Performance date", index, ":", element.Date);
                 _dateIn= moment(new Date(element.Date));
-                console.log("[CALENDAR DEBUG] Processed performance date:", _dateIn.format('YYYY-MM-DD'));
-                
+                // console.log("[CALENDAR DEBUG] Processed performance date:", _dateIn.format('YYYY-MM-DD'));
+
                 if(firstdate==null){
                     firstdate=CalendarUtils.getCalendarDateString(new Date(_dateIn));
-                    console.log("[CALENDAR DEBUG] First performance date set to:", firstdate);
+                    // console.log("[CALENDAR DEBUG] First performance date set to:", firstdate);
                     var dateInFDate=moment(firstdate);//.add(4,'hours')//+3gmt
                     if(_dateIn.format('YYYY-MM-DD')==(Tools.IsNull(dateInFDate)?"":dateInFDate.format('YYYY-MM-DD'))){
                         daysList[CalendarUtils.getCalendarDateString(new Date(_dateIn))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
                     }
                 }
-                
+
                 const calendarDateString = CalendarUtils.getCalendarDateString(new Date(_dateIn));
-                console.log("[CALENDAR DEBUG] Adding performance date to daysList:", calendarDateString);
-                
+                // console.log("[CALENDAR DEBUG] Adding performance date to daysList:", calendarDateString);
+
                 if(!Tools.IsNull(selectedDate)&&_dateIn.format('YYYY-MM-DD')==(selectedDate).format('YYYY-MM-DD')){
                     daysList[calendarDateString]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
-                    console.log("[CALENDAR DEBUG] Performance date marked as selected:", calendarDateString);
+                    // console.log("[CALENDAR DEBUG] Performance date marked as selected:", calendarDateString);
                 }else{
                     daysList[calendarDateString]={disabled:false,inactive:false ,disableTouchEvent: false};
-                    console.log("[CALENDAR DEBUG] Performance date marked as available:", calendarDateString);
+                    // console.log("[CALENDAR DEBUG] Performance date marked as available:", calendarDateString);
                 }
             }
         }
-        console.log("[CALENDAR DEBUG] Final performance daysList:", JSON.stringify(daysList, null, 2));
+        // console.log("[CALENDAR DEBUG] Final performance daysList:", JSON.stringify(daysList, null, 2));
+        try {
+            var _keys = Object.keys(daysList).sort();
+            console.log("[SNOWY-TUESDAY] getValidPerformanceDays → out.enabledDays=", _keys.length, " min=", _keys[0], " max=", _keys[_keys.length-1], " firstdate=", firstdate);
+            console.log("[SNOWY-TUESDAY] getValidPerformanceDays → all enabled keys:", JSON.stringify(_keys));
+        } catch (e) { console.log("[SNOWY-TUESDAY] getValidPerformanceDays → summary log error:", e && e.message); }
         setDays(daysList);
         setFirstDate(firstdate);
-        
+
     }
     
     const getValidEventDays=()=>{
-        console.log("[CALENDAR DEBUG] getValidEventDays called");
-        console.log("[CALENDAR DEBUG] calendarEventsIn:", JSON.stringify(calendarEventsIn, null, 2));
-        
+        // console.log("[CALENDAR DEBUG] getValidEventDays called");
+        // console.log("[CALENDAR DEBUG] calendarEventsIn:", JSON.stringify(calendarEventsIn, null, 2));
+        console.log("[SNOWY-TUESDAY] getValidEventDays → in.length=", (calendarEventsIn && calendarEventsIn.length) || 0);
+
         currentYear=null;
         daysList={};
         var firstdate=null;
         currentDateAvail=false;
         if(!Tools.IsNull(calendarEventsIn)){
-            console.log("[CALENDAR DEBUG] Processing", calendarEventsIn.length, "calendar events");
+            // console.log("[CALENDAR DEBUG] Processing", calendarEventsIn.length, "calendar events");
             for (let index = 0; index < calendarEventsIn.length; index++) {
                 const element = calendarEventsIn[index];
-                console.log("[CALENDAR DEBUG] Event", index, "DateTimeFrom:", element.DateTimeFrom);
+                // console.log("[CALENDAR DEBUG] Event", index, "DateTimeFrom:", element.DateTimeFrom);
                 _originalDate = moment(new Date(element.DateTimeFrom));
                 _dateIn= moment(new Date(element.DateTimeFrom)).add(4,'hours');
-                console.log("[CALENDAR DEBUG] Original date:", _originalDate.format('YYYY-MM-DD'));
-                console.log("[CALENDAR DEBUG] Processed date:", _dateIn.format('YYYY-MM-DD'));
-                
+                // console.log("[CALENDAR DEBUG] Original date:", _originalDate.format('YYYY-MM-DD'));
+                // console.log("[CALENDAR DEBUG] Processed date:", _dateIn.format('YYYY-MM-DD'));
+
                 if(firstdate==null){
                     firstdate=CalendarUtils.getCalendarDateString(new Date(_originalDate));
-                    console.log("[CALENDAR DEBUG] First date set to:", firstdate);
+                    // console.log("[CALENDAR DEBUG] First date set to:", firstdate);
                     var dateInFDate=moment(firstdate).add(4,'hours')//+3gmt
                     if(_originalDate.format('YYYY-MM-DD')==(Tools.IsNull(dateInFDate)?"":dateInFDate.format('YYYY-MM-DD'))){
                         daysList[CalendarUtils.getCalendarDateString(new Date(_originalDate))]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
                     }
                     setFirstDate(firstdate);
                 }
-                
+
                 const calendarDateString = CalendarUtils.getCalendarDateString(new Date(_originalDate));
-                console.log("[CALENDAR DEBUG] Adding date to daysList:", calendarDateString);
-                
+                // console.log("[CALENDAR DEBUG] Adding date to daysList:", calendarDateString);
+
                 if(_originalDate.format('YYYY-MM-DD')==(Tools.IsNull(selectedDate)?"":selectedDate.format('YYYY-MM-DD'))){
                     daysList[calendarDateString]={disabled:false,selected:true,inactive:false ,disableTouchEvent: false};
-                    console.log("[CALENDAR DEBUG] Date marked as selected:", calendarDateString);
+                    // console.log("[CALENDAR DEBUG] Date marked as selected:", calendarDateString);
                 }else{
                     daysList[calendarDateString]={disabled:false,inactive:false ,disableTouchEvent: false};
-                    console.log("[CALENDAR DEBUG] Date marked as available:", calendarDateString);
+                    // console.log("[CALENDAR DEBUG] Date marked as available:", calendarDateString);
                 }
             }
         }
-        console.log("[CALENDAR DEBUG] Final daysList:", JSON.stringify(daysList, null, 2));
+        // console.log("[CALENDAR DEBUG] Final daysList:", JSON.stringify(daysList, null, 2));
+        try {
+            var _keys = Object.keys(daysList).sort();
+            console.log("[SNOWY-TUESDAY] getValidEventDays → out.enabledDays=", _keys.length, " min=", _keys[0], " max=", _keys[_keys.length-1], " firstdate=", firstdate);
+            console.log("[SNOWY-TUESDAY] getValidEventDays → all enabled keys:", JSON.stringify(_keys));
+        } catch (e) { console.log("[SNOWY-TUESDAY] getValidEventDays → summary log error:", e && e.message); }
         setDays(daysList);
     }
     const checkCalendarEvents=()=>{
         currentDate=moment(new Date())
-        
+
         JsonData={
             "Command": "Search",
             "Search": {
@@ -434,8 +462,11 @@ export default function ProductPage(props){
                 "SellableOnly": true,
             }
         }
-        console.log("Req :"+JSON.stringify(JsonData));
-        
+        // console.log("Req :"+JSON.stringify(JsonData));
+        console.log("[SNOWY-TUESDAY] checkCalendarEvents → SellableDateTimeFrom=", currentDate.format("YYYY-MM-DD\THH:mm:ss"), " (no ToDateTime sent — server chooses range)");
+        console.log("[SNOWY-TUESDAY] checkCalendarEvents → URL:", WebServices.MainURL+WebServices.checkPerformances);
+        console.log("[SNOWY-TUESDAY] checkCalendarEvents → full request JSON:", JSON.stringify(JsonData));
+
         fetch (WebServices.MainURL+WebServices.checkPerformances,{
             method: 'POST',
             headers: {
@@ -446,7 +477,16 @@ export default function ProductPage(props){
         .then((response) => response.text())
         .then((responseJson) => {
             // console.log("R :"+responseJson);
+            console.log("[SNOWY-TUESDAY] checkCalendarEvents ← RAW RESPONSE:", responseJson);
             var responseObj=JSON.parse(responseJson);
+            try {
+                var _pl = responseObj && responseObj.Answer && responseObj.Answer.Search && responseObj.Answer.Search.PerformanceList;
+                var _tc = responseObj && responseObj.Answer && responseObj.Answer.Search && responseObj.Answer.Search.TotalRecordCount;
+                console.log("[SNOWY-TUESDAY] checkCalendarEvents ← TotalRecordCount=", _tc, " PerformanceList.length=", _pl && _pl.length);
+                if (_pl && _pl.length) {
+                    console.log("[SNOWY-TUESDAY] checkCalendarEvents ← first.DateTimeFrom=", _pl[0].DateTimeFrom, " last.DateTimeFrom=", _pl[_pl.length-1].DateTimeFrom);
+                }
+            } catch (e) { console.log("[SNOWY-TUESDAY] checkCalendarEvents ← summary log error:", e && e.message); }
             // console.log("ALL : "+allItems.length);
             if(!Tools.IsNull(responseObj.Answer.Search.TotalRecordCount)&&responseObj.Answer.Search.TotalRecordCount>0){
                 setCalendarEventsIn(responseObj.Answer.Search.PerformanceList);
@@ -454,8 +494,9 @@ export default function ProductPage(props){
             }
         }).catch((error) =>{
             // console.log("checkCalendarEvents "+ error);
+            console.log("[SNOWY-TUESDAY] checkCalendarEvents ← FETCH ERROR:", error && (error.message || error));
         });
-        
+
     }
     
     
@@ -840,12 +881,12 @@ export default function ProductPage(props){
                                                 return [];
                                             }
                                             allCards=[];
-                                            console.log(_parkType+'Loc '+MediaIds[0].Location.toLowerCase());
+                                            // console.log(_parkType+'Loc '+MediaIds[0].Location.toLowerCase());
                                             _mediaIds=MediaIds.filter((_media)=>Tools.stringIsContains(_media.Location.toLowerCase(),_parkType.toLowerCase()))
                                             
                                             for (let index = 0; index < _mediaIds.length; index++) {
                                                 const element = _mediaIds[index];
-                                                console.log(JSON.stringify(element));
+                                                // console.log(JSON.stringify(element));
                                                 const _mediacode=element.MediaCodes.length>0?element.MediaCodes[0].Code:'' ;
                                                 const _mediabalance=element.WalletSlots.length>0?element.WalletSlots[0].Balance:''+0 ;
                                                 // console.log(_mediabalance+' * '+_mediacode);
@@ -957,7 +998,7 @@ export default function ProductPage(props){
                                                                 for (let index = 0; index < sellableProducts.length; index++) {
                                                                     const element = sellableProducts[index];
                                                                     if(_currentNode.Entity.ProductId==sellableProducts[index].ProductId){
-                                                                        console.log("I : "+index);
+                                                                        // console.log("I : "+index);
                                                                         
                                                                         setPriceIn(sellableProducts[index].Price);
                                                                         index=1000;
@@ -1157,7 +1198,7 @@ export default function ProductPage(props){
                                                             const gettranslatedVersion=(_data)=>{
                                                                 arabicIn=Tools.stringIsContains(i18n.locale,'ar');
                                                                 for(let t=0;t<_data.length;t++){
-                                                                    console.log(i18n.locale+"/"+arabicIn+" Is Arabic "+_data[t].LangISO);
+                                                                    // console.log(i18n.locale+"/"+arabicIn+" Is Arabic "+_data[t].LangISO);
                                                                     // console.log(" Data "+JSON.stringify(_data[t]));
                                                                     
                                                                     if(arabicIn&&_data[t].LangISO=="ar"){
@@ -1173,7 +1214,7 @@ export default function ProductPage(props){
                                                                 for (let index = 0; index < _performances.length; index++) {
                                                                     const element = _performances[index];
                                                                     canPress=checkPerformance(element);
-                                                                    console.log(index+" canPress : "+canPress);
+                                                                    // console.log(index+" canPress : "+canPress);
                                                                     if(canPress)
                                                                         return index;
                                                                 }
@@ -1202,8 +1243,11 @@ export default function ProductPage(props){
                                                                         "DateTo": toDate.format("YYYY-MM-DD"),
                                                                     }
                                                                 }
-                                                                console.log("Req :"+JSON.stringify(JsonData));
-                                                                
+                                                                // console.log("Req :"+JSON.stringify(JsonData));
+                                                                console.log("[SNOWY-TUESDAY] fetchPerformanceDates → DateFrom=", currentDate.format("YYYY-MM-DD"), " DateTo=", toDate.format("YYYY-MM-DD"), " (window days=", toDate.diff(currentDate, "days"), ")");
+                                                                console.log("[SNOWY-TUESDAY] fetchPerformanceDates → URL:", WebServices.MainURL+WebServices.searchPerformanceDate);
+                                                                console.log("[SNOWY-TUESDAY] fetchPerformanceDates → full request JSON:", JSON.stringify(JsonData));
+
                                                                 fetch (WebServices.MainURL+WebServices.searchPerformanceDate,{
                                                                     method: 'POST',
                                                                     headers: {
@@ -1215,13 +1259,23 @@ export default function ProductPage(props){
                                                                 .then((responseJson) => {
                                                                     // console.log("fetchPerformanceDates R :"+responseJson);
                                                                     setIsFetching(false);
+                                                                    console.log("[SNOWY-TUESDAY] fetchPerformanceDates ← RAW RESPONSE:", responseJson);
                                                                     var responseObj=JSON.parse(responseJson);
+                                                                    try {
+                                                                        var _dl = responseObj && responseObj.Answer && responseObj.Answer.SearchDate && responseObj.Answer.SearchDate.DateList;
+                                                                        if (_dl && _dl.length) {
+                                                                            console.log("[SNOWY-TUESDAY] fetchPerformanceDates ← DateList.length=", _dl.length, " first=", _dl[0] && _dl[0].Date, " last=", _dl[_dl.length-1] && _dl[_dl.length-1].Date);
+                                                                        } else {
+                                                                            console.log("[SNOWY-TUESDAY] fetchPerformanceDates ← DateList is empty or missing");
+                                                                        }
+                                                                    } catch (e) { console.log("[SNOWY-TUESDAY] fetchPerformanceDates ← summary log error:", e && e.message); }
                                                                     if(!Tools.IsNull(responseObj)&&!Tools.IsNull(responseObj.Answer)&&!Tools.IsNull(responseObj.Answer.SearchDate))
                                                                         getValidPerformanceDays(responseObj.Answer.SearchDate.DateList)
                                                                     // console.log("ALL : "+allItems.length);
-                                                                    
+
                                                                 }).catch((error) =>{
                                                                     // console.log("Media "+ error);
+                                                                    console.log("[SNOWY-TUESDAY] fetchPerformanceDates ← FETCH ERROR:", error && (error.message || error));
                                                                 });
                                                                 
                                                             }
@@ -2220,9 +2274,10 @@ export default function ProductPage(props){
                                                                                                                                                                                         </View>
                                                                                                                                                                                         </View>
                                                                                                                                                                                         </TouchableOpacity>}
-                                                                                                                                                                                        {showCalendar&&
+                                                                                                                                                                                        {showCalendar&&(
+                                                                                                                                                                                            console.log("[SNOWY-TUESDAY] PopupCalender SITE-1 (minimal, no min/max) → daysIn keys=", Object.keys(daysIn||{}).length, " first=", Object.keys(daysIn||{}).sort()[0], " last=", Object.keys(daysIn||{}).sort().slice(-1)[0]),
                                                                                                                                                                                             <PopupCalender daysIn={daysIn} onClose={OnCalenderDone}/>
-                                                                                                                                                                                        }
+                                                                                                                                                                                        )}
                                                                                                                                                                                         </View>
                                                                                                                                                                                     }
                                                                                                                                                                                     {/* For add on product to have check box */}
@@ -2255,8 +2310,9 @@ export default function ProductPage(props){
                                                                                                                                                                                             </View>
                                                                                                                                                                                             </View>
                                                                                                                                                                                             </TouchableOpacity>}
-                                                                                                                                                                                            {showCalendar&&
-                                                                                                                                                                                                <PopupCalender 
+                                                                                                                                                                                            {showCalendar&&(
+                                                                                                                                                                                                console.log("[SNOWY-TUESDAY] PopupCalender SITE-2 (events/EntityType==5 branch) → minDate=", (params.product.EntityType==5)?moment(new Date()).add(2,"days").format("YYYY-MM-DD"):moment(new Date()).format("YYYY-MM-DD"), " maxDate=", moment(new Date()).add(90,"days").format("YYYY-MM-DD"), " daysIn keys=", Object.keys(daysIn||{}).length, " first=", Object.keys(daysIn||{}).sort()[0], " last=", Object.keys(daysIn||{}).sort().slice(-1)[0]),
+                                                                                                                                                                                                <PopupCalender
                                                                                                                                                                                                 disabledByDefault={false}
                                                                                                                                                                                                 daysIn={daysIn}
                                                                                                                                                                                                 minDate={(params.product.EntityType==5)?(new Date(moment(new Date()).add(2,"days"))):new Date()}
@@ -2270,11 +2326,11 @@ export default function ProductPage(props){
                                                                                                                                                                                                             getallTimingsofPerformances('',SelectedOption.Entity.ParentEntityId,dateS,5);
                                                                                                                                                                                                             setGotData(false);
                                                                                                                                                                                                             setSelectedDate(dateS);
-                                                                                                                                                                                                            
+
                                                                                                                                                                                                         }}
                                                                                                                                                                                                     }/>
-                                                                                                                                                                                                }
-                                                                                                                                                                                                
+                                                                                                                                                                                                )}
+
                                                                                                                                                                                                 {isFetching&&<ActivityIndicator/>}
                                                                                                                                                                                                 {!isFetching&&
                                                                                                                                                                                                     getAllPerformances(params.product.EntityType)
@@ -2317,13 +2373,14 @@ export default function ProductPage(props){
                                                                                                                                                                                                     </View>
                                                                                                                                                                                                     </View>
                                                                                                                                                                                                     </TouchableOpacity>}
-                                                                                                                                                                                                    {showCalendar&&
-                                                                                                                                                                                                        <PopupCalender 
-                                                                                                                                                                                                        // disabledByDefault={false} 
+                                                                                                                                                                                                    {showCalendar&&(
+                                                                                                                                                                                                        console.log("[SNOWY-TUESDAY] PopupCalender SITE-3 (non-calendar branch) → minDate=", moment(new Date()).format("YYYY-MM-DD"), " maxDate=", moment(new Date()).add(90,"days").format("YYYY-MM-DD"), " daysIn keys=", Object.keys(daysIn||{}).length, " first=", Object.keys(daysIn||{}).sort()[0], " last=", Object.keys(daysIn||{}).sort().slice(-1)[0]),
+                                                                                                                                                                                                        <PopupCalender
+                                                                                                                                                                                                        // disabledByDefault={false}
                                                                                                                                                                                                         daysIn={daysIn}
                                                                                                                                                                                                         minDate={new Date()}
-                                                                                                                                                                                                        maxDate={new Date(moment(new Date()).add(90,"days"))} 
-                                                                                                                                                                                                        
+                                                                                                                                                                                                        maxDate={new Date(moment(new Date()).add(90,"days"))}
+
                                                                                                                                                                                                         onClose={(dateS)=>{
                                                                                                                                                                                                             if(dateS!=null){
                                                                                                                                                                                                                 getallTimingsofPerformances(params.product.Entity.ProductId,params.product.Entity.ParentEntityId,moment(dateS),5);
@@ -2333,7 +2390,7 @@ export default function ProductPage(props){
                                                                                                                                                                                                             }
                                                                                                                                                                                                             setShowCalendar(false);
                                                                                                                                                                                                         }}/>
-                                                                                                                                                                                                    }
+                                                                                                                                                                                                    )}
                                                                                                                                                                                                     
                                                                                                                                                                                                     
                                                                                                                                                                                                     {isFetching&&<ActivityIndicator/>}
